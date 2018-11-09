@@ -78,6 +78,7 @@ $table_prefix  = 'wp_G3mLOvT4tdb_';
  * @link https://codex.wordpress.org/Debugging_in_WordPress
  */
 define('WP_DEBUG', false);
+define('ALLOW_UNFILTERED_UPLOADS', true);
 
 /* That's all, stop editing! Happy blogging. */
 
