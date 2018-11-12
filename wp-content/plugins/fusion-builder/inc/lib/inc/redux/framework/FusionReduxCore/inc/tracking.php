@@ -126,18 +126,18 @@
 				$id    = '#wpadminbar';
 				$nonce = wp_create_nonce( 'fusionredux_activate_tracking' );
 
-				$content = '<h3>' . esc_html__( 'Help improve Our Panel', 'Avada' ) . '</h3>';
-				$content .= '<p>' . esc_html__( 'Please helps us improve our panel by allowing us to gather anonymous usage stats so we know which configurations, plugins and themes to test to ensure compatibility.', 'Avada' ) . '</p>';
+				$content = '<h3>' . esc_html__( 'Help improve Our Panel', 'fusion-builder' ) . '</h3>';
+				$content .= '<p>' . esc_html__( 'Please helps us improve our panel by allowing us to gather anonymous usage stats so we know which configurations, plugins and themes to test to ensure compatibility.', 'fusion-builder' ) . '</p>';
 				$opt_arr = array(
 					'content'  => $content,
 					'position' => array( 'edge' => 'top', 'align' => 'center' )
 				);
-				$button2 = esc_html__( 'Allow tracking', 'Avada' );
+				$button2 = esc_html__( 'Allow tracking', 'fusion-builder' );
 
 				$function2 = 'fusionredux_store_answer("yes","' . $nonce . '")';
 				$function1 = 'fusionredux_store_answer("no","' . $nonce . '")';
 
-				$this->print_scripts( $id, $opt_arr, esc_html__( 'Do not allow tracking', 'Avada' ), $button2, $function2, $function1 );
+				$this->print_scripts( $id, $opt_arr, esc_html__( 'Do not allow tracking', 'fusion-builder' ), $button2, $function2, $function1 );
 			}
 
 			/**
@@ -148,13 +148,13 @@
 				$nonce = wp_create_nonce( 'fusionredux_activate_tracking' );
 
 
-				$content = '<h3>' . esc_html__( 'Welcome to the FusionRedux Demo Panel', 'Avada' ) . '</h3>';
-				$content .= '<p><strong>' . esc_html__( 'Getting Started', 'Avada' ) . '</strong><br>' . sprintf( __( 'This panel demonstrates the many features of FusionRedux.  Before digging in, we suggest you get up to speed by reviewing %1$s.', 'Avada' ), '<a href="' . 'http://' . 'docs.fusionreduxframework.com/fusionredux-framework/getting-started/" target="_blank">' . esc_html__( 'our documentation', 'Avada' ) . '</a>' );
-				$content .= '<p><strong>' . esc_html__( 'FusionRedux Generator', 'Avada' ) . '</strong><br>' . sprintf( __( 'Want to get a head start? Use the %1$s. It will create a customized boilerplate theme or a standalone admin folder complete with all things FusionRedux (with the help of Underscores and TGM). Save yourself a headache and try it today.', 'Avada' ), '<a href="' . 'http://' . 'generate.fusionreduxframework.com/" target="_blank">' . esc_html__( 'FusionRedux Generator', 'Avada' ) . '</a>' );
-				$content .= '<p><strong>' . esc_html__( 'FusionRedux Extensions', 'Avada' ) . '</strong><br>' . sprintf( __( 'Did you know we have extensions, which greatly enhance the features of FusionRedux?  Visit our %1$s to learn more!', 'Avada' ), '<a href="' . 'http://' . 'fusionreduxframework.com/extensions/" target="_blank">' . esc_html__( 'extensions directory', 'Avada' ) . '</a>' );
-				$content .= '<p><strong>' . esc_html__( 'Like FusionRedux?', 'Avada' ) . '</strong><br>' . sprintf( __( 'If so, please %1$s and consider making a %2$s to keep development of FusionRedux moving forward.', 'Avada' ), '<a target="_blank" href="' . 'http://' . 'wordpress.org/support/view/plugin-reviews/fusionredux-framework">' . esc_html__( 'leave us a favorable review on WordPress.org', 'Avada' ) . '</a>', '<a href="' . 'https://' . 'www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=N5AD7TSH8YA5U" target="_blank">' . esc_html__( 'donation', 'Avada' ) . '</a>' );
-				$content .= '<p><strong>' . esc_html__( 'Newsletter', 'Avada' ) . '</strong><br>' . esc_html__( 'If you\'d like to keep up to with all things FusionRedux, please subscribe to our newsletter', 'Avada' ) . ':</p>';
-				$content .= '<form action="' . 'http://' . 'fusionreduxframework.us7.list-manage2.com/subscribe/post?u=564f5178f6cc288064f332efd&amp;id=ace5bbc1f9&SOURCE=panel" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate><p style="text-align: center;"><label for="mce-EMAIL">' . esc_html__( 'Email address', 'Avada' ) . ' </label><input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL"><input type="hidden" value="panel" name="SOURCE">&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" value="' . esc_html__( 'Subscribe', 'Avada' ) . '" name="subscribe" id="mc-embedded-subscribe" class="button button-primary"></p></form>';
+				$content = '<h3>' . esc_html__( 'Welcome to the FusionRedux Demo Panel', 'fusion-builder' ) . '</h3>';
+				$content .= '<p><strong>' . esc_html__( 'Getting Started', 'fusion-builder' ) . '</strong><br>' . sprintf( __( 'This panel demonstrates the many features of FusionRedux.  Before digging in, we suggest you get up to speed by reviewing %1$s.', 'fusion-builder' ), '<a href="' . 'http://' . 'docs.fusionreduxframework.com/fusionredux-framework/getting-started/" target="_blank">' . esc_html__( 'our documentation', 'fusion-builder' ) . '</a>' );
+				$content .= '<p><strong>' . esc_html__( 'FusionRedux Generator', 'fusion-builder' ) . '</strong><br>' . sprintf( __( 'Want to get a head start? Use the %1$s. It will create a customized boilerplate theme or a standalone admin folder complete with all things FusionRedux (with the help of Underscores and TGM). Save yourself a headache and try it today.', 'fusion-builder' ), '<a href="' . 'http://' . 'generate.fusionreduxframework.com/" target="_blank">' . esc_html__( 'FusionRedux Generator', 'fusion-builder' ) . '</a>' );
+				$content .= '<p><strong>' . esc_html__( 'FusionRedux Extensions', 'fusion-builder' ) . '</strong><br>' . sprintf( __( 'Did you know we have extensions, which greatly enhance the features of FusionRedux?  Visit our %1$s to learn more!', 'fusion-builder' ), '<a href="' . 'http://' . 'fusionreduxframework.com/extensions/" target="_blank">' . esc_html__( 'extensions directory', 'fusion-builder' ) . '</a>' );
+				$content .= '<p><strong>' . esc_html__( 'Like FusionRedux?', 'fusion-builder' ) . '</strong><br>' . sprintf( __( 'If so, please %1$s and consider making a %2$s to keep development of FusionRedux moving forward.', 'fusion-builder' ), '<a target="_blank" href="' . 'http://' . 'wordpress.org/support/view/plugin-reviews/fusionredux-framework">' . esc_html__( 'leave us a favorable review on WordPress.org', 'fusion-builder' ) . '</a>', '<a href="' . 'https://' . 'www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=N5AD7TSH8YA5U" target="_blank">' . esc_html__( 'donation', 'fusion-builder' ) . '</a>' );
+				$content .= '<p><strong>' . esc_html__( 'Newsletter', 'fusion-builder' ) . '</strong><br>' . esc_html__( 'If you\'d like to keep up to with all things FusionRedux, please subscribe to our newsletter', 'fusion-builder' ) . ':</p>';
+				$content .= '<form action="' . 'http://' . 'fusionreduxframework.us7.list-manage2.com/subscribe/post?u=564f5178f6cc288064f332efd&amp;id=ace5bbc1f9&SOURCE=panel" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate><p style="text-align: center;"><label for="mce-EMAIL">' . esc_html__( 'Email address', 'fusion-builder' ) . ' </label><input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL"><input type="hidden" value="panel" name="SOURCE">&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" value="' . esc_html__( 'Subscribe', 'fusion-builder' ) . '" name="subscribe" id="mc-embedded-subscribe" class="button button-primary"></p></form>';
 				$opt_arr = array(
 					'content'      => $content,
 					'position'     => array( 'edge' => 'top', 'align' => 'center' ),
@@ -163,7 +163,7 @@
 
 				$function1 = 'fusionredux_store_answer("tour","' . $nonce . '")';
 
-				$this->print_scripts( $id, $opt_arr, esc_html__( 'Close', 'Avada' ), false, '', $function1 );
+				$this->print_scripts( $id, $opt_arr, esc_html__( 'Close', 'fusion-builder' ), false, '', $function1 );
 			}
 
 			/**

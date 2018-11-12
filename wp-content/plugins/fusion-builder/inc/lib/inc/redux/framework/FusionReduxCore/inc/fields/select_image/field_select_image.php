@@ -60,7 +60,7 @@ if ( ! class_exists( 'FusionReduxFramework_select_image' ) ) {
 				}
 
 				// Process placeholder
-				$placeholder = ( isset( $this->field['placeholder'] ) ) ? esc_attr( $this->field['placeholder'] ) : __( 'Select an item', 'Avada' );
+				$placeholder = ( isset( $this->field['placeholder'] ) ) ? esc_attr( $this->field['placeholder'] ) : __( 'Select an item', 'fusion-builder' );
 
 				if ( isset( $this->field['select3'] ) ) { // if there are any let's pass them to js
 					$select3_params = json_encode( $this->field['select3'] );
@@ -141,7 +141,7 @@ if ( ! class_exists( 'FusionReduxFramework_select_image' ) ) {
 			} else {
 
 				// No options specified.  Really?
-				echo '<strong>' . __( 'No items of this type were found.', 'Avada' ) . '</strong>';
+				echo '<strong>' . __( 'No items of this type were found.', 'fusion-builder' ) . '</strong>';
 			}
 		} //function
 

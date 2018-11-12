@@ -79,7 +79,8 @@ if ( fusion_is_element_enabled( 'fusion_widget_area' ) ) {
 						'title_color'    => $fusion_settings->get( 'widget_area_title_color' ),
 						'title_size'     => $fusion_settings->get( 'widget_area_title_size' ),
 					),
-					$args
+					$args,
+					'fusion_widget_area'
 				);
 
 				$defaults['padding'] = FusionBuilder::validate_shortcode_attr_value( $defaults['padding'], 'px' );
@@ -265,7 +266,7 @@ function fusion_element_widget_area() {
 				),
 				array(
 					'type'        => 'colorpickeralpha',
-					'heading'     => esc_attr__( 'Backgound Color', 'fusion-builder' ),
+					'heading'     => esc_attr__( 'Background Color', 'fusion-builder' ),
 					'description' => esc_attr__( 'Choose a background color for the widget area.', 'fusion-builder' ),
 					'param_name'  => 'background_color',
 					'value'       => '',

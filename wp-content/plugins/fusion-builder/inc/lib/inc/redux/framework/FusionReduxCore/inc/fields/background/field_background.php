@@ -121,7 +121,7 @@
 						if ( $this->value['background-color'] == "transparent" ) {
 							$tChecked = ' checked="checked"';
 						}
-						echo '<label for="' . $this->field['id'] . '-transparency" class="color-transparency-check"><input type="checkbox" class="checkbox color-transparency fusionredux-background-input ' . $this->field['class'] . '" id="' . $this->field['id'] . '-transparency" data-id="' . $this->field['id'] . '-color" value="1"' . $tChecked . '> ' . __( 'Transparent', 'Avada' ) . '</label>';
+						echo '<label for="' . $this->field['id'] . '-transparency" class="color-transparency-check"><input type="checkbox" class="checkbox color-transparency fusionredux-background-input ' . $this->field['class'] . '" id="' . $this->field['id'] . '-transparency" data-id="' . $this->field['id'] . '-color" value="1"' . $tChecked . '> ' . __( 'Transparent', 'fusion-builder' ) . '</label>';
 					}
 
 					if ( $this->field['background-repeat'] === true || $this->field['background-position'] === true || $this->field['background-attachment'] === true ) {
@@ -138,7 +138,7 @@
 						'repeat-y'  => 'Repeat Vertically',
 						'inherit'   => 'Inherit',
 					);
-					echo '<select id="' . $this->field['id'] . '-repeat-select" data-placeholder="' . __( 'Background Repeat', 'Avada' ) . '" name="' . $this->field['name'] . $this->field['name_suffix'] . '[background-repeat]" class="fusionredux-select-item fusionredux-background-input fusionredux-background-repeat ' . $this->field['class'] . '">';
+					echo '<select id="' . $this->field['id'] . '-repeat-select" data-placeholder="' . __( 'Background Repeat', 'fusion-builder' ) . '" name="' . $this->field['name'] . $this->field['name_suffix'] . '[background-repeat]" class="fusionredux-select-item fusionredux-background-input fusionredux-background-repeat ' . $this->field['class'] . '">';
 					echo '<option></option>';
 
 					foreach ( $array as $k => $v ) {
@@ -154,7 +154,7 @@
 						'content-box' => 'Content Box',
 						'padding-box' => 'Padding Box',
 					);
-					echo '<select id="' . $this->field['id'] . '-repeat-select" data-placeholder="' . __( 'Background Clip', 'Avada' ) . '" name="' . $this->field['name'] . $this->field['name_suffix'] . '[background-clip]" class="fusionredux-select-item fusionredux-background-input fusionredux-background-clip ' . $this->field['class'] . '">';
+					echo '<select id="' . $this->field['id'] . '-repeat-select" data-placeholder="' . __( 'Background Clip', 'fusion-builder' ) . '" name="' . $this->field['name'] . $this->field['name_suffix'] . '[background-clip]" class="fusionredux-select-item fusionredux-background-input fusionredux-background-clip ' . $this->field['class'] . '">';
 					echo '<option></option>';
 
 					foreach ( $array as $k => $v ) {
@@ -170,7 +170,7 @@
 						'content-box' => 'Content Box',
 						'padding-box' => 'Padding Box',
 					);
-					echo '<select id="' . $this->field['id'] . '-repeat-select" data-placeholder="' . __( 'Background Origin', 'Avada' ) . '" name="' . $this->field['name'] . $this->field['name_suffix'] . '[background-origin]" class="fusionredux-select-item fusionredux-background-input fusionredux-background-origin ' . $this->field['class'] . '">';
+					echo '<select id="' . $this->field['id'] . '-repeat-select" data-placeholder="' . __( 'Background Origin', 'fusion-builder' ) . '" name="' . $this->field['name'] . $this->field['name_suffix'] . '[background-origin]" class="fusionredux-select-item fusionredux-background-input fusionredux-background-origin ' . $this->field['class'] . '">';
 					echo '<option></option>';
 
 					foreach ( $array as $k => $v ) {
@@ -185,7 +185,7 @@
 						'cover'   => 'Cover',
 						'contain' => 'Contain',
 					);
-					echo '<select id="' . $this->field['id'] . '-repeat-select" data-placeholder="' . __( 'Background Size', 'Avada' ) . '" name="' . $this->field['name'] . $this->field['name_suffix'] . '[background-size]" class="fusionredux-select-item fusionredux-background-input fusionredux-background-size ' . $this->field['class'] . '">';
+					echo '<select id="' . $this->field['id'] . '-repeat-select" data-placeholder="' . __( 'Background Size', 'fusion-builder' ) . '" name="' . $this->field['name'] . $this->field['name_suffix'] . '[background-size]" class="fusionredux-select-item fusionredux-background-input fusionredux-background-size ' . $this->field['class'] . '">';
 					echo '<option></option>';
 
 					foreach ( $array as $k => $v ) {
@@ -200,7 +200,7 @@
 						'scroll'  => 'Scroll',
 						'inherit' => 'Inherit',
 					);
-					echo '<select id="' . $this->field['id'] . '-attachment-select" data-placeholder="' . __( 'Background Attachment', 'Avada' ) . '" name="' . $this->field['name'] . $this->field['name_suffix'] . '[background-attachment]" class="fusionredux-select-item fusionredux-background-input fusionredux-background-attachment ' . $this->field['class'] . '">';
+					echo '<select id="' . $this->field['id'] . '-attachment-select" data-placeholder="' . __( 'Background Attachment', 'fusion-builder' ) . '" name="' . $this->field['name'] . $this->field['name_suffix'] . '[background-attachment]" class="fusionredux-select-item fusionredux-background-input fusionredux-background-attachment ' . $this->field['class'] . '">';
 					echo '<option></option>';
 					foreach ( $array as $k => $v ) {
 						echo '<option value="' . $k . '"' . selected( $this->value['background-attachment'], $k, false ) . '>' . $v . '</option>';
@@ -220,7 +220,7 @@
 						'right center'  => 'Right center',
 						'right bottom'  => 'Right Bottom',
 					);
-					echo '<select id="' . $this->field['id'] . '-position-select" data-placeholder="' . __( 'Background Position', 'Avada' ) . '" name="' . $this->field['name'] . $this->field['name_suffix'] . '[background-position]" class="fusionredux-select-item fusionredux-background-input fusionredux-background-position ' . $this->field['class'] . '">';
+					echo '<select id="' . $this->field['id'] . '-position-select" data-placeholder="' . __( 'Background Position', 'fusion-builder' ) . '" name="' . $this->field['name'] . $this->field['name_suffix'] . '[background-position]" class="fusionredux-select-item fusionredux-background-input fusionredux-background-position ' . $this->field['class'] . '">';
 					echo '<option></option>';
 
 					foreach ( $array as $k => $v ) {
@@ -274,7 +274,7 @@
 						$hide = '';
 					}
 
-					$placeholder = isset( $this->field['placeholder'] ) ? $this->field['placeholder'] : __( 'No media selected', 'Avada' );
+					$placeholder = isset( $this->field['placeholder'] ) ? $this->field['placeholder'] : __( 'No media selected', 'fusion-builder' );
 
 					echo '<input placeholder="' . $placeholder . '" type="text" class="fusionredux-background-input ' . $hide . 'upload ' . $this->field['class'] . '" name="' . $this->field['name'] . $this->field['name_suffix'] . '[background-image]" id="' . $this->parent->args['opt_name'] . '[' . $this->field['id'] . '][background-image]" value="' . $this->value['background-image'] . '" />';
 					echo '<input type="hidden" class="upload-id ' . $this->field['class'] . '" name="' . $this->field['name'] . $this->field['name_suffix'] . '[media][id]" id="' . $this->parent->args['opt_name'] . '[' . $this->field['id'] . '][media][id]" value="' . $this->value['media']['id'] . '" />';
@@ -311,14 +311,14 @@
 					echo '<div class="upload_button_div">';
 
 					//If the user has WP3.5+ show upload/remove button
-					echo '<span class="button fusionredux-background-upload" id="' . $this->field['id'] . '-media">' . __( 'Upload', 'Avada' ) . '</span>';
+					echo '<span class="button fusionredux-background-upload" id="' . $this->field['id'] . '-media">' . __( 'Upload', 'fusion-builder' ) . '</span>';
 
 					$hide = '';
 					if ( empty( $this->value['background-image'] ) || $this->value['background-image'] == '' ) {
 						$hide = ' hide';
 					}
 
-					echo '<span class="button removeCSS fusionredux-remove-background' . $hide . '" id="reset_' . $this->field['id'] . '" rel="' . $this->field['id'] . '">' . __( 'Remove', 'Avada' ) . '</span>';
+					echo '<span class="button removeCSS fusionredux-remove-background' . $hide . '" id="reset_' . $this->field['id'] . '" rel="' . $this->field['id'] . '">' . __( 'Remove', 'fusion-builder' ) . '</span>';
 
 					echo '</div>';
 				}

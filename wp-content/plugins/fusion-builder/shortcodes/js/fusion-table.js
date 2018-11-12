@@ -16,13 +16,13 @@ jQuery( document ).ready( function() {
 			i;
 
 		// Add table headers
-		for ( i = 0; i < columns; i++ ) {
+		for ( i = 1; i <= columns; i++ ) {
 				exampleTable += '<th align="left">Column ' + i + '</th>';
 		}
 		exampleTable += '</tr></thead><tr>';
 
 		// Add table columns
-		for ( i = 0; i < columns; i++ ) {
+		for ( i = 1; i <= columns; i++ ) {
 				exampleTable += '<td align="left">Column ' + i + ' Value</td>';
 		}
 		exampleTable += '</tr></tbody></table></div>';

@@ -62,7 +62,7 @@
 				echo '<div class="wrap">';
 
 				// Do we support JS?
-				echo '<noscript><div class="no-js">' . __( 'Warning- This options panel will not work properly without javascript!', 'Avada' ) . '</div></noscript>';
+				echo '<noscript><div class="no-js">' . __( 'Warning- This options panel will not work properly without javascript!', 'fusion-builder' ) . '</div></noscript>';
 
 				// Security is vital!
 				echo '<input type="hidden" id="ajaxsecurity" name="security" value="' . wp_create_nonce( 'fusionredux_ajax_nonce' . $this->parent->args['opt_name'] ) . '" />';
@@ -138,7 +138,7 @@
 						 *
 						 * @param string  translated "settings imported" text
 						 */
-						echo '<div class="admin-notice notice-blue saved_notice"><strong>' . apply_filters( "fusionredux-imported-text-{$this->parent->args['opt_name']}", __( 'Settings Imported!', 'Avada' ) ) . '</strong></div>';
+						echo '<div class="admin-notice notice-blue saved_notice"><strong>' . apply_filters( "fusionredux-imported-text-{$this->parent->args['opt_name']}", __( 'Settings Imported!', 'fusion-builder' ) ) . '</strong></div>';
 						//exit();
 					} else if ( $this->parent->transients['last_save_mode'] == "defaults" ) {
 						/**
@@ -153,7 +153,7 @@
 						 *
 						 * @param string  translated "settings imported" text
 						 */
-						echo '<div class="saved_notice admin-notice notice-yellow"><strong>' . apply_filters( "fusionredux-defaults-text-{$this->parent->args['opt_name']}", __( 'All Defaults Restored!', 'Avada' ) ) . '</strong></div>';
+						echo '<div class="saved_notice admin-notice notice-yellow"><strong>' . apply_filters( "fusionredux-defaults-text-{$this->parent->args['opt_name']}", __( 'All Defaults Restored!', 'fusion-builder' ) ) . '</strong></div>';
 					} else if ( $this->parent->transients['last_save_mode'] == "defaults_section" ) {
 						/**
 						 * action 'fusionredux/options/{opt_name}/section/reset'
@@ -167,7 +167,7 @@
 						 *
 						 * @param string  translated "settings imported" text
 						 */
-						echo '<div class="saved_notice admin-notice notice-yellow"><strong>' . apply_filters( "fusionredux-defaults-section-text-{$this->parent->args['opt_name']}", __( 'Section Defaults Restored!', 'Avada' ) ) . '</strong></div>';
+						echo '<div class="saved_notice admin-notice notice-yellow"><strong>' . apply_filters( "fusionredux-defaults-section-text-{$this->parent->args['opt_name']}", __( 'Section Defaults Restored!', 'fusion-builder' ) ) . '</strong></div>';
 					} else if ( $this->parent->transients['last_save_mode'] == "normal" ) {
 						/**
 						 * action 'fusionredux/options/{opt_name}/saved'
@@ -181,7 +181,7 @@
 						 *
 						 * @param string translated "settings saved" text
 						 */
-						echo '<div class="saved_notice admin-notice notice-green">' . apply_filters( "fusionredux-saved-text-{$this->parent->args['opt_name']}", '<strong>'.__( 'Settings Saved!', 'Avada' ) ).'</strong>' . '</div>';
+						echo '<div class="saved_notice admin-notice notice-green">' . apply_filters( "fusionredux-saved-text-{$this->parent->args['opt_name']}", '<strong>'.__( 'Settings Saved!', 'fusion-builder' ) ).'</strong>' . '</div>';
 					}
 
 					unset( $this->parent->transients['last_save_mode'] );
@@ -201,7 +201,7 @@
 				 *
 				 * @param string translated "settings have changed" text
 				 */
-				echo '<div class="fusionredux-save-warn notice-yellow"><strong>' . apply_filters( "fusionredux-changed-text-{$this->parent->args['opt_name']}", __( 'Settings have changed, you should save them!', 'Avada' ) ) . '</strong></div>';
+				echo '<div class="fusionredux-save-warn notice-yellow"><strong>' . apply_filters( "fusionredux-changed-text-{$this->parent->args['opt_name']}", __( 'Settings have changed, you should save them!', 'fusion-builder' ) ) . '</strong></div>';
 
 				/**
 				 * action 'fusionredux/options/{opt_name}/errors'
@@ -209,7 +209,7 @@
 				 * @param array $this ->errors error information
 				 */
 				do_action( "fusionredux/options/{$this->parent->args['opt_name']}/errors", $this->parent->errors );
-				echo '<div class="fusionredux-field-errors notice-red"><strong><span></span> ' . __( 'error(s) were found!', 'Avada' ) . '</strong></div>';
+				echo '<div class="fusionredux-field-errors notice-red"><strong><span></span> ' . __( 'error(s) were found!', 'fusion-builder' ) . '</strong></div>';
 
 				/**
 				 * action 'fusionredux/options/{opt_name}/warnings'
@@ -217,7 +217,7 @@
 				 * @param array $this ->warnings warning information
 				 */
 				do_action( "fusionredux/options/{$this->parent->args['opt_name']}/warnings", $this->parent->warnings );
-				echo '<div class="fusionredux-field-warnings notice-yellow"><strong><span></span> ' . __( 'warning(s) were found!', 'Avada' ) . '</strong></div>';
+				echo '<div class="fusionredux-field-warnings notice-yellow"><strong><span></span> ' . __( 'warning(s) were found!', 'fusion-builder' ) . '</strong></div>';
 
 			}
 
@@ -309,7 +309,7 @@
 						if ( $core_version && $developer_version && version_compare( $developer_version, $core_version, '<' ) ) {
 							?>
 							<div id="message" class="error fusionredux-message">
-								<p><?php _e( '<strong>Your panel has bundled outdated copies of FusionRedux Framework template files</strong> &#8211; if you encounter functionality issues this could be the reason. Ensure you update or remove them.', 'Avada' ); ?></p>
+								<p><?php _e( '<strong>Your panel has bundled outdated copies of FusionRedux Framework template files</strong> &#8211; if you encounter functionality issues this could be the reason. Ensure you update or remove them.', 'fusion-builder' ); ?></p>
 							</div>
 							<?php
 							return;

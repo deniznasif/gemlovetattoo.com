@@ -68,8 +68,10 @@ if ( fusion_is_element_enabled( 'fusion_image_before_after' ) ) {
 					array(
 						'type'                => ( '' !== $fusion_settings->get( 'before_after_type' ) ) ? strtolower( $fusion_settings->get( 'before_after_type' ) ) : 'before_after',
 						'before_image'        => '',
+						'before_image_id'     => '',
 						'before_label'        => '',
 						'after_image'         => '',
+						'after_image_id'      => '',
 						'after_label'         => '',
 						'font_size'           => $fusion_settings->get( 'before_after_font_size' ),
 						'accent_color'        => $fusion_settings->get( 'before_after_accent_color' ),
@@ -89,7 +91,8 @@ if ( fusion_is_element_enabled( 'fusion_image_before_after' ) ) {
 						'class'               => '',
 						'id'                  => '',
 					),
-					$args
+					$args,
+					'fusion_image_before_after'
 				);
 
 				$defaults['offset']    = $defaults['offset'] / 100;
@@ -314,10 +317,12 @@ if ( fusion_is_element_enabled( 'fusion_image_before_after' ) ) {
 			 */
 			public function before_image_attr() {
 				global $fusion_library;
-				$image_data = $fusion_library->images->get_attachment_data_from_url( $this->args['before_image'] );
-				$alt        = ( $image_data['alt'] ) ? $image_data['alt'] : $this->args['before_label'];
 
-				if ( isset( $image_data['url'] ) ) {
+				$image_data = $fusion_library->images->get_attachment_data_by_helper( $this->args['before_image_id'], $this->args['before_image'] );
+
+				$alt = ( $image_data['alt'] ) ? $image_data['alt'] : $this->args['before_label'];
+
+				if ( $image_data['url'] ) {
 					$this->args['before_image'] = $image_data['url'];
 				}
 
@@ -339,8 +344,10 @@ if ( fusion_is_element_enabled( 'fusion_image_before_after' ) ) {
 			 */
 			public function after_image_attr() {
 				global $fusion_library;
-				$image_data = $fusion_library->images->get_attachment_data_from_url( $this->args['after_image'] );
-				$alt        = ( $image_data['alt'] ) ? $image_data['alt'] : $this->args['after_label'];
+
+				$image_data = $fusion_library->images->get_attachment_data_by_helper( $this->args['after_image_id'], $this->args['after_image'] );
+
+				$alt = ( $image_data['alt'] ) ? $image_data['alt'] : $this->args['after_label'];
 
 				if ( isset( $image_data['url'] ) ) {
 					$this->args['after_image'] = $image_data['url'];
@@ -779,6 +786,14 @@ function fusion_element_image_before_after() {
 				),
 				array(
 					'type'        => 'textfield',
+					'heading'     => esc_attr__( 'Before Image ID', 'fusion-builder' ),
+					'description' => esc_attr__( 'Before Image ID from Media Library.', 'fusion-builder' ),
+					'param_name'  => 'before_image_id',
+					'value'       => '',
+					'hidden'      => true,
+				),
+				array(
+					'type'        => 'textfield',
 					'heading'     => esc_attr__( 'Before Image Label', 'fusion-builder' ),
 					'description' => esc_attr__( 'Add text that will be displayed as a label on the before image when hovered. If left empty, no label will show.', 'fusion-builder' ),
 					'param_name'  => 'before_label',
@@ -802,6 +817,14 @@ function fusion_element_image_before_after() {
 					'description' => esc_attr__( 'Upload an after image to display.', 'fusion-builder' ),
 					'param_name'  => 'after_image',
 					'value'       => '',
+				),
+				array(
+					'type'        => 'textfield',
+					'heading'     => esc_attr__( 'After Image ID', 'fusion-builder' ),
+					'description' => esc_attr__( 'After Image ID from Media Library.', 'fusion-builder' ),
+					'param_name'  => 'after_image_id',
+					'value'       => '',
+					'hidden'      => true,
 				),
 				array(
 					'type'        => 'textfield',

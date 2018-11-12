@@ -159,7 +159,7 @@
 					}
 					echo '<div class="field-dimensions-input input-prepend">';
 					echo '<span class="add-on"><i class="el el-resize-horizontal icon-large"></i></span>';
-					echo '<input type="text" class="fusionredux-dimensions-input fusionredux-dimensions-width mini ' . $this->field['class'] . '" placeholder="' . __( 'Width', 'Avada' ) . '" rel="' . $this->field['id'] . '-width" value="' . filter_var( $this->value['width'], FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION ) . '">';
+					echo '<input type="text" class="fusionredux-dimensions-input fusionredux-dimensions-width mini ' . $this->field['class'] . '" placeholder="' . __( 'Width', 'fusion-builder' ) . '" rel="' . $this->field['id'] . '-width" value="' . filter_var( $this->value['width'], FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION ) . '">';
 					echo '<input data-id="' . $this->field['id'] . '" type="hidden" id="' . $this->field['id'] . '-width" name="' . $this->field['name'] . $this->field['name_suffix'] . '[width]' . '" value="' . $this->value['width'] . '"></div>';
 				}
 
@@ -175,7 +175,7 @@
 					}
 					echo '<div class="field-dimensions-input input-prepend">';
 					echo '<span class="add-on"><i class="el el-resize-vertical icon-large"></i></span>';
-					echo '<input type="text" class="fusionredux-dimensions-input fusionredux-dimensions-height mini ' . $this->field['class'] . '" placeholder="' . __( 'Height', 'Avada' ) . '" rel="' . $this->field['id'] . '-height" value="' . filter_var( $this->value['height'], FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION ) . '">';
+					echo '<input type="text" class="fusionredux-dimensions-input fusionredux-dimensions-height mini ' . $this->field['class'] . '" placeholder="' . __( 'Height', 'fusion-builder' ) . '" rel="' . $this->field['id'] . '-height" value="' . filter_var( $this->value['height'], FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION ) . '">';
 					echo '<input data-id="' . $this->field['id'] . '" type="hidden" id="' . $this->field['id'] . '-height" name="' . $this->field['name'] . $this->field['name_suffix'] . '[height]' . '" value="' . $this->value['height'] . '"></div>';
 				}
 
@@ -186,8 +186,8 @@
 				// fill out the options object and show it, otherwise it's hidden
 				// and the default units value will apply.
 				if ( isset( $this->field['units'] ) && $this->field['units'] !== false ) {
-					echo '<div class="select_wrapper dimensions-units" original-title="' . __( 'Units', 'Avada' ) . '">';
-					echo '<select data-id="' . $this->field['id'] . '" data-placeholder="' . __( 'Units', 'Avada' ) . '" class="fusionredux-dimensions fusionredux-dimensions-units select ' . $this->field['class'] . '" original-title="' . __( 'Units', 'Avada' ) . '" name="' . $this->field['name'] . $this->field['name_suffix'] . '[units]' . '">';
+					echo '<div class="select_wrapper dimensions-units" original-title="' . __( 'Units', 'fusion-builder' ) . '">';
+					echo '<select data-id="' . $this->field['id'] . '" data-placeholder="' . __( 'Units', 'fusion-builder' ) . '" class="fusionredux-dimensions fusionredux-dimensions-units select ' . $this->field['class'] . '" original-title="' . __( 'Units', 'fusion-builder' ) . '" name="' . $this->field['name'] . $this->field['name_suffix'] . '[units]' . '">';
 
 					//  Extended units, show 'em all
 					if ( $this->field['units_extended'] ) {

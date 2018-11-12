@@ -86,7 +86,8 @@ if ( function_exists( 'fusion_is_element_enabled' ) && fusion_is_element_enabled
 							'hide_on_mobile'        => fusion_builder_default_visibility( 'string' ),
 							'id'                    => '',
 						),
-						$args
+						$args,
+						'fusion_privacy'
 					)
 				);
 

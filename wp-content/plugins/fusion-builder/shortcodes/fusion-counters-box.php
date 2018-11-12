@@ -79,7 +79,8 @@ if ( fusion_is_element_enabled( 'fusion_counters_box' ) ) {
 						'icon_top'         => strtolower( $fusion_settings->get( 'counter_box_icon_top' ) ),
 						'title_size'       => $fusion_library->sanitize->size( $fusion_settings->get( 'counter_box_title_size' ) ),
 					),
-					$args
+					$args,
+					'fusion_counters_box'
 				);
 
 				$defaults['title_size'] = FusionBuilder::validate_shortcode_attr_value( $defaults['title_size'], '' );
@@ -163,7 +164,8 @@ if ( fusion_is_element_enabled( 'fusion_counters_box' ) ) {
 						'unit_pos'  => 'suffix',
 						'value'     => '20',
 					),
-					$args
+					$args,
+					'fusion_counter_box'
 				);
 
 				extract( $defaults );
@@ -418,8 +420,8 @@ if ( fusion_is_element_enabled( 'fusion_counters_box' ) ) {
 						'type'        => 'accordion',
 						'fields'      => array(
 							'counter_box_speed' => array(
-								'label'       => esc_html__( 'Counter Box Speed', 'fusion-builder' ),
-								'description' => esc_html__( 'Controls the speed of all counter box elements. ex: 1000 = 1 second.', 'fusion-builder' ),
+								'label'       => esc_html__( 'Counter Boxes Speed', 'fusion-builder' ),
+								'description' => esc_html__( 'Controls the speed of the counter boxes elements. ex: 1000 = 1 second.', 'fusion-builder' ),
 								'id'          => 'counter_box_speed',
 								'default'     => '1000',
 								'type'        => 'slider',
@@ -430,49 +432,49 @@ if ( fusion_is_element_enabled( 'fusion_counters_box' ) ) {
 								),
 							),
 							'counter_box_color' => array(
-								'label'       => esc_html__( 'Counter Box Title Font Color', 'fusion-builder' ),
-								'description' => esc_html__( 'Controls the color of the counter value and icon.', 'fusion-builder' ),
+								'label'       => esc_html__( 'Counter Boxes Title Font Color', 'fusion-builder' ),
+								'description' => esc_html__( 'Controls the color of the counter values and icons.', 'fusion-builder' ),
 								'id'          => 'counter_box_color',
 								'default'     => '#a0ce4e',
 								'type'        => 'color-alpha',
 							),
 							'counter_box_title_size' => array(
-								'label'       => esc_html__( 'Counter Box Title Font Size', 'fusion-builder' ),
+								'label'       => esc_html__( 'Counter Boxes Title Font Size', 'fusion-builder' ),
 								'description' => esc_html__( 'Controls the size of the counter value and icon.', 'fusion-builder' ),
 								'id'          => 'counter_box_title_size',
 								'default'     => '50px',
 								'type'        => 'dimension',
 							),
 							'counter_box_icon_size' => array(
-								'label'       => esc_html__( 'Counter Box Icon Size', 'fusion-builder' ),
+								'label'       => esc_html__( 'Counter Boxes Icon Size', 'fusion-builder' ),
 								'description' => esc_html__( 'Controls the size of the icon.', 'fusion-builder' ),
 								'id'          => 'counter_box_icon_size',
 								'default'     => '50px',
 								'type'        => 'dimension',
 							),
 							'counter_box_body_color' => array(
-								'label'       => esc_html__( 'Counter Box Body Font Color', 'fusion-builder' ),
-								'description' => esc_html__( 'Controls the color of the counter box body text.', 'fusion-builder' ),
+								'label'       => esc_html__( 'Counter Boxes Body Font Color', 'fusion-builder' ),
+								'description' => esc_html__( 'Controls the color of the counter boxes body text.', 'fusion-builder' ),
 								'id'          => 'counter_box_body_color',
 								'default'     => '#747474',
 								'type'        => 'color-alpha',
 							),
 							'counter_box_body_size' => array(
-								'label'       => esc_html__( 'Counter Box Body Font Size', 'fusion-builder' ),
-								'description' => esc_html__( 'Controls the size of the counter box body text.', 'fusion-builder' ),
+								'label'       => esc_html__( 'Counter Boxes Body Font Size', 'fusion-builder' ),
+								'description' => esc_html__( 'Controls the size of the counter boxes body text.', 'fusion-builder' ),
 								'id'          => 'counter_box_body_size',
 								'default'     => '13px',
 								'type'        => 'dimension',
 							),
 							'counter_box_border_color' => array(
-								'label'       => esc_html__( 'Counter Box Border Color', 'fusion-builder' ),
-								'description' => esc_html__( 'Controls the color of the counter box border.', 'fusion-builder' ),
+								'label'       => esc_html__( 'Counter Boxes Border Color', 'fusion-builder' ),
+								'description' => esc_html__( 'Controls the color of the counter boxes border.', 'fusion-builder' ),
 								'id'          => 'counter_box_border_color',
 								'default'     => '#e0dede',
 								'type'        => 'color-alpha',
 							),
 							'counter_box_icon_top' => array(
-								'label'       => esc_html__( 'Counter Box Icon On Top', 'fusion-builder' ),
+								'label'       => esc_html__( 'Counter Boxes Icon On Top', 'fusion-builder' ),
 								'description' => esc_html__( 'Turn on to display the icon on top of the counter value.', 'fusion-builder' ),
 								'id'          => 'counter_box_icon_top',
 								'default'     => 'no',
@@ -532,15 +534,15 @@ function fusion_element_counters_box() {
 				array(
 					'type'        => 'colorpickeralpha',
 					'heading'     => esc_attr__( 'Counter Box Title Font Color', 'fusion-builder' ),
+					'description' => esc_attr__( "Controls the color of the counter 'value' and icon.", 'fusion-builder' ),
 					'param_name'  => 'color',
 					'value'       => '',
 					'default'     => $fusion_settings->get( 'counter_box_color' ),
-					'description' => esc_attr__( 'Controls the color of the counter "value" and icon. Leave blank for theme option styling.', 'fusion-builder' ),
 				),
 				array(
 					'type'        => 'textfield',
 					'heading'     => esc_attr__( 'Counter Box Title Font Size', 'fusion-builder' ),
-					'description' => esc_attr__( "Controls the size of the counter 'value' and icon. Enter the font size without 'px' ex: 50. Leave blank for theme option styling.", 'fusion-builder' ),
+					'description' => esc_attr__( "Controls the size of the counter 'value' and icon. Enter the font size without 'px' ex: 50.", 'fusion-builder' ),
 					'param_name'  => 'title_size',
 					'value'       => '',
 				),
@@ -554,14 +556,14 @@ function fusion_element_counters_box() {
 				array(
 					'type'        => 'textfield',
 					'heading'     => esc_attr__( 'Counter Box Icon Size', 'fusion-builder' ),
-					'description' => esc_attr__( "Controls the size of the icon. Enter the font size without 'px'. Default is 50. Leave blank for theme option styling.", 'fusion-builder' ),
+					'description' => esc_attr__( "Controls the size of the icon. Enter the font size without 'px'. Default is 50.", 'fusion-builder' ),
 					'param_name'  => 'icon_size',
 					'value'       => '',
 				),
 				array(
 					'type'        => 'radio_button_set',
 					'heading'     => esc_attr__( 'Counter Box Icon Top', 'fusion-builder' ),
-					'description' => esc_attr__( 'Controls the position of the icon. Select Default for theme option styling.', 'fusion-builder' ),
+					'description' => esc_attr__( 'Controls the position of the icon.', 'fusion-builder' ),
 					'param_name'  => 'icon_top',
 					'value'       => array(
 						''    => esc_attr__( 'Default', 'fusion-builder' ),
@@ -576,22 +578,22 @@ function fusion_element_counters_box() {
 					'param_name'  => 'body_color',
 					'value'       => '',
 					'default'     => $fusion_settings->get( 'counter_box_body_color' ),
-					'description' => esc_attr__( 'Controls the color of the counter body text. Leave blank for theme option styling.', 'fusion-builder' ),
+					'description' => esc_attr__( 'Controls the color of the counter body text.', 'fusion-builder' ),
 				),
 				array(
 					'type'        => 'textfield',
 					'heading'     => esc_attr__( 'Counter Box Body Font Size', 'fusion-builder' ),
-					'description' => esc_attr__( "Controls the size of the counter body text. Enter the font size without 'px' ex: 13. Leave blank for theme option styling.", 'fusion-builder' ),
+					'description' => esc_attr__( "Controls the size of the counter body text. Enter the font size without 'px' ex: 13.", 'fusion-builder' ),
 					'param_name'  => 'body_size',
 					'value'       => '',
 				),
 				array(
 					'type'        => 'colorpickeralpha',
 					'heading'     => esc_attr__( 'Counter Box Border Color', 'fusion-builder' ),
+					'description' => esc_attr__( 'Controls the color of the border.', 'fusion-builder' ),
 					'param_name'  => 'border_color',
 					'value'       => '',
 					'default'     => $fusion_settings->get( 'counter_box_border_color' ),
-					'description' => esc_attr__( 'Controls the color of the border.', 'fusion-builder' ),
 				),
 				array(
 					'type'        => 'select',
@@ -609,10 +611,10 @@ function fusion_element_counters_box() {
 				array(
 					'type'        => 'checkbox_button_set',
 					'heading'     => esc_attr__( 'Element Visibility', 'fusion-builder' ),
+					'description' => esc_attr__( 'Choose to show or hide the element on small, medium or large screens. You can choose more than one at a time.', 'fusion-builder' ),
 					'param_name'  => 'hide_on_mobile',
 					'value'       => fusion_builder_visibility_options( 'full' ),
 					'default'     => fusion_builder_default_visibility( 'array' ),
-					'description' => esc_attr__( 'Choose to show or hide the element on small, medium or large screens. You can choose more than one at a time.', 'fusion-builder' ),
 				),
 				array(
 					'type'        => 'textfield',

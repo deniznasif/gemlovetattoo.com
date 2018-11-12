@@ -86,9 +86,11 @@ class Fusion_Widget_Facebook_Page extends WP_Widget {
 			<?php $consent_needed = class_exists( 'Avada_Privacy_Embeds' ) && Avada()->settings->get( 'privacy_embeds' ) && ! Avada()->privacy_embeds->get_consent( 'facebook' ); ?>
 			<?php if ( $consent_needed ) : ?>
 				<?php echo Avada()->privacy_embeds->script_placeholder( 'facebook' ); // WPCS: XSS ok. ?>
-				<span data-privacy-script="true" data-privacy-type="facebook" class="fusion-hidden"></span>
+				<span data-privacy-script="true" data-privacy-type="facebook" class="fusion-hidden">
 			<?php else : ?>
 				<script>
+			<?php endif; ?>
+
 					window.fbAsyncInit = function() {
 						fusion_resize_page_widget();
 
@@ -124,6 +126,9 @@ class Fusion_Widget_Facebook_Page extends WP_Widget {
 						fjs.parentNode.insertBefore( js, fjs );
 					}( document, 'script', 'facebook-jssdk' ) );
 
+			<?php if ( $consent_needed ) : ?>
+				</span>
+			<?php else : ?>
 				</script>
 			<?php endif; ?>
 

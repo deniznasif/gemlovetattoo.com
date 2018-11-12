@@ -96,7 +96,8 @@ if ( fusion_is_element_enabled( 'fusion_map' ) ) {
 						'zoom'                     => '14',
 						'zoom_pancontrol'          => 'yes',
 					),
-					$args
+					$args,
+					'fusion_map'
 				);
 
 				$defaults['width']  = FusionBuilder::validate_shortcode_attr_value( $defaults['width'], 'px' );
@@ -739,7 +740,7 @@ function fusion_element_google_map() {
 				array(
 					'type'        => 'radio_button_set',
 					'heading'     => esc_attr__( 'Scrollwheel on Map', 'fusion-builder' ),
-					'description' => esc_attr__( "Enable zooming using a mouse's scroll wheel. Use Cmd/Ctrl key + scroll to zoom.", 'fusion-builder' ),
+					'description' => esc_attr__( "Enable zooming using a mouse's scroll wheel. Use Cmd/Ctrl key + scroll to zoom. If set to off, cooperative gesture handling will be enabled.", 'fusion-builder' ),
 					'param_name'  => 'scrollwheel',
 					'value'       => array(
 						'yes' => esc_attr__( 'Yes', 'fusion-builder' ),

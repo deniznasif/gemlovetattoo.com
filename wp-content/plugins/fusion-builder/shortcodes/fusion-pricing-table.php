@@ -116,7 +116,8 @@ if ( fusion_is_element_enabled( 'fusion_pricing_table' ) ) {
 						'dividercolor'            => $fusion_settings->get( 'pricing_divider_color' ),
 						'type'                    => '1',
 					),
-					$args
+					$args,
+					'fusion_pricing_table'
 				);
 
 				// Make sure the bg color is set to border color in case it is not existing in the shortcode yet and border color is not specifically set.
@@ -211,7 +212,8 @@ if ( fusion_is_element_enabled( 'fusion_pricing_table' ) ) {
 						'standout' => 'no',
 						'title'    => '',
 					),
-					$args
+					$args,
+					'fusion_pricing_column'
 				);
 
 				extract( $defaults );
@@ -294,7 +296,8 @@ if ( fusion_is_element_enabled( 'fusion_pricing_table' ) ) {
 						'price'             => '',
 						'time'              => '',
 					),
-					$args
+					$args,
+					'fusion_pricing_price'
 				);
 
 				extract( $defaults );

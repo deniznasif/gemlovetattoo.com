@@ -95,7 +95,7 @@ if( !class_exists( 'FusionReduxFramework_extension_search' ) ) {
 				wp_localize_script(
 						'fusionredux-extension-search-js',
 						'fusionreduxsearch',
-						__('Search for option(s)', 'Avada')
+						__('Search for option(s)', 'fusion-builder')
 				);
 
 			}

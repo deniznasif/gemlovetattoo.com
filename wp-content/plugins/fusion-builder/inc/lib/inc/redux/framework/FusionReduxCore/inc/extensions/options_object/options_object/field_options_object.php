@@ -101,10 +101,10 @@
 				}
 ?>
 				<fieldset id="<?php echo esc_attr($id); ?>" class="fusionredux-field fusionredux-container-<?php echo esc_attr($this->field['type']) . ' ' . esc_attr($this->field['class']); ?>" data-id="<?php echo esc_attr($this->field['id']); ?>">
-					<h3><?php esc_html_e( 'Options Object', 'Avada' ); ?></h3>
+					<h3><?php esc_html_e( 'Options Object', 'fusion-builder' ); ?></h3>
 					<div id="fusionredux-object-browser"></div>
 					<div id="fusionredux-object-json" class="hide"><?php echo $json; ?></div>
-					<a href="#" id="consolePrintObject" class="button"><?php esc_html_e( 'Show Object in Javascript Console Object', 'Avada' ); ?></a>
+					<a href="#" id="consolePrintObject" class="button"><?php esc_html_e( 'Show Object in Javascript Console Object', 'fusion-builder' ); ?></a>
 				</div>
 				</fieldset>
 <?php

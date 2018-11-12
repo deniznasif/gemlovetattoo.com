@@ -98,6 +98,7 @@
 				data: {
 					action: fusionredux.args.opt_name + "_ajax_save",
 					nonce: $nonce,
+					_wp_http_referer: $parent.find( '> [name=_wp_http_referer]:first' ).val(),
 					'opt_name': fusionredux.args.opt_name,
 					data: $data
 				},

@@ -191,7 +191,8 @@ if ( fusion_is_element_enabled( 'fusion_blog' ) ) {
 						'excerpt_words'            => '50', // Deprecated.
 						'title'                    => '',   // Deprecated.
 					),
-					$args
+					$args,
+					'fusion_blog'
 				);
 
 				$defaults['blog_grid_column_spacing'] = FusionBuilder::validate_shortcode_attr_value( $defaults['blog_grid_column_spacing'], '' );

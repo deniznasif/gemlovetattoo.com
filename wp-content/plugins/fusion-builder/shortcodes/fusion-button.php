@@ -107,9 +107,10 @@ if ( fusion_is_element_enabled( 'fusion_button' ) ) {
 						'button_gradient_bottom_color_hover' => ( '' !== $fusion_settings->get( 'button_gradient_bottom_color_hover' ) ) ? $fusion_settings->get( 'button_gradient_bottom_color_hover' ) : '#96c346',
 
 					),
-					$args
+					$args,
+					'fusion_button'
 				);
-				$defaults = apply_filters( 'fusion_builder_default_args', $defaults, 'fusion_button' );
+				$defaults = apply_filters( 'fusion_builder_default_args', $defaults, 'fusion_button', $args );
 
 				// BC support for old 'gradient_colors' format.
 				$button_gradient_top_color    = $defaults['button_gradient_top_color'];
@@ -233,10 +234,6 @@ if ( fusion_is_element_enabled( 'fusion_button' ) ) {
 						$styles .= '.fusion-button.button-' . $this->button_counter . ' .fusion-button-text, .fusion-button.button-' . $this->button_counter . ' i {' . $text_color_styles . '}';
 					}
 
-					if ( $text_transform ) {
-						$styles .= '.fusion-button.button-' . $this->button_counter . ' .fusion-button-text {text-transform:' . $text_transform . ';}';
-					}
-
 					if ( $general_styles ) {
 						$styles .= '.fusion-button.button-' . $this->button_counter . ' {' . $general_styles . '}';
 					}
@@ -308,6 +305,10 @@ if ( fusion_is_element_enabled( 'fusion_button' ) ) {
 
 						$styles .= '.fusion-button.button-' . $this->button_counter . ':hover,.button-' . $this->button_counter . ':focus,.fusion-button.button-' . $this->button_counter . ':active{' . $gradient_hover_styles . '}';
 					}
+				}
+
+				if ( $text_transform ) {
+					$styles .= '.fusion-button.button-' . $this->button_counter . ' .fusion-button-text {text-transform:' . $text_transform . ';}';
 				}
 
 				if ( 'default' === $this->args['stretch'] ) {
@@ -978,7 +979,7 @@ function fusion_element_button() {
 					'heading'     => esc_attr__( 'Modal Window Anchor', 'fusion-builder' ),
 					'param_name'  => 'modal',
 					'value'       => '',
-					'description' => esc_attr__( 'Add the class name of the modal window you want to open on button click.', 'fusion-builder' ),
+					'description' => __( 'Add the class name of the modal window you want to open on button click. <strong>Note:</strong> The corresponding Modal Element must be added to the same page.', 'fusion-builder' ),
 				),
 				array(
 					'type'        => 'select',

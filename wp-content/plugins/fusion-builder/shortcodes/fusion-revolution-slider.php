@@ -9,7 +9,7 @@ function fusion_element_revolution_slider() {
 	}
 	fusion_builder_map(
 		array(
-			'name'       => esc_attr__( 'Revolution Slider', 'fusion-builder' ),
+			'name'       => esc_attr__( 'Slider Revolution', 'fusion-builder' ),
 			'shortcode'  => 'rev_slider',
 			'icon'       => 'fusiona-air',
 			'preview'    => FUSION_BUILDER_PLUGIN_DIR . 'inc/templates/previews/fusion-revolution-slider-preview.php',

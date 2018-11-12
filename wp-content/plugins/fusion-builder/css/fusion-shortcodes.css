@@ -4921,7 +4921,6 @@ ul.fusion-checklist .circle-yes {
 .fusion-content-boxes.content-boxes-timeline-vertical .content-box-column.fusion-appear .content-box-shortcode-timeline-vertical {
   -webkit-animation: fusionExpandHeight 1s 1 cubic-bezier(0.17, 0.67, 0.83, 0.67);
   animation: fusionExpandHeight 1s 1 cubic-bezier(0.17, 0.67, 0.83, 0.67);
-  height: -webkit-calc(100% + 40px);
   height: calc(100% + 40px);
 }
 .fusion-content-boxes.content-boxes-icon-with-title .heading-with-icon .icon,
@@ -5974,17 +5973,17 @@ html[xmlns] .flexslider .slides {
   display: table;
   margin: 20px auto 0;
 }
-.fusion-flip-boxes .fusion-flip-box.hover .flip-box-back {
+.fusion-flip-boxes .fusion-flip-box:hover .flip-box-back {
   -webkit-transform: rotateY(0deg);
           transform: rotateY(0deg);
   z-index: 1;
 }
-.fusion-flip-boxes .fusion-flip-box.hover .flip-box-front {
+.fusion-flip-boxes .fusion-flip-box:hover .flip-box-front {
   -webkit-transform: rotateY(180deg);
           transform: rotateY(180deg);
   z-index: -1;
 }
-.fusion-flip-boxes .fusion-flip-box.hover .flip-box-front .flip-box-grafix i:before {
+.fusion-flip-boxes .fusion-flip-box:hover .flip-box-front .flip-box-grafix i:before {
   display: none;
 }
 .fusion-flip-boxes .fusion-flip-box .flip-box-grafix {
@@ -7502,7 +7501,6 @@ html[xmlns] .flexslider .slides {
 .fusion-modal .modal-dialog {
   -webkit-overflow-scrolling: touch;
   overflow-y: auto;
-  max-height: -webkit-calc(100% - 90px);
   max-height: calc(100% - 90px);
 }
 .fusion-modal .fusion-separator {
@@ -7515,7 +7513,7 @@ html[xmlns] .flexslider .slides {
 .ua-mobile .modal-open .fusion-modal .modal-dialog {
   height: 90%;
 }
-.fusion-person .person-shortcode-image-wrapper {
+.fusion-person {
   text-align: center;
 }
 .fusion-person .person-shortcode-image-wrapper img {
@@ -7538,9 +7536,8 @@ html[xmlns] .flexslider .slides {
   -webkit-box-shadow: 2px 3px 7px rgba(0, 0, 0, 0.3);
           box-shadow: 2px 3px 7px rgba(0, 0, 0, 0.3);
 }
-.fusion-person .person-image-container.element-bottomshadow:after,
-.fusion-person .person-image-container.element-bottomshadow:before {
-  opacity: 0.4;
+.fusion-person .person-image-container.person-rounded-overflow {
+  overflow: hidden;
 }
 .fusion-person .person-desc {
   margin-top: 25px;
@@ -7573,10 +7570,10 @@ html[xmlns] .flexslider .slides {
   -webkit-box-shadow: none !important;
           box-shadow: none !important;
 }
-.fusion-person-left {
+.fusion-person-left .person-desc {
   text-align: left;
 }
-.fusion-person-center {
+.fusion-person-center .person-desc {
   text-align: center;
 }
 .fusion-person-center .person-desc .person-author {
@@ -7597,7 +7594,7 @@ html[xmlns] .flexslider .slides {
 .fusion-person-center .person-content {
   margin-top: 25px;
 }
-.fusion-person-right {
+.fusion-person-right .person-desc {
   text-align: right;
 }
 .fusion-person-right .person-desc .person-author .fusion-social-networks {
@@ -7658,7 +7655,6 @@ html[xmlns] .flexslider .slides {
   width: 100%;
 }
 .fusion-portfolio-text-floated .fusion-rollover {
-  width: -webkit-calc( 100.1% - 12.5px );
   width: calc( 100.1% - 12.5px );
 }
 .fusion-portfolio-text-floated .fusion-portfolio-content {
@@ -9437,7 +9433,8 @@ table {
   float: right;
   margin-left: 25px;
 }
-.fusion-image-hovers .imageframe-liftup span {
+.fusion-image-hovers .imageframe-liftup span,
+.fusion-image-hovers .imageframe-liftup > div {
   opacity: 1;
   -webkit-transform: perspective(1000px) scale(1);
   transform: perspective(1000px) scale(1);
@@ -9447,9 +9444,13 @@ table {
   transition: transform 0.35s;
   transition: transform 0.35s, -webkit-transform 0.35s;
 }
-.fusion-image-hovers .imageframe-liftup span:hover {
+.fusion-image-hovers .imageframe-liftup span:hover,
+.fusion-image-hovers .imageframe-liftup > div:hover {
   -webkit-transform: perspective(1000px) scale(1.03);
   transform: perspective(1000px) scale(1.03);
+}
+.fusion-image-hovers .imageframe-liftup .person-image-container {
+  position: relative;
 }
 .fusion-image-hovers .imageframe-liftup:before {
   position: absolute;
@@ -9560,7 +9561,6 @@ table {
 }
 .fusion-gallery.fusion-gallery-layout-masonry.fusion-grid-3.fusion-masonry-has-vertical .fusion-element-landscape,
 .fusion-gallery.fusion-gallery-layout-masonry.fusion-grid-three.fusion-masonry-has-vertical .fusion-element-landscape {
-  width: -webkit-calc(100% / 3 * 2);
   width: calc(100% / 3 * 2);
 }
 .fusion-gallery.fusion-gallery-layout-masonry.fusion-grid-4.fusion-masonry-has-vertical .fusion-element-landscape,
@@ -9573,7 +9573,6 @@ table {
 }
 .fusion-gallery.fusion-gallery-layout-masonry.fusion-grid-6.fusion-masonry-has-vertical .fusion-element-landscape,
 .fusion-gallery.fusion-gallery-layout-masonry.fusion-grid-six.fusion-masonry-has-vertical .fusion-element-landscape {
-  width: -webkit-calc(100% / 3);
   width: calc(100% / 3);
 }
 .fusion-gallery.fusion-gallery-layout-masonry .fusion-gallery-column .fusion-gallery-image.fusion-gallery-image-liftup img {
@@ -9618,7 +9617,6 @@ table {
 }
 .fusion-grid-3 .fusion-grid-column,
 .fusion-grid-three .fusion-grid-column {
-  width: -webkit-calc(100% / 3);
   width: calc(100% / 3);
 }
 .fusion-grid-4 .fusion-grid-column,
@@ -9631,7 +9629,6 @@ table {
 }
 .fusion-grid-6 .fusion-grid-column,
 .fusion-grid-six .fusion-grid-column {
-  width: -webkit-calc(100% / 6);
   width: calc(100% / 6);
 }
 @media only screen and (max-width: 800px) {

@@ -45,10 +45,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<?php Avada()->template->title_template( esc_html__( 'Couldn\'t find what you\'re looking for!', 'Avada' ) ); ?>
 			<div class="error-page">
 				<div class="fusion-columns fusion-columns-3">
-					<div class="fusion-column col-lg-4 col-md-4 col-sm-4">
+					<div class="fusion-column col-lg-4 col-md-4 col-sm-4 fusion-error-page-oops">
 						<h1 class="oops"><?php esc_html_e( 'Oops!', 'Avada' ); ?></h1>
 					</div>
-					<div class="fusion-column col-lg-4 col-md-4 col-sm-4 useful-links">
+					<div class="fusion-column col-lg-4 col-md-4 col-sm-4 useful-links fusion-error-page-useful-links">
 						<h3><?php esc_html_e( 'Helpful Links:', 'Avada' ); ?></h3>
 						<?php
 						// Get needed checklist default settings.
@@ -116,7 +116,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 						echo $error_page_menu; // WPCS: XSS ok.
 						?>
 					</div>
-					<div class="fusion-column col-lg-4 col-md-4 col-sm-4">
+					<div class="fusion-column col-lg-4 col-md-4 col-sm-4 fusion-error-page-search">
 						<h3><?php esc_html_e( 'Try again', 'Avada' ); ?></h3>
 						<p><?php esc_html_e( 'If you want to rephrase your query, here is your chance:', 'Avada' ); ?></p>
 						<?php echo get_search_form( false ); ?>

@@ -13,7 +13,7 @@
 
 				$this->parent       = $parent;
 				$this->field        = $field;
-				$this->field['msg'] = ( isset( $this->field['msg'] ) ) ? $this->field['msg'] : __( 'This field must be a valid date.', 'Avada' );
+				$this->field['msg'] = ( isset( $this->field['msg'] ) ) ? $this->field['msg'] : __( 'This field must be a valid date.', 'fusion-builder' );
 				$this->value        = $value;
 				$this->current      = $current;
 

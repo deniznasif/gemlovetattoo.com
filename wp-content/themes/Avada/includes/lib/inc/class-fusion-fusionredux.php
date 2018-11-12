@@ -1123,13 +1123,12 @@ class Fusion_FusionRedux {
 
 			// Check the HTTP referrer to determine if the language is set to "all".
 			if ( $parsed_url ) {
-				global $wp_version;
 
-				if ( version_compare( $wp_version, '4.4', '>=' ) ) {
-					if ( ! function_exists( 'wp_parse_url' ) ) {
-						require_once wp_normalize_path( ABSPATH . '/wp-includes/http.php' );
-					}
+				if ( ! function_exists( 'wp_parse_url' ) ) {
+					require_once wp_normalize_path( ABSPATH . '/wp-includes/http.php' );
 				}
+
+				$parsed_url = wp_parse_url( $parsed_url );
 
 				if ( isset( $parsed_url['query'] ) ) {
 					parse_str( $parsed_url['query'], $query_args );

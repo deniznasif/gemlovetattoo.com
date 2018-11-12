@@ -3,7 +3,7 @@
  * Loads common Fusion libraries.
  *
  * @package Fusion-Library
- * @version 1.7
+ * @version 1.7.2
  */
 
 // Do not allow directly accessing this file.
@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Don't use a constant, we need this as a simple var.
-$fusion_library_version = '1.7';
+$fusion_library_version = '1.7.2';
 
 $current_dir = dirname( __FILE__ );
 

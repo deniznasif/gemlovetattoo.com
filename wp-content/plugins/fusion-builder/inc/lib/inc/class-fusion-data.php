@@ -144,7 +144,7 @@ class Fusion_Data {
 				'color' => '#cd201f',
 			),
 			'email'      => array(
-				'label' => esc_attr__( 'Email Address', 'Avada' ),
+				'label' => esc_attr__( 'Email Address', 'fusion-builder' ),
 				'color' => '#000000',
 			),
 		);
@@ -152,7 +152,7 @@ class Fusion_Data {
 		// Add a "custom" entry.
 		if ( $custom ) {
 			$networks['custom'] = array(
-				'label' => esc_attr__( 'Custom', 'Avada' ),
+				'label' => esc_attr__( 'Custom', 'fusion-builder' ),
 				'color' => '',
 			);
 		}
@@ -375,15 +375,15 @@ class Fusion_Data {
 	public static function font_weights() {
 
 		$font_weights = array(
-			'100' => esc_attr__( 'Thin (100)', 'Avada' ),
-			'200' => esc_attr__( 'Extra Light (200)', 'Avada' ),
-			'300' => esc_attr__( 'Light (300)', 'Avada' ),
-			'400' => esc_attr__( 'Normal (400)', 'Avada' ),
-			'500' => esc_attr__( 'Medium (500)', 'Avada' ),
-			'600' => esc_attr__( 'Semi Bold (600)', 'Avada' ),
-			'700' => esc_attr__( 'Bold (700)', 'Avada' ),
-			'800' => esc_attr__( 'Bolder (800)', 'Avada' ),
-			'900' => esc_attr__( 'Extra Bold (900)', 'Avada' ),
+			'100' => esc_attr__( 'Thin (100)', 'fusion-builder' ),
+			'200' => esc_attr__( 'Extra Light (200)', 'fusion-builder' ),
+			'300' => esc_attr__( 'Light (300)', 'fusion-builder' ),
+			'400' => esc_attr__( 'Normal (400)', 'fusion-builder' ),
+			'500' => esc_attr__( 'Medium (500)', 'fusion-builder' ),
+			'600' => esc_attr__( 'Semi Bold (600)', 'fusion-builder' ),
+			'700' => esc_attr__( 'Bold (700)', 'fusion-builder' ),
+			'800' => esc_attr__( 'Bolder (800)', 'fusion-builder' ),
+			'900' => esc_attr__( 'Extra Bold (900)', 'fusion-builder' ),
 		);
 
 		return $font_weights;

@@ -137,7 +137,8 @@ if ( ! class_exists( 'FusionSC_Container' ) ) {
 					'video_aspect_ratio'                    => '16:9',
 
 				),
-				$atts
+				$atts,
+				'fusion_builder_container'
 			);
 
 			extract( $this->args );

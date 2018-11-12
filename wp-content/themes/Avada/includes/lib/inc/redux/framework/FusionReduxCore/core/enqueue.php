@@ -263,17 +263,15 @@
 				//*****************************************************************
 				// Vendor JS
 				//*****************************************************************
-				if ( $this->parent->args['dev_mode'] ) {
-					wp_register_script(
-						'fusionredux-vendor',
-						FusionReduxFramework::$_url . 'assets/js/vendor.min.js',
-						array( 'jquery' ),
-						$this->timestamp,
-						true
-					);
+				wp_register_script(
+					'fusionredux-vendor',
+					FusionReduxFramework::$_url . 'assets/js/vendor.min.js',
+					array( 'jquery' ),
+					$this->timestamp,
+					true
+				);
 
-					array_push( $depArray, 'fusionredux-vendor' );
-				}
+				array_push( $depArray, 'fusionredux-vendor' );
 
 				//*****************************************************************
 				// FusionRedux JS

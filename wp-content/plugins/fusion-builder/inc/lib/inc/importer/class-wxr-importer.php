@@ -127,7 +127,7 @@ class WXR_Importer extends WP_Importer {
 		}
 
 		if ( ! $status ) {
-			return new WP_Error( 'wxr_importer.cannot_parse', __( 'Could not open the file for parsing', 'Avada' ) );
+			return new WP_Error( 'wxr_importer.cannot_parse', __( 'Could not open the file for parsing', 'fusion-builder' ) );
 		}
 
 		return $reader;
@@ -163,7 +163,7 @@ class WXR_Importer extends WP_Importer {
 
 					if ( version_compare( $this->version, self::MAX_WXR_VERSION, '>' ) ) {
 						$this->logger->warning( sprintf(
-							__( 'This WXR file (version %s) is newer than the importer (version %s) and may not be supported. Please consider updating.', 'Avada' ),
+							__( 'This WXR file (version %s) is newer than the importer (version %s) and may not be supported. Please consider updating.', 'fusion-builder' ),
 							$this->version,
 							self::MAX_WXR_VERSION
 						) );
@@ -279,7 +279,7 @@ class WXR_Importer extends WP_Importer {
 
 					if ( version_compare( $this->version, self::MAX_WXR_VERSION, '>' ) ) {
 						$this->logger->warning( sprintf(
-							__( 'This WXR file (version %s) is newer than the importer (version %s) and may not be supported. Please consider updating.', 'Avada' ),
+							__( 'This WXR file (version %s) is newer than the importer (version %s) and may not be supported. Please consider updating.', 'fusion-builder' ),
 							$this->version,
 							self::MAX_WXR_VERSION
 						) );
@@ -352,7 +352,7 @@ class WXR_Importer extends WP_Importer {
 
 					if ( version_compare( $this->version, self::MAX_WXR_VERSION, '>' ) ) {
 						$this->logger->warning( sprintf(
-							__( 'This WXR file (version %s) is newer than the importer (version %s) and may not be supported. Please consider updating.', 'Avada' ),
+							__( 'This WXR file (version %s) is newer than the importer (version %s) and may not be supported. Please consider updating.', 'fusion-builder' ),
 							$this->version,
 							self::MAX_WXR_VERSION
 						) );
@@ -502,7 +502,7 @@ class WXR_Importer extends WP_Importer {
 	protected function import_start( $file ) {
 		if ( ! is_file( $file ) ) {
 			// Tweaked for Avada.
-			return new WP_Error( 'wxr_importer.file_missing', sprintf( esc_attr__( '%s, please try again.', 'Avada' ), esc_attr__( 'The file does not exist', 'Avada' ) ) );
+			return new WP_Error( 'wxr_importer.file_missing', sprintf( esc_attr__( '%s, please try again.', 'fusion-builder' ), esc_attr__( 'The file does not exist', 'fusion-builder' ) ) );
 		}
 
 		// Suspend bunches of stuff in WP core
@@ -562,7 +562,7 @@ class WXR_Importer extends WP_Importer {
 	public function set_user_mapping( $mapping ) {
 		foreach ( $mapping as $map ) {
 			if ( empty( $map['old_slug'] ) || empty( $map['old_id'] ) || empty( $map['new_id'] ) ) {
-				$this->logger->warning( __( 'Invalid author mapping', 'Avada' ) );
+				$this->logger->warning( __( 'Invalid author mapping', 'fusion-builder' ) );
 				$this->logger->debug( var_export( $map, true ) );
 				continue;
 			}
@@ -663,7 +663,7 @@ class WXR_Importer extends WP_Importer {
 						// Bail now
 						return new WP_Error(
 							'wxr_importer.post.cannot_import_draft',
-							__( 'Cannot import auto-draft posts', 'Avada' ),
+							__( 'Cannot import auto-draft posts', 'fusion-builder' ),
 							$data
 						);
 					}
@@ -751,7 +751,7 @@ class WXR_Importer extends WP_Importer {
 		// Is this type even valid?
 		if ( ! $post_type_object ) {
 			$this->logger->warning( sprintf(
-				__( 'Failed to import "%s": Invalid post type %s', 'Avada' ),
+				__( 'Failed to import "%s": Invalid post type %s', 'fusion-builder' ),
 				$data['post_title'],
 				$data['post_type']
 			) );
@@ -761,7 +761,7 @@ class WXR_Importer extends WP_Importer {
 		$post_exists = $this->post_exists( $data );
 		if ( $post_exists ) {
 			$this->logger->info( sprintf(
-				__( '%s "%s" already exists.', 'Avada' ),
+				__( '%s "%s" already exists.', 'fusion-builder' ),
 				$post_type_object->labels->singular_name,
 				$data['post_title']
 			) );
@@ -846,7 +846,7 @@ class WXR_Importer extends WP_Importer {
 		if ( 'attachment' === $postdata['post_type'] ) {
 			if ( ! $this->options['fetch_attachments'] ) {
 				$this->logger->notice( sprintf(
-					__( 'Skipping attachment "%s", fetching attachments disabled', 'Avada' ),
+					__( 'Skipping attachment "%s", fetching attachments disabled', 'fusion-builder' ),
 					$data['post_title']
 				) );
 				/**
@@ -867,7 +867,7 @@ class WXR_Importer extends WP_Importer {
 
 		if ( is_wp_error( $post_id ) ) {
 			$this->logger->error( sprintf(
-				__( 'Failed to import "%s" (%s)', 'Avada' ),
+				__( 'Failed to import "%s" (%s)', 'fusion-builder' ),
 				$data['post_title'],
 				$post_type_object->labels->singular_name
 			) );
@@ -899,12 +899,12 @@ class WXR_Importer extends WP_Importer {
 		$this->mark_post_exists( $data, $post_id );
 
 		$this->logger->info( sprintf(
-			__( 'Imported "%s" (%s)', 'Avada' ),
+			__( 'Imported "%s" (%s)', 'fusion-builder' ),
 			$data['post_title'],
 			$post_type_object->labels->singular_name
 		) );
 		$this->logger->debug( sprintf(
-			__( 'Post %d remapped to %d', 'Avada' ),
+			__( 'Post %d remapped to %d', 'fusion-builder' ),
 			$original_id,
 			$post_id
 		) );
@@ -1048,7 +1048,7 @@ class WXR_Importer extends WP_Importer {
 
 		$info = wp_check_filetype( $upload['file'] );
 		if ( ! $info ) {
-			return new WP_Error( 'attachment_processing_error', __( 'Invalid file type', 'Avada' ) );
+			return new WP_Error( 'attachment_processing_error', __( 'Invalid file type', 'fusion-builder' ) );
 		}
 
 		$post['post_mime_type'] = $info['type'];
@@ -1539,7 +1539,7 @@ class WXR_Importer extends WP_Importer {
 		$user_id = wp_insert_user( wp_slash( $userdata ) );
 		if ( is_wp_error( $user_id ) ) {
 			$this->logger->error( sprintf(
-				__( 'Failed to import user "%s"', 'Avada' ),
+				__( 'Failed to import user "%s"', 'fusion-builder' ),
 				$userdata['user_login']
 			) );
 			$this->logger->debug( $user_id->get_error_message() );
@@ -1560,11 +1560,11 @@ class WXR_Importer extends WP_Importer {
 		$this->mapping['user_slug'][ $original_slug ] = $user_id;
 
 		$this->logger->info( sprintf(
-			__( 'Imported user "%s"', 'Avada' ),
+			__( 'Imported user "%s"', 'fusion-builder' ),
 			$userdata['user_login']
 		) );
 		$this->logger->debug( sprintf(
-			__( 'User %d remapped to %d', 'Avada' ),
+			__( 'User %d remapped to %d', 'fusion-builder' ),
 			$original_id,
 			$user_id
 		) );
@@ -1709,7 +1709,7 @@ class WXR_Importer extends WP_Importer {
 		$result = wp_insert_term( $data['name'], $data['taxonomy'], $termdata );
 		if ( is_wp_error( $result ) ) {
 			$this->logger->warning( sprintf(
-				__( 'Failed to import %s %s', 'Avada' ),
+				__( 'Failed to import %s %s', 'fusion-builder' ),
 				$data['taxonomy'],
 				$data['name']
 			) );
@@ -1733,12 +1733,12 @@ class WXR_Importer extends WP_Importer {
 		$this->mapping['term_id'][ $original_id ] = $term_id;
 
 		$this->logger->info( sprintf(
-			__( 'Imported "%s" (%s)', 'Avada' ),
+			__( 'Imported "%s" (%s)', 'fusion-builder' ),
 			$data['name'],
 			$data['taxonomy']
 		) );
 		$this->logger->debug( sprintf(
-			__( 'Term %d remapped to %d', 'Avada' ),
+			__( 'Term %d remapped to %d', 'fusion-builder' ),
 			$original_id,
 			$term_id
 		) );
@@ -1791,7 +1791,7 @@ class WXR_Importer extends WP_Importer {
 			return new WP_Error(
 				'import_file_error',
 				sprintf(
-					__( 'Remote server returned %1$d %2$s for %3$s', 'Avada' ),
+					__( 'Remote server returned %1$d %2$s for %3$s', 'fusion-builder' ),
 					$code,
 					get_status_header_desc( $code ),
 					$url
@@ -1804,18 +1804,18 @@ class WXR_Importer extends WP_Importer {
 
 		if ( isset( $headers['content-length'] ) && $filesize !== (int) $headers['content-length'] ) {
 			unlink( $upload['file'] );
-			return new WP_Error( 'import_file_error', __( 'Remote file is incorrect size', 'Avada' ) );
+			return new WP_Error( 'import_file_error', __( 'Remote file is incorrect size', 'fusion-builder' ) );
 		}
 
 		if ( 0 === $filesize ) {
 			unlink( $upload['file'] );
-			return new WP_Error( 'import_file_error', __( 'Zero size file downloaded', 'Avada' ) );
+			return new WP_Error( 'import_file_error', __( 'Zero size file downloaded', 'fusion-builder' ) );
 		}
 
 		$max_size = (int) $this->max_attachment_size();
 		if ( ! empty( $max_size ) && $filesize > $max_size ) {
 			unlink( $upload['file'] );
-			$message = sprintf( __( 'Remote file is too large, limit is %s', 'Avada' ), size_format( $max_size ) );
+			$message = sprintf( __( 'Remote file is too large, limit is %s', 'fusion-builder' ), size_format( $max_size ) );
 			return new WP_Error( 'import_file_error', $message );
 		}
 
@@ -1837,7 +1837,7 @@ class WXR_Importer extends WP_Importer {
 			$this->logger->debug( sprintf(
 			// Note: title intentionally not used to skip extra processing
 			// for when debug logging is off
-				__( 'Running post-processing for post %d', 'Avada' ),
+				__( 'Running post-processing for post %d', 'fusion-builder' ),
 				$post_id
 			) );
 
@@ -1850,12 +1850,12 @@ class WXR_Importer extends WP_Importer {
 					$data['post_parent'] = $this->mapping['post'][ $parent_id ];
 				} else {
 					$this->logger->warning( sprintf(
-						__( 'Could not find the post parent for "%s" (post #%d)', 'Avada' ),
+						__( 'Could not find the post parent for "%s" (post #%d)', 'fusion-builder' ),
 						get_the_title( $post_id ),
 						$post_id
 					) );
 					$this->logger->debug( sprintf(
-						__( 'Post %d was imported with parent %d, but could not be found', 'Avada' ),
+						__( 'Post %d was imported with parent %d, but could not be found', 'fusion-builder' ),
 						$post_id,
 						$parent_id
 					) );
@@ -1869,12 +1869,12 @@ class WXR_Importer extends WP_Importer {
 					$data['post_author'] = $this->mapping['user_slug'][ $author_slug ];
 				} else {
 					$this->logger->warning( sprintf(
-						__( 'Could not find the author for "%s" (post #%d)', 'Avada' ),
+						__( 'Could not find the author for "%s" (post #%d)', 'fusion-builder' ),
 						get_the_title( $post_id ),
 						$post_id
 					) );
 					$this->logger->debug( sprintf(
-						__( 'Post %d was imported with author "%s", but could not be found', 'Avada' ),
+						__( 'Post %d was imported with author "%s", but could not be found', 'fusion-builder' ),
 						$post_id,
 						$author_slug
 					) );
@@ -1900,7 +1900,7 @@ class WXR_Importer extends WP_Importer {
 			// Do we have updates to make?
 			if ( empty( $data ) ) {
 				$this->logger->debug( sprintf(
-					__( 'Post %d was marked for post-processing, but none was required.', 'Avada' ),
+					__( 'Post %d was marked for post-processing, but none was required.', 'fusion-builder' ),
 					$post_id
 				) );
 				continue;
@@ -1911,7 +1911,7 @@ class WXR_Importer extends WP_Importer {
 			$result = wp_update_post( $data, true );
 			if ( is_wp_error( $result ) ) {
 				$this->logger->warning( sprintf(
-					__( 'Could not update "%s" (post #%d) with mapped data', 'Avada' ),
+					__( 'Could not update "%s" (post #%d) with mapped data', 'fusion-builder' ),
 					get_the_title( $post_id ),
 					$post_id
 				) );
@@ -1956,12 +1956,12 @@ class WXR_Importer extends WP_Importer {
 			update_post_meta( $post_id, '_menu_item_object_id', wp_slash( $menu_object ) );
 		} else {
 			$this->logger->warning( sprintf(
-				__( 'Could not find the menu object for "%s" (post #%d)', 'Avada' ),
+				__( 'Could not find the menu object for "%s" (post #%d)', 'fusion-builder' ),
 				get_the_title( $post_id ),
 				$post_id
 			) );
 			$this->logger->debug( sprintf(
-				__( 'Post %d was imported with object "%d" of type "%s", but could not be found', 'Avada' ),
+				__( 'Post %d was imported with object "%d" of type "%s", but could not be found', 'fusion-builder' ),
 				$post_id,
 				$menu_object_id,
 				$menu_item_type
@@ -1983,11 +1983,11 @@ class WXR_Importer extends WP_Importer {
 					$data['comment_parent'] = $this->mapping['comment'][ $parent_id ];
 				} else {
 					$this->logger->warning( sprintf(
-						__( 'Could not find the comment parent for comment #%d', 'Avada' ),
+						__( 'Could not find the comment parent for comment #%d', 'fusion-builder' ),
 						$comment_id
 					) );
 					$this->logger->debug( sprintf(
-						__( 'Comment %d was imported with parent %d, but could not be found', 'Avada' ),
+						__( 'Comment %d was imported with parent %d, but could not be found', 'fusion-builder' ),
 						$comment_id,
 						$parent_id
 					) );
@@ -2001,11 +2001,11 @@ class WXR_Importer extends WP_Importer {
 					$data['user_id'] = $this->mapping['user'][ $author_id ];
 				} else {
 					$this->logger->warning( sprintf(
-						__( 'Could not find the author for comment #%d', 'Avada' ),
+						__( 'Could not find the author for comment #%d', 'fusion-builder' ),
 						$comment_id
 					) );
 					$this->logger->debug( sprintf(
-						__( 'Comment %d was imported with author %d, but could not be found', 'Avada' ),
+						__( 'Comment %d was imported with author %d, but could not be found', 'fusion-builder' ),
 						$comment_id,
 						$author_id
 					) );
@@ -2022,7 +2022,7 @@ class WXR_Importer extends WP_Importer {
 			$result = wp_update_comment( wp_slash( $data ) );
 			if ( empty( $result ) ) {
 				$this->logger->warning( sprintf(
-					__( 'Could not update comment #%d with mapped data', 'Avada' ),
+					__( 'Could not update comment #%d with mapped data', 'fusion-builder' ),
 					$comment_id
 				) );
 				continue;

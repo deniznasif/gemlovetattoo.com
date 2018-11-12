@@ -157,23 +157,23 @@ class Fusion_Privacy {
 		global $wp_version;
 		$data = array(
 			'server' => array(
-				'name'  => __( 'PHP Version', 'Avada' ),
+				'name'  => __( 'PHP Version', 'fusion-builder' ),
 				'value' => phpversion(),
 			),
 			'php'    => array(
-				'name'  => __( 'Server Software', 'Avada' ),
+				'name'  => __( 'Server Software', 'fusion-builder' ),
 				'value' => isset( $_SERVER['SERVER_SOFTWARE'] ) ? sanitize_text_field( wp_unslash( $_SERVER['SERVER_SOFTWARE'] ) ) : '',
 			),
 			'wp'     => array(
-				'name'  => __( 'WordPress Version', 'Avada' ),
+				'name'  => __( 'WordPress Version', 'fusion-builder' ),
 				'value' => $wp_version,
 			),
 			'url'    => array(
-				'name'  => __( 'Encrypted Site URL', 'Avada' ),
+				'name'  => __( 'Encrypted Site URL', 'fusion-builder' ),
 				'value' => md5( site_url() ),
 			),
 			'token'  => array(
-				'name'  => __( 'Token', 'Avada' ),
+				'name'  => __( 'Token', 'fusion-builder' ),
 				'value' => class_exists( 'Avada' ) ? Avada()->registration->get_token() : '',
 			),
 		);
@@ -191,16 +191,16 @@ class Fusion_Privacy {
 	private function get_message_contents( $page ) {
 		switch ( $page ) {
 			case 'avada-demos':
-				$message = sprintf( '<p>%s</p>', esc_html__( 'Following data is sent to a ThemeFusion server located in the US to verify purchase and to ensure that demos are compatible with your install.', 'Avada' ) );
+				$message = sprintf( '<p>%s</p>', esc_html__( 'Following data is sent to a ThemeFusion server located in the US to verify purchase and to ensure that demos are compatible with your install.', 'fusion-builder' ) );
 				break;
 			case 'avada-registration':
-				$message = sprintf( '<p>%s</p>', esc_html__( 'Following data is sent to a ThemeFusion server located in the US to verify purchase.', 'Avada' ) );
+				$message = sprintf( '<p>%s</p>', esc_html__( 'Following data is sent to a ThemeFusion server located in the US to verify purchase.', 'fusion-builder' ) );
 				break;
 			case 'avada-plugins':
-				$message = sprintf( '<p>%s</p>', esc_html__( 'Following data will be sent to a ThemeFusion server located in the US to verify purchase and to ensure that plugins are compatible with your install.', 'Avada' ) );
+				$message = sprintf( '<p>%s</p>', esc_html__( 'Following data will be sent to a ThemeFusion server located in the US to verify purchase and to ensure that plugins are compatible with your install.', 'fusion-builder' ) );
 				break;
 			default:
-				$message = sprintf( '<p>%s</p>', esc_html__( 'Following data is sent to a ThemeFusion server located in the US to ensure that patches are compatible with your install.', 'Avada' ) );
+				$message = sprintf( '<p>%s</p>', esc_html__( 'Following data is sent to a ThemeFusion server located in the US to ensure that patches are compatible with your install.', 'fusion-builder' ) );
 		}
 		$message .= '<table>';
 		if ( 'avada-fusion-patcher' !== $page ) {
@@ -215,7 +215,7 @@ class Fusion_Privacy {
 
 		$message .= '</table>';
 
-		$message .= sprintf( '<p>%s</p>', esc_html__( 'We will never collect any confidential data such as IP, email addresses or usernames.', 'Avada' ) );
+		$message .= sprintf( '<p>%s</p>', esc_html__( 'We will never collect any confidential data such as IP, email addresses or usernames.', 'fusion-builder' ) );
 
 		return $message;
 	}

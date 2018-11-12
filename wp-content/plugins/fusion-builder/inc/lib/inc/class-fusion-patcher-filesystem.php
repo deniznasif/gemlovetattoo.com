@@ -103,7 +103,7 @@ class Fusion_Patcher_Filesystem {
 			return $response['body'];
 		}
 		// Add a message so that the user knows what happened.
-		new Fusion_Patcher_Admin_Notices( 'no-patch-contents', esc_attr__( 'The Avada patch contents cannot be retrieved. Please contact your host to unblock the "https://gist.github.com/" domain.', 'Avada' ) );
+		new Fusion_Patcher_Admin_Notices( 'no-patch-contents', esc_attr__( 'The Avada patch contents cannot be retrieved. Please contact your host to unblock the "https://gist.github.com/" domain.', 'fusion-builder' ) );
 		return false;
 	}
 
@@ -119,7 +119,7 @@ class Fusion_Patcher_Filesystem {
 			// The remote file is empty.
 			$this->status = false;
 			// Add a message to users for debugging purposes.
-			new Fusion_Patcher_Admin_Notices( 'patch-empty', esc_attr__( 'Patch empty.', 'Avada' ) );
+			new Fusion_Patcher_Admin_Notices( 'patch-empty', esc_attr__( 'Patch empty.', 'fusion-builder' ) );
 			return false;
 		}
 
@@ -155,7 +155,7 @@ class Fusion_Patcher_Filesystem {
 			// Fail if target is not avada|fusion-core|fusion-builder.
 			$this->status = false;
 			// Add a message to users for debugging purposes.
-			new Fusion_Patcher_Admin_Notices( 'invalid-patch-target', esc_attr__( 'Invalid Patch target.', 'Avada' ) );
+			new Fusion_Patcher_Admin_Notices( 'invalid-patch-target', esc_attr__( 'Invalid Patch target.', 'fusion-builder' ) );
 			return false;
 		}
 
@@ -183,7 +183,7 @@ class Fusion_Patcher_Filesystem {
 
 			// Add a message to users for debugging purposes.
 			/* translators: Links. */
-			new Fusion_Patcher_Admin_Notices( 'write-permissions-' . self::$patch_id, sprintf( __( 'The patch could not be applied because of your specific server permissions. You have two options to remedy this. 1. <a %1$s>Download this zip file</a> which contains the files needed to fix this issue. Simply extract the zip file, and replace the files it contains with the same files on your server. DO NOT REPLACE THE ENTIRE FOLDER. 2. <a %2$s>Contact our support center</a>, submit a ticket and include your FTP credentials so one of our support experts can apply the fix for you. Once the fix is applied, click the "Dismiss Notices" button so this message is removed.', 'Avada' ), 'target="_blank" href="' . $patch_url . '" style="color:#fff;text-decoration:underline;font-weight:bold;"', 'target="_blank" href="http://theme-fusion.com/support-ticket/" style="color:#fff;text-decoration:underline;font-weight:bold;"' ) );
+			new Fusion_Patcher_Admin_Notices( 'write-permissions-' . self::$patch_id, sprintf( __( 'The patch could not be applied because of your specific server permissions. You have two options to remedy this. 1. <a %1$s>Download this zip file</a> which contains the files needed to fix this issue. Simply extract the zip file, and replace the files it contains with the same files on your server. DO NOT REPLACE THE ENTIRE FOLDER. 2. <a %2$s>Contact our support center</a>, submit a ticket and include your FTP credentials so one of our support experts can apply the fix for you. Once the fix is applied, click the "Dismiss Notices" button so this message is removed.', 'fusion-builder' ), 'target="_blank" href="' . $patch_url . '" style="color:#fff;text-decoration:underline;font-weight:bold;"', 'target="_blank" href="http://theme-fusion.com/support-ticket/" style="color:#fff;text-decoration:underline;font-weight:bold;"' ) );
 		}
 		return $this->status;
 	}

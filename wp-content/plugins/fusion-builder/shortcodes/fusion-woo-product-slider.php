@@ -67,7 +67,8 @@ if ( fusion_is_element_enabled( 'fusion_products_slider' ) ) {
 						'show_nav'        => 'yes',
 						'show_price'      => 'yes',
 					),
-					$args
+					$args,
+					'fusion_products_slider'
 				);
 
 				$defaults['column_spacing'] = FusionBuilder::validate_shortcode_attr_value( $defaults['column_spacing'], '' );
@@ -352,7 +353,7 @@ function fusion_element_products_slider() {
 	if ( class_exists( 'WooCommerce' ) ) {
 		fusion_builder_map(
 			array(
-				'name'      => esc_attr__( 'Woo Carousel', 'fusion-builder' ),
+				'name'      => esc_attr__( 'Woo Product Carousel', 'fusion-builder' ),
 				'shortcode' => 'fusion_products_slider',
 				'icon'      => 'fusiona-tag',
 				'params'    => array(

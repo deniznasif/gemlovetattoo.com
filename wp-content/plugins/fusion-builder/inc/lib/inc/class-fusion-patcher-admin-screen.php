@@ -161,11 +161,17 @@ class Fusion_Patcher_Admin_Screen {
 		global $submenu;
 
 		if ( isset( $submenu['avada'] ) && isset( $submenu['avada'][8] ) ) {
-			$theme_options_entry = $submenu['avada'][7];
+
+			// Check needed for FWLB.
+			$theme_options_entry = ( isset( $submenu['avada'][7] ) ) ? $submenu['avada'][7] : false;
 			$patcher_entry = $submenu['avada'][8];
 
 			$submenu['avada'][7] = $patcher_entry;
-			$submenu['avada'][8] = $theme_options_entry;
+			if ( $theme_options_entry ) {
+				$submenu['avada'][8] = $theme_options_entry;
+			} else {
+				unset( $submenu['avada'][8] );
+			}
 		}
 	}
 
@@ -287,16 +293,16 @@ class Fusion_Patcher_Admin_Screen {
 					<p class="description">
 						<?php if ( empty( $available_patches ) ) : ?>
 							<?php /* translators: The product name and its version. */ ?>
-							<?php printf( esc_attr__( 'Fusion Patcher: Currently there are no patches available for %1$s version %2$s', 'Avada' ), esc_attr( $this->patcher->get_args( 'name' ) ), esc_attr( $this->patcher->get_args( 'version' ) ) ); ?>
+							<?php printf( esc_attr__( 'Fusion Patcher: Currently there are no patches available for %1$s version %2$s', 'fusion-builder' ), esc_attr( $this->patcher->get_args( 'name' ) ), esc_attr( $this->patcher->get_args( 'version' ) ) ); ?>
 						<?php else : ?>
 							<?php /* translators: The product name and its version. */ ?>
-							<?php printf( esc_attr__( 'Fusion Patcher: The following patches are available for %1$s version %2$s', 'Avada' ), esc_attr( $this->patcher->get_args( 'name' ) ), esc_attr( $this->patcher->get_args( 'version' ) ) ); ?>
+							<?php printf( esc_attr__( 'Fusion Patcher: The following patches are available for %1$s version %2$s', 'fusion-builder' ), esc_attr( $this->patcher->get_args( 'name' ) ), esc_attr( $this->patcher->get_args( 'version' ) ) ); ?>
 						<?php endif; ?>
-						<span class="fusion-auto-patcher learn-more"><a href="https://theme-fusion.com/documentation/avada/install-update/avada-patcher/" target="_blank" rel="noopener noreferrer"><?php esc_attr_e( 'Learn More', 'Avada' ); ?></a></span>
+						<span class="fusion-auto-patcher learn-more"><a href="https://theme-fusion.com/documentation/avada/install-update/avada-patcher/" target="_blank" rel="noopener noreferrer"><?php esc_attr_e( 'Learn More', 'fusion-builder' ); ?></a></span>
 					</p>
 					<?php if ( ! empty( $available_patches ) ) : ?>
 						<p class="sub-description">
-							<?php esc_attr_e( 'The status column displays if a patch was applied. However, a patch can be reapplied if necessary.', 'Avada' ); ?>
+							<?php esc_attr_e( 'The status column displays if a patch was applied. However, a patch can be reapplied if necessary.', 'fusion-builder' ); ?>
 						</p>
 					<?php endif; ?>
 				</div>
@@ -312,16 +318,16 @@ class Fusion_Patcher_Admin_Screen {
 					<table class="fusion-patcher-table">
 						<tbody>
 							<tr class="fusion-patcher-headings">
-								<th style="min-width:6em;"><?php esc_attr_e( 'Patch #', 'Avada' ); ?></th>
+								<th style="min-width:6em;"><?php esc_attr_e( 'Patch #', 'fusion-builder' ); ?></th>
 								<th>
 									<?php if ( ! empty( $bundles ) ) : ?>
-										<?php esc_attr_e( 'Product', 'Avada' ); ?>
+										<?php esc_attr_e( 'Product', 'fusion-builder' ); ?>
 									<?php else : ?>
-										<?php esc_attr_e( 'Issue Date', 'Avada' ); ?>
+										<?php esc_attr_e( 'Issue Date', 'fusion-builder' ); ?>
 									<?php endif; ?>
 								</th>
-								<th><?php esc_attr_e( 'Description', 'Avada' ); ?></th>
-								<th><?php esc_attr_e( 'Status', 'Avada' ); ?></th>
+								<th><?php esc_attr_e( 'Description', 'fusion-builder' ); ?></th>
+								<th><?php esc_attr_e( 'Status', 'fusion-builder' ); ?></th>
 								<th></th>
 							</tr>
 							</tr>
@@ -401,13 +407,13 @@ class Fusion_Patcher_Admin_Screen {
 												<?php do_settings_sections( 'fusion_patcher_' . $patch_id ); ?>
 												<input type="hidden" name="fusion_patch_contents_<?php echo intval( $patch_id ); ?>" value="<?php echo esc_html( $this->format_patch( $patch_args ) ); ?>" />
 												<?php if ( $patch_applied ) : ?>
-													<?php submit_button( esc_attr__( 'Patch Applied', 'Avada' ) ); ?>
+													<?php submit_button( esc_attr__( 'Patch Applied', 'fusion-builder' ) ); ?>
 												<?php else : ?>
-													<?php submit_button( esc_attr__( 'Apply Patch', 'Avada' ) ); ?>
+													<?php submit_button( esc_attr__( 'Apply Patch', 'fusion-builder' ) ); ?>
 													<?php if ( $patch_failed ) : ?>
 														<?php $dismiss_url = 'admin.php?page=' . $this->patcher->get_args( 'context' ) . '-fusion-patcher&manually-applied-patch=' . $patch_id; ?>
 														<?php $dismiss_url = admin_url( $dismiss_url ); ?>
-														<a class="button" style="margin-top:10px;font-size:11px;color:#b71c1c;display:block;" href="<?php echo esc_url_raw( $dismiss_url ); ?>"><?php esc_attr_e( 'Dismiss Notices', 'Avada' ); ?></a>
+														<a class="button" style="margin-top:10px;font-size:11px;color:#b71c1c;display:block;" href="<?php echo esc_url_raw( $dismiss_url ); ?>"><?php esc_attr_e( 'Dismiss Notices', 'fusion-builder' ); ?></a>
 													<?php endif; ?>
 												<?php endif; ?>
 											</form>
@@ -415,9 +421,9 @@ class Fusion_Patcher_Admin_Screen {
 											<span class="button disabled button-small">
 												<?php if ( isset( $available_patches[ $key - 1 ] ) ) : ?>
 													<?php /* translators: The patch-ID. */ ?>
-													<?php printf( esc_attr__( 'Please apply patch #%s first.', 'Avada' ), intval( $available_patches[ $key - 1 ] ) ); ?>
+													<?php printf( esc_attr__( 'Please apply patch #%s first.', 'fusion-builder' ), intval( $available_patches[ $key - 1 ] ) ); ?>
 												<?php else : ?>
-													<?php esc_attr_e( 'Patch cannot be currently aplied.', 'Avada' ); ?>
+													<?php esc_attr_e( 'Patch cannot be currently aplied.', 'fusion-builder' ); ?>
 												<?php endif; ?>
 											</span>
 										<?php endif; ?>

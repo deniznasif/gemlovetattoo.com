@@ -87,9 +87,10 @@ if ( fusion_is_element_enabled( 'fusion_tagline_box' ) ) {
 						'animation_speed'     => '',
 						'animation_offset'    => $fusion_settings->get( 'animation_offset' ),
 					),
-					$args
+					$args,
+					'fusion_tagline_box'
 				);
-				$defaults = apply_filters( 'fusion_builder_default_args', $defaults, 'fusion_tagline_box' );
+				$defaults = apply_filters( 'fusion_builder_default_args', $defaults, 'fusion_tagline_box', $args );
 
 				$defaults['border'] = FusionBuilder::validate_shortcode_attr_value( $defaults['border'], 'px' );
 
@@ -375,7 +376,7 @@ if ( fusion_is_element_enabled( 'fusion_tagline_box' ) ) {
 
 				return array(
 					'tagline_box_shortcode_section' => array(
-						'label'       => esc_html__( 'Tagline Element', 'fusion-builder' ),
+						'label'       => esc_html__( 'Tagline Box Element', 'fusion-builder' ),
 						'description' => '',
 						'id'          => 'tagline_shortcode_section',
 						'type'        => 'accordion',
@@ -395,7 +396,7 @@ if ( fusion_is_element_enabled( 'fusion_tagline_box' ) ) {
 								'type'        => 'color-alpha',
 							),
 							'tagline_margin' => array(
-								'label'       => esc_html__( 'Tagline Top/Bottom Margins', 'fusion-builder' ),
+								'label'       => esc_html__( 'Tagline Box Top/Bottom Margins', 'fusion-builder' ),
 								'description' => esc_html__( 'Controls the top/bottom margin of the tagline box.', 'fusion-builder' ),
 								'id'          => 'tagline_margin',
 								'default'     => array(
@@ -497,7 +498,7 @@ function fusion_element_tagline_box() {
 				array(
 					'type'        => 'colorpickeralpha',
 					'heading'     => esc_attr__( 'Border Color', 'fusion-builder' ),
-					'description' => esc_attr__( 'Controls the border color. ', 'fusion-builder' ),
+					'description' => esc_attr__( 'Controls the border color.', 'fusion-builder' ),
 					'param_name'  => 'bordercolor',
 					'value'       => '',
 					'default'     => $fusion_settings->get( 'tagline_border_color' ),
@@ -612,7 +613,7 @@ function fusion_element_tagline_box() {
 				array(
 					'type'        => 'radio_button_set',
 					'heading'     => esc_attr__( 'Button Type', 'fusion-builder' ),
-					'description' => esc_attr__( "Select the button's type. Choose default for theme option selection.", 'fusion-builder' ),
+					'description' => esc_attr__( "Select the button's type.", 'fusion-builder' ),
 					'param_name'  => 'button_type',
 					'value'       => array(
 						''     => esc_attr__( 'Default', 'fusion-builder' ),
@@ -631,7 +632,7 @@ function fusion_element_tagline_box() {
 				array(
 					'type'        => 'radio_button_set',
 					'heading'     => esc_attr__( 'Button Shape', 'fusion-builder' ),
-					'description' => esc_attr__( "Select the button's shape. Choose default for theme option selection.", 'fusion-builder' ),
+					'description' => esc_attr__( "Select the button's shape.", 'fusion-builder' ),
 					'param_name'  => 'button_shape',
 					'value'       => array(
 						''       => esc_attr__( 'Default', 'fusion-builder' ),
@@ -651,7 +652,7 @@ function fusion_element_tagline_box() {
 				array(
 					'type'        => 'select',
 					'heading'     => esc_attr__( 'Button Color', 'fusion-builder' ),
-					'description' => esc_attr__( 'Choose the button color. Default uses theme option selection.', 'fusion-builder' ),
+					'description' => esc_attr__( 'Choose the button color.', 'fusion-builder' ),
 					'param_name'  => 'buttoncolor',
 					'value'       => array(
 						'default'   => esc_attr__( 'Default', 'fusion-builder' ),
@@ -790,24 +791,24 @@ function fusion_element_tagline_box() {
 				array(
 					'type'        => 'checkbox_button_set',
 					'heading'     => esc_attr__( 'Element Visibility', 'fusion-builder' ),
+					'description' => esc_attr__( 'Choose to show or hide the element on small, medium or large screens. You can choose more than one at a time.', 'fusion-builder' ),
 					'param_name'  => 'hide_on_mobile',
 					'value'       => fusion_builder_visibility_options( 'full' ),
 					'default'     => fusion_builder_default_visibility( 'array' ),
-					'description' => esc_attr__( 'Choose to show or hide the element on small, medium or large screens. You can choose more than one at a time.', 'fusion-builder' ),
 				),
 				array(
 					'type'        => 'textfield',
 					'heading'     => esc_attr__( 'CSS Class', 'fusion-builder' ),
+					'description' => esc_attr__( 'Add a class to the wrapping HTML element.', 'fusion-builder' ),
 					'param_name'  => 'class',
 					'value'       => '',
-					'description' => esc_attr__( 'Add a class to the wrapping HTML element.', 'fusion-builder' ),
 				),
 				array(
 					'type'        => 'textfield',
 					'heading'     => esc_attr__( 'CSS ID', 'fusion-builder' ),
+					'description' => esc_attr__( 'Add an ID to the wrapping HTML element.', 'fusion-builder' ),
 					'param_name'  => 'id',
 					'value'       => '',
-					'description' => esc_attr__( 'Add an ID to the wrapping HTML element.', 'fusion-builder' ),
 				),
 			),
 		)

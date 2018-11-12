@@ -70,7 +70,8 @@ if ( function_exists( 'fusion_is_element_enabled' ) && fusion_is_element_enabled
 						'id'             => '',
 						'name'           => '',
 					),
-					$args
+					$args,
+					'fusion_fusionslider'
 				);
 
 				extract( $defaults );

@@ -112,9 +112,10 @@ add_filter( 'fusion_builder_element_classes', 'avada_set_builder_classes', 10, 2
  * @since 5.1
  * @param array  $defaults Defaults array.
  * @param string $element  Element name.
+ * @param string $args     Saved element args.
  * @return array altered defaults array.
  */
-function avada_change_builder_default_args( $defaults, $element ) {
+function avada_change_builder_default_args( $defaults, $element, $args ) {
 
 	// If its a custom color scheme selected, then set options based on that.
 	if ( 'fusion_button' == $element && false !== strpos( $defaults['color'], 'scheme-' ) && class_exists( 'Avada' ) ) {
@@ -133,7 +134,7 @@ function avada_change_builder_default_args( $defaults, $element ) {
 	}
 	return $defaults;
 }
-add_filter( 'fusion_builder_default_args', 'avada_change_builder_default_args', 10, 2 );
+add_filter( 'fusion_builder_default_args', 'avada_change_builder_default_args', 10, 3 );
 
 /**
  * Pass on the image_rollover to FB.

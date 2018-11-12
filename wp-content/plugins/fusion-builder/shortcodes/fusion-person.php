@@ -30,6 +30,15 @@ if ( fusion_is_element_enabled( 'fusion_person' ) ) {
 			private $person_image_data = false;
 
 			/**
+			 * The person element counter.
+			 *
+			 * @access private
+			 * @since 1.7.1
+			 * @var int
+			 */
+			private $person_counter = 1;
+
+			/**
 			 * Constructor.
 			 *
 			 * @access public
@@ -89,10 +98,12 @@ if ( fusion_is_element_enabled( 'fusion_person' ) ) {
 						'pic_borderradius'         => intval( $fusion_settings->get( 'person_border_radius' ) ) . 'px',
 						'pic_bordersize'           => $fusion_settings->get( 'person_border_size' ),
 						'pic_link'                 => '',
-						'pic_style'                => 'none',
+						'pic_style'                => $fusion_settings->get( 'person_pic_style' ),
+						'pic_style_blur'           => $fusion_settings->get( 'person_pic_style_blur' ),
 						'pic_style_color'          => strtolower( $fusion_settings->get( 'person_style_color' ) ),
 						'show_custom'              => 'no',
 						'picture'                  => '',
+						'picture_id'               => '',
 						'title'                    => '',
 						'hover_type'               => 'none',
 						'background_color'         => strtolower( $fusion_settings->get( 'person_background_color' ) ),
@@ -129,20 +140,22 @@ if ( fusion_is_element_enabled( 'fusion_person' ) ) {
 						'spotify'                  => '',
 						'email'                    => '',
 					),
-					$args
+					$args,
+					'fusion_person'
 				);
 				foreach ( $args as $key => $arg ) {
 					if ( false !== strpos( $key, 'custom_' ) ) {
 						$defaults[ $key ] = $arg;
 					}
 				}
+				$defaults['pic_style_blur']           = FusionBuilder::validate_shortcode_attr_value( $defaults['pic_style_blur'], 'px' );
 				$defaults['pic_bordersize']           = FusionBuilder::validate_shortcode_attr_value( $defaults['pic_bordersize'], 'px' );
 				$defaults['pic_borderradius']         = FusionBuilder::validate_shortcode_attr_value( $defaults['pic_borderradius'], 'px' );
 				$defaults['social_icon_boxed_radius'] = FusionBuilder::validate_shortcode_attr_value( $defaults['social_icon_boxed_radius'], 'px' );
 				$defaults['social_icon_font_size']    = FusionBuilder::validate_shortcode_attr_value( $defaults['social_icon_font_size'], 'px' );
 				$defaults['social_icon_padding']      = FusionBuilder::validate_shortcode_attr_value( $defaults['social_icon_padding'], 'px' );
 
-				if ( '0px' != $defaults['pic_borderradius'] && ! empty( $defaults['pic_borderradius'] ) && 'bottomshadow' == $defaults['pic_style'] ) {
+				if ( '0px' != $defaults['pic_borderradius'] && ! empty( $defaults['pic_borderradius'] ) && 'bottomshadow' === $defaults['pic_style'] ) {
 					$defaults['pic_style'] = 'none';
 				}
 
@@ -156,25 +169,38 @@ if ( fusion_is_element_enabled( 'fusion_person' ) ) {
 
 				$this->args['styles'] = '';
 
-				$rgb = FusionBuilder::hex2rgb( $defaults['pic_style_color'] );
+				$stylecolor   = ( '#' === $this->args['pic_style_color'][0] ) ? Fusion_Color::new_color( $this->args['pic_style_color'] )->get_new( 'alpha', '0.3' )->to_css( 'rgba' ) : Fusion_Color::new_color( $this->args['pic_style_color'] )->to_css( 'rgba' );
+				$blur         = $this->args['pic_style_blur'];
+				$blur_radius  = ( (int) $blur + 4 ) . 'px';
 
-				if ( 'glow' == $pic_style ) {
-					$this->args['styles'] .= "-moz-box-shadow: 0 0 3px rgba({$rgb[0]},{$rgb[1]},{$rgb[2]},.3);-webkit-box-shadow: 0 0 3px rgba({$rgb[0]},{$rgb[1]},{$rgb[2]},.3);box-shadow: 0 0 3px rgba({$rgb[0]},{$rgb[1]},{$rgb[2]},.3);";
-				}
-
-				if ( 'dropshadow' == $pic_style ) {
-					$this->args['styles'] .= "-moz-box-shadow: 2px 3px 7px rgba({$rgb[0]},{$rgb[1]},{$rgb[2]},.3);-webkit-box-shadow: 2px 3px 7px rgba({$rgb[0]},{$rgb[1]},{$rgb[2]},.3);box-shadow: 2px 3px 7px rgba({$rgb[0]},{$rgb[1]},{$rgb[2]},.3);";
+				if ( 'glow' === $pic_style ) {
+					$this->args['styles'] .= "-webkit-box-shadow: 0 0 {$blur} {$stylecolor};box-shadow: 0 0 {$blur} {$stylecolor};";
+				} elseif ( 'dropshadow' === $pic_style ) {
+					$this->args['styles'] .= "-webkit-box-shadow: {$blur} {$blur} {$blur_radius} {$stylecolor};box-shadow: {$blur} {$blur} {$blur_radius} {$stylecolor};";
 				}
 
 				if ( $pic_borderradius ) {
 					$this->args['styles'] .= '-webkit-border-radius:' . $this->args['pic_borderradius'] . ';-moz-border-radius:' . $this->args['pic_borderradius'] . ';border-radius:' . $this->args['pic_borderradius'] . ';';
 				}
 
+				$styles = '';
+				if ( 'bottomshadow' === $pic_style ) {
+					$styles  .= '.fusion-person-' . $this->person_counter . ' .element-bottomshadow:before, .fusion-person-' . $this->person_counter . ' .element-bottomshadow:after{';
+					$styles  .= '-webkit-box-shadow: 0 17px 10px ' . $stylecolor . ';box-shadow: 0 17px 10px ' . $stylecolor . ';}';
+				}
+				if ( 'liftup' === $this->args['hover_type'] && $pic_borderradius ) {
+					$styles  .= '.fusion-person-' . $this->person_counter . ' .imageframe-liftup:before{';
+					$styles  .= '-webkit-border-radius:' . $this->args['pic_borderradius'] . ';-moz-border-radius:' . $this->args['pic_borderradius'] . ';border-radius:' . $this->args['pic_borderradius'] . ';';
+				}
+
+				if ( '' !== $styles ) {
+					$styles = '<style scoped="scoped">' . $styles . '</style>';
+				}
+
 				$inner_content = $social_icons_content = $social_icons_content_top = $social_icons_content_bottom = '';
 
 				if ( $picture ) {
-
-					$this->person_image_data = $fusion_library->images->get_attachment_data_from_url( $picture );
+					$this->person_image_data = $fusion_library->images->get_attachment_data_by_helper( $this->args['picture_id'], $picture );
 
 					$picture = '<img ' . FusionBuilder::attributes( 'person-shortcode-img' ) . ' />';
 
@@ -235,7 +261,11 @@ if ( fusion_is_element_enabled( 'fusion_person' ) ) {
 
 				} // End if().
 
-				return '<div ' . FusionBuilder::attributes( 'person-shortcode' ) . '>' . $picture . $inner_content . '</div>';
+				$html = '<div ' . FusionBuilder::attributes( 'person-shortcode' ) . '>' . $styles . $picture . $inner_content . '</div>';
+
+				$this->person_counter++;
+
+				return $html;
 			}
 
 			/**
@@ -250,7 +280,7 @@ if ( fusion_is_element_enabled( 'fusion_person' ) ) {
 				$attr = fusion_builder_visibility_atts(
 					$this->args['hide_on_mobile'],
 					array(
-						'class' => 'fusion-person person fusion-person-' . $this->args['content_alignment'] . ' fusion-person-icon-' . $this->args['icon_position'],
+						'class' => 'fusion-person person fusion-person-' . $this->args['content_alignment'] . ' fusion-person-' . $this->person_counter . ' fusion-person-icon-' . $this->args['icon_position'],
 					)
 				);
 
@@ -277,9 +307,10 @@ if ( fusion_is_element_enabled( 'fusion_person' ) ) {
 
 				$attr = array(
 					'class' => 'person-image-container',
+					'style' => '',
 				);
 
-				if ( $this->args['hover_type'] && 'liftup' !== $this->args['hover_type'] ) {
+				if ( 'liftup' !== $this->args['hover_type'] ) {
 					$attr['class'] .= ' hover-type-' . $this->args['hover_type'];
 				}
 
@@ -291,7 +322,16 @@ if ( fusion_is_element_enabled( 'fusion_person' ) ) {
 					$attr['class'] .= ' element-bottomshadow';
 				}
 
-				$attr['style'] = $this->args['styles'];
+				if ( $this->args['pic_borderradius'] ) {
+					$attr['class'] .= ' person-rounded-overflow';
+					$attr['style'] .= '-webkit-border-radius:' . $this->args['pic_borderradius'] . ';-moz-border-radius:' . $this->args['pic_borderradius'] . ';border-radius:' . $this->args['pic_borderradius'] . ';';
+				}
+
+				if ( $this->args['pic_bordersize'] ) {
+					$attr['style'] .= 'border:' . $this->args['pic_bordersize'] . ' solid ' . $this->args['pic_bordercolor'] . ';';
+				}
+
+				$attr['style'] .= $this->args['styles'];
 
 				return $attr;
 
@@ -311,8 +351,8 @@ if ( fusion_is_element_enabled( 'fusion_person' ) ) {
 					'style' => '',
 				);
 
-				if ( $this->args['hover_type'] && 'liftup' === $this->args['hover_type'] ) {
-					$attr['class'] .= ' hover-type-' . $this->args['hover_type'];
+				if ( 'liftup' === $this->args['hover_type'] ) {
+					$attr['class'] .= ' imageframe-liftup';
 				}
 
 				if ( 'bottomshadow' == $this->args['pic_style'] && ( 'zoomin' === $this->args['hover_type'] || 'zoomout' === $this->args['hover_type'] ) ) {
@@ -362,31 +402,23 @@ if ( fusion_is_element_enabled( 'fusion_person' ) ) {
 					'style' => '',
 				);
 
-				$image_width  = ! empty( $this->person_image_data['width'] ) ? $this->person_image_data['width'] : '';
-				$image_height = ! empty( $this->person_image_data['height'] ) ? $this->person_image_data['height'] : '';
-				$image_id     = ! empty( $this->person_image_data['id'] ) ? $this->person_image_data['id'] : '';
+				$image_width  = $this->person_image_data['width'];
+				$image_height = $this->person_image_data['height'];
+				$image_id     = $this->person_image_data['id'];
 
-				if ( ! empty( $image_id ) ) {
+				if ( $image_id ) {
 					$attr['class'] .= esc_attr( ' wp-image-' . $image_id );
 				}
 
-				if ( ! empty( $image_width ) ) {
+				if ( $image_width ) {
 					$attr['width'] = esc_attr( $image_width );
 				}
 
-				if ( ! empty( $image_height ) ) {
+				if ( $image_height ) {
 					$attr['height'] = esc_attr( $image_height );
 				}
 
-				if ( $this->args['pic_borderradius'] ) {
-					$attr['style'] .= '-webkit-border-radius:' . $this->args['pic_borderradius'] . ';-moz-border-radius:' . $this->args['pic_borderradius'] . ';border-radius:' . $this->args['pic_borderradius'] . ';';
-				}
-
-				if ( $this->args['pic_bordersize'] ) {
-					$attr['style'] .= 'border:' . $this->args['pic_bordersize'] . ' solid ' . $this->args['pic_bordercolor'] . ';';
-				}
-
-				$attr['src'] = isset( $this->person_image_data['url'] ) ? $this->person_image_data['url'] : $this->args['picture'];
+				$attr['src'] = ( $this->person_image_data['url'] ) ? $this->person_image_data['url'] : $this->args['picture'];
 				$attr['alt'] = $this->args['name'];
 
 				return $attr;
@@ -555,6 +587,50 @@ if ( fusion_is_element_enabled( 'fusion_person' ) ) {
 								'default'     => 'rgba(0,0,0,0)',
 								'type'        => 'color-alpha',
 							),
+							'person_pic_style' => array(
+								'label'       => esc_html__( 'Person Picture Style Type', 'fusion-builder' ),
+								'description' => esc_html__( 'Select the style type.', 'fusion-builder' ),
+								'id'          => 'person_pic_style',
+								'default'     => 'none',
+								'type'        => 'radio-buttonset',
+								'choices'     => array(
+									'none'         => esc_attr__( 'None', 'fusion-builder' ),
+									'glow'         => esc_attr__( 'Glow', 'fusion-builder' ),
+									'dropshadow'   => esc_attr__( 'Drop Shadow', 'fusion-builder' ),
+									'bottomshadow' => esc_attr__( 'Bottom Shadow', 'fusion-builder' ),
+								),
+							),
+							'person_pic_style_blur' => array(
+								'label'       => esc_html__( 'Person Picture Glow / Drop Shadow Blur', 'fusion-builder' ),
+								'description' => esc_html__( 'Choose the amount of blur added to glow or drop shadow effect.', 'fusion-builder' ),
+								'id'          => 'person_pic_style_blur',
+								'default'     => '3',
+								'type'        => 'slider',
+								'choices'     => array(
+									'min'  => '0',
+									'max'  => '50',
+									'step' => '1',
+								),
+								'required'    => array(
+									array(
+										'setting'  => 'person_pic_style',
+										'operator' => '!=',
+										'value'    => 'none',
+									),
+									array(
+										'setting'  => 'person_pic_style',
+										'operator' => '!=',
+										'value'    => 'bottomshadow',
+									),
+								),
+							),
+							'person_style_color' => array(
+								'label'       => esc_html__( 'Person Style Color', 'fusion-builder' ),
+								'description' => esc_html__( 'Controls the style color for all style types except border.', 'fusion-builder' ),
+								'id'          => 'person_style_color',
+								'default'     => '#000000',
+								'type'        => 'color-alpha',
+							),
 							'person_border_color' => array(
 								'label'       => esc_html__( 'Person Border Color', 'fusion-builder' ),
 								'description' => esc_html__( 'Controls the border color of the person image.', 'fusion-builder' ),
@@ -581,13 +657,6 @@ if ( fusion_is_element_enabled( 'fusion_person' ) ) {
 								'default'     => '0px',
 								'type'        => 'dimension',
 								'choices'     => array( 'px', '%' ),
-							),
-							'person_style_color' => array(
-								'label'       => esc_html__( 'Person Style Color', 'fusion-builder' ),
-								'description' => esc_html__( 'Controls the style color for all style types except border.', 'fusion-builder' ),
-								'id'          => 'person_style_color',
-								'default'     => '#000000',
-								'type'        => 'color-alpha',
 							),
 							'person_alignment' => array(
 								'label'       => esc_html__( 'Person Content Alignment', 'fusion-builder' ),
@@ -661,7 +730,7 @@ function fusion_element_person() {
 			array(
 				'type'        => 'textfield',
 				'heading'     => esc_attr__( 'Title', 'fusion-builder' ),
-				'description' => esc_attr__( 'Insert the title of the person', 'fusion-builder' ),
+				'description' => esc_attr__( 'Insert the title of the person.', 'fusion-builder' ),
 				'param_name'  => 'title',
 				'value'       => esc_attr__( 'Your Content Goes Here', 'fusion-builder' ),
 				'placeholder' => true,
@@ -669,7 +738,7 @@ function fusion_element_person() {
 			array(
 				'type'        => 'textarea',
 				'heading'     => esc_attr__( 'Profile Description', 'fusion-builder' ),
-				'description' => esc_attr__( 'Enter the content to be displayed', 'fusion-builder' ),
+				'description' => esc_attr__( 'Enter the content to be displayed.', 'fusion-builder' ),
 				'param_name'  => 'element_content',
 				'value'       => esc_attr__( 'Your Content Goes Here', 'fusion-builder' ),
 				'placeholder' => true,
@@ -680,6 +749,14 @@ function fusion_element_person() {
 				'description' => esc_attr__( 'Upload an image to display.', 'fusion-builder' ),
 				'param_name'  => 'picture',
 				'value'       => '',
+			),
+			array(
+				'type'        => 'textfield',
+				'heading'     => esc_attr__( 'Picture ID', 'fusion-builder' ),
+				'description' => esc_attr__( 'Picture ID from Media Library.', 'fusion-builder' ),
+				'param_name'  => 'picture_id',
+				'value'       => '',
+				'hidden'      => true,
 			),
 			array(
 				'type'        => 'link_selector',
@@ -698,7 +775,7 @@ function fusion_element_person() {
 			array(
 				'type'        => 'radio_button_set',
 				'heading'     => esc_attr__( 'Link Target', 'fusion-builder' ),
-				'description' => __( '_self = open in same window <br />_blank = open in new window', 'fusion-builder' ),
+				'description' => __( '_self = open in same window.<br />_blank = open in new window.', 'fusion-builder' ),
 				'param_name'  => 'linktarget',
 				'value'       => array(
 					'_self'  => esc_attr__( '_self', 'fusion-builder' ),
@@ -716,69 +793,56 @@ function fusion_element_person() {
 			array(
 				'type'        => 'radio_button_set',
 				'heading'     => esc_attr__( 'Picture Style Type', 'fusion-builder' ),
-				'description' => esc_attr__( 'Selected the style type for the picture.', 'fusion-builder' ),
+				'description' => esc_attr__( 'Select the style type for the picture.', 'fusion-builder' ),
 				'param_name'  => 'pic_style',
 				'value'       => array(
+					''             => esc_attr__( 'Default', 'fusion-builder' ),
 					'none'         => esc_attr__( 'None', 'fusion-builder' ),
 					'glow'         => esc_attr__( 'Glow', 'fusion-builder' ),
 					'dropshadow'   => esc_attr__( 'Drop Shadow', 'fusion-builder' ),
 					'bottomshadow' => esc_attr__( 'Bottom Shadow', 'fusion-builder' ),
 				),
-				'default'     => 'none',
-				'dependency'  => array(
-					array(
-						'element'  => 'picture',
-						'value'    => '',
-						'operator' => '!=',
-					),
-				),
-			),
-			array(
-				'type'        => 'radio_button_set',
-				'heading'     => esc_attr__( 'Hover Type', 'fusion-builder' ),
-				'description' => esc_attr__( 'Select the hover effect type.', 'fusion-builder' ),
-				'param_name'  => 'hover_type',
-				'value'       => array(
-					'none'    => esc_attr__( 'None', 'fusion-builder' ),
-					'zoomin'  => esc_attr__( 'Zoom In', 'fusion-builder' ),
-					'zoomout' => esc_attr__( 'Zoom Out', 'fusion-builder' ),
-					'liftup'  => esc_attr__( 'Lift Up', 'fusion-builder' ),
-				),
-				'default'     => 'none',
-				'dependency'  => array(
-					array(
-						'element'  => 'picture',
-						'value'    => '',
-						'operator' => '!=',
-					),
-				),
-			),
-			array(
-				'type'        => 'colorpickeralpha',
-				'heading'     => esc_attr__( 'Background Color', 'fusion-builder' ),
-				'description' => esc_attr__( 'Controls the background color. Leave blank for theme option selection', 'fusion-builder' ),
-				'param_name'  => 'background_color',
-				'value'       => '',
-				'default'     => $fusion_settings->get( 'person_background_color' ),
-			),
-			array(
-				'type'        => 'radio_button_set',
-				'heading'     => esc_attr__( 'Content Alignment', 'fusion-builder' ),
-				'description' => esc_attr__( 'Choose the alignment of content. Choose default for theme option selection.', 'fusion-builder' ),
-				'param_name'  => 'content_alignment',
-				'value'       => array(
-					''       => esc_attr__( 'Default', 'fusion-builder' ),
-					'left'   => esc_attr__( 'Left', 'fusion-builder' ),
-					'center' => esc_attr__( 'Center', 'fusion-builder' ),
-					'right'  => esc_attr__( 'Right', 'fusion-builder' ),
-				),
 				'default'     => '',
+				'dependency'  => array(
+					array(
+						'element'  => 'picture',
+						'value'    => '',
+						'operator' => '!=',
+					),
+				),
 			),
-
+			array(
+				'type'        => 'range',
+				'heading'     => esc_attr__( 'Picture Glow / Drop Shadow Blur', 'fusion-builder' ),
+				'description' => esc_attr__( 'Choose the amount of blur added to glow or drop shadow effect. In pixels.', 'fusion-builder' ),
+				'param_name'  => 'pic_style_blur',
+				'value'       => '',
+				'min'         => '0',
+				'max'         => '50',
+				'step'        => '1',
+				'default'     => $fusion_settings->get( 'person_pic_style_blur' ),
+				'dependency'    => array(
+					array(
+						'element'  => 'picture',
+						'operator' => '!=',
+						'value'    => '',
+					),
+					array(
+						'element'  => 'pic_style',
+						'operator' => '!=',
+						'value'    => 'none',
+					),
+					array(
+						'element'  => 'pic_style',
+						'operator' => '!=',
+						'value'    => 'bottomshadow',
+					),
+				),
+			),
 			array(
 				'type'        => 'colorpickeralpha',
 				'heading'     => esc_attr__( 'Picture Style Color', 'fusion-builder' ),
-				'description' => esc_attr__( 'For all style types except border. Controls the style color. ', 'fusion-builder' ),
+				'description' => esc_attr__( 'For all style types except border. Controls the style color.', 'fusion-builder' ),
 				'param_name'  => 'pic_style_color',
 				'value'       => '',
 				'default'     => $fusion_settings->get( 'person_style_color' ),
@@ -811,7 +875,7 @@ function fusion_element_person() {
 			array(
 				'type'        => 'colorpickeralpha',
 				'heading'     => esc_attr__( 'Picture Border Color', 'fusion-builder' ),
-				'description' => esc_attr__( "Controls the picture's border color. ", 'fusion-builder' ),
+				'description' => esc_attr__( "Controls the picture's border color.", 'fusion-builder' ),
 				'param_name'  => 'pic_bordercolor',
 				'value'       => '',
 				'default'     => $fusion_settings->get( 'person_border_color' ),
@@ -831,7 +895,7 @@ function fusion_element_person() {
 			array(
 				'type'        => 'textfield',
 				'heading'     => esc_attr__( 'Picture Border Radius', 'fusion-builder' ),
-				'description' => esc_attr__( 'Choose the border radius of the person image. In pixels (px), ex: 1px, or "round". ', 'fusion-builder' ),
+				'description' => esc_attr__( 'Choose the border radius of the person image. In pixels (px), ex: 1px, or "round".', 'fusion-builder' ),
 				'param_name'  => 'pic_borderradius',
 				'value'       => '',
 				'dependency'  => array(
@@ -844,8 +908,49 @@ function fusion_element_person() {
 			),
 			array(
 				'type'        => 'radio_button_set',
+				'heading'     => esc_attr__( 'Hover Type', 'fusion-builder' ),
+				'description' => esc_attr__( 'Select the hover effect type.', 'fusion-builder' ),
+				'param_name'  => 'hover_type',
+				'value'       => array(
+					'none'    => esc_attr__( 'None', 'fusion-builder' ),
+					'zoomin'  => esc_attr__( 'Zoom In', 'fusion-builder' ),
+					'zoomout' => esc_attr__( 'Zoom Out', 'fusion-builder' ),
+					'liftup'  => esc_attr__( 'Lift Up', 'fusion-builder' ),
+				),
+				'default'     => 'none',
+				'dependency'  => array(
+					array(
+						'element'  => 'picture',
+						'value'    => '',
+						'operator' => '!=',
+					),
+				),
+			),
+			array(
+				'type'        => 'colorpickeralpha',
+				'heading'     => esc_attr__( 'Background Color', 'fusion-builder' ),
+				'description' => esc_attr__( 'Controls the background color.', 'fusion-builder' ),
+				'param_name'  => 'background_color',
+				'value'       => '',
+				'default'     => $fusion_settings->get( 'person_background_color' ),
+			),
+			array(
+				'type'        => 'radio_button_set',
+				'heading'     => esc_attr__( 'Content Alignment', 'fusion-builder' ),
+				'description' => esc_attr__( 'Choose the alignment of content.', 'fusion-builder' ),
+				'param_name'  => 'content_alignment',
+				'value'       => array(
+					''       => esc_attr__( 'Default', 'fusion-builder' ),
+					'left'   => esc_attr__( 'Left', 'fusion-builder' ),
+					'center' => esc_attr__( 'Center', 'fusion-builder' ),
+					'right'  => esc_attr__( 'Right', 'fusion-builder' ),
+				),
+				'default'     => '',
+			),
+			array(
+				'type'        => 'radio_button_set',
 				'heading'     => esc_attr__( 'Social Icons Position', 'fusion-builder' ),
-				'description' => esc_attr__( 'Choose the social icon position. Choose default for theme option selection.', 'fusion-builder' ),
+				'description' => esc_attr__( 'Choose the social icon position.', 'fusion-builder' ),
 				'param_name'  => 'icon_position',
 				'value'       => array(
 					''       => esc_attr__( 'Default', 'fusion-builder' ),
@@ -857,7 +962,7 @@ function fusion_element_person() {
 			array(
 				'type'        => 'radio_button_set',
 				'heading'     => esc_attr__( 'Boxed Social Icons', 'fusion-builder' ),
-				'description' => esc_attr__( 'Choose to get a boxed icons. Choose default for theme option selection.', 'fusion-builder' ),
+				'description' => esc_attr__( 'Choose to get boxed icons.', 'fusion-builder' ),
 				'param_name'  => 'social_icon_boxed',
 				'value'       => array(
 					''    => esc_attr__( 'Default', 'fusion-builder' ),
@@ -869,7 +974,7 @@ function fusion_element_person() {
 			array(
 				'type'        => 'textfield',
 				'heading'     => esc_attr__( 'Social Icon Box Radius', 'fusion-builder' ),
-				'description' => esc_attr__( 'Choose the border radius of the boxed icons. In pixels (px), ex: 1px, or "round". ', 'fusion-builder' ),
+				'description' => esc_attr__( 'Choose the border radius of the boxed icons. In pixels (px), ex: 1px, or "round".', 'fusion-builder' ),
 				'param_name'  => 'social_icon_boxed_radius',
 				'value'       => '',
 				'dependency'  => array(
@@ -883,7 +988,7 @@ function fusion_element_person() {
 			array(
 				'type'        => 'radio_button_set',
 				'heading'     => esc_attr__( 'Social Icon Color Type', 'fusion-builder' ),
-				'description' => esc_attr__( 'Controls the color type of the social icons. Choose default for theme option selection.', 'fusion-builder' ),
+				'description' => esc_attr__( 'Controls the color type of the social icons.', 'fusion-builder' ),
 				'param_name'  => 'social_icon_color_type',
 				'value'       => array(
 					''       => esc_attr__( 'Default', 'fusion-builder' ),
@@ -895,7 +1000,7 @@ function fusion_element_person() {
 			array(
 				'type'        => 'textarea',
 				'heading'     => esc_attr__( 'Social Icon Custom Colors', 'fusion-builder' ),
-				'description' => esc_attr__( 'Specify the color of social icons. Use one for all or separate by | symbol. ex: #AA0000|#00AA00|#0000AA. ', 'fusion-builder' ),
+				'description' => esc_attr__( 'Specify the color of social icons. Use one for all or separate by | symbol. ex: #AA0000|#00AA00|#0000AA.', 'fusion-builder' ),
 				'param_name'  => 'social_icon_colors',
 				'value'       => '',
 				'dependency'  => array(
@@ -909,7 +1014,7 @@ function fusion_element_person() {
 			array(
 				'type'        => 'textarea',
 				'heading'     => esc_attr__( 'Social Icon Custom Box Colors', 'fusion-builder' ),
-				'description' => esc_attr__( 'Specify the box color of social icons. Use one for all or separate by | symbol. ex: #AA0000|#00AA00|#0000AA. ', 'fusion-builder' ),
+				'description' => esc_attr__( 'Specify the box color of social icons. Use one for all or separate by | symbol. ex: #AA0000|#00AA00|#0000AA.', 'fusion-builder' ),
 				'param_name'  => 'social_icon_boxed_colors',
 				'value'       => '',
 				'dependency'  => array(
@@ -928,7 +1033,7 @@ function fusion_element_person() {
 			array(
 				'type'        => 'radio_button_set',
 				'heading'     => esc_attr__( 'Social Icon Tooltip Position', 'fusion-builder' ),
-				'description' => esc_attr__( 'Choose the display position for tooltips. Choose default for theme option selection.', 'fusion-builder' ),
+				'description' => esc_attr__( 'Choose the display position for tooltips.', 'fusion-builder' ),
 				'param_name'  => 'social_icon_tooltip',
 				'value'       => array(
 					''       => esc_attr__( 'Default', 'fusion-builder' ),

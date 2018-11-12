@@ -13,7 +13,7 @@
 
 								$this->parent       = $parent;
 								$this->field        = $field;
-								$this->field['msg'] = ( isset( $this->field['msg'] ) ) ? $this->field['msg'] : __( 'This field must be a valid color value.', 'Avada' );
+								$this->field['msg'] = ( isset( $this->field['msg'] ) ) ? $this->field['msg'] : __( 'This field must be a valid color value.', 'fusion-builder' );
 								$this->value        = $value;
 								$this->current      = $current;
 								//$this->validate();

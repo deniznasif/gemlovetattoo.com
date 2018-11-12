@@ -70,7 +70,8 @@ if ( fusion_is_element_enabled( 'fusion_popover' ) ) {
 						'textcolor'        => $fusion_settings->get( 'popover_text_color' ),
 						'trigger'          => 'click',
 					),
-					$args
+					$args,
+					'fusion_popover'
 				);
 
 				if ( 'default' === $defaults['placement'] ) {

@@ -70,7 +70,8 @@ if ( fusion_is_element_enabled( 'fusion_fontawesome' ) ) {
 						'animation_speed'     => '0.1',
 						'animation_offset'    => $fusion_settings->get( 'animation_offset' ),
 					),
-					$args
+					$args,
+					'fusion_fontawesome'
 				);
 
 				extract( $defaults );

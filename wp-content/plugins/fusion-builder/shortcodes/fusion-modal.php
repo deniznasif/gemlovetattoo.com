@@ -73,7 +73,8 @@ if ( fusion_is_element_enabled( 'fusion_modal' ) ) {
 						'title'        => '',
 						'show_footer'  => 'yes',
 					),
-					$args
+					$args,
+					'fusion_modal'
 				);
 
 				extract( $defaults );

@@ -228,8 +228,8 @@ if ( ! class_exists( 'FusionReduxFramework_typography' ) ) {
 				echo '<input type="hidden" class="fusionredux-typography-google-font" value="' . $isGoogleFont . '" id="' . $this->field['id'] . '-google-font">';
 
 				echo '<div class="select_wrapper typography-family" style="width: 220px; margin-right: 5px;">';
-				echo '<label>' . __( 'Font Family', 'Avada' ) . '</label>';
-				$placeholder = $fontFamily[0] ? $fontFamily[0] : __( 'Font family', 'Avada' );
+				echo '<label>' . __( 'Font Family', 'fusion-builder' ) . '</label>';
+				$placeholder = $fontFamily[0] ? $fontFamily[0] : __( 'Font family', 'fusion-builder' );
 
 				echo '<div class=" fusionredux-typography fusionredux-typography-family select3-container ' . $this->field['class'] . '" id="' . $this->field['id'] . '-family" placeholder="' . $placeholder . '" data-id="' . $this->field['id'] . '" data-value="' . $fontFamily[0] . '">';
 
@@ -255,8 +255,8 @@ if ( ! class_exists( 'FusionReduxFramework_typography' ) ) {
 
 				if ( $this->field['font-backup'] === true ) {
 					echo '<div class="select_wrapper typography-family-backup" style="width: 220px; margin-right: 5px;">';
-					echo '<label>' . __( 'Backup Font Family', 'Avada' ) . '</label>';
-					echo '<select data-placeholder="' . __( 'Backup Font Family', 'Avada' ) . '" name="' . $this->field['name'] . $this->field['name_suffix'] . '[font-backup]' . '" class="fusionredux-typography fusionredux-typography-family-backup ' . $this->field['class'] . '" id="' . $this->field['id'] . '-family-backup" data-id="' . $this->field['id'] . '" data-value="' . $this->value['font-backup'] . '">';
+					echo '<label>' . __( 'Backup Font Family', 'fusion-builder' ) . '</label>';
+					echo '<select data-placeholder="' . __( 'Backup Font Family', 'fusion-builder' ) . '" name="' . $this->field['name'] . $this->field['name_suffix'] . '[font-backup]' . '" class="fusionredux-typography fusionredux-typography-family-backup ' . $this->field['class'] . '" id="' . $this->field['id'] . '-family-backup" data-id="' . $this->field['id'] . '" data-value="' . $this->value['font-backup'] . '">';
 					echo '<option data-google="false" data-details="" value=""></option>';
 
 					foreach ( $this->field['fonts'] as $i => $family ) {
@@ -270,15 +270,15 @@ if ( ! class_exists( 'FusionReduxFramework_typography' ) ) {
 			/* Font Style/Weight */
 			if ( $this->field['font-style'] === true || $this->field['font-weight'] === true ) {
 
-				echo '<div class="select_wrapper typography-style" original-title="' . __( 'Font style', 'Avada' ) . '">';
-				echo '<label>' . __( 'Font Weight &amp; Style', 'Avada' ) . '</label>';
+				echo '<div class="select_wrapper typography-style" original-title="' . __( 'Font style', 'fusion-builder' ) . '">';
+				echo '<label>' . __( 'Font Weight &amp; Style', 'fusion-builder' ) . '</label>';
 
 				$style = $this->value['font-weight'] . $this->value['font-style'];
 
 				echo '<input type="hidden" class="typography-font-weight" name="' . $this->field['name'] . $this->field['name_suffix'] . '[font-weight]' . '" value="' . $this->value['font-weight'] . '" data-id="' . $this->field['id'] . '"  /> ';
 				echo '<input type="hidden" class="typography-font-style" name="' . $this->field['name'] . $this->field['name_suffix'] . '[font-style]' . '" value="' . $this->value['font-style'] . '" data-id="' . $this->field['id'] . '"  /> ';
 				$multi = ( isset( $this->field['multi']['weight'] ) && $this->field['multi']['weight'] ) ? ' multiple="multiple"' : "";
-				echo '<select' . $multi . ' data-placeholder="' . __( 'Style', 'Avada' ) . '" class="fusionredux-typography fusionredux-typography-style select ' . $this->field['class'] . '" original-title="' . __( 'Font style', 'Avada' ) . '" id="' . $this->field['id'] . '_style" data-id="' . $this->field['id'] . '" data-value="' . $style . '">';
+				echo '<select' . $multi . ' data-placeholder="' . __( 'Style', 'fusion-builder' ) . '" class="fusionredux-typography fusionredux-typography-style select ' . $this->field['class'] . '" original-title="' . __( 'Font style', 'fusion-builder' ) . '" id="' . $this->field['id'] . '_style" data-id="' . $this->field['id'] . '" data-value="' . $style . '">';
 
 				if ( empty( $this->value['subset'] ) || empty( $this->value['font-weight'] ) ) {
 					echo '<option value=""></option>';
@@ -318,11 +318,11 @@ if ( ! class_exists( 'FusionReduxFramework_typography' ) ) {
 
 			/* Font Script */
 			if ( $this->field['font-family'] == true && $this->field['subsets'] == true && $this->field['google'] == true ) {
-				echo '<div class="select_wrapper typography-script tooltip" original-title="' . __( 'Font subsets', 'Avada' ) . '">';
+				echo '<div class="select_wrapper typography-script tooltip" original-title="' . __( 'Font subsets', 'fusion-builder' ) . '">';
 				echo '<input type="hidden" class="typography-subsets" name="' . $this->field['name'] . $this->field['name_suffix'] . '[subsets]' . '" value="' . $this->value['subsets'] . '" data-id="' . $this->field['id'] . '"  /> ';
-				echo '<label>' . __( 'Font Subsets', 'Avada' ) . '</label>';
+				echo '<label>' . __( 'Font Subsets', 'fusion-builder' ) . '</label>';
 				$multi = ( isset( $this->field['multi']['subset'] ) && $this->field['multi']['subset'] ) ? ' multiple="multiple"' : "";
-				echo '<select'.$multi.' data-placeholder="' . __( 'Subsets', 'Avada' ) . '" class="fusionredux-typography fusionredux-typography-subsets ' . $this->field['class'] . '" original-title="' . __( 'Font script', 'Avada' ) . '"  id="' . $this->field['id'] . '-subsets" data-value="' . $this->value['subsets'] . '" data-id="' . $this->field['id'] . '" >';
+				echo '<select'.$multi.' data-placeholder="' . __( 'Subsets', 'fusion-builder' ) . '" class="fusionredux-typography fusionredux-typography-subsets ' . $this->field['class'] . '" original-title="' . __( 'Font script', 'fusion-builder' ) . '"  id="' . $this->field['id'] . '-subsets" data-value="' . $this->value['subsets'] . '" data-id="' . $this->field['id'] . '" >';
 
 				if ( empty( $this->value['subsets'] ) ) {
 					echo '<option value=""></option>';
@@ -339,9 +339,9 @@ if ( ! class_exists( 'FusionReduxFramework_typography' ) ) {
 
 			/* Font Align */
 			if ( $this->field['text-align'] === true ) {
-				echo '<div class="select_wrapper typography-align tooltip" original-title="' . __( 'Text Align', 'Avada' ) . '">';
-				echo '<label>' . __( 'Text Align', 'Avada' ) . '</label>';
-				echo '<select data-placeholder="' . __( 'Text Align', 'Avada' ) . '" class="fusionredux-typography fusionredux-typography-align ' . $this->field['class'] . '" original-title="' . __( 'Text Align', 'Avada' ) . '"  id="' . $this->field['id'] . '-align" name="' . $this->field['name'] . $this->field['name_suffix'] . '[text-align]' . '" data-value="' . $this->value['text-align'] . '" data-id="' . $this->field['id'] . '" >';
+				echo '<div class="select_wrapper typography-align tooltip" original-title="' . __( 'Text Align', 'fusion-builder' ) . '">';
+				echo '<label>' . __( 'Text Align', 'fusion-builder' ) . '</label>';
+				echo '<select data-placeholder="' . __( 'Text Align', 'fusion-builder' ) . '" class="fusionredux-typography fusionredux-typography-align ' . $this->field['class'] . '" original-title="' . __( 'Text Align', 'fusion-builder' ) . '"  id="' . $this->field['id'] . '-align" name="' . $this->field['name'] . $this->field['name_suffix'] . '[text-align]' . '" data-value="' . $this->value['text-align'] . '" data-id="' . $this->field['id'] . '" >';
 				echo '<option value=""></option>';
 
 				$align = array(
@@ -362,9 +362,9 @@ if ( ! class_exists( 'FusionReduxFramework_typography' ) ) {
 
 			/* Text Transform */
 			if ( $this->field['text-transform'] === true ) {
-				echo '<div class="select_wrapper typography-transform tooltip" original-title="' . __( 'Text Transform', 'Avada' ) . '">';
-				echo '<label>' . __( 'Text Transform', 'Avada' ) . '</label>';
-				echo '<select data-placeholder="' . __( 'Text Transform', 'Avada' ) . '" class="fusionredux-typography fusionredux-typography-transform ' . $this->field['class'] . '" original-title="' . __( 'Text Transform', 'Avada' ) . '"  id="' . $this->field['id'] . '-transform" name="' . $this->field['name'] . $this->field['name_suffix'] . '[text-transform]' . '" data-value="' . $this->value['text-transform'] . '" data-id="' . $this->field['id'] . '" >';
+				echo '<div class="select_wrapper typography-transform tooltip" original-title="' . __( 'Text Transform', 'fusion-builder' ) . '">';
+				echo '<label>' . __( 'Text Transform', 'fusion-builder' ) . '</label>';
+				echo '<select data-placeholder="' . __( 'Text Transform', 'fusion-builder' ) . '" class="fusionredux-typography fusionredux-typography-transform ' . $this->field['class'] . '" original-title="' . __( 'Text Transform', 'fusion-builder' ) . '"  id="' . $this->field['id'] . '-transform" name="' . $this->field['name'] . $this->field['name_suffix'] . '[text-transform]' . '" data-value="' . $this->value['text-transform'] . '" data-id="' . $this->field['id'] . '" >';
 				echo '<option value=""></option>';
 
 				$values = array(
@@ -385,9 +385,9 @@ if ( ! class_exists( 'FusionReduxFramework_typography' ) ) {
 
 			/* Font Variant */
 			if ( $this->field['font-variant'] === true ) {
-				echo '<div class="select_wrapper typography-font-variant tooltip" original-title="' . __( 'Font Variant', 'Avada' ) . '">';
-				echo '<label>' . __( 'Font Variant', 'Avada' ) . '</label>';
-				echo '<select data-placeholder="' . __( 'Font Variant', 'Avada' ) . '" class="fusionredux-typography fusionredux-typography-font-variant ' . $this->field['class'] . '" original-title="' . __( 'Font Variant', 'Avada' ) . '"  id="' . $this->field['id'] . '-font-variant" name="' . $this->field['name'] . $this->field['name_suffix'] . '[font-variant]' . '" data-value="' . $this->value['font-variant'] . '" data-id="' . $this->field['id'] . '" >';
+				echo '<div class="select_wrapper typography-font-variant tooltip" original-title="' . __( 'Font Variant', 'fusion-builder' ) . '">';
+				echo '<label>' . __( 'Font Variant', 'fusion-builder' ) . '</label>';
+				echo '<select data-placeholder="' . __( 'Font Variant', 'fusion-builder' ) . '" class="fusionredux-typography fusionredux-typography-font-variant ' . $this->field['class'] . '" original-title="' . __( 'Font Variant', 'fusion-builder' ) . '"  id="' . $this->field['id'] . '-font-variant" name="' . $this->field['name'] . $this->field['name_suffix'] . '[font-variant]' . '" data-value="' . $this->value['font-variant'] . '" data-id="' . $this->field['id'] . '" >';
 				echo '<option value=""></option>';
 
 				$values = array(
@@ -405,9 +405,9 @@ if ( ! class_exists( 'FusionReduxFramework_typography' ) ) {
 
 			/* Text Decoration */
 			if ( $this->field['text-decoration'] === true ) {
-				echo '<div class="select_wrapper typography-decoration tooltip" original-title="' . __( 'Text Decoration', 'Avada' ) . '">';
-				echo '<label>' . __( 'Text Decoration', 'Avada' ) . '</label>';
-				echo '<select data-placeholder="' . __( 'Text Decoration', 'Avada' ) . '" class="fusionredux-typography fusionredux-typography-decoration ' . $this->field['class'] . '" original-title="' . __( 'Text Decoration', 'Avada' ) . '"  id="' . $this->field['id'] . '-decoration" name="' . $this->field['name'] . $this->field['name_suffix'] . '[text-decoration]' . '" data-value="' . $this->value['text-decoration'] . '" data-id="' . $this->field['id'] . '" >';
+				echo '<div class="select_wrapper typography-decoration tooltip" original-title="' . __( 'Text Decoration', 'fusion-builder' ) . '">';
+				echo '<label>' . __( 'Text Decoration', 'fusion-builder' ) . '</label>';
+				echo '<select data-placeholder="' . __( 'Text Decoration', 'fusion-builder' ) . '" class="fusionredux-typography fusionredux-typography-decoration ' . $this->field['class'] . '" original-title="' . __( 'Text Decoration', 'fusion-builder' ) . '"  id="' . $this->field['id'] . '-decoration" name="' . $this->field['name'] . $this->field['name_suffix'] . '[text-decoration]' . '" data-value="' . $this->value['text-decoration'] . '" data-id="' . $this->field['id'] . '" >';
 				echo '<option value=""></option>';
 
 				$values = array(
@@ -429,8 +429,8 @@ if ( ! class_exists( 'FusionReduxFramework_typography' ) ) {
 			/* Font Size */
 			if ( $this->field['font-size'] === true ) {
 				echo '<div class="input_wrapper font-size fusionredux-container-typography">';
-				echo '<label>' . __( 'Font Size', 'Avada' ) . '</label>';
-				echo '<div class="input-append"><input type="text" class="span2 fusionredux-typography fusionredux-typography-size mini typography-input ' . $this->field['class'] . '" title="' . __( 'Font Size', 'Avada' ) . '" placeholder="' . __( 'Size', 'Avada' ) . '" id="' . $this->field['id'] . '-size" name="' . $this->field['name'] . $this->field['name_suffix'] . '[font-size]' . '" value="' . str_replace( $unit, '', $this->value['font-size'] ) . '" data-value="' . str_replace( $unit, '', $this->value['font-size'] ) . '"><span class="add-on">' . $unit . '</span></div>';
+				echo '<label>' . __( 'Font Size', 'fusion-builder' ) . '</label>';
+				echo '<div class="input-append"><input type="text" class="span2 fusionredux-typography fusionredux-typography-size mini typography-input ' . $this->field['class'] . '" title="' . __( 'Font Size', 'fusion-builder' ) . '" placeholder="' . __( 'Size', 'fusion-builder' ) . '" id="' . $this->field['id'] . '-size" name="' . $this->field['name'] . $this->field['name_suffix'] . '[font-size]' . '" value="' . str_replace( $unit, '', $this->value['font-size'] ) . '" data-value="' . str_replace( $unit, '', $this->value['font-size'] ) . '"><span class="add-on">' . $unit . '</span></div>';
 				echo '<input type="hidden" class="typography-font-size" name="' . $this->field['name'] . $this->field['name_suffix'] . '[font-size]' . '" value="' . $this->value['font-size'] . '" data-id="' . $this->field['id'] . '"  />';
 				echo '</div>';
 			}
@@ -438,8 +438,8 @@ if ( ! class_exists( 'FusionReduxFramework_typography' ) ) {
 			/* Line Height */
 			if ( $this->field['line-height'] === true ) {
 				echo '<div class="input_wrapper line-height fusionredux-container-typography">';
-				echo '<label>' . __( 'Line Height', 'Avada' ) . '</label>';
-				echo '<div class="input-append"><input type="text" class="span2 fusionredux-typography fusionredux-typography-height mini typography-input ' . $this->field['class'] . '" title="' . __( 'Line Height', 'Avada' ) . '" placeholder="' . __( 'Height', 'Avada' ) . '" id="' . $this->field['id'] . '-height" value="' . str_replace( $unit, '', $this->value['line-height'] ) . '" data-value="' . str_replace( $unit, '', $this->value['line-height'] ) . '"><span class="add-on">' . $unit . '</span></div>';
+				echo '<label>' . __( 'Line Height', 'fusion-builder' ) . '</label>';
+				echo '<div class="input-append"><input type="text" class="span2 fusionredux-typography fusionredux-typography-height mini typography-input ' . $this->field['class'] . '" title="' . __( 'Line Height', 'fusion-builder' ) . '" placeholder="' . __( 'Height', 'fusion-builder' ) . '" id="' . $this->field['id'] . '-height" value="' . str_replace( $unit, '', $this->value['line-height'] ) . '" data-value="' . str_replace( $unit, '', $this->value['line-height'] ) . '"><span class="add-on">' . $unit . '</span></div>';
 				echo '<input type="hidden" class="typography-line-height" name="' . $this->field['name'] . $this->field['name_suffix'] . '[line-height]' . '" value="' . $this->value['line-height'] . '" data-id="' . $this->field['id'] . '"  />';
 				echo '</div>';
 			}
@@ -447,8 +447,8 @@ if ( ! class_exists( 'FusionReduxFramework_typography' ) ) {
 			/* Word Spacing */
 			if ( $this->field['word-spacing'] === true ) {
 				echo '<div class="input_wrapper word-spacing fusionredux-container-typography">';
-				echo '<label>' . __( 'Word Spacing', 'Avada' ) . '</label>';
-				echo '<div class="input-append"><input type="text" class="span2 fusionredux-typography fusionredux-typography-word mini typography-input ' . $this->field['class'] . '" title="' . __( 'Word Spacing', 'Avada' ) . '" placeholder="' . __( 'Word Spacing', 'Avada' ) . '" id="' . $this->field['id'] . '-word" value="' . str_replace( $unit, '', $this->value['word-spacing'] ) . '" data-value="' . str_replace( $unit, '', $this->value['word-spacing'] ) . '"><span class="add-on">' . $unit . '</span></div>';
+				echo '<label>' . __( 'Word Spacing', 'fusion-builder' ) . '</label>';
+				echo '<div class="input-append"><input type="text" class="span2 fusionredux-typography fusionredux-typography-word mini typography-input ' . $this->field['class'] . '" title="' . __( 'Word Spacing', 'fusion-builder' ) . '" placeholder="' . __( 'Word Spacing', 'fusion-builder' ) . '" id="' . $this->field['id'] . '-word" value="' . str_replace( $unit, '', $this->value['word-spacing'] ) . '" data-value="' . str_replace( $unit, '', $this->value['word-spacing'] ) . '"><span class="add-on">' . $unit . '</span></div>';
 				echo '<input type="hidden" class="typography-word-spacing" name="' . $this->field['name'] . $this->field['name_suffix'] . '[word-spacing]' . '" value="' . $this->value['word-spacing'] . '" data-id="' . $this->field['id'] . '"  />';
 				echo '</div>';
 			}
@@ -456,8 +456,8 @@ if ( ! class_exists( 'FusionReduxFramework_typography' ) ) {
 			/* Letter Spacing */
 			if ( $this->field['letter-spacing'] === true ) {
 				echo '<div class="input_wrapper letter-spacing fusionredux-container-typography">';
-				echo '<label>' . __( 'Letter Spacing', 'Avada' ) . '</label>';
-				echo '<div class="input-append"><input type="text" class="span2 fusionredux-typography fusionredux-typography-letter mini typography-input ' . $this->field['class'] . '" title="' . __( 'Letter Spacing', 'Avada' ) . '" placeholder="' . __( 'Letter Spacing', 'Avada' ) . '" id="' . $this->field['id'] . '-letter" value="' . str_replace( $unit, '', $this->value['letter-spacing'] ) . '" data-value="' . str_replace( $unit, '', $this->value['letter-spacing'] ) . '"><span class="add-on">' . $unit . '</span></div>';
+				echo '<label>' . __( 'Letter Spacing', 'fusion-builder' ) . '</label>';
+				echo '<div class="input-append"><input type="text" class="span2 fusionredux-typography fusionredux-typography-letter mini typography-input ' . $this->field['class'] . '" title="' . __( 'Letter Spacing', 'fusion-builder' ) . '" placeholder="' . __( 'Letter Spacing', 'fusion-builder' ) . '" id="' . $this->field['id'] . '-letter" value="' . str_replace( $unit, '', $this->value['letter-spacing'] ) . '" data-value="' . str_replace( $unit, '', $this->value['letter-spacing'] ) . '"><span class="add-on">' . $unit . '</span></div>';
 				echo '<input type="hidden" class="typography-letter-spacing" name="' . $this->field['name'] . $this->field['name_suffix'] . '[letter-spacing]' . '" value="' . $this->value['letter-spacing'] . '" data-id="' . $this->field['id'] . '"  />';
 				echo '</div>';
 			}
@@ -475,9 +475,9 @@ if ( ! class_exists( 'FusionReduxFramework_typography' ) ) {
 				}
 
 				echo '<div class="picker-wrapper">';
-				echo '<label>' . __( 'Font Color', 'Avada' ) . '</label>';
+				echo '<label>' . __( 'Font Color', 'fusion-builder' ) . '</label>';
 				echo '<div id="' . $this->field['id'] . '_color_picker" class="colorSelector typography-color"><div style="background-color: ' . $this->value['color'] . '"></div></div>';
-				echo '<input data-default-color="' . $default . '" class="fusionredux-color fusionredux-typography-color ' . $this->field['class'] . '" original-title="' . __( 'Font color', 'Avada' ) . '" id="' . $this->field['id'] . '-color" name="' . $this->field['name'] . $this->field['name_suffix'] . '[color]' . '" type="text" value="' . $this->value['color'] . '" data-id="' . $this->field['id'] . '" />';
+				echo '<input data-default-color="' . $default . '" class="fusionredux-color fusionredux-typography-color ' . $this->field['class'] . '" original-title="' . __( 'Font color', 'fusion-builder' ) . '" id="' . $this->field['id'] . '-color" name="' . $this->field['name'] . $this->field['name_suffix'] . '[color]' . '" type="text" value="' . $this->value['color'] . '" data-id="' . $this->field['id'] . '" />';
 				echo '</div>';
 			}
 
@@ -887,7 +887,7 @@ if ( ! class_exists( 'FusionReduxFramework_typography' ) ) {
 				}
 
 				$this->parent->font_groups['std'] = array(
-					'text'     => __( 'Standard Fonts', 'Avada' ),
+					'text'     => __( 'Standard Fonts', 'fusion-builder' ),
 					'children' => array(),
 				);
 
@@ -988,7 +988,7 @@ if ( ! class_exists( 'FusionReduxFramework_typography' ) ) {
 
 					// optgroup
 					$this->parent->font_groups['google'] = array(
-						'text'     => __( 'Google Webfonts', 'Avada' ),
+						'text'     => __( 'Google Webfonts', 'fusion-builder' ),
 						'children' => array(),
 					);
 

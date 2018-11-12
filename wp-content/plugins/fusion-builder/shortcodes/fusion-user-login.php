@@ -71,10 +71,11 @@ if ( fusion_is_element_enabled( 'fusion_login' ) ||
 			 *
 			 * @since 1.0
 			 *
-			 * @param  array $args       Shortcode paramters.
-			 * @return array                Shortcode paramters with default values where necesarry.
+			 * @param  array  $args      Shortcode paramters.
+			 * @param  string $shortcode Shortcode name.
+			 * @return array             Shortcode paramters with default values where necesarry.
 			 */
-			public function default_shortcode_parameter( $args ) {
+			public function default_shortcode_parameter( $args, $shortcode = false ) {
 
 				global $fusion_settings;
 
@@ -102,7 +103,8 @@ if ( fusion_is_element_enabled( 'fusion_login' ) ||
 
 						'disable_form'          => '', // Only for demo usage.
 					),
-					$args
+					$args,
+					$shortcode
 				);
 
 				$defaults['main_container'] = ( $defaults['disable_form'] ) ? 'div' : 'form';
@@ -122,7 +124,7 @@ if ( fusion_is_element_enabled( 'fusion_login' ) ||
 			 */
 			public function render_login( $args, $content = '' ) {
 
-				$defaults = $this->default_shortcode_parameter( $args );
+				$defaults = $this->default_shortcode_parameter( $args, 'fusion_login' );
 
 				$defaults['action'] = 'login';
 
@@ -221,7 +223,7 @@ if ( fusion_is_element_enabled( 'fusion_login' ) ||
 					$args['register_note'] = esc_attr__( 'Registration confirmation will be emailed to you.', 'fusion-builder' );
 				}
 
-				$defaults = $this->default_shortcode_parameter( $args );
+				$defaults = $this->default_shortcode_parameter( $args, 'fusion_register' );
 
 				$defaults['action'] = 'register';
 
@@ -307,7 +309,7 @@ if ( fusion_is_element_enabled( 'fusion_login' ) ||
 			 */
 			public function render_lost_password( $args, $content = '' ) {
 
-				$defaults = $this->default_shortcode_parameter( $args );
+				$defaults = $this->default_shortcode_parameter( $args, 'fusion_lost_password' );
 
 				$defaults['action'] = 'lostpassword';
 
@@ -971,7 +973,7 @@ if ( fusion_is_element_enabled( 'fusion_login' ) ||
 							),
 							'user_login_form_field_layout' => array(
 								'label'       => esc_html__( 'User Login Form Field Layout', 'fusion-builder' ),
-								'description' => __( 'Choose if form fields should be stacked and full width, or if they should be floated. <strong>IMPORTANT:</strong> This option does only work for the login and the register form.', 'fusion-builder' ),
+								'description' => __( 'Choose if form fields should be stacked and full width, or if they should be floated. <strong>IMPORTANT:</strong> This option only works for the login and the register form.', 'fusion-builder' ),
 								'id'          => 'user_login_form_field_layout',
 								'default'     => 'stacked',
 								'type'        => 'radio-buttonset',
@@ -1004,7 +1006,7 @@ if ( fusion_is_element_enabled( 'fusion_login' ) ||
 							),
 							'user_login_form_show_remember_me' => array(
 								'label'       => esc_html__( 'User Login Show Remember Me Checkbox', 'fusion-builder' ),
-								'description' => esc_html__( 'Controls if the rember me checkbox should be displayed in the login form.', 'fusion-builder' ),
+								'description' => esc_html__( 'Controls if the remenber me checkbox should be displayed in the login form.', 'fusion-builder' ),
 								'id'          => 'user_login_form_show_remember_me',
 								'default'     => 'no',
 								'type'        => 'radio-buttonset',
@@ -1182,7 +1184,7 @@ function fusion_element_login() {
 				array(
 					'type'        => 'radio_button_set',
 					'heading'     => esc_attr__( 'Show Remember Me Checkbox', 'fusion-builder' ),
-					'description' => esc_attr__( 'Controls if the rember me checkbox should be displayed in the login form.', 'fusion-builder' ),
+					'description' => esc_attr__( 'Controls if the remember me checkbox should be displayed in the login form.', 'fusion-builder' ),
 					'param_name'  => 'show_remember_me',
 					'value'       => array(
 						''    => esc_attr__( 'Default', 'fusion-builder' ),

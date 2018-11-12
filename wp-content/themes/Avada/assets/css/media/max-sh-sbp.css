@@ -8,19 +8,7 @@
   margin-left: 0 !important;
   clear: both;
 }
-body.has-sidebar #content {
-  margin-bottom: 50px !important;
-}
-body.has-sidebar #content .fusion-fullwidth:last-child {
-  margin-bottom: 0 !important;
-}
-body.has-sidebar #content .fusion-layout-column:last-child {
-  margin-bottom: 0 !important;
-}
-body.has-sidebar.double-sidebars .sidebar:last-child {
-  margin-top: 50px !important;
-}
-#main .fusion-row {
+#main > .fusion-row {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;

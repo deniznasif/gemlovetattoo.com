@@ -271,8 +271,8 @@ function avada_options_section_advanced( $sections ) {
 						),
 					),
 					'disable_rich_snippet_date' => array(
-						'label'       => esc_html__( 'Rich Snippets Publish Date', 'Avada' ),
-						'description' => esc_html__( 'Turn on to enable date rich snippet data site wide.', 'Avada' ),
+						'label'       => esc_html__( 'Rich Snippets Last Update Date', 'Avada' ),
+						'description' => esc_html__( 'Turn on to enable udate date rich snippet data site wide.', 'Avada' ),
 						'id'          => 'disable_rich_snippet_date',
 						'default'     => '1',
 						'type'        => 'switch',

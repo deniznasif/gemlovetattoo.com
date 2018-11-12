@@ -77,7 +77,8 @@ if ( fusion_is_element_enabled( 'fusion_slider' ) ) {
 						'width'          => '100%',
 						'hover_type'     => 'none',
 					),
-					$args
+					$args,
+					'fusion_slider'
 				);
 
 				$defaults['width']  = FusionBuilder::validate_shortcode_attr_value( $defaults['width'], 'px' );
@@ -141,38 +142,28 @@ if ( fusion_is_element_enabled( 'fusion_slider' ) ) {
 
 				$defaults = FusionBuilder::set_shortcode_defaults(
 					array(
+						'image_id'   => '',
 						'lightbox'   => 'no',
 						'link'       => null,
 						'linktarget' => '_self',
 						'type'       => 'image',
 					),
-					$args
+					$args,
+					'fusion_slide'
 				);
 
 				extract( $defaults );
 
 				$this->child_args = $defaults;
 
-				$this->child_args['alt']   = '';
-				$this->child_args['title'] = '';
 				$this->child_args['src']   = $src = str_replace( '&#215;', 'x', $content );
 
 				if ( 'image' === $type ) {
 
-					$image_data = $fusion_library->images->get_attachment_data_from_url( $src );
-					$image_id   = isset( $image_data['id'] ) ? $image_data['id'] : '';
+					$this->child_args['image_data'] = $fusion_library->images->get_attachment_data_by_helper( $this->child_args['image_id'], $src );
 
-					if ( isset( $image_data['url'] ) ) {
-						$this->child_args['src'] = $image_data['url'];
-					}
-
-					if ( ! empty( $link ) && $link ) {
-						$image_id = $fusion_library->images->get_attachment_id_from_url( $link );
-					}
-
-					if ( $image_id ) {
-						$this->child_args['alt']   = isset( $image_data['alt'] ) ? $image_data['alt'] : '';
-						$this->child_args['title'] = isset( $image_data['title'] ) ? $image_data['title'] : '';
+					if ( $this->child_args['image_data']['url'] ) {
+						$this->child_args['src'] = $this->child_args['image_data']['url'];
 					}
 				}
 
@@ -218,22 +209,18 @@ if ( fusion_is_element_enabled( 'fusion_slider' ) ) {
 					$attr['class'] = 'lightbox-enabled';
 					$attr['data-rel'] = 'prettyPhoto[gallery_slider_' . $this->slider_counter . ']';
 				}
-				$image_id = $fusion_library->images->get_attachment_id_from_url( $this->child_args['link'] );
-				if ( isset( $image_id ) && $image_id ) {
-					$attr['data-caption'] = get_post_field( 'post_excerpt', $image_id );
-					$attr['data-title'] = get_post_field( 'post_title', $image_id );
-				} elseif ( $fusion_library->images->get_attachment_id_from_url( $this->child_args['src'] ) ) {
-					$image_id = $fusion_library->images->get_attachment_id_from_url( $this->child_args['src'] );
-					$attr['aria-label'] = get_post_field( 'post_title', $image_id );
-				}
+
+				$attr['title'] = $this->child_args['image_data']['title_attribute'];
+				$attr['data-caption'] = $this->child_args['image_data']['caption_attribute'];
+				$attr['data-title'] = $this->child_args['image_data']['title_attribute'];
+				$attr['aria-label'] = $this->child_args['image_data']['title_attribute'];
+
 				$attr['href'] = $this->child_args['link'];
 				$attr['target'] = $this->child_args['linktarget'];
 
 				if ( '_blank' == $attr['target'] ) {
 					$attr['rel'] = 'noopener noreferrer';
 				}
-
-				$attr['title'] = $this->child_args['title'];
 
 				return $attr;
 
@@ -262,7 +249,7 @@ if ( fusion_is_element_enabled( 'fusion_slider' ) ) {
 			public function slide_img_attr() {
 				return array(
 					'src' => $this->child_args['src'],
-					'alt' => $this->child_args['alt'],
+					'alt' => $this->child_args['image_data']['alt'],
 				);
 			}
 
@@ -465,6 +452,14 @@ function fusion_element_slide() {
 					),
 				),
 				array(
+					'type'        => 'textfield',
+					'heading'     => esc_attr__( 'Image ID', 'fusion-builder' ),
+					'description' => esc_attr__( 'Image ID from Media Library.', 'fusion-builder' ),
+					'param_name'  => 'image_id',
+					'value'       => '',
+					'hidden'      => true,
+				),
+				array(
 					'type'             => 'textarea',
 					'heading'          => esc_attr__( 'Video Element or Video Embed Code', 'fusion-builder' ),
 					'description'      => __( 'Click the Youtube or Vimeo Element button below then enter your unique video ID, or copy and paste your video embed code. <p><a href="#" class="insert-slider-video" data-type="fusion_youtube">Add YouTube Video</a></p><p><a href="#" class="insert-slider-video" data-type="fusion_vimeo">Add Vimeo Video</a></p>.', 'fusion-builder' ),
@@ -495,7 +490,7 @@ function fusion_element_slide() {
 				),
 				array(
 					'type'        => 'radio_button_set',
-					'heading'     => esc_attr__( 'Lighbox', 'fusion-builder' ),
+					'heading'     => esc_attr__( 'Lightbox', 'fusion-builder' ),
 					'description' => esc_attr__( 'Show image in lightbox. Lightbox must be enabled in Theme Options or the image will open up in the same tab by itself.', 'fusion-builder' ),
 					'param_name'  => 'lightbox',
 					'value'       => array(

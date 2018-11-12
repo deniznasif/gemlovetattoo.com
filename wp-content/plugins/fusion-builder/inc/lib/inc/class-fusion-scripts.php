@@ -678,8 +678,8 @@ class Fusion_Scripts {
 			'fusion-blog',
 			'fusionBlogVars',
 			array(
-				'infinite_blog_text'     => '<em>' . __( 'Loading the next set of posts...', 'Avada' ) . '</em>',
-				'infinite_finished_msg'  => '<em>' . __( 'All items displayed.', 'Avada' ) . '</em>',
+				'infinite_blog_text'     => '<em>' . __( 'Loading the next set of posts...', 'fusion-builder' ) . '</em>',
+				'infinite_finished_msg'  => '<em>' . __( 'All items displayed.', 'fusion-builder' ) . '</em>',
 				'slideshow_autoplay'     => fusion_library()->get_option( 'slideshow_autoplay' ) ? fusion_library()->get_option( 'slideshow_autoplay' ) : false,
 				'slideshow_speed'        => fusion_library()->get_option( 'slideshow_speed' ) ? (int) fusion_library()->get_option( 'slideshow_speed' ) : 5000,
 				'pagination_video_slide' => fusion_library()->get_option( 'pagination_video_slide' ) ? fusion_library()->get_option( 'pagination_video_slide' ) : false,

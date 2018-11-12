@@ -147,7 +147,7 @@ $link_target = ( 'yes' === $link_icon_target || 'yes' === $post_links_target || 
 					$data_rel         = ( 'individual' === fusion_library()->get_option( 'lightbox_behavior' ) ) ? 'iLightbox[gallery' . $post_id . ']' : 'iLightbox[gallery' . $gallery_id . ']';
 					?>
 					<a class="fusion-rollover-gallery" href="<?php echo esc_url_raw( $full_image[0] ); ?>" data-id="<?php echo esc_attr( $post_id ); ?>" data-rel="<?php echo esc_attr( $data_rel ); ?>" data-title="<?php echo esc_attr( get_post_field( 'post_title', get_post_thumbnail_id( $post_id ) ) ); ?>" data-caption="<?php echo esc_attr( get_post_field( 'post_excerpt', get_post_thumbnail_id( $post_id ) ) ); ?>">
-						<?php esc_html_e( 'Gallery', 'Avada' ); ?>
+						<?php esc_html_e( 'Gallery', 'fusion-builder' ); ?>
 					</a>
 					<?php echo $lightbox_content; // WPCS: XSS ok. ?>
 				<?php endif; ?>
@@ -207,7 +207,7 @@ $link_target = ( 'yes' === $link_icon_target || 'yes' === $post_links_target || 
 			<div class="cart-loading">
 				<a href="<?php echo esc_url_raw( wc_get_cart_url() ); ?>">
 					<i class="<?php echo esc_attr( $icon_class ); ?>"></i>
-					<div class="view-cart"><?php esc_html_e( 'View Cart', 'Avada' ); ?></div>
+					<div class="view-cart"><?php esc_html_e( 'View Cart', 'fusion-builder' ); ?></div>
 				</a>
 			</div>
 		<?php endif; ?>

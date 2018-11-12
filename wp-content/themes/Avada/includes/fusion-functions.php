@@ -248,6 +248,10 @@ if ( ! function_exists( 'fusion_add_url_parameter' ) ) {
 
 		$params[ $param_name ] = $param_value;
 
+		if ( 'product_count' == $param_name && is_paged() ) {
+			$params['paged'] = '1';
+		}
+
 		$url_data['query'] = http_build_query( $params );
 		return fusion_build_url( $url_data );
 	}

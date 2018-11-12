@@ -82,7 +82,7 @@ if( class_exists( 'WXR_Importer') ) {
 							// Bail now
 							return new WP_Error(
 								'wxr_importer.post.cannot_import_draft',
-								__( 'Cannot import auto-draft posts', 'Avada' ),
+								__( 'Cannot import auto-draft posts', 'fusion-builder' ),
 								$data
 							);
 						}
@@ -292,7 +292,7 @@ if( class_exists( 'WXR_Importer') ) {
 				return new WP_Error(
 					'import_file_error',
 					sprintf(
-						__( 'Remote server returned %1$d %2$s for %3$s', 'Avada' ),
+						__( 'Remote server returned %1$d %2$s for %3$s', 'fusion-builder' ),
 						$code,
 						get_status_header_desc( $code ),
 						$url
@@ -309,18 +309,18 @@ if( class_exists( 'WXR_Importer') ) {
 
 			if ( isset( $headers['content-length'] ) && $filesize !== (int) $headers['content-length'] ) {
 				unlink( $upload['file'] );
-				return new WP_Error( 'import_file_error', __( 'Remote file is incorrect size', 'Avada' ) );
+				return new WP_Error( 'import_file_error', __( 'Remote file is incorrect size', 'fusion-builder' ) );
 			}
 
 			if ( 0 === $filesize ) {
 				unlink( $upload['file'] );
-				return new WP_Error( 'import_file_error', __( 'Zero size file downloaded', 'Avada' ) );
+				return new WP_Error( 'import_file_error', __( 'Zero size file downloaded', 'fusion-builder' ) );
 			}
 
 			$max_size = (int) $this->max_attachment_size();
 			if ( ! empty( $max_size ) && $filesize > $max_size ) {
 				unlink( $upload['file'] );
-				$message = sprintf( __( 'Remote file is too large, limit is %s', 'Avada' ), size_format( $max_size ) );
+				$message = sprintf( __( 'Remote file is too large, limit is %s', 'fusion-builder' ), size_format( $max_size ) );
 				return new WP_Error( 'import_file_error', $message );
 			}
 
@@ -510,7 +510,7 @@ if( class_exists( 'WXR_Importer') ) {
 			$result = wp_insert_term( $data['name'], $data['taxonomy'], $termdata );
 			if ( is_wp_error( $result ) ) {
 				$this->logger->warning( sprintf(
-					__( 'Failed to import %s %s', 'Avada' ),
+					__( 'Failed to import %s %s', 'fusion-builder' ),
 					$data['taxonomy'],
 					$data['name']
 				) );
@@ -534,12 +534,12 @@ if( class_exists( 'WXR_Importer') ) {
 			$this->mapping['term_id'][ $original_id ] = $term_id;
 
 			$this->logger->info( sprintf(
-				__( 'Imported "%s" (%s)', 'Avada' ),
+				__( 'Imported "%s" (%s)', 'fusion-builder' ),
 				$data['name'],
 				$data['taxonomy']
 			) );
 			$this->logger->debug( sprintf(
-				__( 'Term %d remapped to %d', 'Avada' ),
+				__( 'Term %d remapped to %d', 'fusion-builder' ),
 				$original_id,
 				$term_id
 			) );

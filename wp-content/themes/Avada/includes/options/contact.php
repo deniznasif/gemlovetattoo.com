@@ -394,7 +394,7 @@ function avada_options_section_contact( $sections ) {
 					),
 					'map_scrollwheel' => array(
 						'label'           => esc_html__( 'Map Zoom With Scrollwheel', 'Avada' ),
-						'description'     => esc_html__( 'Turn on to use the mouse scrollwheel to zoom the google map. Use Cmd/Ctrl key + scroll to zoom.', 'Avada' ),
+						'description'     => esc_html__( 'Turn on to use the mouse scrollwheel to zoom the google map. Use Cmd/Ctrl key + scroll to zoom. If set to off, cooperative gesture handling will be enabled.', 'Avada' ),
 						'id'              => 'map_scrollwheel',
 						'default'         => '1',
 						'type'            => 'switch',

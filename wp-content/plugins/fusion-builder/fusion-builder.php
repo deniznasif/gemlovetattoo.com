@@ -4,7 +4,7 @@
 Plugin Name: Fusion Builder
 Plugin URI: http://www.theme-fusion.com
 Description: ThemeFusion Page Builder Plugin
-Version: 1.7
+Version: 1.7.2
 Author: ThemeFusion
 Author URI: http://www.theme-fusion.com
 */
@@ -21,7 +21,7 @@ if ( ! defined( 'FUSION_BUILDER_DEV_MODE' ) ) {
 
 // Plugin version.
 if ( ! defined( 'FUSION_BUILDER_VERSION' ) ) {
-	define( 'FUSION_BUILDER_VERSION', '1.7' );
+	define( 'FUSION_BUILDER_VERSION', '1.7.2' );
 }
 // Plugin Folder Path.
 if ( ! defined( 'FUSION_BUILDER_PLUGIN_DIR' ) ) {
@@ -1626,20 +1626,21 @@ if ( ! class_exists( 'FusionBuilder' ) ) :
 		 * @static
 		 * @access public
 		 * @since 1.0
-		 * @param  array $defaults Array of defaults.
-		 * @param  array $args     Array with user set param values.
+		 * @param  array  $defaults  Array of defaults.
+		 * @param  array  $args      Array with user set param values.
+		 * @param  string $shortcode Shortcode name.
 		 * @return array
 		 */
-		public static function set_shortcode_defaults( $defaults, $args ) {
+		public static function set_shortcode_defaults( $defaults, $args, $shortcode = false ) {
 
 			if ( ! $args ) {
 				$args = array();
 			}
 
-			$args = shortcode_atts( $defaults, $args );
+			$args = shortcode_atts( $defaults, $args, $shortcode );
 
 			foreach ( $args as $key => $value ) {
-				if ( '' === $value || '|' === $value ) {
+				if ( ( '' === $value || '|' === $value ) && isset( $defaults[ $key ] ) ) {
 					$args[ $key ] = $defaults[ $key ];
 				}
 			}

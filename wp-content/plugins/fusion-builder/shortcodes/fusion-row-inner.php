@@ -14,7 +14,8 @@ function fusion_builder_row_inner( $atts, $content = '' ) {
 				'id'    => '',
 				'class' => '',
 			),
-			$atts
+			$atts,
+			'fusion_builder_row_inner'
 		)
 	);
 

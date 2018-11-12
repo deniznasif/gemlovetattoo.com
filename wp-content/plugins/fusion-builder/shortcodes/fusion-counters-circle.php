@@ -66,7 +66,8 @@ if ( fusion_is_element_enabled( 'fusion_counters_circle' ) ) {
 						'id'               => '',
 						'animation_offset' => $fusion_settings->get( 'animation_offset' ),
 					),
-					$args
+					$args,
+					'fusion_counters_circle'
 				);
 
 				extract( $defaults );
@@ -130,7 +131,8 @@ if ( fusion_is_element_enabled( 'fusion_counters_circle' ) ) {
 						'speed'         => '1500',
 						'value'         => '1',
 					),
-					$args
+					$args,
+					'fusion_counter_circle'
 				);
 
 				$defaults['size'] = FusionBuilder::validate_shortcode_attr_value( $defaults['size'], '' );
@@ -232,20 +234,20 @@ if ( fusion_is_element_enabled( 'fusion_counters_circle' ) ) {
 
 				return array(
 					'counters_circle_shortcode_section' => array(
-						'label'       => esc_html__( 'Counter Circle Element', 'fusion-builder' ),
+						'label'       => esc_html__( 'Counter Circles Element', 'fusion-builder' ),
 						'description' => '',
 						'id'          => 'cc_shortcode_section',
 						'type'        => 'accordion',
 						'fields'      => array(
 							'counter_filled_color' => array(
-								'label'       => esc_html__( 'Counter Circle Filled Color', 'fusion-builder' ),
+								'label'       => esc_html__( 'Counter Circles Filled Color', 'fusion-builder' ),
 								'description' => esc_html__( 'Controls the color of the filled circle.', 'fusion-builder' ),
 								'id'          => 'counter_filled_color',
 								'default'     => '#a0ce4e',
 								'type'        => 'color-alpha',
 							),
 							'counter_unfilled_color' => array(
-								'label'       => esc_html__( 'Counter Circle Unfilled Color', 'fusion-builder' ),
+								'label'       => esc_html__( 'Counter Circles Unfilled Color', 'fusion-builder' ),
 								'description' => esc_html__( 'Controls the color of the unfilled circle.', 'fusion-builder' ),
 								'id'          => 'counter_unfilled_color',
 								'default'     => '#f6f6f6',

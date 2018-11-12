@@ -63,13 +63,15 @@ if ( fusion_is_element_enabled( 'fusion_sharing' ) ) {
 						'icons_boxed_radius' => $fusion_library->sanitize->size( $fusion_settings->get( 'sharing_social_links_boxed_radius' ) ),
 						'link'               => '',
 						'pinterest_image'    => '',
+						'pinterest_image_id' => '',
 						'social_networks'    => $this->get_options_settings(),
 						'tagline'            => '',
 						'tagline_color'      => strtolower( $fusion_settings->get( 'sharing_box_tagline_text_color' ) ),
 						'title'              => '',
 						'tooltip_placement'  => strtolower( $fusion_settings->get( 'sharing_social_links_tooltip_placement' ) ),
 					),
-					$args
+					$args,
+					'fusion_sharing'
 				);
 
 				$defaults['icons_boxed_radius'] = FusionBuilder::validate_shortcode_attr_value( $defaults['icons_boxed_radius'], 'px' );
@@ -253,9 +255,10 @@ if ( fusion_is_element_enabled( 'fusion_sharing' ) ) {
 				global $fusion_settings, $fusion_library;
 
 				if ( ! empty( $this->args['pinterest_image'] ) ) {
-					$image_data = $fusion_library->images->get_attachment_data_from_url( $this->args['pinterest_image'] );
 
-					if ( isset( $image_data['url'] ) ) {
+					$image_data = $fusion_library->images->get_attachment_data_by_helper( $this->args['pinterest_image_id'], $this->args['pinterest_image'] );
+
+					if ( $image_data['url'] ) {
 						$this->args['pinterest_image'] = $image_data['url'];
 					}
 				}
@@ -720,7 +723,7 @@ function fusion_element_sharing_box() {
 				array(
 					'type'        => 'colorpickeralpha',
 					'heading'     => esc_attr__( 'Tagline Color', 'fusion-builder' ),
-					'description' => esc_attr__( 'Controls the text color. Leave blank for theme option selection.', 'fusion-builder' ),
+					'description' => esc_attr__( 'Controls the text color.', 'fusion-builder' ),
 					'param_name'  => 'tagline_color',
 					'value'       => '',
 					'default'     => $fusion_settings->get( 'sharing_box_tagline_text_color' ),
@@ -735,7 +738,7 @@ function fusion_element_sharing_box() {
 				array(
 					'type'        => 'colorpickeralpha',
 					'heading'     => esc_attr__( 'Background Color', 'fusion-builder' ),
-					'description' => esc_attr__( 'Controls the background color. ', 'fusion-builder' ),
+					'description' => esc_attr__( 'Controls the background color.', 'fusion-builder' ),
 					'param_name'  => 'backgroundcolor',
 					'value'       => '',
 					'default'     => $fusion_settings->get( 'social_bg_color' ),
@@ -764,7 +767,7 @@ function fusion_element_sharing_box() {
 				array(
 					'type'        => 'radio_button_set',
 					'heading'     => esc_attr__( 'Boxed Social Icons', 'fusion-builder' ),
-					'description' => esc_attr__( 'Choose to get a boxed icons. Choose default for theme option selection.', 'fusion-builder' ),
+					'description' => esc_attr__( 'Choose to get boxed icons.', 'fusion-builder' ),
 					'param_name'  => 'icons_boxed',
 					'value'       => array(
 						''    => esc_attr__( 'Default', 'fusion-builder' ),
@@ -776,7 +779,7 @@ function fusion_element_sharing_box() {
 				array(
 					'type'        => 'textfield',
 					'heading'     => esc_attr__( 'Social Icon Box Radius', 'fusion-builder' ),
-					'description' => esc_attr__( 'Choose the radius of the boxed icons. In pixels (px), ex: 1px, or "round". ', 'fusion-builder' ),
+					'description' => esc_attr__( 'Choose the border radius of the boxed icons. In pixels (px), ex: 1px, or "round". ', 'fusion-builder' ),
 					'param_name'  => 'icons_boxed_radius',
 					'value'       => '',
 					'dependency'  => array(
@@ -790,7 +793,7 @@ function fusion_element_sharing_box() {
 				array(
 					'type'        => 'radio_button_set',
 					'heading'     => esc_attr__( 'Social Icons Color Type', 'fusion-builder' ),
-					'description' => esc_attr__( 'Choose to get a boxed icons. Choose default for theme option selection.', 'fusion-builder' ),
+					'description' => esc_attr__( 'Choose the color type of social icons. Brand colors will use the exact brand color of each network for the icons or boxes.', 'fusion-builder' ),
 					'param_name'  => 'color_type',
 					'value'       => array(
 						''       => esc_attr__( 'Default', 'fusion-builder' ),
@@ -802,7 +805,7 @@ function fusion_element_sharing_box() {
 				array(
 					'type'        => 'textarea',
 					'heading'     => esc_attr__( 'Social Icon Custom Colors', 'fusion-builder' ),
-					'description' => esc_attr__( 'Specify the color of social icons. ', 'fusion-builder' ),
+					'description' => esc_attr__( 'Specify the color of social icons.', 'fusion-builder' ),
 					'param_name'  => 'icon_colors',
 					'value'       => '',
 					'dependency'  => array(
@@ -816,7 +819,7 @@ function fusion_element_sharing_box() {
 				array(
 					'type'        => 'textarea',
 					'heading'     => esc_attr__( 'Social Icon Custom Box Colors', 'fusion-builder' ),
-					'description' => esc_attr__( 'Specify the box color of social icons. ', 'fusion-builder' ),
+					'description' => esc_attr__( 'Specify the box color of social icons.', 'fusion-builder' ),
 					'param_name'  => 'box_colors',
 					'value'       => '',
 					'dependency'  => array(
@@ -835,7 +838,7 @@ function fusion_element_sharing_box() {
 				array(
 					'type'        => 'radio_button_set',
 					'heading'     => esc_attr__( 'Social Icon Tooltip Position', 'fusion-builder' ),
-					'description' => esc_attr__( 'Choose the display position for tooltips. Choose default for theme option selection.', 'fusion-builder' ),
+					'description' => esc_attr__( 'Choose the display position for tooltips.', 'fusion-builder' ),
 					'param_name'  => 'tooltip_placement',
 					'value'       => array(
 						''       => esc_attr__( 'Default', 'fusion-builder' ),
@@ -848,9 +851,17 @@ function fusion_element_sharing_box() {
 				),
 				array(
 					'type'        => 'upload',
-					'heading'     => esc_attr__( 'Choose Image to Share on Pinterest.', 'fusion-builder' ),
+					'heading'     => esc_attr__( 'Choose Image to Share on Pinterest', 'fusion-builder' ),
 					'param_name'  => 'pinterest_image',
 					'value'       => '',
+				),
+				array(
+					'type'        => 'textfield',
+					'heading'     => esc_attr__( 'Pinterest Image ID', 'fusion-builder' ),
+					'description' => esc_attr__( 'Pinterest Image ID from Media Library.', 'fusion-builder' ),
+					'param_name'  => 'pinterest_image_id',
+					'value'       => '',
+					'hidden'      => true,
 				),
 				array(
 					'type'        => 'checkbox_button_set',

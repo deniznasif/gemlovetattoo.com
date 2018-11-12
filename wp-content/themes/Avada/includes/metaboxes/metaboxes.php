@@ -701,7 +701,16 @@ class PyreThemeFrameworkMetaboxes {
 			</div>
 			<div class="pyre_field">
 				<div class="pyre_upload">
-					<input name="pyre_<?php echo esc_attr( $id ); ?>" class="upload_field" id="pyre_<?php echo esc_attr( $id ); ?>" type="text" value="<?php echo esc_attr( get_post_meta( $post->ID, 'pyre_' . $id, true ) ); ?>" />
+					<?php $image_url = get_post_meta( $post->ID, 'pyre_' . $id, true ); ?>
+					<input name="pyre_<?php echo esc_attr( $id ); ?>" class="upload_field" id="pyre_<?php echo esc_attr( $id ); ?>" type="text" value="<?php echo esc_attr( $image_url ); ?>" />
+					<?php
+					$image_id = get_post_meta( $post->ID, 'pyre_' . $id . '_id', true );
+
+					if ( ! $image_id && $image_url ) {
+						$image_id = Fusion_Images::get_attachment_id_from_url( $image_url );
+					}
+					?>
+					<input name="pyre_<?php echo esc_attr( $id ); ?>_id" class="upload_field_id" id="pyre_<?php echo esc_attr( $id ); ?>_id" type="hidden" value="<?php echo esc_attr( $image_id ); ?>" />
 					<input class="fusion_upload_button button" type="button" value="<?php esc_attr_e( 'Browse', 'Avada' ); ?>" />
 				</div>
 			</div>

@@ -54,17 +54,17 @@
 			<span class="spinner"></span>
 <?php
 			if ( false === $this->parent->args['hide_save'] ) {
-				submit_button( __( 'Save Changes', 'Avada' ), 'primary', 'fusionredux_save', false );
+				submit_button( __( 'Save Changes', 'fusion-builder' ), 'primary', 'fusionredux_save', false );
 			}
 
 			if ( false === $this->parent->args['hide_reset'] ) {
-				submit_button( __( 'Reset Section', 'Avada' ), 'secondary', $this->parent->args['opt_name'] . '[defaults-section]', false, array( 'id' => 'fusionredux-defaults-section' ) );
-				submit_button( __( 'Reset All', 'Avada' ), 'secondary', $this->parent->args['opt_name'] . '[defaults]', false, array( 'id' => 'fusionredux-defaults' ) );
+				submit_button( __( 'Reset Section', 'fusion-builder' ), 'secondary', $this->parent->args['opt_name'] . '[defaults-section]', false, array( 'id' => 'fusionredux-defaults-section' ) );
+				submit_button( __( 'Reset All', 'fusion-builder' ), 'secondary', $this->parent->args['opt_name'] . '[defaults]', false, array( 'id' => 'fusionredux-defaults' ) );
 			}
 ?>
 		</div>
 
-		<div class="fusionredux-ajax-loading" alt="<?php _e( 'Working...', 'Avada' ) ?>">&nbsp;</div>
+		<div class="fusionredux-ajax-loading" alt="<?php _e( 'Working...', 'fusion-builder' ) ?>">&nbsp;</div>
 		<div class="clear"></div>
 
 	</div>

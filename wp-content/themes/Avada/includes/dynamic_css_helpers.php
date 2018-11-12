@@ -232,6 +232,7 @@ function avada_get_h1_typography_elements() {
 		'.post-content h1',
 		'.fusion-modal h1',
 		'.fusion-widget-area h1',
+		'.search-page-search-form h1',
 	);
 	// CSS classes that inherit h1 font family.
 	$typography_elements['family'] = array(
@@ -241,6 +242,7 @@ function avada_get_h1_typography_elements() {
 		'.fusion-modal h1',
 		'.fusion-widget-area h1',
 		'.fusion-title h1',
+		'.search-page-search-form h1',
 	);
 	// CSS classes that inherit h1 color.
 	$typography_elements['color'] = array(
@@ -250,6 +252,7 @@ function avada_get_h1_typography_elements() {
 		'.fusion-post-content h1',
 		'.fusion-modal h1',
 		'.fusion-widget-area h1',
+		'.search-page-search-form h1',
 	);
 
 	return $typography_elements;

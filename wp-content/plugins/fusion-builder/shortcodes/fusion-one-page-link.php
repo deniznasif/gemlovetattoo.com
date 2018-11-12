@@ -50,7 +50,8 @@ if ( fusion_is_element_enabled( 'fusion_one_page_text_link' ) ) {
 						'id'    => '',
 						'link'  => '',
 					),
-					$args
+					$args,
+					'fusion_one_page_text_link'
 				);
 
 				extract( $defaults );
@@ -108,7 +109,7 @@ function fusion_element_one_page_text_link() {
 				array(
 					'type'        => 'textfield',
 					'heading'     => esc_attr__( 'Name Of Anchor', 'fusion-builder' ),
-					'description' => esc_attr__( 'Unique identifier of the anchor to scroll to on click.', 'fusion-builder' ),
+					'description' => esc_attr__( 'Unique identifier of the anchor to scroll to on click. Anchor names need to be prefixed with a hastag, ex: #anchorname.', 'fusion-builder' ),
 					'param_name'  => 'link',
 					'value'       => '',
 				),

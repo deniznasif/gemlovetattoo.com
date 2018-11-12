@@ -7,6 +7,59 @@ This is why we highly recommend to stay up to date with each new theme version a
 
 
 -----------------------------------------------------------------------------------------
+Version 5.7.2 - November 08th, 2018
+-----------------------------------------------------------------------------------------
+
+
+- NEW: WordPress 5.0 Compatibility
+- NEW: Added gesture handling support to the Google maps element
+- IMPROVEMENT: Added possibility to display hotlinked images within the Fusion Builder image elements
+- IMPROVEMENT: Updated several option descriptions and dependencies for better usability
+- UPDATED: Font awesome now is on version 5.5
+- FIXED: Page title bar text not always being correct when using AJAX loading on Events Calendar pages
+- FIXED: Security fix to prevent possible XSS attacks in bootstrap JS libraries
+- FIXED: Removed ARIA role from HTML nav tag menus
+- FIXED: Sidebar mobile order not working correctly for WooCommerce archive and single product pages
+- FIXED: Advancing to next WooCommerce checkout tab being possible even if an input error occurred
+- FIXED: Product images in WooCommerce widgets not being correctly sized
+- FIXED: Title element with underline style having incorrect line color, when using custom font size
+- FIXED: Lightbox image size not being correct when using fixed image mode in gallery element
+- FIXED: Text transform option in button element not working for preset colored buttons
+- FIXED: Facebook widget not auto reloading after privacy option for it has been accepted
+- FIXED: Responsive sidebar order not correct when using double sidebars and sidebar one is set to right
+
+
+-----------------------------------------------------------------------------------------
+Version 5.7.1 - October 23rd, 2018
+-----------------------------------------------------------------------------------------
+
+
+- NEW: Added a glow and drop shadow blur option to the person element and improved the style color option
+- NEW: Added animation options, mobile visibility options and class and id settings to the table element
+- NEW: Compatibility with WooCommerce 3.5
+- IMPROVEMENT: Page load performance for all pages using image elements. These performance gains are fully
+               available on new sites, but also be noticeable on existing installs
+- IMPROVEMENT: Added CSS ID options to YouTube and Vimeo elements
+- IMPROVEMENT: Updated several option descriptions and dependencies for better usability
+- IMPROVEMENT: Element search field always having focus now when element tabs are changed in Fusion Builder
+- IMPROVEMENT: Added conditional check to fusion_builder_update_element() to only execute on page edit screens
+- UPDATED: Font awesome now is on version 5.4.1
+- FIXED: Responsive element display issues, when sidebar breakpoint is different from content breakpoint
+- FIXED: Page Title Bar not updating after AJAX month change on Events Calendar month archive
+- FIXED: Theme Options panel not saving when 'no referrer' server policy is active
+- FIXED: WooCommerce main shop page not auto redirecting to first page when number of products filter is changed
+- FIXED: Page Title Bar on iPad portrait mode using table instead of flex box
+- FIXED: Incorrect number of accepted arguments for 'wp_nav_menu_items' filter
+- FIXED: Top/bottom margins between sidebars and content area on mobiles
+- FIXED: Polylang not correctly saving Theme Options when all languages is chosen
+- FIXED: Mobile menu empty parent links not toggling sub-menus on click
+- FIXED: Image elements always use full size images even if thumbs were selected by user
+- FIXED: Flip box element not correctly working as part of dynamically loaded post content
+- FIXED: Search page heading typography not correctly applying h1 settings when page title bar is disabled
+- FIXED: WooCommerce single product pages overflowing on mobiles
+
+
+-----------------------------------------------------------------------------------------
 Version 5.7 - October 01st, 2018
 -----------------------------------------------------------------------------------------
 

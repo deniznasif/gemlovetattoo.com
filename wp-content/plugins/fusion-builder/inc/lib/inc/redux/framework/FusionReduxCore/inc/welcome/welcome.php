@@ -101,7 +101,7 @@
 		}
 
 		public function change_wp_footer() {
-			_e( 'If you like <strong>FusionRedux</strong> please leave us a <a href="https://wordpress.org/support/view/plugin-reviews/fusionredux-framework?filter=5#postform" target="_blank" class="fusionredux-rating-link" data-rated="Thanks :)">&#9733;&#9733;&#9733;&#9733;&#9733;</a> rating. A huge thank you from FusionRedux in advance!', 'Avada' );
+			_e( 'If you like <strong>FusionRedux</strong> please leave us a <a href="https://wordpress.org/support/view/plugin-reviews/fusionredux-framework?filter=5#postform" target="_blank" class="fusionredux-rating-link" data-rated="Thanks :)">&#9733;&#9733;&#9733;&#9733;&#9733;</a> rating. A huge thank you from FusionRedux in advance!', 'fusion-builder' );
 		}
 
 		public function support_hash() {
@@ -142,7 +142,7 @@
 				$return['identifier'] = $data['identifier'];
 			} else {
 				$return['status']  = "error";
-				$return['message'] = esc_html__( "Support hash could not be generated. Please try again later.", 'Avada' );
+				$return['message'] = esc_html__( "Support hash could not be generated. Please try again later.", 'fusion-builder' );
 			}
 
 			echo json_encode( $return );
@@ -164,7 +164,7 @@
 
 			// About Page
 			$page(
-				esc_html__( 'Welcome to FusionRedux Framework', 'Avada' ), esc_html__( 'FusionRedux Framework', 'Avada' ), $this->minimum_capability, 'fusionredux-about', array(
+				esc_html__( 'Welcome to FusionRedux Framework', 'fusion-builder' ), esc_html__( 'FusionRedux Framework', 'fusion-builder' ), $this->minimum_capability, 'fusionredux-about', array(
 					$this,
 					'about_screen'
 				)
@@ -172,7 +172,7 @@
 
 			// Changelog Page
 			$page(
-				esc_html__( 'FusionRedux Framework Changelog', 'Avada' ), esc_html__( 'FusionRedux Framework Changelog', 'Avada' ), $this->minimum_capability, 'fusionredux-changelog', array(
+				esc_html__( 'FusionRedux Framework Changelog', 'fusion-builder' ), esc_html__( 'FusionRedux Framework Changelog', 'fusion-builder' ), $this->minimum_capability, 'fusionredux-changelog', array(
 					$this,
 					'changelog_screen'
 				)
@@ -180,7 +180,7 @@
 
 			// Support Page
 			$page(
-				esc_html__( 'Get Support', 'Avada' ), esc_html__( 'Get Support', 'Avada' ), $this->minimum_capability, 'fusionredux-support', array(
+				esc_html__( 'Get Support', 'fusion-builder' ), esc_html__( 'Get Support', 'fusion-builder' ), $this->minimum_capability, 'fusionredux-support', array(
 					$this,
 					'get_support'
 				)
@@ -188,7 +188,7 @@
 
 			// Support Page
 			$page(
-				esc_html__( 'FusionRedux Extensions', 'Avada' ), esc_html__( 'FusionRedux Extensions', 'Avada' ), $this->minimum_capability, 'fusionredux-extensions', array(
+				esc_html__( 'FusionRedux Extensions', 'fusion-builder' ), esc_html__( 'FusionRedux Extensions', 'fusion-builder' ), $this->minimum_capability, 'fusionredux-extensions', array(
 					$this,
 					'fusionredux_extensions'
 				)
@@ -197,7 +197,7 @@
 
 			// Credits Page
 			$page(
-				esc_html__( 'The people that develop FusionRedux Framework', 'Avada' ), esc_html__( 'The people that develop FusionRedux Framework', 'Avada' ), $this->minimum_capability, 'fusionredux-credits', array(
+				esc_html__( 'The people that develop FusionRedux Framework', 'fusion-builder' ), esc_html__( 'The people that develop FusionRedux Framework', 'fusion-builder' ), $this->minimum_capability, 'fusionredux-credits', array(
 					$this,
 					'credits_screen'
 				)
@@ -205,7 +205,7 @@
 
 			// Status Page
 			$page(
-				esc_html__( 'FusionRedux Framework Status', 'Avada' ), esc_html__( 'FusionRedux Framework Status', 'Avada' ), $this->minimum_capability, 'fusionredux-status', array(
+				esc_html__( 'FusionRedux Framework Status', 'fusion-builder' ), esc_html__( 'FusionRedux Framework Status', 'fusion-builder' ), $this->minimum_capability, 'fusionredux-status', array(
 					$this,
 					'status_screen'
 				)
@@ -305,22 +305,22 @@
 			<h2 class="nav-tab-wrapper">
 				<a class="nav-tab <?php echo $selected == 'fusionredux-about' ? 'nav-tab-active' : ''; ?>"
 					href="<?php echo esc_url( admin_url( add_query_arg( array( 'page' => 'fusionredux-about' ), 'tools.php' ) ) ); ?>">
-					<?php esc_attr_e( "What's New", 'Avada' ); ?>
+					<?php esc_attr_e( "What's New", 'fusion-builder' ); ?>
 				</a> <a class="nav-tab <?php echo $selected == 'fusionredux-extensions' ? 'nav-tab-active' : ''; ?>"
 					href="<?php echo esc_url( admin_url( add_query_arg( array( 'page' => 'fusionredux-extensions' ), 'tools.php' ) ) ); ?>">
-					<?php esc_attr_e( 'Extensions', 'Avada' ); ?>
+					<?php esc_attr_e( 'Extensions', 'fusion-builder' ); ?>
 				</a> <a class="nav-tab <?php echo $selected == 'fusionredux-changelog' ? 'nav-tab-active' : ''; ?>"
 					href="<?php echo esc_url( admin_url( add_query_arg( array( 'page' => 'fusionredux-changelog' ), 'tools.php' ) ) ); ?>">
-					<?php esc_attr_e( 'Changelog', 'Avada' ); ?>
+					<?php esc_attr_e( 'Changelog', 'fusion-builder' ); ?>
 				</a> <a class="nav-tab <?php echo $selected == 'fusionredux-credits' ? 'nav-tab-active' : ''; ?>"
 					href="<?php echo esc_url( admin_url( add_query_arg( array( 'page' => 'fusionredux-credits' ), 'tools.php' ) ) ); ?>">
-					<?php _e( 'Credits', 'Avada' ); ?>
+					<?php _e( 'Credits', 'fusion-builder' ); ?>
 				</a> <a class="nav-tab <?php echo $selected == 'fusionredux-support' ? 'nav-tab-active' : ''; ?>"
 					href="<?php echo esc_url( admin_url( add_query_arg( array( 'page' => 'fusionredux-support' ), 'tools.php' ) ) ); ?>">
-					<?php esc_attr_e( 'Support', 'Avada' ); ?>
+					<?php esc_attr_e( 'Support', 'fusion-builder' ); ?>
 				</a> <a class="nav-tab <?php echo $selected == 'fusionredux-status' ? 'nav-tab-active' : ''; ?>"
 					href="<?php echo esc_url( admin_url( add_query_arg( array( 'page' => 'fusionredux-status' ), 'tools.php' ) ) ); ?>">
-					<?php esc_attr_e( 'Status', 'Avada' ); ?>
+					<?php esc_attr_e( 'Status', 'fusion-builder' ); ?>
 				</a>
 			</h2>
 			<?php
@@ -480,7 +480,7 @@
 
 			foreach ( $contributors as $contributor ) {
 				$contributor_list .= '<li class="wp-person">';
-				$contributor_list .= sprintf( '<a href="%s" title="%s" target="_blank">', esc_url( 'https://github.com/' . $contributor->login ), esc_html( sprintf( __( 'View %s', 'Avada' ), esc_html( $contributor->login ) ) )
+				$contributor_list .= sprintf( '<a href="%s" title="%s" target="_blank">', esc_url( 'https://github.com/' . $contributor->login ), esc_html( sprintf( __( 'View %s', 'fusion-builder' ), esc_html( $contributor->login ) ) )
 				);
 				$contributor_list .= sprintf( '<img src="%s" width="64" height="64" class="gravatar" alt="%s" />', esc_url( $contributor->avatar_url ), esc_html( $contributor->login ) );
 				$contributor_list .= '</a>';

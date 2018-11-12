@@ -66,10 +66,10 @@ if ( ! class_exists( 'Avada_Megamenu' ) ) {
 
 			if ( Avada()->settings->get( 'disable_megamenu' ) ) {
 
-				$megamenu_field_name_suffix = array( 'title', 'widgetarea', 'columnwidth', 'thumbnail', 'background-image' );
+				$megamenu_field_name_suffix = array( 'title', 'widgetarea', 'columnwidth', 'thumbnail', 'thumbnail-id', 'background-image' );
 
 				if ( ! $args['menu-item-parent-id'] ) {
-					$megamenu_field_name_suffix = array( 'status', 'width', 'columns', 'columnwidth', 'thumbnail', 'background-image' );
+					$megamenu_field_name_suffix = array( 'status', 'width', 'columns', 'columnwidth', 'thumbnail', 'thumbnail-id', 'background-image' );
 				}
 
 				$field_name_suffix = array_merge( $field_name_suffix, $megamenu_field_name_suffix );
