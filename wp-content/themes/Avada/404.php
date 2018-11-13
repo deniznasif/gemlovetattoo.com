@@ -23,10 +23,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<div class="fusion-clearfix"></div>
 			<div class="error-page">
 				<div class="fusion-columns fusion-columns-3">
-					<div class="fusion-column col-lg-4 col-md-4 col-sm-4">
+					<div class="fusion-column col-lg-4 col-md-4 col-sm-4 fusion-error-page-404">
 						<div class="error-message">404</div>
 					</div>
-					<div class="fusion-column col-lg-4 col-md-4 col-sm-4 useful-links">
+					<div class="fusion-column col-lg-4 col-md-4 col-sm-4 useful-links fusion-error-page-useful-links">
 						<h3><?php esc_html_e( 'Helpful Links', 'Avada' ); ?></h3>
 						<?php
 						// Get needed checklist default settings.
@@ -94,7 +94,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 						echo $error_page_menu; // WPCS: XSS ok.
 						?>
 					</div>
-					<div class="fusion-column col-lg-4 col-md-4 col-sm-4">
+					<div class="fusion-column col-lg-4 col-md-4 col-sm-4 fusion-error-page-search">
 						<h3><?php esc_html_e( 'Search Our Website', 'Avada' ); ?></h3>
 						<p><?php esc_html_e( 'Can\'t find what you need? Take a moment and do a search below!', 'Avada' ); ?></p>
 						<div class="search-page-search-form">

@@ -94,6 +94,7 @@ if ( fusion_is_element_enabled( 'fusion_imageframe' ) ) {
 						'id'                  => '',
 						'lightbox'            => 'no',
 						'lightbox_image'      => '',
+						'lightbox_image_id'   => '',
 						'link'                => '',
 						'linktarget'          => '_self',
 						'max_width'           => '',
@@ -102,7 +103,8 @@ if ( fusion_is_element_enabled( 'fusion_imageframe' ) ) {
 						'style_type'          => $fusion_settings->get( 'imageframe_style_type' ),
 						'image_id'            => '',
 					),
-					$args
+					$args,
+					'fusion_imageframe'
 				);
 
 				$defaults['blur']         = FusionBuilder::validate_shortcode_attr_value( $defaults['blur'], 'px' );
@@ -125,25 +127,25 @@ if ( fusion_is_element_enabled( 'fusion_imageframe' ) ) {
 
 				$this->args = $defaults;
 
-				$border_radius = $img_styles = '';
+				$border_radius = '';
 
 				if ( '0' != $borderradius && '0px' !== $borderradius ) {
 					$border_radius .= "-webkit-border-radius:{$borderradius};-moz-border-radius:{$borderradius};border-radius:{$borderradius};";
 				}
 
-				if ( $border_radius ) {
-					$img_styles = ' style="' . $border_radius . '"';
-				}
-
 				// Alt tag.
 				$title = $alt_tag = $image_url = $image_id = $image_width = $image_height = '';
 
-				preg_match( '/(src=["\'](.*?)["\'])/', $content, $src );
-
-				if ( array_key_exists( '2', $src ) ) {
-					$src = $src[2];
-				} elseif ( false === strpos( $content, '<img' ) && $content ) {
+				// The URL is added as element content, but where image ID was not available.
+				if ( false === strpos( $content, '<img' ) && $content ) {
 					$src = $content;
+				} else {
+
+					// Old version, where the img tag was added in element contant.
+					preg_match( '/(src=["\'](.*?)["\'])/', $content, $src );
+					if ( array_key_exists( '2', $src ) ) {
+						$src = $src[2];
+					}
 				}
 
 				if ( $src ) {
@@ -155,22 +157,21 @@ if ( fusion_is_element_enabled( 'fusion_imageframe' ) ) {
 					$lightbox_image = $this->args['pic_link'];
 					if ( $this->args['lightbox_image'] ) {
 						$lightbox_image = $this->args['lightbox_image'];
-						$this->lightbox_image_data = $fusion_library->images->get_attachment_data_from_url( $this->args['lightbox_image'] );
+
+						$this->lightbox_image_data = $fusion_library->images->get_attachment_data_by_helper( $this->args['lightbox_image_id'], $this->args['lightbox_image'] );
 					}
 
-					$this->image_data = $fusion_library->images->get_attachment_data_from_url( $this->args['pic_link'] );
+					$this->image_data = $fusion_library->images->get_attachment_data_by_helper( $this->args['image_id'], $this->args['pic_link'] );
 
-					if ( $this->image_data ) {
-						if ( isset( $this->image_data['url'] ) ) {
-							$image_url = $this->image_data['url'];
-						}
-
-						$image_width  = ( $this->image_data['width'] ) ? $this->image_data['width'] : '';
-						$image_height = ( $this->image_data['height'] ) ? $this->image_data['height'] : '';
-						$image_id     = $this->image_data['id'];
-						$alt_tag      = ( $this->image_data['alt'] ) ? $this->image_data['alt'] : '';
-						$title        = ( $this->image_data['title'] ) ? $this->image_data['title'] : '';
+					if ( $this->image_data['url'] ) {
+						$image_url = $this->image_data['url'];
 					}
+
+					$image_width  = $this->image_data['width'];
+					$image_height = $this->image_data['height'];
+					$image_id     = $this->image_data['id'];
+					$alt_tag      = $this->image_data['alt'];
+					$title        = $this->image_data['title_attribute'];
 
 					// For pre 5.0 shortcodes extract the alt tag.
 					preg_match( '/(alt=["\'](.*?)["\'])/', $content, $legacy_alt );
@@ -210,11 +211,11 @@ if ( fusion_is_element_enabled( 'fusion_imageframe' ) ) {
 
 				$img_classes = 'class="' . $img_classes . '"';
 
-				// Add custom and responsive class and the needed styles to the img tag.
+				// Add custom and responsive class to the img tag.
 				if ( ! empty( $classes ) ) {
-					$content = str_replace( $classes[0], $img_classes . $img_styles, $content );
+					$content = str_replace( $classes[0], $img_classes, $content );
 				} else {
-					$content = str_replace( '/>', $img_classes . $img_styles . '/>', $content );
+					$content = str_replace( '/>', $img_classes . '/>', $content );
 				}
 
 				$fusion_library->images->set_grid_image_meta(
@@ -268,7 +269,6 @@ if ( fusion_is_element_enabled( 'fusion_imageframe' ) ) {
 						}
 
 						if ( $element_styles ) {
-
 							$element_styles = '<style scoped="scoped">' . $element_styles . '</style>';
 						}
 					} else {
@@ -773,6 +773,14 @@ function fusion_element_image() {
 							'operator' => '!=',
 						),
 					),
+				),
+				array(
+					'type'        => 'textfield',
+					'heading'     => esc_attr__( 'Lightbox Image ID', 'fusion-builder' ),
+					'description' => esc_attr__( 'Lightbox Image ID from Media Library.', 'fusion-builder' ),
+					'param_name'  => 'lightbox_image_id',
+					'value'       => '',
+					'hidden'      => true,
 				),
 				array(
 					'type'        => 'textfield',

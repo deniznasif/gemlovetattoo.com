@@ -63,7 +63,8 @@ if ( fusion_is_element_enabled( 'fusion_text' ) ) {
 						'rule_size'        => $fusion_settings->get( 'text_rule_size' ),
 						'rule_style'       => $fusion_settings->get( 'text_rule_style' ),
 					),
-					$args
+					$args,
+					'fusion_text'
 				);
 
 				$this->args = $defaults;

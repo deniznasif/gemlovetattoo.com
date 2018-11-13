@@ -71,7 +71,8 @@ if ( fusion_is_element_enabled( 'fusion_postslider' ) ) {
 						'limit'          => '3',
 						'post_id'        => '',
 					),
-					$args
+					$args,
+					'fusion_postslider'
 				);
 
 				extract( $defaults );

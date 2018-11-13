@@ -65,7 +65,7 @@ class Avada_Images extends Fusion_Images {
 
 		$options = get_option( Avada::get_option_name() );
 		if ( isset( $options['status_lightbox'] ) && $options['status_lightbox'] ) {
-			add_filter( 'wp_get_attachment_link', array( $this, 'prepare_lightbox_links' ) );
+			add_filter( 'wp_get_attachment_link', array( $this, 'prepare_lightbox_links' ), 10, 3 );
 		}
 
 		add_filter( 'jpeg_quality', array( $this, 'set_jpeg_quality' ) );
@@ -197,29 +197,38 @@ class Avada_Images extends Fusion_Images {
 		);
 
 		$logo_url = set_url_scheme( Avada()->settings->get( $logo_option_name, 'url' ) );
+		$logo_id = Avada()->settings->get( $logo_option_name, 'id' );
+
+		$upload_dir_paths         = wp_upload_dir();
+		$upload_dir_paths_baseurl = set_url_scheme( $upload_dir_paths['baseurl'] );
+
+		// Make sure the upload path base directory exists in the logo URL, to verify that we're working with a media library image.
+		if ( false === strpos( $logo_url, $upload_dir_paths_baseurl ) ) {
+			$logo_id = 0;
+		}
 
 		if ( $logo_url ) {
 			$logo_data['url'] = $logo_url;
+		}
 
-			/*
-			 * Get data from normal logo, if we are checking a retina logo.
-			 * Except for the main retina logo, because it can be set witout default one because of BC.
-			 */
-			if ( false !== strpos( $logo_option_name, 'retina' ) && 'logo_retina' !== $logo_option_name ) {
-				$logo_url = set_url_scheme( Avada()->settings->get( str_replace( '_retina', '', $logo_option_name ), 'url' ) );
-			}
+		/*
+		 * Get data from normal logo, if we are checking a retina logo.
+		 * Except for the main retina logo, because it can be set witout default one because of BC.
+		 */
+		if ( false !== strpos( $logo_option_name, 'retina' ) && 'logo_retina' !== $logo_option_name ) {
+			$logo_url = set_url_scheme( Avada()->settings->get( str_replace( '_retina', '', $logo_option_name ), 'url' ) );
+		}
 
-			$logo_attachment_data = $this->get_attachment_data_from_url( $logo_url );
+		$logo_attachment_data = $this->get_attachment_data_by_helper( $logo_id, $logo_url );
 
-			if ( $logo_attachment_data ) {
-				// For the main retina logo, we have to set the sizes correctly, for all others they are correct.
-				if ( 'logo_retina' === $logo_option_name ) {
-					$logo_data['width']  = $logo_attachment_data['width'] / 2;
-					$logo_data['height'] = $logo_attachment_data['height'] / 2;
-				} else {
-					$logo_data['width']  = $logo_attachment_data['width'];
-					$logo_data['height'] = $logo_attachment_data['height'];
-				}
+		if ( $logo_attachment_data ) {
+			// For the main retina logo, we have to set the sizes correctly, for all others they are correct.
+			if ( 'logo_retina' === $logo_option_name ) {
+				$logo_data['width']  = ( $logo_attachment_data['width'] ) ? $logo_attachment_data['width'] / 2 : '';
+				$logo_data['height'] = ( $logo_attachment_data['height'] ) ? $logo_attachment_data['height'] / 2 : '';
+			} else {
+				$logo_data['width']  = ( $logo_attachment_data['width'] ) ? $logo_attachment_data['width'] : '';
+				$logo_data['height'] = ( $logo_attachment_data['height'] ) ? $logo_attachment_data['height'] : '';
 			}
 		}
 
@@ -251,7 +260,7 @@ class Avada_Images extends Fusion_Images {
 		// Get retina logo, if default one is not set.
 		if ( '' === $logo_url ) {
 			$logo_url                      = set_url_scheme( Avada()->settings->get( $retina_logo, 'url' ) );
-			$logo_data                     = self::get_logo_data( $retina_logo );
+			$logo_data                     = $this->get_logo_data( $retina_logo );
 			$logo_srcset_data['style']     = '';
 			$logo_srcset_data['srcset']    = $logo_url . ' 1x';
 			$logo_srcset_data['url']       = $logo_url;
@@ -260,7 +269,7 @@ class Avada_Images extends Fusion_Images {
 				$logo_srcset_data['style'] = ' style="max-height:' . $logo_data['height'] . 'px;height:auto;"';
 			}
 		} else {
-			$logo_data = Avada()->images->get_logo_data( $normla_logo );
+			$logo_data = $this->get_logo_data( $normla_logo );
 			$logo_srcset_data['style']     = '';
 			$logo_srcset_data['url']       = $logo_url;
 			$logo_srcset_data['is_retina'] = false;

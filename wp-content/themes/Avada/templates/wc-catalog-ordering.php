@@ -12,8 +12,9 @@
 
 $query_string = '';
 if ( isset( $_SERVER['QUERY_STRING'] ) ) {
-	parse_str( sanitize_text_field( wp_unslash( $_SERVER['QUERY_STRING'] ) ), $params );
-	$query_string = '?' . sanitize_text_field( wp_unslash( $_SERVER['QUERY_STRING'] ) );
+	$query_string = sanitize_text_field( wp_unslash( $_SERVER['QUERY_STRING'] ) );
+	parse_str( $query_string, $params );
+	$query_string = '?' . $query_string;
 }
 
 // Replace it with theme option.

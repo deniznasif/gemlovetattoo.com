@@ -163,7 +163,8 @@ if ( function_exists( 'fusion_is_element_enabled' ) && fusion_is_element_enabled
 							'portfolio_masonry_width_double' => $fusion_settings->get( 'masonry_width_double' ),
 							'boxed_text'                     => '', // Deprecated.
 						),
-						$args
+						$args,
+						'fusion_portfolio'
 					)
 				);
 

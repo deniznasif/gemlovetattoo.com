@@ -70,15 +70,15 @@
 
 ?>
 <div class="wrap about-wrap">
-	<h1><?php esc_html_e( 'FusionRedux Framework - Extensions', 'Avada' ); ?></h1>
+	<h1><?php esc_html_e( 'FusionRedux Framework - Extensions', 'fusion-builder' ); ?></h1>
 
 	<div class="about-text">
-		<?php printf( __( 'Supercharge your FusionRedux experience. Our extensions provide you with features that will take your products to the next level.', 'Avada' ), esc_html($this->display_version) ); ?>
+		<?php printf( __( 'Supercharge your FusionRedux experience. Our extensions provide you with features that will take your products to the next level.', 'fusion-builder' ), esc_html($this->display_version) ); ?>
 	</div>
 	<div class="fusionredux-badge">
 		<i class="el el-fusionredux"></i>
 		<span>
-			<?php printf( __( 'Version %s', 'Avada' ), esc_html(FusionReduxFramework::$_version )); ?>
+			<?php printf( __( 'Version %s', 'fusion-builder' ), esc_html(FusionReduxFramework::$_version )); ?>
 		</span>
 	</div>
 
@@ -86,7 +86,7 @@
 	<?php $this->tabs(); ?>
 
 	<p class="about-description">
-		<?php esc_html_e( "While some are built specificially for developers, extensions such as Custom Fonts are sure to make any user happy.", 'Avada' ); ?>
+		<?php esc_html_e( "While some are built specificially for developers, extensions such as Custom Fonts are sure to make any user happy.", 'fusion-builder' ); ?>
 	</p>
 
 </div>

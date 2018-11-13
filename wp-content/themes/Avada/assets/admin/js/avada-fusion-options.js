@@ -535,4 +535,13 @@ jQuery( document ).ready( function() {
 			jQuery( '#pyre_tab_avada_page_options' ).addClass( 'fusion-options-changed' );
 		}
 	);
+
+	jQuery( '.pyre_metabox_tab:not(#pyre_tab_avada_page_options)' ).on( 'change fusion-changed',
+		'input.upload_field',
+		function() {
+			if ( '' === jQuery( this ).val() ) {
+				jQuery( this ).next().val( '' );
+			}
+		}
+	);
 } );

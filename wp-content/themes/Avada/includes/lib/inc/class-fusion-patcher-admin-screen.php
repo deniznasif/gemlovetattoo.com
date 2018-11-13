@@ -161,11 +161,17 @@ class Fusion_Patcher_Admin_Screen {
 		global $submenu;
 
 		if ( isset( $submenu['avada'] ) && isset( $submenu['avada'][8] ) ) {
-			$theme_options_entry = $submenu['avada'][7];
+
+			// Check needed for FWLB.
+			$theme_options_entry = ( isset( $submenu['avada'][7] ) ) ? $submenu['avada'][7] : false;
 			$patcher_entry = $submenu['avada'][8];
 
 			$submenu['avada'][7] = $patcher_entry;
-			$submenu['avada'][8] = $theme_options_entry;
+			if ( $theme_options_entry ) {
+				$submenu['avada'][8] = $theme_options_entry;
+			} else {
+				unset( $submenu['avada'][8] );
+			}
 		}
 	}
 

@@ -430,7 +430,6 @@
   width: 100%;
 }
 .option-field .wp-picker-container .iris-picker {
-  width: -webkit-calc(100% - 5px) !important;
   width: calc(100% - 5px) !important;
 }
 .option-field .wp-picker-container .iris-picker .iris-palette,
@@ -467,7 +466,6 @@
           border-radius: 0 !important;
 }
 .option-field .wp-picker-container .iris-picker .iris-picker-inner .iris-square {
-  width: -webkit-calc(100% - 41px) !important;
   width: calc(100% - 41px) !important;
   margin-right: 0;
 }
@@ -496,7 +494,6 @@
   width: 365px;
 }
 .option-field .wp-picker-container.wp-picker-alpha-container .iris-picker .iris-square {
-  width: -webkit-calc(100% - 78px) !important;
   width: calc(100% - 78px) !important;
   margin-right: 14px;
 }
@@ -557,13 +554,11 @@
 }
 .range .fusion-slider-container {
   margin: 10px 0;
-  width: -webkit-calc(100% - 130px);
   width: calc(100% - 130px);
   display: block;
   float: left;
 }
 .range .fusion-slider-container.fusion-with-default {
-  width: -webkit-calc(100% - 295px);
   width: calc(100% - 295px);
 }
 .range .fusion-slider-container.noUi-target {
@@ -627,7 +622,6 @@
     padding-top: 10px;
   }
   .range .fusion-slider-container.fusion-with-default {
-    width: -webkit-calc(100% - 130px);
     width: calc(100% - 130px);
   }
 }
@@ -655,7 +649,6 @@
   width: 100%;
 }
 .fusion-builder-main-settings-advanced .fusion-builder-module-settings .range .fusion-slider-container.fusion-with-default {
-  width: -webkit-calc(100% - 130px);
   width: calc(100% - 130px);
 }
 .fusion-builder-main-settings-advanced.fusion-builder-main-settings {
@@ -1820,7 +1813,6 @@
 }
 .rtl #fusion_builder_layout .fusion-page-layouts .fusion-page-layout .fusion-page-layout-title {
   float: right;
-  width: -webkit-calc( 100% - 75px );
   width: calc( 100% - 75px );
   text-align: right;
 }
@@ -3505,12 +3497,10 @@ input[type=text].fusion-builder-section-name:hover {
   text-align: center;
   border-bottom: 1px solid #ddd;
   padding: 8px;
-  width: -webkit-calc( 100% - 15.5px );
   width: calc( 100% - 15.5px );
 }
 .fusion-builder-column-title {
   padding: 8px;
-  width: -webkit-calc( 100% - 15.5px );
   width: calc( 100% - 15.5px );
 }
 .fusion-builder-table-hold {
@@ -3642,10 +3632,8 @@ tr:hover .fusion-builder-table-delete-row {
 }
 .fusion-table-builder-chart.fusion-table-builder .fusion-builder-table {
   margin-top: 95px;
-  margin-left: -webkit-calc( 2.5% + 20px);
   margin-left: calc( 2.5% + 20px);
   margin-right: 2.5%;
-  width: -webkit-calc( 95% - 20px );
   width: calc( 95% - 20px );
 }
 .fusion-table-builder-chart.fusion-table-builder .fusion-builder-module-settings {

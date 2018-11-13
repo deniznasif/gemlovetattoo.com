@@ -68,6 +68,7 @@ if ( ! class_exists( 'FusionSC_Column' ) ) {
 						'id'                  => '',
 						'background_color'    => '',
 						'background_image'    => '',
+						'background_image_id' => '',
 						'background_position' => 'left top',
 						'background_repeat'   => 'no-repeat',
 						'border_style'        => '',
@@ -91,7 +92,8 @@ if ( ! class_exists( 'FusionSC_Column' ) ) {
 						'hover_type'          => 'none',
 						'min_height'          => '',
 					),
-					$atts
+					$atts,
+					'fusion_builder_column'
 				)
 			);
 
@@ -296,9 +298,14 @@ if ( ! class_exists( 'FusionSC_Column' ) ) {
 			}
 
 			$background_image_style = '';
+			$bg_title = '';
 			if ( ! empty( $background_image ) ) {
-				$background_data = $fusion_library->images->get_attachment_data_from_url( $background_image );
-				$background_image_style .= "background-image: url('" . esc_attr( $background_image ) . "');"; }
+
+				$background_data = $fusion_library->images->get_attachment_data_by_helper( $background_image_id, $background_image );
+
+				$background_image_style .= "background-image: url('" . esc_attr( $background_image ) . "');";
+				$bg_title = $background_data['title'];
+			}
 
 			if ( ! empty( $background_position ) ) {
 				$background_image_style .= 'background-position:' . esc_attr( $background_position ) . ';';
@@ -479,7 +486,7 @@ if ( ! class_exists( 'FusionSC_Column' ) ) {
 						' . $inner_content . '
 					</div>
 					<span class="fusion-column-inner-bg hover-type-' . $hover_type . '">
-						<a ' . $href_link . ' aria-label="' . ( ( isset( $background_data['title'] ) ) ? $background_data['title'] : '' ) . '">
+						<a ' . $href_link . ' aria-label="' . $bg_title . '">
 							<span class="fusion-column-inner-bg-image" style="' . $wrapper_style_bg . '"></span>'
 							. $additional_bg_color_span .
 						'</a>
@@ -882,6 +889,14 @@ function fusion_element_column() {
 					'param_name'  => 'background_image',
 					'value'       => '',
 					'group'       => esc_attr__( 'Design', 'fusion-builder' ),
+				),
+				array(
+					'type'        => 'textfield',
+					'heading'     => esc_attr__( 'Background Image ID', 'fusion-builder' ),
+					'description' => esc_attr__( 'Background Image ID from Media Library.', 'fusion-builder' ),
+					'param_name'  => 'background_image_id',
+					'value'       => '',
+					'hidden'      => true,
 				),
 				array(
 					'type'        => 'select',

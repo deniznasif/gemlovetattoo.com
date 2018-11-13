@@ -71,7 +71,8 @@ if ( fusion_is_element_enabled( 'fusion_featured_products_slider' ) ) {
 							'post_type'       => 'product',
 							'posts_per_page'  => -1,
 						),
-						$args
+						$args,
+						'fusion_featured_products_slider'
 					);
 
 					$defaults['column_spacing'] = FusionBuilder::validate_shortcode_attr_value( $defaults['column_spacing'], '' );
@@ -320,7 +321,7 @@ function fusion_element_featured_products_slider() {
 	if ( class_exists( 'WooCommerce' ) ) {
 		fusion_builder_map(
 			array(
-				'name'      => esc_attr__( 'Woo Featured', 'fusion-builder' ),
+				'name'      => esc_attr__( 'Woo Featured Products Slider', 'fusion-builder' ),
 				'shortcode' => 'fusion_featured_products_slider',
 				'icon'      => 'fusiona-star-empty',
 				'params'    => array(

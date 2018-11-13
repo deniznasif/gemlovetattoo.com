@@ -85,19 +85,19 @@ if ( ! class_exists( 'FusionReduxFramework_link_color' ) ) {
 		public function render() {
 
 			if ( $this->field['regular'] === true && $this->field['default']['regular'] !== false ) {
-				echo '<span class="linkColor"><strong>' . __( 'Regular', 'Avada' ) . '</strong>&nbsp;<input id="' . $this->field['id'] . '-regular" name="' . $this->field['name'] . $this->field['name_suffix'] . '[regular]' . '" value="' . $this->value['regular'] . '" class="fusionredux-color fusionredux-color-regular fusionredux-color-init ' . $this->field['class'] . '"  type="text" data-default-color="' . $this->field['default']['regular'] . '" /></span>';
+				echo '<span class="linkColor"><strong>' . __( 'Regular', 'fusion-builder' ) . '</strong>&nbsp;<input id="' . $this->field['id'] . '-regular" name="' . $this->field['name'] . $this->field['name_suffix'] . '[regular]' . '" value="' . $this->value['regular'] . '" class="fusionredux-color fusionredux-color-regular fusionredux-color-init ' . $this->field['class'] . '"  type="text" data-default-color="' . $this->field['default']['regular'] . '" /></span>';
 			}
 
 			if ( $this->field['hover'] === true && $this->field['default']['hover'] !== false ) {
-				echo '<span class="linkColor"><strong>' . __( 'Hover', 'Avada' ) . '</strong>&nbsp;<input id="' . $this->field['id'] . '-hover" name="' . $this->field['name'] . $this->field['name_suffix'] . '[hover]' . '" value="' . $this->value['hover'] . '" class="fusionredux-color fusionredux-color-hover fusionredux-color-init ' . $this->field['class'] . '"  type="text" data-default-color="' . $this->field['default']['hover'] . '" /></span>';
+				echo '<span class="linkColor"><strong>' . __( 'Hover', 'fusion-builder' ) . '</strong>&nbsp;<input id="' . $this->field['id'] . '-hover" name="' . $this->field['name'] . $this->field['name_suffix'] . '[hover]' . '" value="' . $this->value['hover'] . '" class="fusionredux-color fusionredux-color-hover fusionredux-color-init ' . $this->field['class'] . '"  type="text" data-default-color="' . $this->field['default']['hover'] . '" /></span>';
 			}
 
 			if ( $this->field['visited'] === true && $this->field['default']['visited'] !== false ) {
-				echo '<span class="linkColor"><strong>' . __( 'Visited', 'Avada' ) . '</strong>&nbsp;<input id="' . $this->field['id'] . '-hover" name="' . $this->field['name'] . $this->field['name_suffix'] . '[visited]' . '" value="' . $this->value['visited'] . '" class="fusionredux-color fusionredux-color-visited fusionredux-color-init ' . $this->field['class'] . '"  type="text" data-default-color="' . $this->field['default']['visited'] . '" /></span>';
+				echo '<span class="linkColor"><strong>' . __( 'Visited', 'fusion-builder' ) . '</strong>&nbsp;<input id="' . $this->field['id'] . '-hover" name="' . $this->field['name'] . $this->field['name_suffix'] . '[visited]' . '" value="' . $this->value['visited'] . '" class="fusionredux-color fusionredux-color-visited fusionredux-color-init ' . $this->field['class'] . '"  type="text" data-default-color="' . $this->field['default']['visited'] . '" /></span>';
 			}
 
 			if ( $this->field['active'] === true && $this->field['default']['active'] !== false ) {
-				echo '<span class="linkColor"><strong>' . __( 'Active', 'Avada' ) . '</strong>&nbsp;<input id="' . $this->field['id'] . '-active" name="' . $this->field['name'] . $this->field['name_suffix'] . '[active]' . '" value="' . $this->value['active'] . '" class="fusionredux-color fusionredux-color-active fusionredux-color-init ' . $this->field['class'] . '"  type="text" data-default-color="' . $this->field['default']['active'] . '" /></span>';
+				echo '<span class="linkColor"><strong>' . __( 'Active', 'fusion-builder' ) . '</strong>&nbsp;<input id="' . $this->field['id'] . '-active" name="' . $this->field['name'] . $this->field['name_suffix'] . '[active]' . '" value="' . $this->value['active'] . '" class="fusionredux-color fusionredux-color-active fusionredux-color-init ' . $this->field['class'] . '"  type="text" data-default-color="' . $this->field['default']['active'] . '" /></span>';
 			}
 		}
 

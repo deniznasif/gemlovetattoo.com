@@ -443,25 +443,25 @@ class Fusion_FusionRedux {
 				if ( in_array( $field['id'], $font_size_dimension_fields, true ) ) {
 					$args['validate_callback'] = 'fusion_fusionredux_validate_font_size';
 					/* translators: The description subtitle and an example value. */
-					$args['subtitle'] = sprintf( esc_attr__( '%1$s Enter value including CSS unit (px, em, rem), ex: %2$s.', 'Avada' ), $args['subtitle'], $field['default'] );
+					$args['subtitle'] = sprintf( esc_attr__( '%1$s Enter value including CSS unit (px, em, rem), ex: %2$s.', 'fusion-builder' ), $args['subtitle'], $field['default'] );
 				} elseif ( 'text_column_spacing' === $field['id'] ) {
 					/* translators: The description subtitle and an example value. */
-					$args['subtitle'] = sprintf( esc_attr__( '%1$s Enter value including any valid CSS unit besides %% which does not work for inline columns, ex: %2$s.', 'Avada' ), $args['subtitle'], $field['default'] );
+					$args['subtitle'] = sprintf( esc_attr__( '%1$s Enter value including any valid CSS unit besides %% which does not work for inline columns, ex: %2$s.', 'fusion-builder' ), $args['subtitle'], $field['default'] );
 				} elseif ( 'page_title_height' === $field['id'] || 'page_title_mobile_height' === $field['id'] ) {
 					/* translators: The description subtitle and an example value. */
-					$args['subtitle'] = sprintf( esc_attr__( '%1$s Enter value including any valid CSS unit besides %% which does not work for page title bar, ex: %2$s.', 'Avada' ), $args['subtitle'], $field['default'] );
+					$args['subtitle'] = sprintf( esc_attr__( '%1$s Enter value including any valid CSS unit besides %% which does not work for page title bar, ex: %2$s.', 'fusion-builder' ), $args['subtitle'], $field['default'] );
 				} else {
 					/* translators: The description subtitle and an example value. */
-					$args['subtitle'] = sprintf( esc_attr__( '%1$s Enter value including any valid CSS unit, ex: %2$s.', 'Avada' ), $args['subtitle'], $field['default'] );
+					$args['subtitle'] = sprintf( esc_attr__( '%1$s Enter value including any valid CSS unit, ex: %2$s.', 'fusion-builder' ), $args['subtitle'], $field['default'] );
 				}
 				break;
 			case 'dimensions':
 				if ( 'lightbox_video_dimensions' === $field['id'] || 'menu_arrow_size' === $field['id'] ) {
 					/* translators: The description subtitle and an example value. */
-					$args['subtitle'] = sprintf( esc_attr__( '%1$s In pixels, ex: %2$s.', 'Avada' ), $args['subtitle'], implode( ', ', $field['default'] ) );
+					$args['subtitle'] = sprintf( esc_attr__( '%1$s In pixels, ex: %2$s.', 'fusion-builder' ), $args['subtitle'], implode( ', ', $field['default'] ) );
 				} else {
 					/* translators: The description subtitle and an example value. */
-					$args['subtitle'] = sprintf( esc_attr__( '%1$s Enter values including any valid CSS unit, ex: %2$s.', 'Avada' ), $args['subtitle'], implode( ', ', $field['default'] ) );
+					$args['subtitle'] = sprintf( esc_attr__( '%1$s Enter values including any valid CSS unit, ex: %2$s.', 'fusion-builder' ), $args['subtitle'], implode( ', ', $field['default'] ) );
 				}
 				$args['validate_callback'] = 'fusion_fusionredux_validate_dimensions';
 				break;
@@ -473,7 +473,7 @@ class Fusion_FusionRedux {
 				$args['validate_callback'] = 'fusion_fusionredux_validate_dimensions';
 				$default = is_array( $field['default'] ) ? implode( ', ', $field['default'] ) : $field['default'];
 				/* translators: The description subtitle and an example value. */
-				$args['subtitle'] = sprintf( esc_attr__( '%1$s Enter values including any valid CSS unit, ex: %2$s.', 'Avada' ), $args['subtitle'], $default );
+				$args['subtitle'] = sprintf( esc_attr__( '%1$s Enter values including any valid CSS unit, ex: %2$s.', 'fusion-builder' ), $args['subtitle'], $default );
 				break;
 			case 'number':
 				$args['type'] = 'spinner';
@@ -498,7 +498,7 @@ class Fusion_FusionRedux {
 				$not_in_pixels = apply_filters( 'fusion_options_sliders_not_in_pixels', array() );
 
 				if ( ! in_array( $field['id'], $not_in_pixels ) ) {
-					$args['subtitle'] = $args['subtitle'] . ' ' . esc_attr__( 'In pixels.', 'Avada' );
+					$args['subtitle'] = $args['subtitle'] . ' ' . esc_attr__( 'In pixels.', 'fusion-builder' );
 				}
 
 				if ( isset( $field['choices'] ) && isset( $field['choices']['min'] ) ) {
@@ -724,13 +724,13 @@ class Fusion_FusionRedux {
 
 		if ( isset( $soft_dependencies[ $field['id'] ] ) && 'custom' !== $field['type'] ) {
 
-			$option_type = esc_attr__( 'Page', 'Avada' );
+			$option_type = esc_attr__( 'Page', 'fusion-builder' );
 			if ( array_key_exists( $field['id'], $builder_soft_dependencies ) ) {
-				$option_type = esc_attr__( 'Builder', 'Avada' );
+				$option_type = esc_attr__( 'Builder', 'fusion-builder' );
 			}
 
 			/* translators: The option type. */
-			$correlation_link = '  <span class="fusion-hover-description"><a href="https://theme-fusion.com/documentation/avada/options/how-options-work/" target="_blank" rel="noopener noreferrer">' . sprintf( __( 'This is a dependent option that always stays visible because other %s Options can utilize it.', 'Avada' ), $option_type ) . '</a></span>';
+			$correlation_link = '  <span class="fusion-hover-description"><a href="https://theme-fusion.com/documentation/avada/options/how-options-work/" target="_blank" rel="noopener noreferrer">' . sprintf( __( 'This is a dependent option that always stays visible because other %s Options can utilize it.', 'fusion-builder' ), $option_type ) . '</a></span>';
 
 			$args['subtitle'] .= $correlation_link;
 			foreach ( $args['required'] as $key => $requirement ) {
@@ -776,8 +776,8 @@ class Fusion_FusionRedux {
 	public function enqueue() {
 		$vars = array(
 			'option_name'        => $this->args['option_name'],
-			'theme_skin'         => esc_attr__( 'Theme Skin', 'Avada' ),
-			'color_scheme'       => esc_attr__( 'Color Scheme', 'Avada' ),
+			'theme_skin'         => esc_attr__( 'Theme Skin', 'fusion-builder' ),
+			'color_scheme'       => esc_attr__( 'Color Scheme', 'fusion-builder' ),
 			'theme_options_name' => ( class_exists( 'Avada' ) ) ? Avada::get_option_name() : 'fusion_theme_options',
 		);
 		wp_register_script( 'fusion-redux-custom-js', trailingslashit( FUSION_LIBRARY_URL ) . 'inc/redux/assets/fusion-redux.js', array( 'jquery' ), time(), true );
@@ -1123,13 +1123,12 @@ class Fusion_FusionRedux {
 
 			// Check the HTTP referrer to determine if the language is set to "all".
 			if ( $parsed_url ) {
-				global $wp_version;
 
-				if ( version_compare( $wp_version, '4.4', '>=' ) ) {
-					if ( ! function_exists( 'wp_parse_url' ) ) {
-						require_once wp_normalize_path( ABSPATH . '/wp-includes/http.php' );
-					}
+				if ( ! function_exists( 'wp_parse_url' ) ) {
+					require_once wp_normalize_path( ABSPATH . '/wp-includes/http.php' );
 				}
+
+				$parsed_url = wp_parse_url( $parsed_url );
 
 				if ( isset( $parsed_url['query'] ) ) {
 					parse_str( $parsed_url['query'], $query_args );
@@ -1187,7 +1186,7 @@ class Fusion_FusionRedux {
 	 * @return string
 	 */
 	public function reset_message_l10n() {
-		return esc_attr__( 'Are you sure? This will reset all saved options to the default Avada Classic theme options. This does not reset them to any other demo that you may have imported.', 'Avada' );
+		return esc_attr__( 'Are you sure? This will reset all saved options to the default Avada Classic theme options. This does not reset them to any other demo that you may have imported.', 'fusion-builder' );
 	}
 
 	/**
@@ -1197,7 +1196,7 @@ class Fusion_FusionRedux {
 	 * @return string
 	 */
 	public function reset_section_message_l10n() {
-		return esc_attr__( 'Are you sure? This will reset all saved options to the default Avada Classic theme options for this section. This does not reset them to any other demo that you may have imported.', 'Avada' );
+		return esc_attr__( 'Are you sure? This will reset all saved options to the default Avada Classic theme options for this section. This does not reset them to any other demo that you may have imported.', 'fusion-builder' );
 	}
 
 	/**
@@ -1207,7 +1206,7 @@ class Fusion_FusionRedux {
 	 * @return string
 	 */
 	public function fusionredux_import_file_description_l10n() {
-		return esc_attr__( 'Copy the contents of the json file and paste it below. Then click "Import" to restore your setings.', 'Avada' );
+		return esc_attr__( 'Copy the contents of the json file and paste it below. Then click "Import" to restore your setings.', 'fusion-builder' );
 	}
 
 	/**
@@ -1281,19 +1280,19 @@ class Fusion_FusionRedux {
 		}
 		?>
 		<div id="remote-media-found-in-fusion-options" class="notice notice-error" style="position:relative;">
-			<p><?php esc_attr_e( 'Media fields using remote URLs were detected in your theme options:', 'Avada' ); ?></p>
+			<p><?php esc_attr_e( 'Media fields using remote URLs were detected in your theme options:', 'fusion-builder' ); ?></p>
 			<ul style="list-style:disc outside none;">
 				<?php foreach ( $this->media_fields as $field ) : ?>
 					<li style="margin-left:1.5em;"><?php echo esc_html( $field['label'] ); ?></li>
 				<?php endforeach; ?>
 			</ul>
-			<p><?php esc_attr_e( 'Please replace them with locally-imported files from your media-library', 'Avada' ); ?></p>
+			<p><?php esc_attr_e( 'Please replace them with locally-imported files from your media-library', 'fusion-builder' ); ?></p>
 			<span id="fusion-redux-remote-media-ajax-notification-nonce" class="hidden">
 				<?php echo esc_attr( wp_create_nonce( 'avada-redux-ajax-notification-nonce' ) ); ?>
 			</span>
 			<a href="javascript:;" id="dismiss-fusion-redux-ajax-notification" style="position:absolute;top:5px;right:5px;color:#dc3232;text-decoration:none;">
 				<span class="dashicons dashicons-dismiss" style="font-size:1rem;"></span>
-				<span class="screen-reader-text"><?php esc_attr_e( 'Dismiss Message', 'Avada' ); ?></span>
+				<span class="screen-reader-text"><?php esc_attr_e( 'Dismiss Message', 'fusion-builder' ); ?></span>
 			</a>
 		</div>
 		<?php

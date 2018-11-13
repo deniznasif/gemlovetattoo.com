@@ -74,14 +74,14 @@
 							}
 						} else {
 							if ( ! self::is_enqueued( $handle, 'enqueued', $is_script ) ) {
-								$msg = __( 'Please wait a few minutes, then try refreshing the page. Unable to load some remotely hosted scripts.', 'Avada' );
+								$msg = __( 'Please wait a few minutes, then try refreshing the page. Unable to load some remotely hosted scripts.', 'fusion-builder' );
 								if ( self::$_parent->args['dev_mode'] ) {
-									$msg = sprintf( __( 'If you are developing offline, please download and install the <a href="%s" target="_blank">FusionRedux Vendor Support</a> plugin/extension to bypass the our CDN and avoid this warning', 'Avada' ), 'https://github.com/fusionreduxframework/fusionredux-vendor-support' );
+									$msg = sprintf( __( 'If you are developing offline, please download and install the <a href="%s" target="_blank">FusionRedux Vendor Support</a> plugin/extension to bypass the our CDN and avoid this warning', 'fusion-builder' ), 'https://github.com/fusionreduxframework/fusionredux-vendor-support' );
 								}
 
 								self::$_parent->admin_notices[] = array(
 									'type'    => 'error',
-									'msg'     => '<strong>' . __( 'FusionRedux Framework Warning', 'Avada' ) . '</strong><br/>' . sprintf( __( '%s CDN unavailable.  Some controls may not render properly.', 'Avada' ), $handle ) . '  ' . $msg,
+									'msg'     => '<strong>' . __( 'FusionRedux Framework Warning', 'fusion-builder' ) . '</strong><br/>' . sprintf( __( '%s CDN unavailable.  Some controls may not render properly.', 'fusion-builder' ), $handle ) . '  ' . $msg,
 									'id'      => $handle . $tran_key,
 									'dismiss' => false,
 								);
@@ -113,7 +113,7 @@
 					if ( ! self::$_set ) {
 						self::$_parent->admin_notices[] = array(
 							'type'    => 'error',
-							'msg'     => sprintf( __( 'The <a href="%s">Vendor Support plugin</a> (or extension) is either not installed or not activated and thus, some controls may not render properly.  Please ensure that it is installed and <a href="%s">activated</a>', 'Avada' ), 'https://github.com/fusionreduxframework/fusionredux-vendor-support', admin_url( 'plugins.php' ) ),
+							'msg'     => sprintf( __( 'The <a href="%s">Vendor Support plugin</a> (or extension) is either not installed or not activated and thus, some controls may not render properly.  Please ensure that it is installed and <a href="%s">activated</a>', 'fusion-builder' ), 'https://github.com/fusionreduxframework/fusionredux-vendor-support', admin_url( 'plugins.php' ) ),
 							'id'      => $handle . '23',
 							'dismiss' => false,
 						);

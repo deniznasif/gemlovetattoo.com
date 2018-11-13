@@ -93,7 +93,8 @@ if ( fusion_is_element_enabled( 'fusion_social_links' ) ) {
 						'spotify'            => '',
 						'email'              => '',
 					),
-					$args
+					$args,
+					'fusion_social_links'
 				);
 				foreach ( $args as $key => $arg ) {
 					if ( false !== strpos( $key, 'custom_' ) ) {
@@ -290,13 +291,13 @@ if ( fusion_is_element_enabled( 'fusion_social_links' ) ) {
 			 *
 			 * @access public
 			 * @since 1.1
-			 * @return array $sections Social Icon settings.
+			 * @return array $sections Social Links settings.
 			 */
 			public function add_options() {
 
 				return array(
 					'social_links_shortcode_section' => array(
-						'label'       => esc_html__( 'Social Icon Elements', 'fusion-builder' ),
+						'label'       => esc_html__( 'Social Links Elements', 'fusion-builder' ),
 						'description' => '',
 						'id'          => 'sociallinks_shortcode_section',
 						'type'        => 'accordion',
@@ -441,7 +442,7 @@ function fusion_element_social_links() {
 			array(
 				'type'        => 'radio_button_set',
 				'heading'     => esc_attr__( 'Boxed Social Icons', 'fusion-builder' ),
-				'description' => esc_attr__( 'Choose to get a boxed icons. Choose default for theme option selection.', 'fusion-builder' ),
+				'description' => esc_attr__( 'Choose to get boxed icons.', 'fusion-builder' ),
 				'param_name'  => 'icons_boxed',
 				'value'       => array(
 					''    => esc_attr__( 'Default', 'fusion-builder' ),
@@ -467,7 +468,7 @@ function fusion_element_social_links() {
 			array(
 				'type'        => 'radio_button_set',
 				'heading'     => esc_attr__( 'Social Icons Color Type', 'fusion-builder' ),
-				'description' => esc_attr__( 'Choose to get a boxed icons. Choose default for theme option selection.', 'fusion-builder' ),
+				'description' => esc_attr__( 'Choose the color type of social icons. Brand colors will use the exact brand color of each network for the icons or boxes.', 'fusion-builder' ),
 				'param_name'  => 'color_type',
 				'value'       => array(
 					''       => esc_attr__( 'Default', 'fusion-builder' ),
@@ -479,7 +480,7 @@ function fusion_element_social_links() {
 			array(
 				'type'        => 'textarea',
 				'heading'     => esc_attr__( 'Social Icon Custom Colors', 'fusion-builder' ),
-				'description' => esc_attr__( 'Specify the color of social icons. ', 'fusion-builder' ),
+				'description' => esc_attr__( 'Specify the color of social icons.', 'fusion-builder' ),
 				'param_name'  => 'icon_colors',
 				'value'       => '',
 				'dependency'  => array(
@@ -493,7 +494,7 @@ function fusion_element_social_links() {
 			array(
 				'type'        => 'textarea',
 				'heading'     => esc_attr__( 'Social Icon Custom Box Colors', 'fusion-builder' ),
-				'description' => esc_attr__( 'Specify the box color of social icons. ', 'fusion-builder' ),
+				'description' => esc_attr__( 'Specify the box color of social icons', 'fusion-builder' ),
 				'param_name'  => 'box_colors',
 				'value'       => '',
 				'dependency'  => array(

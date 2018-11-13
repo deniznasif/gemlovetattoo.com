@@ -148,6 +148,7 @@
 				var mediaAttachment = fusionMediaFrame.state().get( 'selection' ).first().toJSON();
 
 				jQuery( '#edit-menu-item-megamenu-' + itemId ).val( mediaAttachment.url );
+				jQuery( '#edit-menu-item-megamenu-' + itemId.replace( '-', '-id-' ) ).val( mediaAttachment.id );
 				jQuery( '#fusion-media-img-' + itemId ).attr( 'src', mediaAttachment.url ).css( 'display', 'block' );
 				jQuery( '#fusion-media-img-' + itemId ).parents( '.fusion-upload-image' ).addClass( 'fusion-image-set' );
 

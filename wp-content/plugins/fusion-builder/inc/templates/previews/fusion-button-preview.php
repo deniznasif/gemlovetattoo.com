@@ -95,7 +95,6 @@ $text_transform = $fusion_settings->get( 'button_text_transform' );
 
 	<# } else { #>
 
-		<a class="fusion-button button-default button-{{ button_shape }} button-{{ button_type }} button-{{ button_size }} button-{{ button_color }} text-transform: {{ text_transform }};"><span class="fusion-button-text"><span class="fusion-module-icon {{ button_icon }}"></span>{{{ params.element_content }}}</span></a>
-
+		<a class="fusion-button button-default button-{{ button_shape }} button-{{ button_type }} button-{{ button_size }} button-{{ button_color }}" style="text-transform: {{ text_transform }};"><span class="fusion-button-text"><span class="fusion-module-icon {{ button_icon }}"></span>{{{ params.element_content }}}</span></a>
 	<# }#>
 </script>

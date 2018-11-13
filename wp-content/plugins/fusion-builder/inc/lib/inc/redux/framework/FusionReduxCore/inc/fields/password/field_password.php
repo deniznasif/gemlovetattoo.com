@@ -59,8 +59,8 @@
 					'username'    => '',
 					'password'    => '',
 					'placeholder' => array(
-						'password' => __( 'Password', 'Avada' ),
-						'username' => __( 'Username', 'Avada' )
+						'password' => __( 'Password', 'fusion-builder' ),
+						'username' => __( 'Username', 'fusion-builder' )
 					)
 				);
 

@@ -4225,8 +4225,14 @@ function avada_dynamic_css_array( $original_css = array() ) {
 			$sidebar_order = explode( ',', Avada()->settings->get( 'responsive_sidebar_order' ) );
 		}
 
+		$sidebar_order = apply_filters( 'fusion_responsive_sidebar_order', $sidebar_order );
+
 		foreach ( $sidebar_order as $key => $element ) {
 			$css[ $sidebar_break_point ][ '#' . $element ]['order'] = $key + 1;
+
+			if ( 0 < $key ) {
+				$css[ $sidebar_break_point ][ '#' . $element ]['margin-top'] = '50px';
+			}
 		}
 
 		/*
@@ -4464,17 +4470,21 @@ function avada_dynamic_css_array( $original_css = array() ) {
 		// Page Title Bar.
 		if ( 'auto' !== Avada()->settings->get( 'page_title_mobile_height' ) ) {
 			$page_title_mobile_height = Fusion_Sanitize::size( Avada()->settings->get( 'page_title_mobile_height' ) );
-			$page_title_mobile_height = ( strpos( $page_title_mobile_height, 'em' ) ) ? 'calc(' . $page_title_bar_font_size . ' * ' . str_replace( 'em', '', $page_title_mobile_height ) . ')' : $page_title_mobile_height;
+			$page_title_bar_height    = ( strpos( $page_title_mobile_height, 'em' ) ) ? 'calc(' . $page_title_bar_font_size . ' * ' . str_replace( 'em', '', $page_title_mobile_height ) . ')' : $page_title_mobile_height;
 
-			$css[ $ipad_portrait_media_query ]['.fusion-body .fusion-page-title-bar']['height'] = Fusion_Sanitize::size( $page_title_mobile_height );
+			$css[ $ipad_portrait_media_query ]['.fusion-body .fusion-page-title-bar']['padding-top']    = '5px';
+			$css[ $ipad_portrait_media_query ]['.fusion-body .fusion-page-title-bar']['padding-bottom'] = '5px';
+			$css[ $ipad_portrait_media_query ]['.fusion-body .fusion-page-title-bar']['min-height']     = Fusion_Sanitize::add_css_values( array( $page_title_bar_height, '-10px' ) );
+			$css[ $ipad_portrait_media_query ]['.fusion-body .fusion-page-title-bar']['height']         = 'auto';
 
-			$ipad_portrait[ $ipad_portrait_media_query ]['.fusion-page-title-row']['display']    = 'table';
-			$ipad_portrait[ $ipad_portrait_media_query ]['.fusion-page-title-row']['width']      = '100%';
-			$ipad_portrait[ $ipad_portrait_media_query ]['.fusion-page-title-row']['height']     = '100%';
-			$ipad_portrait[ $ipad_portrait_media_query ]['.fusion-page-title-row']['min-height'] = Fusion_Sanitize::add_css_values( array( $page_title_mobile_height, '-10px' ) );
+			$css[ $ipad_portrait_media_query ]['.fusion-page-title-row']['display']     = 'flex';
+			$css[ $ipad_portrait_media_query ]['.fusion-page-title-row']['align-items'] = 'center';
+			$css[ $ipad_portrait_media_query ]['.fusion-page-title-row']['width']       = '100%';
+			$css[ $ipad_portrait_media_query ]['.fusion-page-title-row']['min-height']  = Fusion_Sanitize::add_css_values( array( $page_title_bar_height, '-10px' ) );
 
-			$css[ $ipad_portrait_media_query ]['.fusion-page-title-wrapper']['display']        = 'table-cell';
-			$css[ $ipad_portrait_media_query ]['.fusion-page-title-wrapper']['vertical-align'] = 'middle';
+			$css[ $ipad_portrait_media_query ]['.fusion-page-title-bar-center .fusion-page-title-row']['width'] = 'auto';
+
+			$css[ $ipad_portrait_media_query ]['.fusion-page-title-captions']['width'] = '100%';
 
 		} else {
 

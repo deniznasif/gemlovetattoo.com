@@ -100,19 +100,24 @@ class Fusion_Images {
 	/**
 	 * Adds lightbox attributes to links.
 	 *
-	 * @param  string $content The content.
+	 * @param string $link          The link.
+	 * @param int    $attachment_id The attachment ID.
+	 * @param string $size          Size of the image. Image size or array of width and height values (in that order).
+	 *                              Default 'thumbnail'.
+	 * @return string               The updated attachment link.
 	 */
-	public function prepare_lightbox_links( $content ) {
+	public function prepare_lightbox_links( $link, $attachment_id, $size ) {
+		if ( ! is_string( $size ) ) {
+			$size = 'full';
+		}
 
-		preg_match_all( '/<a[^>]+href=([\'"])(.+?)\1[^>]*>/i', $content, $matches );
-		$attachment_id = self::get_attachment_id_from_url( $matches[2][0] );
-		$attachment_id = apply_filters( 'wpml_object_id', $attachment_id, 'attachment' );
-		$title = get_post_field( 'post_title', $attachment_id );
-		$caption = get_post_field( 'post_excerpt', $attachment_id );
+		$attachment_data = $this->get_attachment_data( $attachment_id, $size );
 
-		$content = preg_replace( '/<a/', '<a data-rel="iLightbox[postimages]" data-title="' . $title . '" data-caption="' . $caption . '"', $content, 1 );
+		$title   = $attachment_data['title_attribute'];
+		$caption = $attachment_data['caption_attribute'];
+		$link    = preg_replace( '/<a/', '<a data-rel="iLightbox[postimages]" data-title="' . $title . '" data-caption="' . $caption . '"', $link, 1 );
 
-		return $content;
+		return $link;
 	}
 
 	/**
@@ -440,8 +445,43 @@ class Fusion_Images {
 	}
 
 	/**
+	 * Gets the ID of the "translated" attachment.
+	 *
+	 * @static
+	 * @since 1.2.1
+	 * @param int $attachment_id The base attachment ID.
+	 * @return int The ID of the "translated" attachment.
+	 */
+	public static function get_translated_attachment_id( $attachment_id ) {
+
+		$wpml_object_id = apply_filters( 'wpml_object_id', $attachment_id, 'attachment' );
+		$attachment_id = $wpml_object_id ? $wpml_object_id : $attachment_id;
+
+		return $attachment_id;
+	}
+
+	/**
+	 * Gets the base URL for an attachment.
+	 *
+	 * @static
+	 * @since 1.2.1
+	 * @param string $attachment_url The url of the used attachment.
+	 * @return string The base URL of the attachment.
+	 */
+	public static function get_attachment_base_url( $attachment_url = '' ) {
+
+		$attachment_url = set_url_scheme( $attachment_url );
+		$attachment_base_url = preg_replace( '/-\d+x\d+(?=\.(jpg|jpeg|png|gif|tiff|svg)$)/i', '', $attachment_url );
+		$attachment_base_url = apply_filters( 'fusion_get_attachment_base_url', $attachment_base_url );
+
+		return $attachment_base_url;
+	}
+
+	/**
 	 * Gets the attachment ID from the URL.
 	 *
+	 * @static
+	 * @since 1.0
 	 * @param string $attachment_url The URL of the attachment.
 	 * @return string The attachment ID
 	 */
@@ -460,15 +500,15 @@ class Fusion_Images {
 		if ( false !== strpos( $attachment_url, $upload_dir_paths_baseurl ) ) {
 
 			// If this is the URL of an auto-generated thumbnail, get the URL of the original image.
-			$attachment_url = preg_replace( '/-\d+x\d+(?=\.(jpg|jpeg|png|gif|tiff|svg)$)/i', '', $attachment_url );
+			$attachment_url = self::get_attachment_base_url( $attachment_url );
 
 			// Remove the upload path base directory from the attachment URL.
 			$attachment_url = str_replace( $upload_dir_paths_baseurl . '/', '', $attachment_url );
 
 			// Get the actual attachment ID.
 			$attachment_id = attachment_url_to_postid( $attachment_url );
-			$wpml_object_id = apply_filters( 'wpml_object_id', $attachment_id, 'attachment' );
-			$attachment_id = $wpml_object_id ? $wpml_object_id : $attachment_id;
+			$attachment_id = self::get_translated_attachment_id( $attachment_id );
+
 		}
 
 		return $attachment_id;
@@ -487,25 +527,13 @@ class Fusion_Images {
 			return false;
 		}
 
-		$attachment_url = set_url_scheme( $attachment_url );
-		$attachment_base_url = preg_replace( '/-\d+x\d+(?=\.(jpg|jpeg|png|gif|tiff|svg)$)/i', '', $attachment_url );
-		$attachment_base_url = apply_filters( 'fusion_get_attachment_data_from_url_attachment_base_url', $attachment_base_url );
-
-		$attachment_data['id'] = self::get_attachment_id_from_url( $attachment_base_url );
+		$attachment_data['id'] = self::get_attachment_id_from_url( $attachment_url );
 
 		if ( ! $attachment_data['id'] ) {
 			return false;
 		}
 
-		$attachment_data = $this->get_attachment_data( $attachment_data['id'] );
-
-		if ( $attachment_base_url !== $attachment_url ) {
-			$attachment_data['url'] = $attachment_url;
-			preg_match( '/-\d+x\d+(?=\.(jpg|jpeg|png|gif|tiff|svg)$)/i', $attachment_url, $matches );
-			$dimensions = explode( 'x', $matches[0] );
-			$attachment_data['width'] = absint( $dimensions[0] );
-			$attachment_data['height'] = absint( $dimensions[1] );
-		}
+		$attachment_data = $this->get_attachment_data( $attachment_data['id'], 'full', $attachment_url );
 
 		return $attachment_data;
 	}
@@ -515,24 +543,63 @@ class Fusion_Images {
 	 *
 	 * @since 1.2
 	 * @access public
-	 * @param int    $attachment_id The ID of the used attachment.
-	 * @param string $size          The image size to be returned.
-	 * @return array/bool           The attachment data of the image,
-	 *                              false if the url is empty or attachment not found.
+	 * @param int    $attachment_id  The ID of the used attachment.
+	 * @param string $size           The image size to be returned.
+	 * @param string $attachment_url The URL of the attachment.
+	 * @return array/bool            The attachment data of the image,
+	 *                               false if the url is empty or attachment not found.
 	 */
-	public function get_attachment_data( $attachment_id = 0, $size = 'full' ) {
+	public function get_attachment_data( $attachment_id = 0, $size = 'full', $attachment_url = '' ) {
+		$attachment_data = array(
+			'id'                => 0,
+			'url'               => '',
+			'width'             => '',
+			'height'            => '',
+			'alt'               => '',
+			'caption'           => '',
+			'caption_attribute' => '',
+			'title'             => '',
+			'title_attribute'   => '',
+		);
+		$attachment_src = false;
+
+		if ( ! $attachment_id && ! $attachment_url ) {
+			return $attachment_data;
+		}
 
 		if ( ! $attachment_id ) {
-			return false;
+			$attachment_id = self::get_attachment_id_from_url( $attachment_url );
+		} else {
+			$attachment_id = self::get_translated_attachment_id( $attachment_id );
+
+			$test_size = ( 'none' === $size ) ? 'full' : $size;
+			$attachment_src = wp_get_attachment_image_src( $attachment_id, $size );
+
+			if ( ! $attachment_src ) {
+				$attachment_id = self::get_attachment_id_from_url( $attachment_url );
+			}
 		}
 
 		$attachment_data['id'] = $attachment_id;
 
 		if ( 'none' !== $size ) {
-			$attachment_src = wp_get_attachment_image_src( $attachment_id, $size );
+			$attachment_src = ( $attachment_src ) ? $attachment_src : wp_get_attachment_image_src( $attachment_id, $size );
 			$attachment_data['url'] = esc_url( $attachment_src[0] );
-			$attachment_data['width'] = esc_attr( $attachment_src[1] );
-			$attachment_data['height'] = esc_attr( $attachment_src[2] );
+
+			if ( $attachment_url && $attachment_data['url'] !== $attachment_url ) {
+				$attachment_data['url'] = $attachment_url;
+				preg_match( '/-\d+x\d+(?=\.(jpg|jpeg|png|gif|tiff|svg)$)/i', $attachment_url, $matches );
+				if ( $matches ) {
+					$dimensions = explode( 'x', $matches[0] );
+					if ( 2 <= count( $dimensions ) ) {
+						$attachment_data['width']  = absint( $dimensions[0] );
+						$attachment_data['height'] = absint( $dimensions[1] );
+					}
+				}
+			} else {
+				$attachment_data['width']  = absint( $attachment_src[1] );
+				$attachment_data['height'] = absint( $attachment_src[2] );
+			}
 		}
 
 		$attachment_data['alt'] = esc_attr( get_post_field( '_wp_attachment_image_alt', $attachment_id ) );
@@ -548,6 +615,40 @@ class Fusion_Images {
 		$attachment_data['caption_attribute'] = esc_attr( strip_tags( $attachment_data['caption'] ) );
 		$attachment_data['title']             = get_the_title( $attachment_id );
 		$attachment_data['title_attribute']   = esc_attr( strip_tags( $attachment_data['title'] ) );
+
+		return $attachment_data;
+	}
+
+	/**
+	 * Gets the most important attachment data.
+	 *
+	 * @since 1.2.1
+	 * @access public
+	 * @param string $attachment_id_size The ID and size of the used attachmen in a string separated by |.
+	 * @param string $attachment_url     The URL of the attachment.
+	 * @return array/bool                The attachment data of the image,
+	 *                                   false if the url is empty or attachment not found.
+	 */
+	public function get_attachment_data_by_helper( $attachment_id_size = 0, $attachment_url = '' ) {
+		$attachment_data = false;
+
+		// Image ID is set, so we can get the image data directly.
+		if ( $attachment_id_size ) {
+			$attachment_id_size = explode( '|', $attachment_id_size );
+
+			// Both image ID and image size are available.
+			if ( 2 === count( $attachment_id_size ) ) {
+				$attachment_data = $this->get_attachment_data( $attachment_id_size[0], $attachment_id_size[1], $attachment_url );
+			} else {
+
+				// Only image ID is available.
+				$attachment_data = $this->get_attachment_data( $attachment_id_size[0], 'full', $attachment_url );
+			}
+		} elseif ( $attachment_url ) {
+
+			// Fallback, if we don't have the image ID, we have to get the data through the image URL.
+			$attachment_data = $this->get_attachment_data( 0, 'full', $attachment_url );
+		}
 
 		return $attachment_data;
 	}

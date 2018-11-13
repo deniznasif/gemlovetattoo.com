@@ -80,7 +80,8 @@ if ( fusion_is_element_enabled( 'fusion_syntax_highlighter' ) ) {
 						'margin_right'                 => $fusion_settings->get( 'syntax_highlighter_margin', 'right' ),
 						'theme'                        => $fusion_settings->get( 'syntax_highlighter_theme' ),
 					),
-					$args
+					$args,
+					'fusion_syntax_highlighter'
 				);
 
 				// Validate margin values.
@@ -95,7 +96,7 @@ if ( fusion_is_element_enabled( 'fusion_syntax_highlighter' ) ) {
 				// Validate font size value.
 				$defaults['font_size'] = FusionBuilder::validate_shortcode_attr_value( $defaults['font_size'], 'px' );
 
-				$defaults = apply_filters( 'fusion_builder_default_args', $defaults, 'fusion_syntax_highlighter' );
+				$defaults = apply_filters( 'fusion_builder_default_args', $defaults, 'fusion_syntax_highlighter', $args );
 
 				$this->args = $defaults;
 

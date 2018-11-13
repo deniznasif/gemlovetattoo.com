@@ -86,7 +86,8 @@ if ( fusion_is_element_enabled( 'fusion_testimonials' ) ) {
 						'random'          => $fusion_settings->get( 'testimonials_random' ),
 						'textcolor'       => strtolower( $fusion_settings->get( 'testimonial_text_color' ) ),
 					),
-					$args
+					$args,
+					'fusion_testimonials'
 				);
 
 				if ( 'yes' === $defaults['random'] || '1' === $defaults['random'] ) {
@@ -191,13 +192,15 @@ if ( fusion_is_element_enabled( 'fusion_testimonials' ) ) {
 						'avatar'              => 'male',
 						'company'             => '',
 						'image'               => '',
+						'image_id'            => '',
 						'image_border_radius' => '',
 						'link'                => '',
 						'name'                => '',
 						'target'              => '_self',
 						'gender'              => '',  // Deprecated.
 					),
-					$args
+					$args,
+					'fusion_testimonial'
 				);
 
 				$defaults['image_border_radius'] = FusionBuilder::validate_shortcode_attr_value( $defaults['image_border_radius'], 'px' );
@@ -239,11 +242,11 @@ if ( fusion_is_element_enabled( 'fusion_testimonials' ) ) {
 
 					if ( 'image' === $this->child_args['avatar'] && $this->child_args['image'] ) {
 
-						$image_data = $fusion_library->images->get_attachment_data_from_url( $this->child_args['image'] );
+						$image_data = $fusion_library->images->get_attachment_data_by_helper( $this->child_args['image_id'], $this->child_args['image'] );
 
-						$this->child_args['image_width']  = ( $image_data && $image_data['width'] ) ? $image_data['width'] : '';
-						$this->child_args['image_height'] = ( $image_data && $image_data['height'] ) ? $image_data['height'] : '';
-						$this->child_args['image_alt']    = ( $image_data && $image_data['alt'] ) ? $image_data['alt'] : '';
+						$this->child_args['image_width']  = $image_data['width'];
+						$this->child_args['image_height'] = $image_data['height'];
+						$this->child_args['image_alt']    = $image_data['alt'];
 
 						$pic = sprintf( '<img %s />', FusionBuilder::attributes( 'testimonials-shortcode-image' ) );
 					}
@@ -313,11 +316,11 @@ if ( fusion_is_element_enabled( 'fusion_testimonials' ) ) {
 
 				if ( 'image' === $this->child_args['avatar'] && $this->child_args['image'] ) {
 
-					$image_data = $fusion_library->images->get_attachment_data_from_url( $this->child_args['image'] );
+					$image_data = $fusion_library->images->get_attachment_data_by_helper( $this->child_args['image_id'], $this->child_args['image'] );
 
-					$this->child_args['image_width']  = ( $image_data && $image_data['width'] ) ? $image_data['width'] : '';
-					$this->child_args['image_height'] = ( $image_data && $image_data['height'] ) ? $image_data['height'] : '';
-					$this->child_args['image_alt']    = ( $image_data && $image_data['alt'] ) ? $image_data['alt'] : '';
+					$this->child_args['image_width']  = $image_data['width'];
+					$this->child_args['image_height'] = $image_data['height'];
+					$this->child_args['image_alt']    = $image_data['alt'];
 
 					$pic = sprintf( '<img %s />', FusionBuilder::attributes( 'testimonials-shortcode-image' ) );
 				}
@@ -782,6 +785,14 @@ function fusion_element_testimonial() {
 				),
 				array(
 					'type'        => 'textfield',
+					'heading'     => esc_attr__( 'Avatar Image ID', 'fusion-builder' ),
+					'description' => esc_attr__( 'Avatar Image ID from Media Library.', 'fusion-builder' ),
+					'param_name'  => 'image_id',
+					'value'       => '',
+					'hidden'      => true,
+				),
+				array(
+					'type'        => 'textfield',
 					'heading'     => esc_attr__( 'Border Radius', 'fusion-builder' ),
 					'description' => esc_attr__( 'Choose the radius of the testimonial image. In pixels (px), ex: 1px, or "round". ', 'fusion-builder' ),
 					'param_name'  => 'image_border_radius',
@@ -805,14 +816,14 @@ function fusion_element_testimonial() {
 				array(
 					'type'        => 'link_selector',
 					'heading'     => esc_attr__( 'Link', 'fusion-builder' ),
-					'description' => esc_attr__( 'Add the url the company name will link to.', 'fusion-builder' ),
+					'description' => esc_attr__( 'Add the URL the company name will link to.', 'fusion-builder' ),
 					'param_name'  => 'link',
 					'value'       => '',
 				),
 				array(
 					'type'        => 'radio_button_set',
 					'heading'     => esc_attr__( 'Link Target', 'fusion-builder' ),
-					'description' => __( '_self = open in same window <br />_blank = open in new window.', 'fusion-builder' ),
+					'description' => __( '_self = open in same window.<br />_blank = open in new window.', 'fusion-builder' ),
 					'param_name'  => 'target',
 					'value'       => array(
 						'_self'   => '_self',

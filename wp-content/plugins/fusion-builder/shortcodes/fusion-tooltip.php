@@ -54,7 +54,8 @@ if ( fusion_is_element_enabled( 'fusion_tooltip' ) ) {
 						'title'     => 'none',
 						'trigger'   => 'hover',
 					),
-					$args
+					$args,
+					'fusion_tooltip'
 				);
 
 				extract( $defaults );
@@ -149,15 +150,15 @@ function fusion_element_tooltip() {
 			'params'         => array(
 				array(
 					'type'        => 'textfield',
-					'heading'     => esc_attr__( 'Title', 'fusion-builder' ),
+					'heading'     => esc_attr__( 'Tooltip Title', 'fusion-builder' ),
 					'description' => esc_attr__( 'Insert the text that displays in the tooltip.', 'fusion-builder' ),
 					'param_name'  => 'title',
 					'value'       => '',
 				),
 				array(
 					'type'        => 'textarea',
-					'heading'     => esc_attr__( 'Content', 'fusion-builder' ),
-					'description' => esc_attr__( 'Insert the text that will activate the tooltip hover.', 'fusion-builder' ),
+					'heading'     => esc_attr__( 'Triggering Content', 'fusion-builder' ),
+					'description' => esc_attr__( 'Insert the text that will activate the tooltip when hovered or clicked.', 'fusion-builder' ),
 					'param_name'  => 'element_content',
 					'value'       => '',
 				),
@@ -177,7 +178,7 @@ function fusion_element_tooltip() {
 				),
 				array(
 					'type'        => 'radio_button_set',
-					'heading'     => esc_attr__( 'Tooltip Trigger', 'fusion-builder' ),
+					'heading'     => esc_attr__( 'Tooltip Trigger Action', 'fusion-builder' ),
 					'description' => esc_attr__( 'Choose action to trigger the tooltip.', 'fusion-builder' ),
 					'param_name'  => 'trigger',
 					'value'       => array(

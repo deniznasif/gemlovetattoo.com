@@ -102,7 +102,8 @@ if ( fusion_is_element_enabled( 'fusion_images' ) ) {
 						'show_nav'       => 'yes',
 						'hover_type'     => 'none',
 					),
-					$args
+					$args,
+					'fusion_images'
 				);
 
 				$defaults['column_spacing'] = FusionBuilder::validate_shortcode_attr_value( $defaults['column_spacing'], '' );
@@ -210,10 +211,12 @@ if ( fusion_is_element_enabled( 'fusion_images' ) ) {
 					array(
 						'alt'        => '',
 						'image'      => '',
+						'image_id'   => '',
 						'link'       => '',
 						'linktarget' => '_self',
 					),
-					$args
+					$args,
+					'fusion_image'
 				);
 
 				extract( $defaults );
@@ -221,11 +224,6 @@ if ( fusion_is_element_enabled( 'fusion_images' ) ) {
 				$this->child_args = $defaults;
 
 				$width = $height = '';
-
-				$this->image_data = $fusion_library->images->get_attachment_data_from_url( $image );
-				if ( $this->image_data ) {
-					$image_id = $this->image_data['id'];
-				}
 
 				$image_size = 'full';
 				if ( 'fixed' === $this->parent_args['picture_size'] ) {
@@ -235,12 +233,14 @@ if ( fusion_is_element_enabled( 'fusion_images' ) ) {
 					}
 				}
 
+				$this->image_data = $fusion_library->images->get_attachment_data_by_helper( $this->child_args['image_id'], $image );
+
 				$output = '';
-				if ( isset( $image_id ) ) {
+				if ( $this->image_data['id'] ) {
 					if ( $alt ) {
-						$output = wp_get_attachment_image( $image_id, $image_size, false, array( 'alt' => $alt ) );
+						$output = wp_get_attachment_image( $this->image_data['id'], $image_size, false, array( 'alt' => $alt ) );
 					} else {
-						$output = wp_get_attachment_image( $image_id, $image_size );
+						$output = wp_get_attachment_image( $this->image_data['id'], $image_size );
 					}
 				} else {
 					$output = '<img src="' . $image . '" alt="' . $alt . '"/>';

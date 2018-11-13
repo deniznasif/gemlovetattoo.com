@@ -3,13 +3,18 @@
  * Plugin Name: Fusion Core
  * Plugin URI: http://theme-fusion.com
  * Description: ThemeFusion Core Plugin for ThemeFusion Themes
- * Version: 3.7
+ * Version: 3.7.2
  * Author: ThemeFusion
  * Author URI: http://theme-fusion.com
  *
  * @package Fusion-Core
  * @subpackage Core
  */
+
+// Plugin version.
+if ( ! defined( 'FUSION_CORE_VERSION' ) ) {
+	define( 'FUSION_CORE_VERSION', '3.7.2' );
+}
 
 // Plugin Folder Path.
 if ( ! defined( 'FUSION_CORE_PATH' ) ) {
@@ -33,7 +38,7 @@ if ( ! class_exists( 'FusionCore_Plugin' ) ) {
 		 * @since   1.0.0
 		 * @var  string
 		 */
-		const VERSION = '3.7';
+		const VERSION = FUSION_CORE_VERSION;
 
 		/**
 		 * Instance of the class.
@@ -527,7 +532,7 @@ if ( ! class_exists( 'FusionCore_Plugin' ) ) {
 
 			$db_version = get_option( 'fusion_core_version', false );
 
-			if ( ! $db_version || self::VERSION !== $db_version ) {
+			if ( ! $db_version || FUSION_CORE_VERSION !== $db_version ) {
 
 				// Run activation related steps.
 				delete_option( 'fusion_core_flush_permalinks' );
@@ -539,7 +544,7 @@ if ( ! class_exists( 'FusionCore_Plugin' ) ) {
 				fusion_core_enable_elements();
 
 				// Update version in the database.
-				update_option( 'fusion_core_version', self::VERSION );
+				update_option( 'fusion_core_version', FUSION_CORE_VERSION );
 			}
 		}
 
@@ -1062,7 +1067,7 @@ function fusion_core_patcher_activation() {
 		new Fusion_Patcher(
 			array(
 				'context'     => 'fusion-core',
-				'version'     => FusionCore_Plugin::VERSION,
+				'version'     => FUSION_CORE_VERSION,
 				'name'        => 'Fusion-Core',
 				'parent_slug' => 'avada',
 				'page_title'  => esc_attr__( 'Fusion Patcher', 'fusion-core' ),

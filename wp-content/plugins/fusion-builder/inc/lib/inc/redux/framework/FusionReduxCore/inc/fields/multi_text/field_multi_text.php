@@ -58,7 +58,7 @@ if ( ! class_exists( 'FusionReduxFramework_multi_text' ) ) {
 		 */
 		public function render() {
 
-			$this->add_text   = ( isset( $this->field['add_text'] ) ) ? $this->field['add_text'] : __( 'Add More', 'Avada' );
+			$this->add_text   = ( isset( $this->field['add_text'] ) ) ? $this->field['add_text'] : __( 'Add More', 'fusion-builder' );
 			$this->show_empty = ( isset( $this->field['show_empty'] ) ) ? $this->field['show_empty'] : true;
 
 			echo '<ul id="' . $this->field['id'] . '-ul" class="fusionredux-multi-text">';
@@ -66,14 +66,14 @@ if ( ! class_exists( 'FusionReduxFramework_multi_text' ) ) {
 			if ( isset( $this->value ) && is_array( $this->value ) ) {
 				foreach ( $this->value as $k => $value ) {
 					if ( $value != '' ) {
-						echo '<li><input type="text" id="' . $this->field['id'] . '-' . $k . '" name="' . $this->field['name'] . $this->field['name_suffix'] . '[]' . '" value="' . esc_attr( $value ) . '" class="regular-text ' . $this->field['class'] . '" /> <a href="javascript:void(0);" class="deletion fusionredux-multi-text-remove">' . __( 'Remove', 'Avada' ) . '</a></li>';
+						echo '<li><input type="text" id="' . $this->field['id'] . '-' . $k . '" name="' . $this->field['name'] . $this->field['name_suffix'] . '[]' . '" value="' . esc_attr( $value ) . '" class="regular-text ' . $this->field['class'] . '" /> <a href="javascript:void(0);" class="deletion fusionredux-multi-text-remove">' . __( 'Remove', 'fusion-builder' ) . '</a></li>';
 					}
 				}
 			} elseif ( $this->show_empty == true ) {
-				echo '<li><input type="text" id="' . $this->field['id'] . '" name="' . $this->field['name'] . $this->field['name_suffix'] . '[]' . '" value="" class="regular-text ' . $this->field['class'] . '" /> <a href="javascript:void(0);" class="deletion fusionredux-multi-text-remove">' . __( 'Remove', 'Avada' ) . '</a></li>';
+				echo '<li><input type="text" id="' . $this->field['id'] . '" name="' . $this->field['name'] . $this->field['name_suffix'] . '[]' . '" value="" class="regular-text ' . $this->field['class'] . '" /> <a href="javascript:void(0);" class="deletion fusionredux-multi-text-remove">' . __( 'Remove', 'fusion-builder' ) . '</a></li>';
 			}
 
-			echo '<li style="display:none;"><input type="text" id="' . $this->field['id'] . '" name="" value="" class="regular-text" /> <a href="javascript:void(0);" class="deletion fusionredux-multi-text-remove">' . __( 'Remove', 'Avada' ) . '</a></li>';
+			echo '<li style="display:none;"><input type="text" id="' . $this->field['id'] . '" name="" value="" class="regular-text" /> <a href="javascript:void(0);" class="deletion fusionredux-multi-text-remove">' . __( 'Remove', 'fusion-builder' ) . '</a></li>';
 
 			echo '</ul>';
 			echo '<span style="clear:both;display:block;height:0;" /></span>';

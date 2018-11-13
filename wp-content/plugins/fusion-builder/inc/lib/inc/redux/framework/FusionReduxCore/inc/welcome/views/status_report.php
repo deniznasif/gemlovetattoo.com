@@ -23,15 +23,15 @@
 ?>
 <div class="wrap about-wrap fusionredux-status">
 	<h1>
-		<?php esc_html_e( 'FusionRedux Framework - System Status', 'Avada' ); ?>
+		<?php esc_html_e( 'FusionRedux Framework - System Status', 'fusion-builder' ); ?>
 	</h1>
 
 	<div class="about-text">
-		<?php esc_html_e( 'Our core mantra at FusionRedux is backwards compatibility. With hundreds of thousands of instances worldwide, you can be assured that we will take care of you and your clients.', 'Avada' ); ?></div>
+		<?php esc_html_e( 'Our core mantra at FusionRedux is backwards compatibility. With hundreds of thousands of instances worldwide, you can be assured that we will take care of you and your clients.', 'fusion-builder' ); ?></div>
 	<div class="fusionredux-badge">
 		<i class="el el-fusionredux"></i>
 		<span>
-			<?php printf( __( 'Version %s', 'Avada' ), esc_html(FusionReduxFramework::$_version )); ?>
+			<?php printf( __( 'Version %s', 'fusion-builder' ), esc_html(FusionReduxFramework::$_version )); ?>
 		</span>
 	</div>
 
@@ -40,17 +40,17 @@
 
 	<div class="updated fusionredux-message">
 		<p>
-			<?php esc_html_e( 'Please copy and paste this information in your ticket when contacting support:', 'Avada' ); ?>
+			<?php esc_html_e( 'Please copy and paste this information in your ticket when contacting support:', 'fusion-builder' ); ?>
 		</p>
 
 		<p class="submit">
 			<a href="#" class="button-primary debug-report">
-				<?php esc_html_e( 'Get System Report', 'Avada' ); ?>
+				<?php esc_html_e( 'Get System Report', 'fusion-builder' ); ?>
 			</a>
 			<a class="skip button-primary"
 			   href="http://docs.fusionreduxframework.com/core/support/understanding-the-fusionredux-framework-system-status-report/"
 			   target="_blank">
-				   <?php esc_html_e( 'Understanding the Status Report', 'Avada' ); ?>
+				   <?php esc_html_e( 'Understanding the Status Report', 'fusion-builder' ); ?>
 			</a>
 		</p>
 
@@ -59,8 +59,8 @@
 			<p class="submit">
 				<button id="copy-for-support"
 						class="button-primary fusionredux-hint-qtip"
-						href="#" qtip-content="<?php esc_html_e( 'Copied!', 'Avada' ); ?>">
-					<?php esc_html_e( 'Copy for Support', 'Avada' ); ?>
+						href="#" qtip-content="<?php esc_html_e( 'Copied!', 'fusion-builder' ); ?>">
+					<?php esc_html_e( 'Copy for Support', 'fusion-builder' ); ?>
 				</button>
 			</p>
 		</div>
@@ -70,26 +70,26 @@
 		<thead>
 		<tr>
 			<th colspan="3" data-export-label="WordPress Environment">
-				<?php esc_html_e( 'WordPress Environment', 'Avada' ); ?>
+				<?php esc_html_e( 'WordPress Environment', 'fusion-builder' ); ?>
 			</th>
 		</tr>
 		</thead>
 		<tbody>
 		<tr>
 			<td data-export-label="Home URL">
-				<?php esc_html_e( 'Home URL', 'Avada' ); ?>:
+				<?php esc_html_e( 'Home URL', 'fusion-builder' ); ?>:
 			</td>
 			<td class="help">
-				<?php echo '<a href="#" class="fusionredux-hint-qtip" qtip-content="' . esc_attr__( 'The URL of your site\'s homepage.', 'Avada' ) . '">[?]</a>'; ?>
+				<?php echo '<a href="#" class="fusionredux-hint-qtip" qtip-content="' . esc_attr__( 'The URL of your site\'s homepage.', 'fusion-builder' ) . '">[?]</a>'; ?>
 			</td>
 			<td><?php echo esc_url($sysinfo['home_url']); ?></td>
 		</tr>
 		<tr>
 			<td data-export-label="Site URL">
-				<?php esc_html_e( 'Site URL', 'Avada' ); ?>:
+				<?php esc_html_e( 'Site URL', 'fusion-builder' ); ?>:
 			</td>
 			<td class="help">
-				<?php echo '<a href="#" class="fusionredux-hint-qtip" qtip-content="' . esc_attr__( 'The root URL of your site.', 'Avada' ) . '">[?]</a>'; ?>
+				<?php echo '<a href="#" class="fusionredux-hint-qtip" qtip-content="' . esc_attr__( 'The root URL of your site.', 'fusion-builder' ) . '">[?]</a>'; ?>
 			</td>
 			<td>
 				<?php echo esc_url($sysinfo['site_url']); ?>
@@ -97,10 +97,10 @@
 		</tr>
 		<tr>
 			<td data-export-label="FusionRedux Version">
-				<?php esc_html_e( 'FusionRedux Version', 'Avada' ); ?>:
+				<?php esc_html_e( 'FusionRedux Version', 'fusion-builder' ); ?>:
 			</td>
 			<td class="help">
-				<?php echo '<a href="#" class="fusionredux-hint-qtip" qtip-content="' . esc_attr__( 'The version of FusionRedux Framework installed on your site.', 'Avada' ) . '">[?]</a>'; ?>
+				<?php echo '<a href="#" class="fusionredux-hint-qtip" qtip-content="' . esc_attr__( 'The version of FusionRedux Framework installed on your site.', 'fusion-builder' ) . '">[?]</a>'; ?>
 			</td>
 			<td>
 				<?php echo esc_html($sysinfo['fusionredux_ver']); ?>
@@ -108,25 +108,25 @@
 		</tr>
 		<tr>
 			<td data-export-label="FusionRedux Data Directory Writable">
-				<?php esc_html_e( 'FusionRedux Data Directory Writable', 'Avada' ); ?>:
+				<?php esc_html_e( 'FusionRedux Data Directory Writable', 'fusion-builder' ); ?>:
 			</td>
 			<td class="help">
-				<?php echo '<a href="#" class="fusionredux-hint-qtip" qtip-content="' . esc_attr__( 'FusionRedux and its extensions write data to the <code>uploads</code> directory. This directory must be writable.', 'Avada' ) . '">[?]</a>'; ?>
+				<?php echo '<a href="#" class="fusionredux-hint-qtip" qtip-content="' . esc_attr__( 'FusionRedux and its extensions write data to the <code>uploads</code> directory. This directory must be writable.', 'fusion-builder' ) . '">[?]</a>'; ?>
 			</td>
 			<td><?php
 					if ( $sysinfo['fusionredux_data_writeable'] == 'true' ) {
 						echo '<mark class="yes">' . '&#10004; <code>' . esc_html($sysinfo['fusionredux_data_dir']) . '</code></mark> ';
 					} else {
-						printf( '<mark class="error">' . '&#10005; ' . __( 'To allow data saving, make <code>%s</code> writable.', 'Avada' ) . '</mark>', esc_html($sysinfo['fusionredux_data_dir']) );
+						printf( '<mark class="error">' . '&#10005; ' . __( 'To allow data saving, make <code>%s</code> writable.', 'fusion-builder' ) . '</mark>', esc_html($sysinfo['fusionredux_data_dir']) );
 					}
 				?></td>
 		</tr>
 		<tr>
 			<td data-export-label="WP Content URL">
-				<?php esc_html_e( 'WP Content URL', 'Avada' ); ?>:
+				<?php esc_html_e( 'WP Content URL', 'fusion-builder' ); ?>:
 			</td>
 			<td class="help">
-				<?php echo '<a href="#" class="fusionredux-hint-qtip" qtip-content="' . esc_attr__( 'The location of Wordpress\'s content URL.', 'Avada' ) . '">[?]</a>'; ?>
+				<?php echo '<a href="#" class="fusionredux-hint-qtip" qtip-content="' . esc_attr__( 'The location of Wordpress\'s content URL.', 'fusion-builder' ) . '">[?]</a>'; ?>
 			</td>
 			<td>
 				<?php echo '<code>' . esc_url($sysinfo['wp_content_url']) . '</code> '; ?>
@@ -134,10 +134,10 @@
 		</tr>
 		<tr>
 			<td data-export-label="WP Version">
-				<?php esc_html_e( 'WP Version', 'Avada' ); ?>:
+				<?php esc_html_e( 'WP Version', 'fusion-builder' ); ?>:
 			</td>
 			<td class="help">
-				<?php echo '<a href="#" class="fusionredux-hint-qtip" qtip-content="' . esc_attr__( 'The version of WordPress installed on your site.', 'Avada' ) . '">[?]</a>'; ?>
+				<?php echo '<a href="#" class="fusionredux-hint-qtip" qtip-content="' . esc_attr__( 'The version of WordPress installed on your site.', 'fusion-builder' ) . '">[?]</a>'; ?>
 			</td>
 			<td>
 				<?php bloginfo( 'version' ); ?>
@@ -145,10 +145,10 @@
 		</tr>
 		<tr>
 			<td data-export-label="WP Multisite">
-				<?php esc_html_e( 'WP Multisite', 'Avada' ); ?>:
+				<?php esc_html_e( 'WP Multisite', 'fusion-builder' ); ?>:
 			</td>
 			<td class="help">
-				<?php echo '<a href="#" class="fusionredux-hint-qtip" qtip-content="' . esc_attr__( 'Whether or not you have WordPress Multisite enabled.', 'Avada' ) . '">[?]</a>'; ?>
+				<?php echo '<a href="#" class="fusionredux-hint-qtip" qtip-content="' . esc_attr__( 'Whether or not you have WordPress Multisite enabled.', 'fusion-builder' ) . '">[?]</a>'; ?>
 			</td>
 			<td><?php if ( $sysinfo['wp_multisite'] == true ) {
 					echo '&#10004;';
@@ -159,10 +159,10 @@
 		</tr>
 		<tr>
 			<td data-export-label="Permalink Structure">
-				<?php esc_html_e( 'Permalink Structure', 'Avada' ); ?>:
+				<?php esc_html_e( 'Permalink Structure', 'fusion-builder' ); ?>:
 			</td>
 			<td class="help">
-				<?php echo '<a href="#" class="fusionredux-hint-qtip" qtip-content="' . esc_attr__( 'The current permalink structure as defined in Wordpress Settings->Permalinks.', 'Avada' ) . '">[?]</a>'; ?>
+				<?php echo '<a href="#" class="fusionredux-hint-qtip" qtip-content="' . esc_attr__( 'The current permalink structure as defined in Wordpress Settings->Permalinks.', 'fusion-builder' ) . '">[?]</a>'; ?>
 			</td>
 			<td>
 				<?php echo esc_html($sysinfo['permalink_structure']); ?>
@@ -171,9 +171,9 @@
 		<?php $sof = $sysinfo['front_page_display']; ?>
 		<tr>
 			<td data-export-label="Front Page Display">
-				<?php esc_html_e( 'Front Page Display', 'Avada' ); ?>:
+				<?php esc_html_e( 'Front Page Display', 'fusion-builder' ); ?>:
 			</td>
-			<td class="help"><?php echo '<a href="#" class="fusionredux-hint-qtip" qtip-content="' . esc_attr__( 'The current Reading mode of Wordpress.', 'Avada' ) . '">[?]</a>'; ?></td>
+			<td class="help"><?php echo '<a href="#" class="fusionredux-hint-qtip" qtip-content="' . esc_attr__( 'The current Reading mode of Wordpress.', 'fusion-builder' ) . '">[?]</a>'; ?></td>
 			<td><?php echo esc_html($sof); ?></td>
 		</tr>
 
@@ -182,10 +182,10 @@
 ?>
 				<tr>
 					<td data-export-label="Front Page">
-						<?php esc_html_e( 'Front Page', 'Avada' ); ?>:
+						<?php esc_html_e( 'Front Page', 'fusion-builder' ); ?>:
 					</td>
 					<td class="help">
-						<?php echo '<a href="#" class="fusionredux-hint-qtip" qtip-content="' . esc_attr__( 'The currently selected page which acts as the site\'s Front Page.', 'Avada' ) . '">[?]</a>'; ?>
+						<?php echo '<a href="#" class="fusionredux-hint-qtip" qtip-content="' . esc_attr__( 'The currently selected page which acts as the site\'s Front Page.', 'fusion-builder' ) . '">[?]</a>'; ?>
 					</td>
 					<td>
 						<?php echo esc_html($sysinfo['front_page']); ?>
@@ -193,10 +193,10 @@
 				</tr>
 				<tr>
 					<td data-export-label="Posts Page">
-						<?php esc_html_e( 'Posts Page', 'Avada' ); ?>:
+						<?php esc_html_e( 'Posts Page', 'fusion-builder' ); ?>:
 					</td>
 					<td class="help">
-						<?php echo '<a href="#" class="fusionredux-hint-qtip" qtip-content="' . esc_attr__( 'The currently selected page in where blog posts are displayed.', 'Avada' ) . '">[?]</a>'; ?>
+						<?php echo '<a href="#" class="fusionredux-hint-qtip" qtip-content="' . esc_attr__( 'The currently selected page in where blog posts are displayed.', 'fusion-builder' ) . '">[?]</a>'; ?>
 					</td>
 					<td>
 						<?php echo esc_html($sysinfo['posts_page']); ?>
@@ -207,17 +207,17 @@
 ?>
 		<tr>
 			<td data-export-label="WP Memory Limit">
-				<?php esc_html_e( 'WP Memory Limit', 'Avada' ); ?>:
+				<?php esc_html_e( 'WP Memory Limit', 'fusion-builder' ); ?>:
 			</td>
 			<td class="help">
-				<?php echo '<a href="#" class="fusionredux-hint-qtip" qtip-content="' . esc_attr__( 'The maximum amount of memory (RAM) that your site can use at one time.', 'Avada' ) . '">[?]</a>'; ?>
+				<?php echo '<a href="#" class="fusionredux-hint-qtip" qtip-content="' . esc_attr__( 'The maximum amount of memory (RAM) that your site can use at one time.', 'fusion-builder' ) . '">[?]</a>'; ?>
 			</td>
 			<td>
 <?php
 					$memory = $sysinfo['wp_mem_limit']['raw'];
 
 					if ( $memory < 40000000 ) {
-						echo '<mark class="error">' . sprintf( __( '%s - We recommend setting memory to at least 40MB. See: <a href="%s" target="_blank">Increasing memory allocated to PHP</a>', 'Avada' ), esc_html($sysinfo['wp_mem_limit']['size']), 'http://codex.wordpress.org/Editing_wp-config.php#Increasing_memory_allocated_to_PHP' ) . '</mark>';
+						echo '<mark class="error">' . sprintf( __( '%s - We recommend setting memory to at least 40MB. See: <a href="%s" target="_blank">Increasing memory allocated to PHP</a>', 'fusion-builder' ), esc_html($sysinfo['wp_mem_limit']['size']), 'http://codex.wordpress.org/Editing_wp-config.php#Increasing_memory_allocated_to_PHP' ) . '</mark>';
 					} else {
 						echo '<mark class="yes">' . esc_html($sysinfo['wp_mem_limit']['size']) . '</mark>';
 					}
@@ -226,10 +226,10 @@
 		</tr>
 		<tr>
 			<td data-export-label="Database Table Prefix">
-				<?php esc_html_e( 'Database Table Prefix', 'Avada' ); ?>:
+				<?php esc_html_e( 'Database Table Prefix', 'fusion-builder' ); ?>:
 			</td>
 			<td class="help">
-				<?php echo '<a href="#" class="fusionredux-hint-qtip" qtip-content="' . esc_attr__( 'The prefix structure of the current Wordpress database.', 'Avada' ) . '">[?]</a>'; ?>
+				<?php echo '<a href="#" class="fusionredux-hint-qtip" qtip-content="' . esc_attr__( 'The prefix structure of the current Wordpress database.', 'fusion-builder' ) . '">[?]</a>'; ?>
 			</td>
 			<td>
 				<?php echo esc_html($sysinfo['db_table_prefix']); ?>
@@ -237,10 +237,10 @@
 		</tr>
 		<tr>
 			<td data-export-label="WP Debug Mode">
-				<?php esc_html_e( 'WP Debug Mode', 'Avada' ); ?>:
+				<?php esc_html_e( 'WP Debug Mode', 'fusion-builder' ); ?>:
 			</td>
 			<td class="help">
-				<?php echo '<a href="#" class="fusionredux-hint-qtip" qtip-content="' . esc_attr__( 'Displays whether or not WordPress is in Debug Mode.', 'Avada' ) . '">[?]</a>'; ?>
+				<?php echo '<a href="#" class="fusionredux-hint-qtip" qtip-content="' . esc_attr__( 'Displays whether or not WordPress is in Debug Mode.', 'fusion-builder' ) . '">[?]</a>'; ?>
 			</td>
 			<td>
 				<?php if ( $sysinfo['wp_debug'] === 'true' ) {
@@ -252,10 +252,10 @@
 		</tr>
 		<tr>
 			<td data-export-label="Language">
-				<?php esc_html_e( 'Language', 'Avada' ); ?>:
+				<?php esc_html_e( 'Language', 'fusion-builder' ); ?>:
 			</td>
 			<td class="help">
-				<?php echo '<a href="#" class="fusionredux-hint-qtip" qtip-content="' . esc_attr__( 'The current language used by WordPress. Default = English', 'Avada' ) . '">[?]</a>'; ?>
+				<?php echo '<a href="#" class="fusionredux-hint-qtip" qtip-content="' . esc_attr__( 'The current language used by WordPress. Default = English', 'fusion-builder' ) . '">[?]</a>'; ?>
 			</td>
 			<td>
 				<?php echo esc_html($sysinfo['wp_lang']); ?>
@@ -267,17 +267,17 @@
 		<thead>
 		<tr>
 			<th colspan="3" data-export-label="Browser">
-				<?php esc_html_e( 'Browser', 'Avada' ); ?>
+				<?php esc_html_e( 'Browser', 'fusion-builder' ); ?>
 			</th>
 		</tr>
 		</thead>
 		<tbody>
 		<tr>
 			<td data-export-label="Browser Info">
-				<?php esc_html_e( 'Browser Info', 'Avada' ); ?>:
+				<?php esc_html_e( 'Browser Info', 'fusion-builder' ); ?>:
 			</td>
 			<td class="help">
-				<?php echo '<a href="#" class="fusionredux-hint-qtip" qtip-content="' . esc_attr__( 'Information about web browser current in use.', 'Avada' ) . '">[?]</a>'; ?>
+				<?php echo '<a href="#" class="fusionredux-hint-qtip" qtip-content="' . esc_attr__( 'Information about web browser current in use.', 'fusion-builder' ) . '">[?]</a>'; ?>
 			</td>
 			<td>
 <?php
@@ -294,17 +294,17 @@
 		<thead>
 		<tr>
 			<th colspan="3" data-export-label="Server Environment">
-				<?php esc_html_e( 'Server Environment', 'Avada' ); ?>
+				<?php esc_html_e( 'Server Environment', 'fusion-builder' ); ?>
 			</th>
 		</tr>
 		</thead>
 		<tbody>
 		<tr>
 			<td data-export-label="Server Info">
-				<?php esc_html_e( 'Server Info', 'Avada' ); ?>:
+				<?php esc_html_e( 'Server Info', 'fusion-builder' ); ?>:
 			</td>
 			<td class="help">
-				<?php echo '<a href="#" class="fusionredux-hint-qtip" qtip-content="' . esc_attr__( 'Information about the web server that is currently hosting your site.', 'Avada' ) . '">[?]</a>'; ?>
+				<?php echo '<a href="#" class="fusionredux-hint-qtip" qtip-content="' . esc_attr__( 'Information about the web server that is currently hosting your site.', 'fusion-builder' ) . '">[?]</a>'; ?>
 			</td>
 			<td>
 				<?php echo esc_html($sysinfo['server_info']); ?>
@@ -312,10 +312,10 @@
 		</tr>
 		<tr>
 			<td data-export-label="Localhost Environment">
-				<?php esc_html_e( 'Localhost Environment', 'Avada' ); ?>:
+				<?php esc_html_e( 'Localhost Environment', 'fusion-builder' ); ?>:
 			</td>
 			<td class="help">
-				<?php echo '<a href="#" class="fusionredux-hint-qtip" qtip-content="' . esc_attr__( 'Is the server running in a localhost environment.', 'Avada' ) . '">[?]</a>'; ?>
+				<?php echo '<a href="#" class="fusionredux-hint-qtip" qtip-content="' . esc_attr__( 'Is the server running in a localhost environment.', 'fusion-builder' ) . '">[?]</a>'; ?>
 			</td>
 			<td>
 <?php
@@ -329,10 +329,10 @@
 		</tr>
 		<tr>
 			<td data-export-label="PHP Version">
-				<?php esc_html_e( 'PHP Version', 'Avada' ); ?>:
+				<?php esc_html_e( 'PHP Version', 'fusion-builder' ); ?>:
 			</td>
 			<td class="help">
-				<?php echo '<a href="#" class="fusionredux-hint-qtip" qtip-content="' . esc_attr__( 'The version of PHP installed on your hosting server.', 'Avada' ) . '">[?]</a>'; ?>
+				<?php echo '<a href="#" class="fusionredux-hint-qtip" qtip-content="' . esc_attr__( 'The version of PHP installed on your hosting server.', 'fusion-builder' ) . '">[?]</a>'; ?>
 			</td>
 			<td>
 				<?php echo esc_html($sysinfo['php_ver']); ?>
@@ -340,10 +340,10 @@
 		</tr>
 		<tr>
 			<td data-export-label="ABSPATH">
-				<?php esc_html_e( 'ABSPATH', 'Avada' ); ?>:
+				<?php esc_html_e( 'ABSPATH', 'fusion-builder' ); ?>:
 			</td>
 			<td class="help">
-				<?php echo '<a href="#" class="fusionredux-hint-qtip" qtip-content="' . esc_attr__( 'The ABSPATH variable on the server.', 'Avada' ) . '">[?]</a>'; ?>
+				<?php echo '<a href="#" class="fusionredux-hint-qtip" qtip-content="' . esc_attr__( 'The ABSPATH variable on the server.', 'fusion-builder' ) . '">[?]</a>'; ?>
 			</td>
 			<td>
 				<?php echo '<code>' . esc_html($sysinfo['abspath']) . '</code>'; ?>
@@ -352,28 +352,28 @@
 
 		<?php if ( function_exists( 'ini_get' ) ) { ?>
 			<tr>
-				<td data-export-label="PHP Memory Limit"><?php esc_html_e( 'PHP Memory Limit', 'Avada' ); ?>:</td>
-				<td class="help"><?php echo '<a href="#" class="fusionredux-hint-qtip" qtip-content="' . esc_attr__( 'The largest filesize that can be contained in one post.', 'Avada' ) . '">[?]</a>'; ?></td>
+				<td data-export-label="PHP Memory Limit"><?php esc_html_e( 'PHP Memory Limit', 'fusion-builder' ); ?>:</td>
+				<td class="help"><?php echo '<a href="#" class="fusionredux-hint-qtip" qtip-content="' . esc_attr__( 'The largest filesize that can be contained in one post.', 'fusion-builder' ) . '">[?]</a>'; ?></td>
 				<td><?php echo esc_html($sysinfo['php_mem_limit']); ?></td>
 			</tr>
 			<tr>
-				<td data-export-label="PHP Post Max Size"><?php esc_html_e( 'PHP Post Max Size', 'Avada' ); ?>:</td>
-				<td class="help"><?php echo '<a href="#" class="fusionredux-hint-qtip" qtip-content="' . esc_attr__( 'The largest filesize that can be contained in one post.', 'Avada' ) . '">[?]</a>'; ?></td>
+				<td data-export-label="PHP Post Max Size"><?php esc_html_e( 'PHP Post Max Size', 'fusion-builder' ); ?>:</td>
+				<td class="help"><?php echo '<a href="#" class="fusionredux-hint-qtip" qtip-content="' . esc_attr__( 'The largest filesize that can be contained in one post.', 'fusion-builder' ) . '">[?]</a>'; ?></td>
 				<td><?php echo esc_html($sysinfo['php_post_max_size']); ?></td>
 			</tr>
 			<tr>
-				<td data-export-label="PHP Time Limit"><?php esc_html_e( 'PHP Time Limit', 'Avada' ); ?>:</td>
-				<td class="help"><?php echo '<a href="#" class="fusionredux-hint-qtip" qtip-content="' . esc_attr__( 'The amount of time (in seconds) that your site will spend on a single operation before timing out (to avoid server lockups)', 'Avada' ) . '">[?]</a>'; ?></td>
+				<td data-export-label="PHP Time Limit"><?php esc_html_e( 'PHP Time Limit', 'fusion-builder' ); ?>:</td>
+				<td class="help"><?php echo '<a href="#" class="fusionredux-hint-qtip" qtip-content="' . esc_attr__( 'The amount of time (in seconds) that your site will spend on a single operation before timing out (to avoid server lockups)', 'fusion-builder' ) . '">[?]</a>'; ?></td>
 				<td><?php echo esc_html($sysinfo['php_time_limit']); ?></td>
 			</tr>
 			<tr>
-				<td data-export-label="PHP Max Input Vars"><?php esc_html_e( 'PHP Max Input Vars', 'Avada' ); ?>:</td>
-				<td class="help"><?php echo '<a href="#" class="fusionredux-hint-qtip" qtip-content="' . esc_attr__( 'The maximum number of variables your server can use for a single function to avoid overloads.', 'Avada' ) . '">[?]</a>'; ?></td>
+				<td data-export-label="PHP Max Input Vars"><?php esc_html_e( 'PHP Max Input Vars', 'fusion-builder' ); ?>:</td>
+				<td class="help"><?php echo '<a href="#" class="fusionredux-hint-qtip" qtip-content="' . esc_attr__( 'The maximum number of variables your server can use for a single function to avoid overloads.', 'fusion-builder' ) . '">[?]</a>'; ?></td>
 				<td><?php echo esc_html($sysinfo['php_max_input_var']); ?></td>
 			</tr>
 			<tr>
-				<td data-export-label="PHP Display Errors"><?php esc_html_e( 'PHP Display Errors', 'Avada' ); ?>:</td>
-				<td class="help"><?php echo '<a href="#" class="fusionredux-hint-qtip" qtip-content="' . esc_attr__( 'Determines if PHP will display errors within the browser.', 'Avada' ) . '">[?]</a>'; ?></td>
+				<td data-export-label="PHP Display Errors"><?php esc_html_e( 'PHP Display Errors', 'fusion-builder' ); ?>:</td>
+				<td class="help"><?php echo '<a href="#" class="fusionredux-hint-qtip" qtip-content="' . esc_attr__( 'Determines if PHP will display errors within the browser.', 'fusion-builder' ) . '">[?]</a>'; ?></td>
 				<td><?php
 						if ( 'true' === $sysinfo['php_display_errors'] ) {
 							echo '<mark class="yes">' . '&#10004;' . '</mark>';
@@ -384,8 +384,8 @@
 			</tr>
 		<?php } ?>
 		<tr>
-			<td data-export-label="SUHOSIN Installed"><?php esc_html_e( 'SUHOSIN Installed', 'Avada' ); ?>:</td>
-			<td class="help"><?php echo '<a href="#" class="fusionredux-hint-qtip" qtip-content="' . esc_attr__( 'Suhosin is an advanced protection system for PHP installations. It was designed to protect your servers on the one hand against a number of well known problems in PHP applications and on the other hand against potential unknown vulnerabilities within these applications or the PHP core itself.  If enabled on your server, Suhosin may need to be configured to increase its data submission limits.', 'Avada' ) . '">[?]</a>'; ?></td>
+			<td data-export-label="SUHOSIN Installed"><?php esc_html_e( 'SUHOSIN Installed', 'fusion-builder' ); ?>:</td>
+			<td class="help"><?php echo '<a href="#" class="fusionredux-hint-qtip" qtip-content="' . esc_attr__( 'Suhosin is an advanced protection system for PHP installations. It was designed to protect your servers on the one hand against a number of well known problems in PHP applications and on the other hand against potential unknown vulnerabilities within these applications or the PHP core itself.  If enabled on your server, Suhosin may need to be configured to increase its data submission limits.', 'fusion-builder' ) . '">[?]</a>'; ?></td>
 			<td>
 				<?php if ( $sysinfo['suhosin_installed'] == true ) {
 					echo '<mark class="yes">' . '&#10004;' . '</mark>';
@@ -396,24 +396,24 @@
 		</tr>
 
 		<tr>
-			<td data-export-label="MySQL Version"><?php esc_html_e( 'MySQL Version', 'Avada' ); ?>:</td>
-			<td class="help"><?php echo '<a href="#" class="fusionredux-hint-qtip" qtip-content="' . esc_attr__( 'The version of MySQL installed on your hosting server.', 'Avada' ) . '">[?]</a>'; ?></td>
+			<td data-export-label="MySQL Version"><?php esc_html_e( 'MySQL Version', 'fusion-builder' ); ?>:</td>
+			<td class="help"><?php echo '<a href="#" class="fusionredux-hint-qtip" qtip-content="' . esc_attr__( 'The version of MySQL installed on your hosting server.', 'fusion-builder' ) . '">[?]</a>'; ?></td>
 			<td><?php echo esc_html($sysinfo['mysql_ver']); ?></td>
 		</tr>
 		<tr>
-			<td data-export-label="Max Upload Size"><?php esc_html_e( 'Max Upload Size', 'Avada' ); ?>:</td>
-			<td class="help"><?php echo '<a href="#" class="fusionredux-hint-qtip" qtip-content="' . esc_attr__( 'The largest filesize that can be uploaded to your WordPress installation.', 'Avada' ) . '">[?]</a>'; ?></td>
+			<td data-export-label="Max Upload Size"><?php esc_html_e( 'Max Upload Size', 'fusion-builder' ); ?>:</td>
+			<td class="help"><?php echo '<a href="#" class="fusionredux-hint-qtip" qtip-content="' . esc_attr__( 'The largest filesize that can be uploaded to your WordPress installation.', 'fusion-builder' ) . '">[?]</a>'; ?></td>
 			<td><?php echo esc_html($sysinfo['max_upload_size']); ?></td>
 		</tr>
 		<tr>
 			<td data-export-label="Default Timezone is UTC">
-				<?php esc_html_e( 'Default Timezone is UTC', 'Avada' ); ?>:
+				<?php esc_html_e( 'Default Timezone is UTC', 'fusion-builder' ); ?>:
 			</td>
-			<td class="help"><?php echo '<a href="#" class="fusionredux-hint-qtip" qtip-content="' . esc_attr__( 'The default timezone for your server.', 'Avada' ) . '">[?]</a>'; ?></td>
+			<td class="help"><?php echo '<a href="#" class="fusionredux-hint-qtip" qtip-content="' . esc_attr__( 'The default timezone for your server.', 'fusion-builder' ) . '">[?]</a>'; ?></td>
 			<td>
 <?php
 				if ( $sysinfo['def_tz_is_utc'] === 'false' ) {
-					echo '<mark class="error">' . '&#10005; ' . sprintf( __( 'Default timezone is %s - it should be UTC', 'Avada' ), esc_html(date_default_timezone_get()) ) . '</mark>';
+					echo '<mark class="error">' . '&#10005; ' . sprintf( __( 'Default timezone is %s - it should be UTC', 'fusion-builder' ), esc_html(date_default_timezone_get()) ) . '</mark>';
 				} else {
 					echo '<mark class="yes">' . '&#10004;' . '</mark>';
 				}
@@ -425,13 +425,13 @@
 
 			// fsockopen/cURL
 			$posting['fsockopen_curl']['name'] = 'fsockopen/cURL';
-			$posting['fsockopen_curl']['help'] = '<a href="#" class="fusionredux-hint-qtip" qtip-content="' . esc_attr__( 'Used when communicating with remote services with PHP.', 'Avada' ) . '">[?]</a>';
+			$posting['fsockopen_curl']['help'] = '<a href="#" class="fusionredux-hint-qtip" qtip-content="' . esc_attr__( 'Used when communicating with remote services with PHP.', 'fusion-builder' ) . '">[?]</a>';
 
 			if ( $sysinfo['fsockopen_curl'] === 'true' ) {
 				$posting['fsockopen_curl']['success'] = true;
 			} else {
 				$posting['fsockopen_curl']['success'] = false;
-				$posting['fsockopen_curl']['note']    = esc_html__( 'Your server does not have fsockopen or cURL enabled - cURL is used to communicate with other servers. Please contact your hosting provider.', 'Avada' ) . '</mark>';
+				$posting['fsockopen_curl']['note']    = esc_html__( 'Your server does not have fsockopen or cURL enabled - cURL is used to communicate with other servers. Please contact your hosting provider.', 'fusion-builder' ) . '</mark>';
 			}
 
 			/*
@@ -470,31 +470,31 @@
 			//}
 
 			// WP Remote Post Check
-			$posting['wp_remote_post']['name'] = esc_html__( 'Remote Post', 'Avada' );
-			$posting['wp_remote_post']['help'] = '<a href="#" class="fusionredux-hint-qtip" qtip-content="' . esc_attr__( 'Used to send data to remote servers.', 'Avada' ) . '">[?]</a>';
+			$posting['wp_remote_post']['name'] = esc_html__( 'Remote Post', 'fusion-builder' );
+			$posting['wp_remote_post']['help'] = '<a href="#" class="fusionredux-hint-qtip" qtip-content="' . esc_attr__( 'Used to send data to remote servers.', 'fusion-builder' ) . '">[?]</a>';
 
 			if ( $sysinfo['wp_remote_post'] === 'true' ) {
 				$posting['wp_remote_post']['success'] = true;
 			} else {
-				$posting['wp_remote_post']['note'] = esc_html__( 'wp_remote_post() failed. Many advanced features may not function. Contact your hosting provider.', 'Avada' );
+				$posting['wp_remote_post']['note'] = esc_html__( 'wp_remote_post() failed. Many advanced features may not function. Contact your hosting provider.', 'fusion-builder' );
 
 				if ( $sysinfo['wp_remote_post_error'] ) {
-					$posting['wp_remote_post']['note'] .= ' ' . sprintf( __( 'Error: %s', 'Avada' ), fusionredux_clean( $sysinfo['wp_remote_post_error'] ) );
+					$posting['wp_remote_post']['note'] .= ' ' . sprintf( __( 'Error: %s', 'fusion-builder' ), fusionredux_clean( $sysinfo['wp_remote_post_error'] ) );
 				}
 
 				$posting['wp_remote_post']['success'] = false;
 			}
 
 			// WP Remote Get Check
-			$posting['wp_remote_get']['name'] = esc_html__( 'Remote Get', 'Avada' );
-			$posting['wp_remote_get']['help'] = '<a href="#" class="fusionredux-hint-qtip" qtip-content="' . esc_attr__( 'Used to grab information from remote servers for updates updates.', 'Avada' ) . '">[?]</a>';
+			$posting['wp_remote_get']['name'] = esc_html__( 'Remote Get', 'fusion-builder' );
+			$posting['wp_remote_get']['help'] = '<a href="#" class="fusionredux-hint-qtip" qtip-content="' . esc_attr__( 'Used to grab information from remote servers for updates updates.', 'fusion-builder' ) . '">[?]</a>';
 
 			if ( $sysinfo['wp_remote_get'] === 'true' ) {
 				$posting['wp_remote_get']['success'] = true;
 			} else {
-				$posting['wp_remote_get']['note'] = esc_html__( 'wp_remote_get() failed. This is needed to get information from remote servers. Contact your hosting provider.', 'Avada' );
+				$posting['wp_remote_get']['note'] = esc_html__( 'wp_remote_get() failed. This is needed to get information from remote servers. Contact your hosting provider.', 'fusion-builder' );
 				if ( $sysinfo['wp_remote_get_error'] ) {
-					$posting['wp_remote_get']['note'] .= ' ' . sprintf( __( 'Error: %s', 'Avada' ), fusionredux_clean( $sysinfo['wp_remote_get_error'] ) );
+					$posting['wp_remote_get']['note'] .= ' ' . sprintf( __( 'Error: %s', 'fusion-builder' ), fusionredux_clean( $sysinfo['wp_remote_get_error'] ) );
 				}
 
 				$posting['wp_remote_get']['success'] = false;
@@ -528,7 +528,7 @@
 		<thead>
 		<tr>
 			<th colspan="3" data-export-label="Active Plugins (<?php echo esc_html(count( (array) get_option( 'active_plugins' ) ) ); ?>)">
-				<?php esc_html_e( 'Active Plugins', 'Avada' ); ?> (<?php echo esc_html(count( (array) get_option( 'active_plugins' ) ) ); ?>)
+				<?php esc_html_e( 'Active Plugins', 'fusion-builder' ); ?> (<?php echo esc_html(count( (array) get_option( 'active_plugins' ) ) ); ?>)
 			</th>
 		</tr>
 		</thead>
@@ -543,14 +543,14 @@
 					$plugin_name = esc_html( $plugin_data['Name'] );
 
 					if ( ! empty( $plugin_data['PluginURI'] ) ) {
-						$plugin_name = '<a href="' . esc_url( $plugin_data['PluginURI'] ) . '" title="' . esc_attr__( 'Visit plugin homepage', 'Avada' ) . '">' . esc_html($plugin_name) . '</a>';
+						$plugin_name = '<a href="' . esc_url( $plugin_data['PluginURI'] ) . '" title="' . esc_attr__( 'Visit plugin homepage', 'fusion-builder' ) . '">' . esc_html($plugin_name) . '</a>';
 					}
 ?>
 					<tr>
 						<td><?php echo $plugin_name; ?></td>
 						<td class="help">&nbsp;</td>
 						<td>
-							<?php echo sprintf( _x( 'by %s', 'by author', 'Avada' ), $plugin_data['Author'] ) . ' &ndash; ' . esc_html( $plugin_data['Version'] ) . $version_string . $network_string; ?>
+							<?php echo sprintf( _x( 'by %s', 'by author', 'fusion-builder' ), $plugin_data['Author'] ) . ' &ndash; ' . esc_html( $plugin_data['Version'] ) . $version_string . $network_string; ?>
 						</td>
 					</tr>
 <?php
@@ -569,14 +569,14 @@
 					<thead>
 					<tr>
 						<th colspan="3" data-export-label="FusionRedux Instance: <?php echo esc_html($inst_name); ?>">
-							<?php esc_html_e( 'FusionRedux Instance: ', 'Avada' );
+							<?php esc_html_e( 'FusionRedux Instance: ', 'fusion-builder' );
 							echo esc_html($inst_name); ?></th>
 					</tr>
 					</thead>
 					<tbody>
 					<tr>
 						<td data-export-label="opt_name">opt_name:</td>
-						<td class="help"><?php echo '<a href="#" class="fusionredux-hint-qtip" qtip-content="' . esc_attr__( 'The opt_name argument for this instance of FusionRedux.', 'Avada' ) . '">[?]</a>'; ?></td>
+						<td class="help"><?php echo '<a href="#" class="fusionredux-hint-qtip" qtip-content="' . esc_attr__( 'The opt_name argument for this instance of FusionRedux.', 'fusion-builder' ) . '">[?]</a>'; ?></td>
 						<td><?php echo esc_html($args['opt_name']); ?></td>
 					</tr>
 					<?php
@@ -584,7 +584,7 @@
 							?>
 							<tr>
 								<td data-export-label="global_variable">global_variable:</td>
-								<td class="help"><?php echo '<a href="#" class="fusionredux-hint-qtip" qtip-content="' . esc_attr__( 'The global_variable argument for this instance of FusionRedux.', 'Avada' ) . '">[?]</a>'; ?></td>
+								<td class="help"><?php echo '<a href="#" class="fusionredux-hint-qtip" qtip-content="' . esc_attr__( 'The global_variable argument for this instance of FusionRedux.', 'fusion-builder' ) . '">[?]</a>'; ?></td>
 								<td><?php echo esc_html($args['global_variable']); ?></td>
 							</tr>
 						<?php
@@ -592,48 +592,48 @@
 					?>
 					<tr>
 						<td data-export-label="dev_mode">dev_mode:</td>
-						<td class="help"><?php echo '<a href="#" class="fusionredux-hint-qtip" qtip-content="' . esc_attr__( 'Indicates if developer mode is enabled for this instance of FusionRedux.', 'Avada' ) . '">[?]</a>'; ?></td>
+						<td class="help"><?php echo '<a href="#" class="fusionredux-hint-qtip" qtip-content="' . esc_attr__( 'Indicates if developer mode is enabled for this instance of FusionRedux.', 'fusion-builder' ) . '">[?]</a>'; ?></td>
 						<td><?php echo true == $args['dev_mode'] ? '<mark class="yes">' . '&#10004;' . '</mark>' : '<mark class="no">' . '&ndash;' . '</mark>'; ?></td>
 					</tr>
 					<tr>
 						<td data-export-label="ajax_save">ajax_save:</td>
-						<td class="help"><?php echo '<a href="#" class="fusionredux-hint-qtip" qtip-content="' . esc_attr__( 'Indicates if ajax based saving is enabled for this instance of FusionRedux.', 'Avada' ) . '">[?]</a>'; ?></td>
+						<td class="help"><?php echo '<a href="#" class="fusionredux-hint-qtip" qtip-content="' . esc_attr__( 'Indicates if ajax based saving is enabled for this instance of FusionRedux.', 'fusion-builder' ) . '">[?]</a>'; ?></td>
 						<td><?php echo true == $args['ajax_save'] ? '<mark class="yes">' . '&#10004;' . '</mark>' : '<mark class="no">' . '&ndash;' . '</mark>'; ?></td>
 					</tr>
 					<tr>
 						<td data-export-label="page_slug">page_slug:</td>
-						<td class="help"><?php echo '<a href="#" class="fusionredux-hint-qtip" qtip-content="' . esc_attr__( 'The page slug denotes the string used for the options panel page for this instance of FusionRedux.', 'Avada' ) . '">[?]</a>'; ?></td>
+						<td class="help"><?php echo '<a href="#" class="fusionredux-hint-qtip" qtip-content="' . esc_attr__( 'The page slug denotes the string used for the options panel page for this instance of FusionRedux.', 'fusion-builder' ) . '">[?]</a>'; ?></td>
 						<td><?php echo esc_html($args['page_slug']); ?></td>
 					</tr>
 					<tr>
 						<td data-export-label="page_permissions">page_permissions:</td>
-						<td class="help"><?php echo '<a href="#" class="fusionredux-hint-qtip" qtip-content="' . esc_attr__( 'The page permissions variable sets the permission level required to access the options panel for this instance of FusionRedux.', 'Avada' ) . '">[?]</a>'; ?></td>
+						<td class="help"><?php echo '<a href="#" class="fusionredux-hint-qtip" qtip-content="' . esc_attr__( 'The page permissions variable sets the permission level required to access the options panel for this instance of FusionRedux.', 'fusion-builder' ) . '">[?]</a>'; ?></td>
 						<td><?php echo esc_html($args['page_permissions']); ?></td>
 					</tr>
 					<tr>
 						<td data-export-label="menu_type">menu_type:</td>
-						<td class="help"><?php echo '<a href="#" class="fusionredux-hint-qtip" qtip-content="' . esc_attr__( 'This variable set whether or not the menu is displayed as an admin menu item for this instance of FusionRedux.', 'Avada' ) . '">[?]</a>'; ?></td>
+						<td class="help"><?php echo '<a href="#" class="fusionredux-hint-qtip" qtip-content="' . esc_attr__( 'This variable set whether or not the menu is displayed as an admin menu item for this instance of FusionRedux.', 'fusion-builder' ) . '">[?]</a>'; ?></td>
 						<td><?php echo esc_html($args['menu_type']); ?></td>
 					</tr>
 					<tr>
 						<td data-export-label="page_parent">page_parent:</td>
-						<td class="help"><?php echo '<a href="#" class="fusionredux-hint-qtip" qtip-content="' . esc_attr__( 'The page parent variable sets where the options menu will be placed on the WordPress admin sidebar for this instance of FusionRedux.', 'Avada' ) . '">[?]</a>'; ?></td>
+						<td class="help"><?php echo '<a href="#" class="fusionredux-hint-qtip" qtip-content="' . esc_attr__( 'The page parent variable sets where the options menu will be placed on the WordPress admin sidebar for this instance of FusionRedux.', 'fusion-builder' ) . '">[?]</a>'; ?></td>
 						<td><?php echo esc_html($args['page_parent']); ?></td>
 					</tr>
 
 					<tr>
 						<td data-export-label="compiler">compiler:</td>
-						<td class="help"><?php echo '<a href="#" class="fusionredux-hint-qtip" qtip-content="' . esc_attr__( 'Indicates if the compiler flag is enabled for this instance of FusionRedux.', 'Avada' ) . '">[?]</a>'; ?></td>
+						<td class="help"><?php echo '<a href="#" class="fusionredux-hint-qtip" qtip-content="' . esc_attr__( 'Indicates if the compiler flag is enabled for this instance of FusionRedux.', 'fusion-builder' ) . '">[?]</a>'; ?></td>
 						<td><?php echo true == $args['compiler'] ? '<mark class="yes">' . '&#10004;' . '</mark>' : '<mark class="no">' . '&ndash;' . '</mark>'; ?></td>
 					</tr>
 					<tr>
 						<td data-export-label="output">output:</td>
-						<td class="help"><?php echo '<a href="#" class="fusionredux-hint-qtip" qtip-content="' . esc_attr__( 'Indicates if output flag for globally shutting off all CSS output is enabled for this instance of FusionRedux.', 'Avada' ) . '">[?]</a>'; ?></td>
+						<td class="help"><?php echo '<a href="#" class="fusionredux-hint-qtip" qtip-content="' . esc_attr__( 'Indicates if output flag for globally shutting off all CSS output is enabled for this instance of FusionRedux.', 'fusion-builder' ) . '">[?]</a>'; ?></td>
 						<td><?php echo true == $args['output'] ? '<mark class="yes">' . '&#10004;' . '</mark>' : '<mark class="no">' . '&ndash;' . '</mark>'; ?></td>
 					</tr>
 					<tr>
 						<td data-export-label="output_tag">output_tag:</td>
-						<td class="help"><?php echo '<a href="#" class="fusionredux-hint-qtip" qtip-content="' . esc_attr__( 'The output_tag variable sets whether or not dynamic CSS will be generated for the customizer and Google fonts for this instance of FusionRedux.', 'Avada' ) . '">[?]</a>'; ?></td>
+						<td class="help"><?php echo '<a href="#" class="fusionredux-hint-qtip" qtip-content="' . esc_attr__( 'The output_tag variable sets whether or not dynamic CSS will be generated for the customizer and Google fonts for this instance of FusionRedux.', 'fusion-builder' ) . '">[?]</a>'; ?></td>
 						<td><?php echo true == $args['output_tag'] ? '<mark class="yes">' . '&#10004;' . '</mark>' : '<mark class="no">' . '&ndash;' . '</mark>'; ?></td>
 					</tr>
 
@@ -642,12 +642,12 @@
 							?>
 							<tr>
 								<td data-export-label="template_path">template_path:</td>
-								<td class="help"><?php echo '<a href="#" class="fusionredux-hint-qtip" qtip-content="' . esc_attr__( 'The specified template path containing custom template files for this instance of FusionRedux.', 'Avada' ) . '">[?]</a>'; ?></td>
+								<td class="help"><?php echo '<a href="#" class="fusionredux-hint-qtip" qtip-content="' . esc_attr__( 'The specified template path containing custom template files for this instance of FusionRedux.', 'fusion-builder' ) . '">[?]</a>'; ?></td>
 								<td><?php echo '<code>' . esc_html($args['templates_path']) . '</code>'; ?></td>
 							</tr>
 							<tr>
 								<td data-export-label="Templates">Templates:</td>
-								<td class="help"><?php echo '<a href="#" class="fusionredux-hint-qtip" qtip-content="' . esc_attr__( 'List of template files overriding the default FusionRedux template files.', 'Avada' ) . '">[?]</a>'; ?></td>
+								<td class="help"><?php echo '<a href="#" class="fusionredux-hint-qtip" qtip-content="' . esc_attr__( 'List of template files overriding the default FusionRedux template files.', 'fusion-builder' ) . '">[?]</a>'; ?></td>
 <?php
 									$found_files = $data['templates'];
 									if ( $found_files ) {
@@ -673,7 +673,7 @@
 ?>
 							<tr>
 								<td data-export-label="Extensions">Extensions</td>
-								<td class="help"><?php echo '<a href="#" class="fusionredux-hint-qtip" qtip-content="' . esc_attr__( 'Indicates the installed FusionRedux extensions and their version numbers.', 'Avada' ) . '">[?]</a>'; ?></td>
+								<td class="help"><?php echo '<a href="#" class="fusionredux-hint-qtip" qtip-content="' . esc_attr__( 'Indicates the installed FusionRedux extensions and their version numbers.', 'fusion-builder' ) . '">[?]</a>'; ?></td>
 								<td>
 <?php
 									foreach ( $ext as $name => $arr ) {
@@ -702,39 +702,39 @@
 	<table class="fusionredux_status_table widefat" cellspacing="0" id="status">
 		<thead>
 		<tr>
-			<th colspan="3" data-export-label="Theme"><?php esc_html_e( 'Theme', 'Avada' ); ?></th>
+			<th colspan="3" data-export-label="Theme"><?php esc_html_e( 'Theme', 'fusion-builder' ); ?></th>
 		</tr>
 		</thead>
 		<tbody>
 		<tr>
-			<td data-export-label="Name"><?php esc_html_e( 'Name', 'Avada' ); ?>:</td>
-			<td class="help"><?php echo '<a href="#" class="fusionredux-hint-qtip" qtip-content="' . esc_attr__( 'The name of the current active theme.', 'Avada' ) . '">[?]</a>'; ?></td>
+			<td data-export-label="Name"><?php esc_html_e( 'Name', 'fusion-builder' ); ?>:</td>
+			<td class="help"><?php echo '<a href="#" class="fusionredux-hint-qtip" qtip-content="' . esc_attr__( 'The name of the current active theme.', 'fusion-builder' ) . '">[?]</a>'; ?></td>
 			<td><?php echo esc_html($sysinfo['theme']['name']); ?></td>
 		</tr>
 		<tr>
-			<td data-export-label="Version"><?php esc_html_e( 'Version', 'Avada' ); ?>:</td>
-			<td class="help"><?php echo '<a href="#" class="fusionredux-hint-qtip" qtip-content="' . esc_attr__( 'The installed version of the current active theme.', 'Avada' ) . '">[?]</a>'; ?></td>
+			<td data-export-label="Version"><?php esc_html_e( 'Version', 'fusion-builder' ); ?>:</td>
+			<td class="help"><?php echo '<a href="#" class="fusionredux-hint-qtip" qtip-content="' . esc_attr__( 'The installed version of the current active theme.', 'fusion-builder' ) . '">[?]</a>'; ?></td>
 			<td>
 <?php
 				echo esc_html($sysinfo['theme']['version']);
 
 				if ( ! empty( $theme_version_data['version'] ) && version_compare( $theme_version_data['version'], $active_theme->Version, '!=' ) ) {
-					echo ' &ndash; <strong style="color:red;">' . esc_html($theme_version_data['version']) . ' ' . esc_html__( 'is available', 'Avada' ) . '</strong>';
+					echo ' &ndash; <strong style="color:red;">' . esc_html($theme_version_data['version']) . ' ' . esc_html__( 'is available', 'fusion-builder' ) . '</strong>';
 				}
 ?>
 			</td>
 		</tr>
 		<tr>
-			<td data-export-label="Author URL"><?php esc_html_e( 'Author URL', 'Avada' ); ?>:</td>
-			<td class="help"><?php echo '<a href="#" class="fusionredux-hint-qtip" qtip-content="' . esc_attr__( 'The theme developers URL.', 'Avada' ) . '">[?]</a>'; ?></td>
+			<td data-export-label="Author URL"><?php esc_html_e( 'Author URL', 'fusion-builder' ); ?>:</td>
+			<td class="help"><?php echo '<a href="#" class="fusionredux-hint-qtip" qtip-content="' . esc_attr__( 'The theme developers URL.', 'fusion-builder' ) . '">[?]</a>'; ?></td>
 			<td><?php echo esc_url($sysinfo['theme']['author_uri']); ?></td>
 		</tr>
 		<tr>
-			<td data-export-label="Child Theme"><?php esc_html_e( 'Child Theme', 'Avada' ); ?>:</td>
-			<td class="help"><?php echo '<a href="#" class="fusionredux-hint-qtip" qtip-content="' . esc_attr__( 'Displays whether or not the current theme is a child theme.', 'Avada' ) . '">[?]</a>'; ?></td>
+			<td data-export-label="Child Theme"><?php esc_html_e( 'Child Theme', 'fusion-builder' ); ?>:</td>
+			<td class="help"><?php echo '<a href="#" class="fusionredux-hint-qtip" qtip-content="' . esc_attr__( 'Displays whether or not the current theme is a child theme.', 'fusion-builder' ) . '">[?]</a>'; ?></td>
 			<td>
 <?php
-				echo is_child_theme() ? '<mark class="yes">' . '&#10004;' . '</mark>' : '&#10005; <br /><em>' . sprintf( __( 'If you\'re modifying FusionRedux Framework or a parent theme you didn\'t build personally, we recommend using a child theme. See: <a href="%s" target="_blank">How to create a child theme</a>', 'Avada' ), 'http://codex.wordpress.org/Child_Themes' ) . '</em>';
+				echo is_child_theme() ? '<mark class="yes">' . '&#10004;' . '</mark>' : '&#10005; <br /><em>' . sprintf( __( 'If you\'re modifying FusionRedux Framework or a parent theme you didn\'t build personally, we recommend using a child theme. See: <a href="%s" target="_blank">How to create a child theme</a>', 'fusion-builder' ), 'http://codex.wordpress.org/Child_Themes' ) . '</em>';
 ?>
 			</td>
 		</tr>
@@ -742,23 +742,23 @@
 			if ( is_child_theme() ) {
 ?>
 				<tr>
-					<td data-export-label="Parent Theme Name"><?php esc_html_e( 'Parent Theme Name', 'Avada' ); ?>:
+					<td data-export-label="Parent Theme Name"><?php esc_html_e( 'Parent Theme Name', 'fusion-builder' ); ?>:
 					</td>
-					<td class="help"><?php echo '<a href="#" class="fusionredux-hint-qtip" qtip-content="' . esc_attr__( 'The name of the parent theme.', 'Avada' ) . '">[?]</a>'; ?></td>
+					<td class="help"><?php echo '<a href="#" class="fusionredux-hint-qtip" qtip-content="' . esc_attr__( 'The name of the parent theme.', 'fusion-builder' ) . '">[?]</a>'; ?></td>
 					<td><?php echo esc_html($sysinfo['theme']['parent_name']); ?></td>
 				</tr>
 				<tr>
 					<td data-export-label="Parent Theme Version">
-						<?php esc_html_e( 'Parent Theme Version', 'Avada' ); ?>:
+						<?php esc_html_e( 'Parent Theme Version', 'fusion-builder' ); ?>:
 					</td>
-					<td class="help"><?php echo '<a href="#" class="fusionredux-hint-qtip" qtip-content="' . esc_attr__( 'The installed version of the parent theme.', 'Avada' ) . '">[?]</a>'; ?></td>
+					<td class="help"><?php echo '<a href="#" class="fusionredux-hint-qtip" qtip-content="' . esc_attr__( 'The installed version of the parent theme.', 'fusion-builder' ) . '">[?]</a>'; ?></td>
 					<td><?php echo esc_html($sysinfo['theme']['parent_version']); ?></td>
 				</tr>
 				<tr>
 					<td data-export-label="Parent Theme Author URL">
-						<?php esc_html_e( 'Parent Theme Author URL', 'Avada' ); ?>:
+						<?php esc_html_e( 'Parent Theme Author URL', 'fusion-builder' ); ?>:
 					</td>
-					<td class="help"><?php echo '<a href="#" class="fusionredux-hint-qtip" qtip-content="' . esc_attr__( 'The parent theme developers URL.', 'Avada' ) . '">[?]</a>'; ?></td>
+					<td class="help"><?php echo '<a href="#" class="fusionredux-hint-qtip" qtip-content="' . esc_attr__( 'The parent theme developers URL.', 'fusion-builder' ) . '">[?]</a>'; ?></td>
 					<td><?php echo esc_url($sysinfo['theme']['parent_author_uri']); ?></td>
 				</tr>
 			<?php } ?>

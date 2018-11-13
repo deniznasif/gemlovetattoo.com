@@ -68,7 +68,8 @@ if ( fusion_is_element_enabled( 'fusion_progress' ) ) {
 						'filledbordercolor' => $fusion_settings->get( 'progressbar_filled_border_color' ),
 						'filledbordersize'  => $fusion_settings->get( 'progressbar_filled_border_size' ),
 					),
-					$args
+					$args,
+					'fusion_progress'
 				);
 
 				$defaults['filledbordersize'] = FusionBuilder::validate_shortcode_attr_value( $defaults['filledbordersize'], 'px' );
@@ -268,7 +269,7 @@ if ( fusion_is_element_enabled( 'fusion_progress' ) ) {
 								'type'        => 'dimension',
 							),
 							'progressbar_text_position' => array(
-								'label'       => esc_html__( 'Text Position', 'fusion-builder' ),
+								'label'       => esc_html__( 'Progress Bar Text Position', 'fusion-builder' ),
 								'description' => esc_html__( 'Select the position of the progress bar text. Choose "Default" for theme option selection.', 'fusion-builder' ),
 								'id'          => 'progressbar_text_position',
 								'default'     => 'on_bar',
@@ -493,8 +494,8 @@ function fusion_element_progress() {
 				),
 				array(
 					'type'        => 'textfield',
-					'heading'     => esc_attr__( 'Progess Bar Text', 'fusion-builder' ),
-					'description' => esc_attr__( 'Text will show up on progess bar.', 'fusion-builder' ),
+					'heading'     => esc_attr__( 'Progress Bar Text', 'fusion-builder' ),
+					'description' => esc_attr__( 'Text will show up on progress bar.', 'fusion-builder' ),
 					'param_name'  => 'element_content',
 					'value'       => esc_attr__( 'Your Content Goes Here', 'fusion-builder' ),
 					'placeholder' => true,

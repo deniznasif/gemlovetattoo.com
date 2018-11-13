@@ -86,7 +86,8 @@ if ( function_exists( 'fusion_is_element_enabled' ) && fusion_is_element_enabled
 						'title_font_size'           => $fusion_settings->get( 'faq_accordion_title_font_size' ),
 						'toggle_hover_accent_color' => $fusion_settings->get( 'faq_accordian_active_color' ),
 					),
-					$args
+					$args,
+					'fusion_faq'
 				);
 
 				$defaults['border_size'] = FusionBuilder::validate_shortcode_attr_value( $defaults['border_size'], 'px' );

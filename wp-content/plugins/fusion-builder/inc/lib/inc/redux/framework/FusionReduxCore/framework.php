@@ -217,15 +217,15 @@
 				}
 
 				if ( empty ( $this->args['footer_credit'] ) ) {
-					$this->args['footer_credit'] = '<span id="footer-thankyou">' . sprintf( __( 'Options panel created using %1$s', 'Avada' ), '<a href="' . esc_url( $this->framework_url ) . '" target="_blank">' . __( 'FusionRedux Framework', 'Avada' ) . '</a> v' . self::$_version ) . '</span>';
+					$this->args['footer_credit'] = '<span id="footer-thankyou">' . sprintf( __( 'Options panel created using %1$s', 'fusion-builder' ), '<a href="' . esc_url( $this->framework_url ) . '" target="_blank">' . __( 'FusionRedux Framework', 'fusion-builder' ) . '</a> v' . self::$_version ) . '</span>';
 				}
 
 				if ( empty ( $this->args['menu_title'] ) ) {
-					$this->args['menu_title'] = __( 'Options', 'Avada' );
+					$this->args['menu_title'] = __( 'Options', 'fusion-builder' );
 				}
 
 				if ( empty ( $this->args['page_title'] ) ) {
-					$this->args['page_title'] = __( 'Options', 'Avada' );
+					$this->args['page_title'] = __( 'Options', 'fusion-builder' );
 				}
 
 				$this->old_opt_name = $this->args['opt_name'];
@@ -1748,29 +1748,29 @@
 
 					// Default url values for enabling hints.
 					$dismiss = 'true';
-					$s       = __( 'Enable', 'Avada' );
+					$s       = __( 'Enable', 'fusion-builder' );
 
 					// Values for disabling hints.
 					if ( 'true' == $hint_status ) {
 						$dismiss = 'false';
-						$s       = __( 'Disable', 'Avada' );
+						$s       = __( 'Disable', 'fusion-builder' );
 					}
 
 					// Make URL
 					$url = '<a class="fusionredux_hint_status" href="?dismiss=' . $dismiss . '&amp;id=hints&amp;page=' . $curPage . '&amp;tab=' . $curTab . '">' . $s . ' hints</a>';
 
-					$event = __( 'moving the mouse over', 'Avada' );
+					$event = __( 'moving the mouse over', 'fusion-builder' );
 					if ( 'click' == $this->args['hints']['tip_effect']['show']['event'] ) {
-						$event = __( 'clicking', 'Avada' );
+						$event = __( 'clicking', 'fusion-builder' );
 					}
 
 					// Construct message
-					$msg = sprintf( __( 'Hints are tooltips that popup when %d the hint icon, offering addition information about the field in which they appear.  They can be %d d by using the link below.', 'Avada' ), $event, strtolower( $s ) ) . '<br/><br/>' . $url;
+					$msg = sprintf( __( 'Hints are tooltips that popup when %d the hint icon, offering addition information about the field in which they appear.  They can be %d d by using the link below.', 'fusion-builder' ), $event, strtolower( $s ) ) . '<br/><br/>' . $url;
 
 					// Construct hint tab
 					$tab = array(
 						'id'      => 'fusionredux-hint-tab',
-						'title'   => __( 'Hints', 'Avada' ),
+						'title'   => __( 'Hints', 'fusion-builder' ),
 						'content' => '<p>' . $msg . '</p>'
 					);
 
@@ -1897,7 +1897,7 @@
 				}
 
 				if ( ! empty ( $default_output ) ) {
-					$default_output = __( 'Default', 'Avada' ) . ": " . substr( $default_output, 0, - 2 );
+					$default_output = __( 'Default', 'fusion-builder' ) . ": " . substr( $default_output, 0, - 2 );
 				}
 
 				if ( ! empty ( $default_output ) ) {
@@ -2779,7 +2779,7 @@
 			public function ajax_save() {
 				if ( ! wp_verify_nonce( $_REQUEST['nonce'], "fusionredux_ajax_nonce" . $this->args['opt_name'] ) ) {
 					echo json_encode( array(
-						'status' => __( 'Invalid security credential.  Please reload the page and try again.', 'Avada' ),
+						'status' => __( 'Invalid security credential.  Please reload the page and try again.', 'fusion-builder' ),
 						'action' => ''
 					) );
 
@@ -2788,7 +2788,7 @@
 
 				if ( ! current_user_can( $this->args['page_permissions'] ) ) {
 					echo json_encode( array(
-						'status' => __( 'Invalid user capability.  Please reload the page and try again.', 'Avada' ),
+						'status' => __( 'Invalid user capability.  Please reload the page and try again.', 'fusion-builder' ),
 						'action' => ''
 					) );
 
@@ -2868,7 +2868,7 @@
 							$return_array = array( 'status' => $e->getMessage() );
 						}
 					} else {
-						echo json_encode( array( 'status' => __( 'Your panel has no fields. Nothing to save.', 'Avada' ) ) );
+						echo json_encode( array( 'status' => __( 'Your panel has no fields. Nothing to save.', 'fusion-builder' ) ) );
 					}
 				}
 				if ( isset ( $this->transients['run_compiler'] ) && $this->transients['run_compiler'] ) {
@@ -3966,7 +3966,7 @@
 							if (is_array($arr) && !empty($arr)) {
 								foreach($arr as $x => $y) {
 									if (strpos(strtolower($y), 'fusionredux') >= 0) {
-										$msg = __('<strong>FusionRedux Framework Notice: </strong>There are references to the FusionRedux Framework support site in your config\'s <code>admin_bar_links</code> argument.  This is sample data.  Please change or remove this data before shipping your product.', 'Avada');
+										$msg = __('<strong>FusionRedux Framework Notice: </strong>There are references to the FusionRedux Framework support site in your config\'s <code>admin_bar_links</code> argument.  This is sample data.  Please change or remove this data before shipping your product.', 'fusion-builder');
 										$this->display_arg_change_notice('admin', $msg);
 										$this->omit_admin_items = true;
 										continue;
@@ -3981,7 +3981,7 @@
 							if (is_array($arr) && !empty($arr)) {
 								foreach($arr as $x => $y) {
 									if (strpos(strtolower($y), 'fusionredux') >= 0) {
-										$msg = __('<strong>FusionRedux Framework Notice: </strong>There are references to the FusionRedux Framework support site in your config\'s <code>share_icons</code> argument.  This is sample data.  Please change or remove this data before shipping your product.', 'Avada');
+										$msg = __('<strong>FusionRedux Framework Notice: </strong>There are references to the FusionRedux Framework support site in your config\'s <code>share_icons</code> argument.  This is sample data.  Please change or remove this data before shipping your product.', 'fusion-builder');
 										$this->display_arg_change_notice('share', $msg);
 										$this->omit_share_icons = true;
 									}

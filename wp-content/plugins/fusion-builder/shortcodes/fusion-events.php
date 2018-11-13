@@ -74,7 +74,8 @@ if ( fusion_is_element_enabled( 'fusion_events' ) ) {
 						'picture_size'    => 'cover',
 						'strip_html'      => ( '' !== $fusion_settings->get( 'events_strip_html_excerpt' ) ) ? $fusion_settings->get( 'events_strip_html_excerpt' ) : 'yes',
 					),
-					$args
+					$args,
+					'fusion_events'
 				);
 
 				$theme_option_content_padding = $fusion_settings->get( 'events_content_padding' );

@@ -59,7 +59,8 @@ if ( fusion_is_element_enabled( 'fusion_soundcloud' ) ) {
 						'url'            => '',
 						'width'          => '100%',
 					),
-					$args
+					$args,
+					'fusion_soundcloud'
 				);
 
 				$defaults['width']  = FusionBuilder::validate_shortcode_attr_value( $defaults['width'], 'px' );

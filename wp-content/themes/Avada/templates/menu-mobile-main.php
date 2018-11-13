@@ -30,10 +30,10 @@ if ( ! Avada()->settings->get( 'mobile_menu_submenu_indicator' ) ) {
 }
 ?>
 
-<nav class="fusion-mobile-nav-holder<?php echo esc_attr( $mobile_menu_css_classes ); ?>"></nav>
+<nav class="fusion-mobile-nav-holder<?php echo esc_attr( $mobile_menu_css_classes ); ?>" aria-label="<?php esc_attr_e( 'Main Menu Mobile', 'Avada' ); ?>"></nav>
 
 <?php if ( has_nav_menu( 'sticky_navigation' ) && 'Top' === Avada()->settings->get( 'header_position' ) ) : ?>
-	<nav class="fusion-mobile-nav-holder<?php echo esc_attr( $mobile_menu_css_classes ); ?> fusion-mobile-sticky-nav-holder"></nav>
+	<nav class="fusion-mobile-nav-holder<?php echo esc_attr( $mobile_menu_css_classes ); ?> fusion-mobile-sticky-nav-holder" aria-label="<?php esc_attr_e( 'Main Menu Mobile Sticky', 'Avada' ); ?>"></nav>
 <?php endif; ?>
 <?php
 

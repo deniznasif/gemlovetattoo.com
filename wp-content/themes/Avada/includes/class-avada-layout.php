@@ -78,8 +78,10 @@ class Avada_Layout {
 			// Set styling to content and sidebar divs.
 			$this->add_sidebar_layout_styling( $this->sidebars );
 
+			add_filter( 'fusion_responsive_sidebar_order', array( $this, 'correct_responsive_sidebar_order' ) );
 		}
 	}
+
 	/**
 	 * Get sidebar settings based on the page type.
 	 *
@@ -405,6 +407,28 @@ class Avada_Layout {
 			}
 		}
 
+	}
+
+	/**
+	 * Changes the responsive sidebar order, if right positioning and dounble sidebars are used..
+	 *
+	 * @access public
+	 * @since 5.7.2
+	 * @param array $sidebar_order The ordered array of sidebars.
+	 * @return array The changed ordered sidebar array.
+	 */
+	public function correct_responsive_sidebar_order( $sidebar_order ) {
+		if ( isset( $this->sidebars['sidebar_2_data'] ) && 'right' === $this->sidebars['position'] ) {
+			foreach ( $sidebar_order as $key => $element ) {
+				if ( 'sidebar' === $element ) {
+					$sidebar_order[ $key ] = 'sidebar-2';
+				} elseif ( 'sidebar-2' === $element ) {
+					$sidebar_order[ $key ] = 'sidebar';
+				}
+			}
+		}
+
+		return $sidebar_order;
 	}
 
 	/**

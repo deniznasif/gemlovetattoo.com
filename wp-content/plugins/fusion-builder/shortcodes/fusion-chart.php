@@ -111,7 +111,8 @@ if ( fusion_is_element_enabled( 'fusion_chart' ) ) {
 						'class'                    => '',
 						'id'                       => '',
 					),
-					$args
+					$args,
+					'fusion_chart'
 				);
 
 				$defaults['chart_padding'] = array(
@@ -303,7 +304,8 @@ if ( fusion_is_element_enabled( 'fusion_chart' ) ) {
 						'background_color'  => '',
 						'border_color'      => '',
 					),
-					$args
+					$args,
+					'fusion_chart_dataset'
 				);
 
 				$this->child_args = $defaults;

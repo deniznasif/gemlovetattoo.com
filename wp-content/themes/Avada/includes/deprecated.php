@@ -309,4 +309,16 @@ function apply_avada_blog_read_more_excerpt_filter( $value ) {
 }
 add_filter( 'fusion_blog_read_more_excerpt', 'apply_avada_blog_read_more_excerpt_filter' );
 
+/**
+ * Backwards-compatibility for the fusion_get_attachment_data_from_url_attachment_base_url filter.
+ *
+ * @since 5.7.1
+ * @param string $value HTML.
+ * @return string
+ */
+function apply_fusion_get_attachment_data_from_url_attachment_base_url_filter( $value ) {
+	return apply_filters( 'fusion_get_attachment_data_from_url_attachment_base_url', $value );
+}
+add_filter( 'fusion_get_attachment_base_url', 'apply_fusion_get_attachment_data_from_url_attachment_base_url_filter' );
+
 /* Omit closing PHP tag to avoid "Headers already sent" issues. */

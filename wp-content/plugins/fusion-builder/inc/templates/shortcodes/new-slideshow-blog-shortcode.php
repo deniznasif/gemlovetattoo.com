@@ -71,8 +71,8 @@ $post_video = fusion_get_page_option( 'video', get_the_ID() );
 
 <?php if ( has_post_thumbnail() || $post_video ) : ?>
 	<?php $thumbnail_id = get_post_thumbnail_id(); ?>
-	<?php $border_style = ( 'grid' === $atts['layout'] || 'masonry' === $atts['layout'] || 'timeline' === $atts['layout'] ) ? ' style="border-color:' . $atts['grid_element_color'] . '"' : ''; ?>
-	<div class="fusion-flexslider flexslider fusion-flexslider-loading fusion-post-slideshow"<?php echo esc_attr( $border_style ); ?>>
+	<?php $border_style = ( 'grid' === $atts['layout'] || 'masonry' === $atts['layout'] || 'timeline' === $atts['layout'] ) ? 'border-color:' . $atts['grid_element_color'] . ';' : ''; ?>
+	<div class="fusion-flexslider flexslider fusion-flexslider-loading fusion-post-slideshow" style="<?php echo esc_attr( $border_style ); ?>">
 		<ul class="slides">
 			<?php if ( $post_video ) : ?>
 				<li>

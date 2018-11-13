@@ -35,12 +35,12 @@ var FusionPageBuilderEvents = _.extend( {}, Backbone.Events );
 
 		if ( ! initialLoad && 'undefined' !== typeof window.tinyMCE && window.tinyMCE.get( textareaID ) && ! window.tinyMCE.get( textareaID ).isHidden() ) {
 			content = window.tinyMCE.get( textareaID ).getContent();
-		} else {
+		} else if ( $( '#' + textareaID ).length ) {
 			content = $( '#' + textareaID ).val().replace( /\r?\n/g, '\r\n' );
 		}
 
 		// Remove auto p tags from content.
-		if ( removeAutoP && 'undefined' !== typeof window.tinyMCE ) {
+		if ( removeAutoP && 'undefined' !== typeof window.tinyMCE && 'undefined' !== typeof content ) {
 			content = content.replace( /<p>\[/g, '[' );
 			content = content.replace( /\]<\/p>/g, ']' );
 		}
@@ -660,8 +660,15 @@ var FusionPageBuilderEvents = _.extend( {}, Backbone.Events );
 						$uploadButton.val( 'Upload Image' );
 					}
 
-					if ( $( '#image_id' ).length ) {
-						$( '#image_id' ).val( '' );
+					// Remove image ID if image preview is empty.
+					imageIDField = $uploadButton.parents( '.fusion-builder-option' ).next().find( '#' + $uploadButton.data( 'param' ) + '_id' );
+
+					if ( 'element_content' === $uploadButton.data( 'param' ) ) {
+						imageIDField = $uploadButton.parents( '.fusion-builder-option' ).next().find( '#image_id' );
+					}
+
+					if ( imageIDField.length ) {
+						imageIDField.val( '' );
 					}
 
 					return;
@@ -832,10 +839,12 @@ var FusionPageBuilderEvents = _.extend( {}, Backbone.Events );
 
 						var imageURL,
 							imageID,
+							imageSize,
 							imageIDs,
 							state = fileFrame.state(),
 							firstElementNode,
-							firstElement;
+							firstElement,
+							imageIDField;
 
 						if ( 'undefined' === typeof state.get( 'selection' ) ) {
 							imageURL = jQuery( fileFrame.$el ).find( '#embed-url-field' ).val();
@@ -868,6 +877,7 @@ var FusionPageBuilderEvents = _.extend( {}, Backbone.Events );
 									display = state.display( attachment ).toJSON();
 
 								imageID = element.id;
+								imageSize = display.size;
 								if ( element.sizes && element.sizes[display.size] && element.sizes[display.size].url ) {
 									imageURL = element.sizes[display.size].url;
 								} else if ( element.url ) {
@@ -884,6 +894,10 @@ var FusionPageBuilderEvents = _.extend( {}, Backbone.Events );
 								// If its a multi upload element, add the image to defaults and trigger a new item to be added.
 								if ( multiUpload ) {
 									fusionAllElements[ $thisEl.data( 'element' ) ].params[ $thisEl.data( 'param' ) ].value = imageURL;
+									if ( 'image' === $thisEl.data( 'param' ) ) {
+										fusionAllElements[ $thisEl.data( 'element' ) ].params[ $thisEl.data( 'param' ) + '_id' ].value = imageID + '|' + imageSize;
+									}
+
 									jQuery( $thisEl ).parents( '.fusion-builder-main-settings' ).find( '.fusion-builder-add-multi-child' ).trigger( 'click' );
 									FusionPageBuilderEvents.trigger( 'fusion-multi-child-update-preview' );
 									fusionAllElements[ $thisEl.data( 'element' ) ].params[ $thisEl.data( 'param' ) ].value = defaultParam;
@@ -896,8 +910,14 @@ var FusionPageBuilderEvents = _.extend( {}, Backbone.Events );
 							$thisEl.siblings( '.fusion-builder-upload-field' ).val( imageURL ).trigger( 'change' );
 
 							// Set image id.
-							if ( $( '#image_id' ).length ) {
-								$( '#image_id' ).val( imageID );
+							imageIDField = $thisEl.parents( '.fusion-builder-option' ).next().find( '#' + $thisEl.data( 'param' ) + '_id' );
+
+							if ( 'element_content' === $thisEl.data( 'param' ) ) {
+								imageIDField = $thisEl.parents( '.fusion-builder-option' ).next().find( '#image_id' );
+							}
+
+							if ( imageIDField.length ) {
+								imageIDField.val( imageID + '|' + imageSize );
 							}
 
 							FusionPageBuilderApp.fusionBuilderImagePreview( $thisEl );
@@ -1884,6 +1904,13 @@ var FusionPageBuilderEvents = _.extend( {}, Backbone.Events );
 								}
 
 								delete prefixedAttributes.params[ key ];
+							}
+						}
+
+						// Ensures backwards compatibility for the table style in table element.
+						if ( 'fusion_table' === shortcodeName && 'undefined' === typeof shortcodeAttributes.named.fusion_table_type ) {
+							if ( '1' === shortcodeContent.charAt( 18 ) || '2' === shortcodeContent.charAt( 18 ) ) {
+								prefixedAttributes.params.fusion_table_type = shortcodeContent.charAt( 18 );
 							}
 						}
 
@@ -3277,9 +3304,17 @@ var FusionPageBuilderEvents = _.extend( {}, Backbone.Events );
 			$upload.val( 'Upload Image' );
 			$preview.remove();
 
-			if ( $( '#image_id' ).length ) {
-				$( '#image_id' ).val( '' );
+			// Remove image ID if image is removed.
+			imageIDField = $upload.parents( '.fusion-builder-option' ).next().find( '#' + $upload.data( 'param' ) + '_id' );
+
+			if ( 'element_content' === $upload.data( 'param' ) ) {
+				imageIDField = $upload.parents( '.fusion-builder-option' ).next().find( '#image_id' );
 			}
+
+			if ( imageIDField.length ) {
+				imageIDField.val( '' );
+			}
+
 			jQuery( this ).remove();
 		} );
 
@@ -3314,6 +3349,12 @@ var FusionPageBuilderEvents = _.extend( {}, Backbone.Events );
 				$( this ).parents( '.fusion-builder-modal-container' ).find( tab ).fadeIn( 'fast' );
 			} else {
 				$( tab ).fadeIn( 'fast' );
+			}
+
+			if ( jQuery( '.fusion-builder-modal-top-container' ).find( '.fusion-elements-filter' ).length ) {
+				setTimeout( function() {
+					jQuery( '.fusion-builder-modal-top-container' ).find( '.fusion-elements-filter' ).focus();
+				}, 50 );
 			}
 		} );
 

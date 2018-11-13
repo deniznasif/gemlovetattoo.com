@@ -309,7 +309,7 @@
 			 */
 			private static function single_activate() {
 				$notices   = get_option( 'FusionReduxFrameworkPlugin_ACTIVATED_NOTICES', array() );
-				$notices[] = __( 'FusionRedux Framework has an embedded demo.', 'Avada' ) . ' <a href="./plugins.php?FusionReduxFrameworkPlugin=demo">' . __( 'Click here to activate the sample config file.', 'Avada' ) . '</a>';
+				$notices[] = __( 'FusionRedux Framework has an embedded demo.', 'fusion-builder' ) . ' <a href="./plugins.php?FusionReduxFrameworkPlugin=demo">' . __( 'Click here to activate the sample config file.', 'fusion-builder' ) . '</a>';
 
 				update_option( 'FusionReduxFrameworkPlugin_ACTIVATED_NOTICES', $notices );
 			}
@@ -410,17 +410,17 @@
 				if ( strpos( $file, 'fusionredux-framework.php' ) !== false && is_plugin_active( $file ) ) {
 
 					$new_links = array(
-						'<a href="' . 'http://' . 'docs.fusionreduxframework.com/" target="_blank">' . __( 'Docs', 'Avada' ) . '</a>',
-						'<a href="' . 'https://' . 'github.com/FusionReduxFramework/fusionredux-framework" target="_blank">' . __( 'Repo', 'Avada' ) . '</a>',
-						'<a href="' . 'http://' . 'build.fusionreduxframework.com/" target="_blank">' . __( 'Builder', 'Avada' ) . '</a>',
-						'<a href="' . admin_url( 'tools.php?page=fusionredux-support' ) . '">' . __( 'Get Support', 'Avada' ) . '</a>',
+						'<a href="' . 'http://' . 'docs.fusionreduxframework.com/" target="_blank">' . __( 'Docs', 'fusion-builder' ) . '</a>',
+						'<a href="' . 'https://' . 'github.com/FusionReduxFramework/fusionredux-framework" target="_blank">' . __( 'Repo', 'fusion-builder' ) . '</a>',
+						'<a href="' . 'http://' . 'build.fusionreduxframework.com/" target="_blank">' . __( 'Builder', 'fusion-builder' ) . '</a>',
+						'<a href="' . admin_url( 'tools.php?page=fusionredux-support' ) . '">' . __( 'Get Support', 'fusion-builder' ) . '</a>',
 					);
 
 					if ( ( is_multisite() && $this->plugin_network_activated ) || ! is_network_admin() || ! is_multisite() ) {
 						if ( $this->options['demo'] ) {
-							$new_links[3] .= '<br /><span style="display: block; padding-top: 6px;"><a href="./plugins.php?FusionReduxFrameworkPlugin=demo" style="color: #bc0b0b;">' . __( 'Deactivate Demo Mode', 'Avada' ) . '</a></span>';
+							$new_links[3] .= '<br /><span style="display: block; padding-top: 6px;"><a href="./plugins.php?FusionReduxFrameworkPlugin=demo" style="color: #bc0b0b;">' . __( 'Deactivate Demo Mode', 'fusion-builder' ) . '</a></span>';
 						} else {
-							$new_links[3] .= '<br /><span style="display: block; padding-top: 6px;"><a href="./plugins.php?FusionReduxFrameworkPlugin=demo" style="color: #bc0b0b;">' . __( 'Activate Demo Mode', 'Avada' ) . '</a></span>';
+							$new_links[3] .= '<br /><span style="display: block; padding-top: 6px;"><a href="./plugins.php?FusionReduxFrameworkPlugin=demo" style="color: #bc0b0b;">' . __( 'Activate Demo Mode', 'fusion-builder' ) . '</a></span>';
 						}
 					}
 

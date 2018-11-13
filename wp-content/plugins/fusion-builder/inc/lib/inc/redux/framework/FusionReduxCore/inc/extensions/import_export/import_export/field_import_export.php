@@ -88,10 +88,10 @@
 
 				// $this->field['type'] && $this->field['id'] is sanitized in the FusionReduxFramework class, no need to re-sanitize it.
 				?>
-					<h4><?php esc_html_e( 'Import Options', 'Avada' ); ?></h4>
+					<h4><?php esc_html_e( 'Import Options', 'fusion-builder' ); ?></h4>
 					<div class="fusionredux-section-desc">
 						<p class="description">
-							<?php echo esc_html( apply_filters( 'fusionredux-import-main-description', __( 'Important: Only Fusion 4.0+ theme options can be imported. You cannot import theme options from Fusion versions older than 4.0.', 'Avada' ) ) ) ?>
+							<?php echo esc_html( apply_filters( 'fusionredux-import-main-description', __( 'Important: Only Fusion 4.0+ theme options can be imported. You cannot import theme options from Fusion versions older than 4.0.', 'fusion-builder' ) ) ) ?>
 						</p>
 					</div>
 					<p>
@@ -100,37 +100,37 @@
 							/**
 							 * Fusion Edit
 							 */
-							esc_html_e( 'Import Contents from File', 'Avada' );
+							esc_html_e( 'Import Contents from File', 'fusion-builder' );
 							?>
 						</a>
 						<a href="javascript:void(0);" id="fusionredux-import-link-button" class="button-secondary">
-							<?php esc_html_e( 'Import from URL', 'Avada' ) ?>
+							<?php esc_html_e( 'Import from URL', 'fusion-builder' ) ?>
 						</a>
 					</p>
 
 					<div id="fusionredux-import-code-wrapper">
 						<p class="description" id="import-code-description">
-							<?php echo esc_html( apply_filters( 'fusionredux-import-file-description', __( 'Input your backup file below and hit Import to restore your sites options from a backup.', 'Avada' ) ) ); ?>
+							<?php echo esc_html( apply_filters( 'fusionredux-import-file-description', __( 'Input your backup file below and hit Import to restore your sites options from a backup.', 'fusion-builder' ) ) ); ?>
 						</p>
 						<?php // $this->parent->args['opt_name'] is sanitized in the FusionReduxFramework class, no need to re-sanitize it. ?>
 						<textarea id="import-code-value" name="<?php echo $this->parent->args['opt_name']; ?>[import_code]" class="large-text noUpdate" rows="2"></textarea>
 					</div>
 
 					<div id="fusionredux-import-link-wrapper">
-						<p class="description" id="import-link-description"><?php echo esc_html( apply_filters( 'fusionredux-import-link-description', __( 'Input the URL to another sites options set and hit Import to load the options from that site.', 'Avada' ) ) ); ?></p>
+						<p class="description" id="import-link-description"><?php echo esc_html( apply_filters( 'fusionredux-import-link-description', __( 'Input the URL to another sites options set and hit Import to load the options from that site.', 'fusion-builder' ) ) ); ?></p>
 						<?php // $this->parent->args['opt_name'] is sanitized in the FusionReduxFramework class, no need to re-sanitize it. ?>
 						<textarea class="large-text noUpdate" id="import-link-value" name="<?php echo $this->parent->args['opt_name'] ?>[import_link]" rows="2"></textarea>
 					</div>
 
-					<p id="fusionredux-import-action"><input type="submit" id="fusionredux-import" name="import" class="button-primary" value="<?php esc_html_e( 'Import', 'Avada' ) ?>">&nbsp;&nbsp;<span><?php echo esc_html( apply_filters( 'fusionredux-import-warning', __( 'WARNING! This will overwrite all existing option values, please proceed with caution!', 'Avada' ) ) ) ?></span></p>
+					<p id="fusionredux-import-action"><input type="submit" id="fusionredux-import" name="import" class="button-primary" value="<?php esc_html_e( 'Import', 'fusion-builder' ) ?>">&nbsp;&nbsp;<span><?php echo esc_html( apply_filters( 'fusionredux-import-warning', __( 'WARNING! This will overwrite all existing option values, please proceed with caution!', 'fusion-builder' ) ) ) ?></span></p>
 
 					<div class="hr"/>
 					<div class="inner"><span>&nbsp;</span></div></div>
-					<h4><?php esc_html_e( 'Export Options', 'Avada' ) ?></h4>
+					<h4><?php esc_html_e( 'Export Options', 'fusion-builder' ) ?></h4>
 
 					<div class="fusionredux-section-desc">
 						<p class="description">
-							<?php echo esc_html( apply_filters( 'fusionredux-backup-description', __( 'Here you can copy/download your current option settings. Keep this safe as you can use it as a backup should anything go wrong, or you can use it to restore your settings on this site (or any other site).', 'Avada' ) ) ) ?>
+							<?php echo esc_html( apply_filters( 'fusionredux-backup-description', __( 'Here you can copy/download your current option settings. Keep this safe as you can use it as a backup should anything go wrong, or you can use it to restore your settings on this site (or any other site).', 'fusion-builder' ) ) ) ?>
 						</p>
 					</div>
 				<?php
@@ -139,9 +139,9 @@
 				$export_link = esc_url( admin_url( 'admin-ajax.php?action=fusionredux_link_options-' . $this->parent->args['opt_name'] . '&secret=' . $secret ) );
 				?>
 					<p>
-						<a href="javascript:void(0);" id="fusionredux-export-code-copy" class="button-secondary"><?php esc_html_e( 'Copy Data', 'Avada' ) ?></a>
-						<a href="<?php echo $link; ?>" id="fusionredux-export-code-dl" class="button-primary"><?php esc_html_e( 'Download Data File', 'Avada' ) ?></a>
-						<a href="javascript:void(0);" id="fusionredux-export-link" class="button-secondary"><?php esc_html_e( 'Copy Export URL', 'Avada' ) ?></a>
+						<a href="javascript:void(0);" id="fusionredux-export-code-copy" class="button-secondary"><?php esc_html_e( 'Copy Data', 'fusion-builder' ) ?></a>
+						<a href="<?php echo $link; ?>" id="fusionredux-export-code-dl" class="button-primary"><?php esc_html_e( 'Download Data File', 'fusion-builder' ) ?></a>
+						<a href="javascript:void(0);" id="fusionredux-export-link" class="button-secondary"><?php esc_html_e( 'Copy Export URL', 'fusion-builder' ) ?></a>
 					</p>
 
 					<p></p>

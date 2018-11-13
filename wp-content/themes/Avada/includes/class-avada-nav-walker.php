@@ -428,7 +428,9 @@ if ( ! class_exists( 'Avada_Nav_Walker' ) ) {
 				$this->menu_megamenu_widgetarea = isset( $avada_meta['widgetarea'] ) ? $avada_meta['widgetarea'] : '';
 
 				if ( ! empty( $avada_meta['thumbnail'] ) ) {
-					$thumbnail_data = Avada()->images->get_attachment_data_from_url( $avada_meta['thumbnail'] );
+					$thumbnail_id = isset( $avada_meta['thumbnail_id'] ) ? $avada_meta['thumbnail_id'] : 0;
+
+					$thumbnail_data = Avada()->images->get_attachment_data_by_helper( $thumbnail_id, $avada_meta['thumbnail'] );
 
 					if ( $thumbnail_data ) {
 						$this->menu_megamenu_thumbnail = '<img src="' . $thumbnail_data['url'] . '" alt="' . $thumbnail_data['alt'] . '" title="' . $thumbnail_data['title'] . '">';

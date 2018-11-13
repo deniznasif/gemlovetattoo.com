@@ -57,7 +57,8 @@ if ( ! class_exists( 'FusionSC_Global' ) ) {
 				array(
 					'id'    => '',
 				),
-				$args
+				$args,
+				'fusion_global'
 			);
 
 			extract( $defaults );

@@ -66,8 +66,10 @@ if ( fusion_is_element_enabled( 'fusion_title' ) ) {
 						'style_type'     => $fusion_settings->get( 'title_style_type' ),
 						'text_color'     => '',
 					),
-					$args
+					$args,
+					'fusion_title'
 				);
+				$defaults = apply_filters( 'fusion_builder_default_args', $defaults, 'fusion_title', $args );
 
 				$defaults['margin_top']    = FusionBuilder::validate_shortcode_attr_value( $defaults['margin_top'], 'px' );
 				$defaults['margin_bottom'] = FusionBuilder::validate_shortcode_attr_value( $defaults['margin_bottom'], 'px' );
@@ -200,7 +202,7 @@ if ( fusion_is_element_enabled( 'fusion_title' ) ) {
 				$attr['class'] .= ' fusion-title-size-' . $title_size;
 
 				if ( $this->args['font_size'] ) {
-					$attr['style'] = 'font-size:' . $fusion_library->sanitize->get_value_with_unit( $this->args['font_size'] ) . ';';
+					$attr['style'] .= 'font-size:' . $fusion_library->sanitize->get_value_with_unit( $this->args['font_size'] ) . ';';
 				}
 
 				if ( $this->args['margin_top'] ) {

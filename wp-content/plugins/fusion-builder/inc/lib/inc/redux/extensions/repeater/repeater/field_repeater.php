@@ -184,7 +184,7 @@
 							$this->output_field( $field, $x );
 						}
 						if ( ! isset( $this->field['static'] ) && empty( $this->field['static'] ) ) {
-							echo '<a href="javascript:void(0);" class="button deletion fusionredux-repeaters-remove">' . __( 'Delete', 'Avada' ) . ' ' . $this->field['item_name'] . '</a>';
+							echo '<a href="javascript:void(0);" class="button deletion fusionredux-repeaters-remove">' . __( 'Delete', 'fusion-builder' ) . ' ' . $this->field['item_name'] . '</a>';
 						}
 						echo '</div>';
 						echo '</fieldset>';
@@ -227,7 +227,7 @@
 							$this->output_field( $field, $x );
 						}
 						if ( ! isset( $this->field['static'] ) && empty( $this->field['static'] ) ) {
-							echo '<a href="javascript:void(0);" class="button deletion fusionredux-repeaters-remove">' . __( 'Delete', 'Avada' ) . ' ' . $this->field['item_name'] . '</a>';
+							echo '<a href="javascript:void(0);" class="button deletion fusionredux-repeaters-remove">' . __( 'Delete', 'fusion-builder' ) . ' ' . $this->field['item_name'] . '</a>';
 						}
 						echo '</div>';
 						echo '</fieldset>';
@@ -249,7 +249,7 @@
 						}
 					}
 
-					echo '<a href="javascript:void(0);" class="button fusionredux-repeaters-add button-primary' . $disabled . '" rel-id="' . $this->field['id'] . '-ul" rel-name="' . $this->parent->args['opt_name'] . $this->repeater_values . '[title][]">' . __( 'Add', 'Avada' ) . ' ' . $this->field['item_name'] . '</a><br/>';
+					echo '<a href="javascript:void(0);" class="button fusionredux-repeaters-add button-primary' . $disabled . '" rel-id="' . $this->field['id'] . '-ul" rel-name="' . $this->parent->args['opt_name'] . $this->repeater_values . '[title][]">' . __( 'Add', 'fusion-builder' ) . ' ' . $this->field['item_name'] . '</a><br/>';
 				}
 
 			}

@@ -265,7 +265,7 @@ if ( ! class_exists( 'Avada_Megamenu_Framework' ) ) {
 						<input type='button' data-id="background-image-<?php echo esc_attr( $item_id ); ?>" class='button-upload fusion-builder-upload-button avada-upload-button' data-type="image" value="<?php esc_attr_e( 'Upload Image', 'Avada' ); ?>" />
 					</div>
 				</div>
-			</div>			
+			</div>
 			<div class="fusion-builder-option field-megamenu-thumbnail">
 				<div class="option-details">
 					<h3><?php esc_html_e( 'Mega Menu Thumbnail', 'Avada' ); ?></h3>
@@ -274,6 +274,14 @@ if ( ! class_exists( 'Avada_Megamenu_Framework' ) ) {
 				<div class="option-field fusion-builder-option-container">
 					<div class="fusion-upload-image<?php echo ( isset( $item->fusion_megamenu_thumbnail ) && '' !== $item->fusion_megamenu_thumbnail ) ? ' fusion-image-set' : ''; ?>">
 						<input type="hidden" id="edit-menu-item-megamenu-thumbnail-<?php echo esc_attr( $item_id ); ?>" class="regular-text fusion-builder-upload-field" name="menu-item-fusion-megamenu-thumbnail[<?php echo esc_attr( $item_id ); ?>]" value="<?php echo esc_attr( $item->fusion_megamenu_thumbnail ); ?>" />
+						<?php
+						$thumbnail_id = isset( $item->fusion_megamenu_thumbnail ) ? $item->fusion_megamenu_thumbnail_id : 0;
+
+						if ( ! $thumbnail_id && isset( $item->fusion_megamenu_thumbnail ) && '' !== $item->fusion_megamenu_thumbnail ) {
+							$thumbnail_id = Fusion_Images::get_attachment_id_from_url( $item->fusion_megamenu_thumbnail );
+						}
+						?>
+						<input type="hidden" id="edit-menu-item-megamenu-thumbnail-id-<?php echo esc_attr( $item_id ); ?>" class="regular-text fusion-builder-upload-field" name="menu-item-fusion-megamenu-thumbnail-id[<?php echo esc_attr( $item_id ); ?>]" value="<?php echo esc_attr( $thumbnail_id ); ?>" />
 						<div class="fusion-builder-upload-preview">
 							<img src="<?php echo esc_url( $item->fusion_megamenu_thumbnail ); ?>" id="fusion-media-img-thumbnail-<?php echo esc_attr( $item_id ); ?>" class="fusion-megamenu-thumbnail-image" style="<?php echo ( trim( $item->fusion_megamenu_thumbnail ) ) ? 'display:inline;' : ''; ?>" />
 						</div>

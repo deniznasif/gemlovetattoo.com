@@ -105,6 +105,7 @@ jQuery( document ).ready( function() {
 
 				} else {
 					jQuery( window.avadaUploadfield ).val( imageUrl ).trigger( 'change' );
+					jQuery( window.avadaUploadfield.next() ).val( imageId ).trigger( 'change' );
 				}
 				window.avadaUploadfield = '';
 

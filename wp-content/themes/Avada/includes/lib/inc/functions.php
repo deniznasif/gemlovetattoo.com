@@ -446,6 +446,8 @@ if ( ! function_exists( 'fusion_get_post_content' ) ) {
 			$content_excerpted = true;
 		}
 
+		$content_excerpted = apply_filters( 'fusion_post_content_is_excerpted', $content_excerpted );
+
 		// Sermon specific additional content.
 		if ( 'wpfc_sermon' === get_post_type( get_the_ID() ) && class_exists( 'Avada' ) ) {
 			return Avada()->sermon_manager->get_sermon_content( true );

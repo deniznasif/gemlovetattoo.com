@@ -68,7 +68,8 @@ if ( fusion_is_element_enabled( 'fusion_separator' ) ) {
 						'style'             => '', // Deprecated.
 						'top'               => '', // Deprecated.
 					),
-					$args
+					$args,
+					'fusion_separator'
 				);
 
 				$defaults['border_size']   = FusionBuilder::validate_shortcode_attr_value( $defaults['border_size'], 'px' );

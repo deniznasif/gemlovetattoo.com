@@ -103,7 +103,7 @@ class Fusion_Patcher_Client {
 		// Return false if we couldn't get to the server.
 		if ( is_wp_error( $response ) ) {
 			// Add a message so that the user knows what happened.
-			new Fusion_Patcher_Admin_Notices( 'server-unreachable', esc_attr__( 'The ThemeFusion patches server could not be reached. Please contact your host to unblock the "https://updates.theme-fusion.com/" domain.', 'Avada' ) );
+			new Fusion_Patcher_Admin_Notices( 'server-unreachable', esc_attr__( 'The ThemeFusion patches server could not be reached. Please contact your host to unblock the "https://updates.theme-fusion.com/" domain.', 'fusion-builder' ) );
 			return false;
 		}
 

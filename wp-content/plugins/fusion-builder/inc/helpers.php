@@ -2216,6 +2216,16 @@ function fusion_builder_map_descriptions( $shortcode, $param ) {
 		'theme-option' => 'person_background_color',
 		'reset' => true,
 	);
+	$shortcode_option_map['pic_style']['fusion_person'] = array( 'theme-option' => 'person_pic_style' );
+
+	$shortcode_option_map['pic_style_blur']['fusion_person'] = array(
+		'theme-option' => 'person_pic_style_blur',
+		'type' => 'range',
+	);
+	$shortcode_option_map['pic_style_color']['fusion_person'] = array(
+		'theme-option' => 'person_style_color',
+		'reset' => true,
+	);
 	$shortcode_option_map['pic_bordercolor']['fusion_person'] = array(
 		'theme-option' => 'person_border_color',
 		'reset' => true,
@@ -3388,6 +3398,30 @@ function fusion_builder_element_dependencies( $dependencies, $shortcode, $option
 	);
 
 	// Person.
+	$shortcode_option_map['pic_style_blur']['fusion_person'][] = array(
+		'check' => array(
+			'element-option' => 'person_pic_style',
+			'value' => 'none',
+			'operator' => '==',
+		),
+		'output' => array(
+			'element' => 'pic_style',
+			'value' => '',
+			'operator' => '!=',
+		),
+	);
+	$shortcode_option_map['pic_style_color']['fusion_person'][] = array(
+		'check' => array(
+			'element-option' => 'person_pic_style',
+			'value' => 'none',
+			'operator' => '==',
+		),
+		'output' => array(
+			'element' => 'pic_style',
+			'value' => '',
+			'operator' => '!=',
+		),
+	);
 	$shortcode_option_map['social_icon_boxed_radius']['fusion_person'][] = array(
 		'check' => array(
 			'element-option' => 'social_links_boxed',
@@ -3907,20 +3941,21 @@ if ( ! function_exists( 'fusion_builder_update_element' ) ) {
 	 */
 	function fusion_builder_update_element( $element, $param_name, $values ) {
 
-		global $all_fusion_builder_elements;
+		global $all_fusion_builder_elements, $pagenow;
 
-		$element_settings = $all_fusion_builder_elements[ $element ]['params'];
+		if ( is_admin() && isset( $pagenow ) && ( 'admin.php' == $pagenow && isset( $_GET['page'] ) && 'fusion-builder-settings' == $_GET['page'] ) || ( 'post.php' == $pagenow ) || ( 'post-new.php' == $pagenow ) ) {
+			$element_settings = $all_fusion_builder_elements[ $element ]['params'];
 
-		$settings = $element_settings[ $param_name ]['value'];
+			$settings = $element_settings[ $param_name ]['value'];
 
-		if ( is_array( $values ) ) {
-			$settings = array_merge( $settings, $values );
-		} else {
-			$settings = $values;
+			if ( is_array( $values ) ) {
+				$settings = array_merge( $settings, $values );
+			} else {
+				$settings = $values;
+			}
+
+			$all_fusion_builder_elements[ $element ]['params'][ $param_name ]['value'] = $settings;
 		}
-
-		$all_fusion_builder_elements[ $element ]['params'][ $param_name ]['value'] = $settings;
-
 	}
 }
 

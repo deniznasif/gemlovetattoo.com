@@ -52,8 +52,6 @@ class Avada_Init {
 
 		add_action( 'widgets_init', array( $this, 'widget_init' ) );
 
-		add_action( 'wp', array( $this, 'set_theme_version' ) );
-
 		// Allow shortcodes in widget text.
 		add_filter( 'widget_text', 'do_shortcode' );
 
@@ -161,27 +159,6 @@ class Avada_Init {
 		if ( isset( $builder_settings['enable_builder_ui'] ) && $builder_settings['enable_builder_ui'] ) {
 			add_theme_support( 'fusion_builder' );
 		}
-	}
-
-	/**
-	 * Stores the theme version in the options table in the WordPress database.
-	 *
-	 * @access  public
-	 */
-	public function set_theme_version() {
-		if ( function_exists( 'wp_get_theme' ) ) {
-			$theme_obj = wp_get_theme();
-			$theme_version = $theme_obj->get( 'Version' );
-
-			if ( $theme_obj->parent_theme ) {
-				$template_dir  = basename( Avada::$template_dir_path );
-				$theme_obj     = wp_get_theme( $template_dir );
-				$theme_version = $theme_obj->get( 'Version' );
-			}
-
-			update_option( 'avada_theme_version', $theme_version );
-		}
-
 	}
 
 	/**

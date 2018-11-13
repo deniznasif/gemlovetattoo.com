@@ -122,7 +122,7 @@ if ( ! class_exists( 'FusionReduxFramework_border' ) ) {
 			echo '<input type="hidden" class="field-units" value="px">';
 
 			if ( isset( $this->field['all'] ) && $this->field['all'] == true ) {
-				echo '<div class="field-border-input input-prepend"><span class="add-on"><i class="el el-fullscreen icon-large"></i></span><input type="text" class="fusionredux-border-all fusionredux-border-input mini ' . $this->field['class'] . '" placeholder="' . __( 'All', 'Avada' ) . '" rel="' . $this->field['id'] . '-all" value="' . $this->value['top'] . '"></div>';
+				echo '<div class="field-border-input input-prepend"><span class="add-on"><i class="el el-fullscreen icon-large"></i></span><input type="text" class="fusionredux-border-all fusionredux-border-input mini ' . $this->field['class'] . '" placeholder="' . __( 'All', 'fusion-builder' ) . '" rel="' . $this->field['id'] . '-all" value="' . $this->value['top'] . '"></div>';
 			}
 
 			echo '<input type="hidden" class="fusionredux-border-value" id="' . $this->field['id'] . '-top" name="' . $this->field['name'] . $this->field['name_suffix'] . '[border-top]" value="' . ( isset($this->value['top']) ? $this->value['top'] . 'px' : '' ) . '">';
@@ -135,28 +135,28 @@ if ( ! class_exists( 'FusionReduxFramework_border' ) ) {
 				 * Top
 				 * */
 				if ( $this->field['top'] === true ) {
-					echo '<div class="field-border-input input-prepend"><span class="add-on"><i class="el el-arrow-up icon-large"></i></span><input type="text" class="fusionredux-border-top fusionredux-border-input mini ' . $this->field['class'] . '" placeholder="' . __( 'Top', 'Avada' ) . '" rel="' . $this->field['id'] . '-top" value="' . $this->value['top'] . '"></div>';
+					echo '<div class="field-border-input input-prepend"><span class="add-on"><i class="el el-arrow-up icon-large"></i></span><input type="text" class="fusionredux-border-top fusionredux-border-input mini ' . $this->field['class'] . '" placeholder="' . __( 'Top', 'fusion-builder' ) . '" rel="' . $this->field['id'] . '-top" value="' . $this->value['top'] . '"></div>';
 				}
 
 				/**
 				 * Right
 				 * */
 				if ( $this->field['right'] === true ) {
-					echo '<div class="field-border-input input-prepend"><span class="add-on"><i class="el el-arrow-right icon-large"></i></span><input type="text" class="fusionredux-border-right fusionredux-border-input mini ' . $this->field['class'] . '" placeholder="' . __( 'Right', 'Avada' ) . '" rel="' . $this->field['id'] . '-right" value="' . $this->value['right'] . '"></div>';
+					echo '<div class="field-border-input input-prepend"><span class="add-on"><i class="el el-arrow-right icon-large"></i></span><input type="text" class="fusionredux-border-right fusionredux-border-input mini ' . $this->field['class'] . '" placeholder="' . __( 'Right', 'fusion-builder' ) . '" rel="' . $this->field['id'] . '-right" value="' . $this->value['right'] . '"></div>';
 				}
 
 				/**
 				 * Bottom
 				 * */
 				if ( $this->field['bottom'] === true ) {
-					echo '<div class="field-border-input input-prepend"><span class="add-on"><i class="el el-arrow-down icon-large"></i></span><input type="text" class="fusionredux-border-bottom fusionredux-border-input mini ' . $this->field['class'] . '" placeholder="' . __( 'Bottom', 'Avada' ) . '" rel="' . $this->field['id'] . '-bottom" value="' . $this->value['bottom'] . '"></div>';
+					echo '<div class="field-border-input input-prepend"><span class="add-on"><i class="el el-arrow-down icon-large"></i></span><input type="text" class="fusionredux-border-bottom fusionredux-border-input mini ' . $this->field['class'] . '" placeholder="' . __( 'Bottom', 'fusion-builder' ) . '" rel="' . $this->field['id'] . '-bottom" value="' . $this->value['bottom'] . '"></div>';
 				}
 
 				/**
 				 * Left
 				 * */
 				if ( $this->field['left'] === true ) {
-					echo '<div class="field-border-input input-prepend"><span class="add-on"><i class="el el-arrow-left icon-large"></i></span><input type="text" class="fusionredux-border-left fusionredux-border-input mini ' . $this->field['class'] . '" placeholder="' . __( 'Left', 'Avada' ) . '" rel="' . $this->field['id'] . '-left" value="' . $this->value['left'] . '"></div>';
+					echo '<div class="field-border-input input-prepend"><span class="add-on"><i class="el el-arrow-left icon-large"></i></span><input type="text" class="fusionredux-border-left fusionredux-border-input mini ' . $this->field['class'] . '" placeholder="' . __( 'Left', 'fusion-builder' ) . '" rel="' . $this->field['id'] . '-left" value="' . $this->value['left'] . '"></div>';
 				}
 			}
 
@@ -171,7 +171,7 @@ if ( ! class_exists( 'FusionReduxFramework_border' ) ) {
 					'double' => "Double",
 					'none'   => 'None'
 				);
-				echo '<select original-title="' . __( 'Border style', 'Avada' ) . '" id="' . $this->field['id'] . '[border-style]" name="' . $this->field['name'] . $this->field['name_suffix'] . '[border-style]" class="tips fusionredux-border-style ' . $this->field['class'] . '" rows="6" data-id="' . $this->field['id'] . '">';
+				echo '<select original-title="' . __( 'Border style', 'fusion-builder' ) . '" id="' . $this->field['id'] . '[border-style]" name="' . $this->field['name'] . $this->field['name_suffix'] . '[border-style]" class="tips fusionredux-border-style ' . $this->field['class'] . '" rows="6" data-id="' . $this->field['id'] . '">';
 				foreach ( $options as $k => $v ) {
 					echo '<option value="' . $k . '"' . selected( $value['style'], $k, false ) . '>' . $v . '</option>';
 				}

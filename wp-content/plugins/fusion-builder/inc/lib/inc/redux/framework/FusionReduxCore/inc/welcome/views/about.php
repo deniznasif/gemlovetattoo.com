@@ -1,27 +1,27 @@
 <div class="wrap about-wrap">
-	<h1><?php printf( __( 'Welcome to FusionRedux Framework %s', 'Avada' ), $this->display_version ); ?></h1>
+	<h1><?php printf( __( 'Welcome to FusionRedux Framework %s', 'fusion-builder' ), $this->display_version ); ?></h1>
 
 	<div
-		class="about-text"><?php printf( __( 'Thank you for updating to the latest version! FusionRedux Framework %s is a huge step forward in FusionRedux Development. Look at all that\'s new.', 'Avada' ), $this->display_version ); ?></div>
+		class="about-text"><?php printf( __( 'Thank you for updating to the latest version! FusionRedux Framework %s is a huge step forward in FusionRedux Development. Look at all that\'s new.', 'fusion-builder' ), $this->display_version ); ?></div>
 	<div
 		class="fusionredux-badge"><i
-			class="el el-fusionredux"></i><span><?php printf( __( 'Version %s', 'Avada' ), FusionReduxFramework::$_version ); ?></span>
+			class="el el-fusionredux"></i><span><?php printf( __( 'Version %s', 'fusion-builder' ), FusionReduxFramework::$_version ); ?></span>
 	</div>
 
 	<?php $this->actions(); ?>
 	<?php $this->tabs(); ?>
 
 	<div id="fusionredux-message" class="updated">
-		<h4><?php _e( 'What is FusionRedux Framework?', 'Avada' ); ?></h4>
+		<h4><?php _e( 'What is FusionRedux Framework?', 'fusion-builder' ); ?></h4>
 
 		<p><?php _e( 'FusionRedux Framework is the core of many products on the web. It is an option framework which developers use to
-			enhance their products.', 'Avada' ); ?></p>
+			enhance their products.', 'fusion-builder' ); ?></p>
 
 	</div>
 
 	<div class="changelog">
 
-		<h2><?php _e( 'New in this Release', 'Avada' ); ?></h2>
+		<h2><?php _e( 'New in this Release', 'fusion-builder' ); ?></h2>
 
 		<div class="changelog about-integrations">
 			<div class="wc-feature feature-section col three-col">

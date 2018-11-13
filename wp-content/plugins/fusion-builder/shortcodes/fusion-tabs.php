@@ -377,7 +377,8 @@ if ( fusion_is_element_enabled( 'fusion_tabs' ) ) {
 						'layout'          => 'horizontal',
 						'hide_on_mobile'  => fusion_builder_default_visibility( 'string' ),
 					),
-					$atts
+					$atts,
+					'fusion_tabs'
 				);
 
 				extract( $defaults );
@@ -414,7 +415,8 @@ if ( fusion_is_element_enabled( 'fusion_tabs' ) ) {
 						'icon'  => $this->fusion_tabs_args['icon'],
 						'title' => '',
 					),
-					$atts
+					$atts,
+					'fusion_tab'
 				);
 
 				extract( $defaults );

@@ -465,7 +465,7 @@ if ( ! function_exists( 'avada_add_login_box_to_nav' ) ) {
 		return $items;
 	}
 }
-add_filter( 'wp_nav_menu_items', 'avada_add_login_box_to_nav', 10, 3 );
+add_filter( 'wp_nav_menu_items', 'avada_add_login_box_to_nav', 10, 2 );
 
 if ( ! function_exists( 'avada_nav_woo_cart' ) ) {
 	/**
@@ -629,7 +629,7 @@ if ( ! function_exists( 'avada_add_woo_cart_to_nav' ) ) {
 		return $items;
 	}
 }
-add_filter( 'wp_nav_menu_items', 'avada_add_woo_cart_to_nav', 10, 3 );
+add_filter( 'wp_nav_menu_items', 'avada_add_woo_cart_to_nav', 10, 2 );
 
 if ( ! function_exists( 'avada_add_sliding_bar_icon_to_main_nav' ) ) {
 	/**
@@ -664,7 +664,7 @@ if ( ! function_exists( 'avada_add_sliding_bar_icon_to_main_nav' ) ) {
 		return $items;
 	}
 }
-add_filter( 'wp_nav_menu_items', 'avada_add_sliding_bar_icon_to_main_nav', 20, 4 );
+add_filter( 'wp_nav_menu_items', 'avada_add_sliding_bar_icon_to_main_nav', 20, 2 );
 
 if ( ! function_exists( 'avada_add_search_to_main_nav' ) ) {
 	/**
@@ -700,7 +700,7 @@ if ( ! function_exists( 'avada_add_search_to_main_nav' ) ) {
 		return $items;
 	}
 }
-add_filter( 'wp_nav_menu_items', 'avada_add_search_to_main_nav', 20, 4 );
+add_filter( 'wp_nav_menu_items', 'avada_add_search_to_main_nav', 20, 2 );
 
 if ( ! function_exists( 'avada_update_featured_content_for_split_terms' ) ) {
 	/**
@@ -1060,18 +1060,14 @@ if ( ! function_exists( 'avada_sliders_container' ) ) {
 		</div>
 		<?php
 		$slider_fallback          = get_post_meta( $slider_page_id, 'pyre_fallback', true );
+		$slider_fallback_id       = get_post_meta( $slider_page_id, 'pyre_fallback_id', true );
 		$slider_fallback_alt_attr = '';
 		$slider_type              = Avada_Helper::get_slider_type( $slider_page_id, $is_archive );
 		?>
 		<?php if ( $slider_fallback && $slider_type && 'no' !== $slider_type ) : ?>
-			<?php
-			$slider_fallback_image_data = Avada()->images->get_attachment_data_from_url( $slider_fallback );
-			if ( $slider_fallback_image_data ) {
-				$slider_fallback_alt_attr = $slider_fallback_image_data['alt'];
-			}
-			?>
+			<?php $slider_fallback_image_data = Avada()->images->get_attachment_data_by_helper( $slider_fallback_id, $slider_fallback ); ?>
 			<div id="fallback-slide">
-				<img src="<?php echo esc_url( $slider_fallback ); ?>" alt="<?php echo esc_attr( $slider_fallback_alt_attr ); ?>" />
+				<img src="<?php echo esc_url( $slider_fallback ); ?>" alt="<?php echo esc_attr( $slider_fallback_image_data['alt'] ); ?>" />
 			</div>
 			<?php
 		endif;
@@ -1273,7 +1269,7 @@ if ( ! function_exists( 'avada_main_menu' ) ) {
 			'theme_location' => 'main_navigation',
 			'depth'          => 5,
 			'menu_class'     => $menu_class,
-			'items_wrap'     => '<ul role="menubar" id="%1$s" class="%2$s">%3$s</ul>',
+			'items_wrap'     => '<ul id="%1$s" class="%2$s">%3$s</ul>',
 			'fallback_cb'    => 'Avada_Nav_Walker::fallback',
 			'walker'         => new Avada_Nav_Walker(),
 			'container'      => false,
@@ -1295,7 +1291,7 @@ if ( ! function_exists( 'avada_main_menu' ) ) {
 				$sticky_menu_args = array(
 					'theme_location' => 'sticky_navigation',
 					'menu_id'        => 'menu-main-menu-1',
-					'items_wrap'     => '<ul role="menubar" id="%1$s" class="%2$s">%3$s</ul>',
+					'items_wrap'     => '<ul id="%1$s" class="%2$s">%3$s</ul>',
 					'walker'         => new Avada_Nav_Walker(),
 					'item_spacing'   => 'discard',
 				);
@@ -1315,7 +1311,7 @@ if ( ! function_exists( 'avada_main_menu' ) ) {
 				$additional_menu_class .= ' fusion-main-menu-sticky';
 			}
 
-			echo '<nav class="fusion-main-menu' . esc_attr( $additional_menu_class ) . '" aria-label="Main Menu">';
+			echo '<nav class="fusion-main-menu' . esc_attr( $additional_menu_class ) . '" aria-label="' . esc_attr__( 'Main Menu', 'Avada' ) . '">';
 			echo wp_nav_menu( $main_menu_args );
 			echo '</nav>';
 
@@ -1330,7 +1326,7 @@ if ( ! function_exists( 'avada_main_menu' ) ) {
 
 				$sticky_menu_args = wp_parse_args( $sticky_menu_args, $main_menu_args );
 
-				echo '<nav class="fusion-main-menu fusion-sticky-menu" aria-label="Main Menu Sticky">';
+				echo '<nav class="fusion-main-menu fusion-sticky-menu" aria-label="' . esc_attr__( 'Main Menu Sticky', 'Avada' ) . '">';
 				echo wp_nav_menu( $sticky_menu_args );
 				echo '</nav>';
 			}
@@ -1417,7 +1413,7 @@ if ( ! function_exists( 'avada_secondary_nav' ) ) {
 				array(
 					'theme_location' => 'top_navigation',
 					'depth'          => 5,
-					'items_wrap'     => '<ul role="menubar" id="%1$s" class="%2$s">%3$s</ul>',
+					'items_wrap'     => '<ul id="%1$s" class="%2$s">%3$s</ul>',
 					'container'      => false,
 					'fallback_cb'    => 'Avada_Nav_Walker::fallback',
 					'walker'         => new Avada_Nav_Walker(),
@@ -1472,10 +1468,10 @@ if ( ! function_exists( 'avada_secondary_header_content' ) ) {
 			if ( has_nav_menu( 'top_navigation' ) ) {
 
 				$mobile_menu_text_align = ' fusion-mobile-menu-text-align-' . Avada()->settings->get( 'mobile_menu_text_align' );
-				$mobile_menu_wrapper    = '<nav class="fusion-mobile-nav-holder' . esc_attr( $mobile_menu_text_align ) . '"></nav>';
+				$mobile_menu_wrapper    = '<nav class="fusion-mobile-nav-holder' . esc_attr( $mobile_menu_text_align ) . '" aria-label="' . esc_attr__( 'Secondary Mobile Menu', 'Avada' ) . '"></nav>';
 			}
 
-			$secondary_menu    = '<nav class="fusion-secondary-menu" role="navigation" aria-label="Secondary Menu">';
+			$secondary_menu    = '<nav class="fusion-secondary-menu" role="navigation" aria-label="' . esc_attr__( 'Secondary Menu', 'Avada' ) . '">';
 			$secondary_menu   .= avada_secondary_nav();
 			$secondary_menu   .= '</nav>';
 			$secondary_content = $secondary_menu . $mobile_menu_wrapper;

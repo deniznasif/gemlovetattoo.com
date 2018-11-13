@@ -72,7 +72,7 @@ class Avada_System_Status {
 				$envato_string = str_replace( array( 'Unauthorized', 'Forbidden' ), '<br />Invalid Token', $api_response->get_error_message() );
 			} elseif ( isset( $api_response['headers_data'] ) ) {
 				$envato_string = $api_response['headers_data'];
-				$response['message'] = $response['message'] . $envato_string;
+				$response['message'] = $response['message'] . ' ' . $envato_string;
 			}
 		}
 

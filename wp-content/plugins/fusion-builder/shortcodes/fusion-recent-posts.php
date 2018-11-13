@@ -106,7 +106,8 @@ if ( fusion_is_element_enabled( 'fusion_recent_posts' ) ) {
 						'animation_type'      => '',
 						'animation_offset'    => $fusion_settings->get( 'animation_offset' ),
 					),
-					$args
+					$args,
+					'fusion_recent_posts'
 				);
 
 				if ( '0' === $defaults['offset'] ) {

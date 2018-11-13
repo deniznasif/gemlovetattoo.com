@@ -12,7 +12,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 ?>
 <?php ob_start(); ?>
-<?php if ( 'related' === $type && 'fixed' === $post_featured_image_size && get_post_thumbnail_id( $post_id ) ) : ?>
+<?php $post_thumbnail_id = get_post_thumbnail_id( $post_id ); ?>
+<?php if ( 'related' === $type && 'fixed' === $post_featured_image_size && $post_thumbnail_id ) : ?>
 	<?php
 	/**
 	 * Resize images for use as related posts.
@@ -22,8 +23,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 		array(
 			'width'  => '500',
 			'height' => '383',
-			'url'    => wp_get_attachment_url( get_post_thumbnail_id( $post_id ) ),
-			'path'   => get_attached_file( get_post_thumbnail_id( $post_id ) ),
+			'url'    => wp_get_attachment_url( $post_thumbnail_id ),
+			'path'   => get_attached_file( $post_thumbnail_id ),
+			'retina' => false,
+			'id'     => $post_thumbnail_id,
 		)
 	);
 	$image_args['retina'] = false;

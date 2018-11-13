@@ -159,10 +159,10 @@ if ( ! function_exists( 'fusion_render_post_metadata' ) ) {
 				// Check if rich snippets are enabled.
 				if ( fusion_library()->get_option( 'disable_date_rich_snippet_pages' ) && fusion_library()->get_option( 'disable_rich_snippet_author' ) ) {
 					/* translators: The author. */
-					$metadata .= sprintf( esc_attr__( 'By %s', 'Avada' ), '<span class="vcard"><span class="fn">' . $author_post_link . '</span></span>' );
+					$metadata .= sprintf( esc_attr__( 'By %s', 'fusion-builder' ), '<span class="vcard"><span class="fn">' . $author_post_link . '</span></span>' );
 				} else {
 					/* translators: The author. */
-					$metadata .= sprintf( esc_attr__( 'By %s', 'Avada' ), '<span>' . $author_post_link . '</span>' );
+					$metadata .= sprintf( esc_attr__( 'By %s', 'fusion-builder' ), '<span>' . $author_post_link . '</span>' );
 				}
 				$metadata .= '<span class="fusion-inline-sep">|</span>';
 			} else { // If author meta data won't be visible, render just the invisible author rich snippet.
@@ -189,7 +189,7 @@ if ( ! function_exists( 'fusion_render_post_metadata' ) ) {
 
 				if ( $categories ) {
 					/* translators: The categories list. */
-					$metadata .= ( $settings['post_meta_tags'] ) ? sprintf( esc_html__( 'Categories: %s', 'Avada' ), $categories ) : $categories;
+					$metadata .= ( $settings['post_meta_tags'] ) ? sprintf( esc_html__( 'Categories: %s', 'fusion-builder' ), $categories ) : $categories;
 					$metadata .= '<span class="fusion-inline-sep">|</span>';
 				}
 			}
@@ -202,14 +202,14 @@ if ( ! function_exists( 'fusion_render_post_metadata' ) ) {
 
 				if ( $tags ) {
 					/* translators: The tags list. */
-					$metadata .= '<span class="meta-tags">' . sprintf( esc_html__( 'Tags: %s', 'Avada' ), $tags ) . '</span><span class="fusion-inline-sep">|</span>';
+					$metadata .= '<span class="meta-tags">' . sprintf( esc_html__( 'Tags: %s', 'fusion-builder' ), $tags ) . '</span><span class="fusion-inline-sep">|</span>';
 				}
 			}
 
 			// Render comments.
 			if ( $settings['post_meta_comments'] && 'grid_timeline' !== $layout ) {
 				ob_start();
-				comments_popup_link( esc_html__( '0 Comments', 'Avada' ), esc_html__( '1 Comment', 'Avada' ), esc_html__( '% Comments', 'Avada' ) );
+				comments_popup_link( esc_html__( '0 Comments', 'fusion-builder' ), esc_html__( '1 Comment', 'fusion-builder' ), esc_html__( '% Comments', 'fusion-builder' ) );
 				$comments = ob_get_clean();
 				$metadata .= '<span class="fusion-comments">' . $comments . '</span>';
 			}
@@ -446,6 +446,8 @@ if ( ! function_exists( 'fusion_get_post_content' ) ) {
 			$content_excerpted = true;
 		}
 
+		$content_excerpted = apply_filters( 'fusion_post_content_is_excerpted', $content_excerpted );
+
 		// Sermon specific additional content.
 		if ( 'wpfc_sermon' === get_post_type( get_the_ID() ) && class_exists( 'Avada' ) ) {
 			return Avada()->sermon_manager->get_sermon_content( true );
@@ -650,7 +652,7 @@ if ( ! function_exists( 'fusion_link_pages' ) ) {
 	function fusion_link_pages() {
 		wp_link_pages(
 			array(
-				'before'      => '<div class="page-links pagination"><span class="page-links-title">' . esc_html__( 'Pages:', 'Avada' ) . '</span>',
+				'before'      => '<div class="page-links pagination"><span class="page-links-title">' . esc_html__( 'Pages:', 'fusion-builder' ) . '</span>',
 				'after'       => '</div>',
 				'link_before' => '<span class="page-number">',
 				'link_after'  => '</span>',
@@ -881,7 +883,7 @@ if ( ! function_exists( 'fusion_pagination' ) ) {
 			if ( 1 < $current_page ) {
 				$output .= '<a class="pagination-prev" href="' . esc_url( get_pagenum_link( $current_page - 1 ) ) . '">';
 					$output .= '<span class="page-prev"></span>';
-					$output .= '<span class="page-text">' . esc_html__( 'Previous', 'Avada' ) . '</span>';
+					$output .= '<span class="page-text">' . esc_html__( 'Previous', 'fusion-builder' ) . '</span>';
 				$output .= '</a>';
 
 				if ( 0 < $start_range ) {
@@ -927,7 +929,7 @@ if ( ! function_exists( 'fusion_pagination' ) ) {
 				}
 
 				$output .= '<a class="pagination-next" href="' . esc_url( get_pagenum_link( $current_page + 1 ) ) . '">';
-					$output .= '<span class="page-text">' . esc_html__( 'Next', 'Avada' ) . '</span>';
+					$output .= '<span class="page-text">' . esc_html__( 'Next', 'fusion-builder' ) . '</span>';
 					$output .= '<span class="page-next"></span>';
 				$output .= '</a>';
 			}

@@ -1,4 +1,4 @@
-! function( name, definition ) {
+! ( function( name, definition ) {
 
 	if ( 'undefined' !== typeof module && module.exports ) {
 		module.exports = definition();
@@ -25,7 +25,7 @@
 				'border-top': topBorderSize + 'px solid #ffffff',
 				'z-index': 999
 			},
-			requiredOriginalStyles = ['position', 'top', 'left', 'z-index', 'border-top'],
+			requiredOriginalStyles = [ 'position', 'top', 'left', 'z-index', 'border-top' ],
 			originalStyles = {},
 			onscroll,
 			onresize;
@@ -33,7 +33,7 @@
 		requiredOriginalStyles.forEach( function( key ) {
 			originalStyles[ key ]  = el.style[ key ];
 			originalStyles.width = '100%';
-		});
+		} );
 
 		jQuery( '.fusion-builder-history-list' ).css( 'max-height', jQuery( window ).height() - 100 );
 
@@ -58,7 +58,7 @@
 			originalRect       = calcRect( el );
 
 			if ( 'undefined' !== typeof $mainContainerRect && $mainContainerRect.top !== mainContainerTopBefore ) {
-				el.style['position'] = 'absolute';
+				el.style.position = 'absolute';
 				originalRect         = calcRect( el );
 			}
 
@@ -137,4 +137,4 @@
 			};
 		}
 	};
-});
+} ) );

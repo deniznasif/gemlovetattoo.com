@@ -81,7 +81,7 @@ if ( ! class_exists( 'FusionReduxFramework_spacing' ) ) {
 			$this->value = wp_parse_args( $this->value, $defaults );
 
 			if ( isset( $this->field['all'] ) && $this->field['all'] == true ) {
-				echo '<div class="field-spacing-input input-prepend"><span class="add-on"><i class="el el-fullscreen icon-large"></i></span><input type="text" class="fusionredux-spacing-all fusionredux-spacing-input mini ' . $this->field['class'] . '" placeholder="' . __( 'All', 'Avada' ) . '" rel="' . $this->field['id'] . '-all" name="' . $this->field['name'] . $this->field['name_suffix'] . '[all]" value="' . $this->value['all']. '"></div>';
+				echo '<div class="field-spacing-input input-prepend"><span class="add-on"><i class="el el-fullscreen icon-large"></i></span><input type="text" class="fusionredux-spacing-all fusionredux-spacing-input mini ' . $this->field['class'] . '" placeholder="' . __( 'All', 'fusion-builder' ) . '" rel="' . $this->field['id'] . '-all" name="' . $this->field['name'] . $this->field['name_suffix'] . '[all]" value="' . $this->value['all']. '"></div>';
 			}
 
 			if ( $this->field['top'] === true ) {
@@ -105,28 +105,28 @@ if ( ! class_exists( 'FusionReduxFramework_spacing' ) ) {
 				 * Top
 				 * */
 				if ( $this->field['top'] === true ) {
-					echo '<div class="field-spacing-input input-prepend"><span class="add-on"><i class="el el-arrow-up icon-large"></i></span><input type="text" class="fusionredux-spacing-top fusionredux-spacing-input mini ' . $this->field['class'] . '" placeholder="' . __( 'Top', 'Avada' ) . '" rel="' . $this->field['id'] . '-top" value="' . $this->value['top'] . '"></div>';
+					echo '<div class="field-spacing-input input-prepend"><span class="add-on"><i class="el el-arrow-up icon-large"></i></span><input type="text" class="fusionredux-spacing-top fusionredux-spacing-input mini ' . $this->field['class'] . '" placeholder="' . __( 'Top', 'fusion-builder' ) . '" rel="' . $this->field['id'] . '-top" value="' . $this->value['top'] . '"></div>';
 				}
 
 				/**
 				 * Right
 				 * */
 				if ( $this->field['right'] === true ) {
-					echo '<div class="field-spacing-input input-prepend"><span class="add-on"><i class="el el-arrow-right icon-large"></i></span><input type="text" class="fusionredux-spacing-right fusionredux-spacing-input mini ' . $this->field['class'] . '" placeholder="' . __( 'Right', 'Avada' ) . '" rel="' . $this->field['id'] . '-right" value="' . $this->value['right'] . '"></div>';
+					echo '<div class="field-spacing-input input-prepend"><span class="add-on"><i class="el el-arrow-right icon-large"></i></span><input type="text" class="fusionredux-spacing-right fusionredux-spacing-input mini ' . $this->field['class'] . '" placeholder="' . __( 'Right', 'fusion-builder' ) . '" rel="' . $this->field['id'] . '-right" value="' . $this->value['right'] . '"></div>';
 				}
 
 				/**
 				 * Bottom
 				 * */
 				if ( $this->field['bottom'] === true ) {
-					echo '<div class="field-spacing-input input-prepend"><span class="add-on"><i class="el el-arrow-down icon-large"></i></span><input type="text" class="fusionredux-spacing-bottom fusionredux-spacing-input mini ' . $this->field['class'] . '" placeholder="' . __( 'Bottom', 'Avada' ) . '" rel="' . $this->field['id'] . '-bottom" value="' . $this->value['bottom'] . '"></div>';
+					echo '<div class="field-spacing-input input-prepend"><span class="add-on"><i class="el el-arrow-down icon-large"></i></span><input type="text" class="fusionredux-spacing-bottom fusionredux-spacing-input mini ' . $this->field['class'] . '" placeholder="' . __( 'Bottom', 'fusion-builder' ) . '" rel="' . $this->field['id'] . '-bottom" value="' . $this->value['bottom'] . '"></div>';
 				}
 
 				/**
 				 * Left
 				 * */
 				if ( $this->field['left'] === true ) {
-					echo '<div class="field-spacing-input input-prepend"><span class="add-on"><i class="el el-arrow-left icon-large"></i></span><input type="text" class="fusionredux-spacing-left fusionredux-spacing-input mini ' . $this->field['class'] . '" placeholder="' . __( 'Left', 'Avada' ) . '" rel="' . $this->field['id'] . '-left" value="' . $this->value['left'] . '"></div>';
+					echo '<div class="field-spacing-input input-prepend"><span class="add-on"><i class="el el-arrow-left icon-large"></i></span><input type="text" class="fusionredux-spacing-left fusionredux-spacing-input mini ' . $this->field['class'] . '" placeholder="' . __( 'Left', 'fusion-builder' ) . '" rel="' . $this->field['id'] . '-left" value="' . $this->value['left'] . '"></div>';
 				}
 			}
 		}

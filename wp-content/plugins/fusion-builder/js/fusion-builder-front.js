@@ -2,6 +2,6 @@
 
 	$( document ).ready( function() {
 
-	});
+	} );
 
-} )( jQuery );
+} ( jQuery ) );
