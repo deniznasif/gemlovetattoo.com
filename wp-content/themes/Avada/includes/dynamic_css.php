@@ -616,7 +616,11 @@ function avada_dynamic_css_array( $original_css = array() ) {
 		$css['global']['.fusion-footer footer .fusion-row .fusion-columns']['display']   = 'flex';
 		$css['global']['.fusion-footer footer .fusion-row .fusion-columns']['flex-flow'] = 'wrap';
 		if ( 'none' !== Avada()->settings->get( 'footer_divider_line_style' ) ) {
-			$css['global']['.fusion-footer footer .fusion-columns .fusion-column.fusion-has-widgets']['border-right']             = Fusion_Sanitize::size( Avada()->settings->get( 'footer_divider_line_size' ), 'px' ) . ' ' . Avada()->settings->get( 'footer_divider_line_style' ) . ' ' . Fusion_Sanitize::color( Avada()->settings->get( 'footer_divider_color' ) );
+			if ( is_rtl() ) {
+				$css['global']['.fusion-footer footer .fusion-columns .fusion-column.fusion-has-widgets']['border-left'] = Fusion_Sanitize::size( Avada()->settings->get( 'footer_divider_line_size' ), 'px' ) . ' ' . Avada()->settings->get( 'footer_divider_line_style' ) . ' ' . Fusion_Sanitize::color( Avada()->settings->get( 'footer_divider_color' ) );
+			} else {
+				$css['global']['.fusion-footer footer .fusion-columns .fusion-column.fusion-has-widgets']['border-right'] = Fusion_Sanitize::size( Avada()->settings->get( 'footer_divider_line_size' ), 'px' ) . ' ' . Avada()->settings->get( 'footer_divider_line_style' ) . ' ' . Fusion_Sanitize::color( Avada()->settings->get( 'footer_divider_color' ) );
+			}
 			$css['global']['.fusion-footer footer .fusion-row .fusion-columns .fusion-column.fusion-column-last']['border-right'] = 'none';
 		}
 	}
@@ -3736,8 +3740,8 @@ function avada_dynamic_css_array( $original_css = array() ) {
 			'.fusion-tribe-events-headline',
 			'#tribe-events .tribe-events-day .tribe-events-day-time-slot .tribe-events-day-time-slot-heading',
 			'.tribe-mobile-day-date',
-			'.datepicker.dropdown-menu table thead tr:first-child',
-			'.datepicker.dropdown-menu table thead tr:first-child th:hover',
+			'.datepicker.dropdown-menu table thead tr:nth-child(2)',
+			'.datepicker.dropdown-menu table thead tr:nth-child(2) th:hover',
 			'.datepicker.dropdown-menu .datepicker-days table tr td.active',
 			'.datepicker.dropdown-menu .datepicker-days table tr td:hover',
 			'.tribe-grid-header',
@@ -3782,7 +3786,7 @@ function avada_dynamic_css_array( $original_css = array() ) {
 			'#tribe-events .fusion-tribe-events-headline h3 a',
 			'#tribe-events .tribe-events-day .tribe-events-day-time-slot .tribe-events-day-time-slot-heading',
 			'.tribe-mobile-day .tribe-mobile-day-date',
-			'.datepicker.dropdown-menu table thead tr:first-child',
+			'.datepicker.dropdown-menu table thead tr:nth-child(2)',
 			'.datepicker.dropdown-menu table tr td.day',
 			'.fusion-events-single-title-content h2',
 			'.fusion-events-single-title-content h3',
@@ -3837,7 +3841,7 @@ function avada_dynamic_css_array( $original_css = array() ) {
 
 		$elements = array(
 			'.tribe-bar-views-inner',
-			'#tribe-bar-views .tribe-bar-views-list .tribe-bar-views-option a',
+			'#tribe-bar-views .tribe-bar-views-list',
 			'#tribe_events_filters_wrapper .tribe-events-filters-group-heading',
 		);
 		$css['global'][ $dynamic_css_helpers->implode( $elements ) ]['background-color'] = Fusion_Sanitize::color( Avada()->settings->get( 'ec_bar_bg_color' ) );
@@ -3859,6 +3863,11 @@ function avada_dynamic_css_array( $original_css = array() ) {
 			'#tribe-events-content-wrapper #tribe_events_filters_wrapper.tribe-events-filters-horizontal:before',
 			'#tribe-events-content-wrapper #tribe_events_filters_wrapper.tribe-events-filters-horizontal:after',
 			'#tribe-bar-collapse-toggle',
+			'#tribe-bar-collapse-toggle:hover',
+			'#tribe-bar-collapse-toggle:focus',
+			'#tribe-bar-form.tribe-bar-collapse .tribe-bar-views-inner',
+			'#tribe-bar-form.tribe-bar-collapse .tribe-bar-views-list',
+			'#tribe-bar-form.tribe-bar-collapse .tribe-bar-filters',
 			'#tribe-bar-views .tribe-bar-views-list .tribe-bar-views-option a:hover',
 			'#tribe-bar-views .tribe-bar-views-list .tribe-bar-views-option.tribe-bar-active a:hover',
 			'#tribe-events-content-wrapper #tribe_events_filters_wrapper.tribe-events-filters-horizontal',
@@ -3875,6 +3884,16 @@ function avada_dynamic_css_array( $original_css = array() ) {
 		);
 		$css['global'][ $dynamic_css_helpers->implode( $elements ) ]['background-color'] = fusion_adjust_brightness( Fusion_Sanitize::color( Avada()->settings->get( 'ec_bar_bg_color' ) ), 10 );
 
+		$elements = array(
+			'#tribe-bar-views-toggle:focus',
+			'#tribe-bar-views-toggle:hover',
+			'#tribe-bar-views .tribe-bar-views-option.tribe-bar-active',
+			'#tribe-bar-views .tribe-bar-views-option:hover',
+		);
+		$css['global'][ $dynamic_css_helpers->implode( $elements ) ]['background-color'] = fusion_adjust_brightness( Fusion_Sanitize::color( Avada()->settings->get( 'ec_bar_bg_color' ) ), -15 );
+
+
+
 		$css['global']['.tribe-events-filters-horizontal .tribe-events-filter-group']['border-color'] = fusion_adjust_brightness( Fusion_Sanitize::color( Avada()->settings->get( 'ec_bar_bg_color' ) ), -25 );
 
 		$css['global']['.tribe-events-filter-group:after']['border-bottom-color'] = fusion_adjust_brightness( Fusion_Sanitize::color( Avada()->settings->get( 'ec_bar_bg_color' ) ), 10 );
@@ -3882,6 +3901,8 @@ function avada_dynamic_css_array( $original_css = array() ) {
 		$elements = array(
 			'#tribe-bar-form label',
 			'.tribe-bar-disabled #tribe-bar-form label',
+			'#tribe-bar-form.tribe-bar-collapse #tribe-bar-collapse-toggle',
+			'#tribe-events-bar #tribe-bar-views .tribe-bar-views-toggle',
 			'#tribe-bar-views .tribe-bar-views-list .tribe-bar-views-option a',
 			'#tribe-bar-views .tribe-bar-views-list .tribe-bar-views-option a:hover',
 			'#tribe-bar-views .tribe-bar-views-list .tribe-bar-views-option.tribe-bar-active a:hover',
@@ -3989,6 +4010,9 @@ function avada_dynamic_css_array( $original_css = array() ) {
 		$media_query = '@media screen and (max-width: ' . intval( Avada()->settings->get( 'side_header_break_point' ) ) . 'px)';
 		$css[ $media_query ]['.fusion-main-menu > ul > li']['padding-right'] = intval( Avada()->settings->get( 'mobile_nav_padding' ) ) . 'px';
 	}
+
+	$header_bg         = Avada_Helper::get_header_color( $c_page_id, $fusion_taxonomy_options );
+	$header_bg_opacity = Fusion_Color::new_color( $header_bg )->alpha;
 
 	// Responsive mode.
 	if ( Avada()->settings->get( 'responsive' ) ) {
@@ -4115,9 +4139,6 @@ function avada_dynamic_css_array( $original_css = array() ) {
 		} elseif ( ! Avada()->settings->get( 'mobile_menu_search' ) ) {
 			$css[ $mobile_header_media_query ]['.fusion-header-v6.fusion-header-has-flyout-menu .fusion-flyout-menu-icons .fusion-flyout-search-toggle']['display'] = 'none';
 		}
-
-		$header_bg         = Avada_Helper::get_header_color( $c_page_id, $fusion_taxonomy_options );
-		$header_bg_opacity = Fusion_Color::new_color( $header_bg )->alpha;
 
 		// Desktop absolute header.
 		if ( 1 > $header_bg_opacity ) {
