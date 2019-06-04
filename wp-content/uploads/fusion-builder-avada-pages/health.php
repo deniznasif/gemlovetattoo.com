@@ -14,6 +14,7 @@
      
     array (
       'name' => 'Home',
+      'link' => 'https://avada.theme-fusion.com/health/',
       'page_template' => '100-width.php',
       'content' => '[fusion_builder_container background_color="" background_image="https://placehold.it/2000x1231" background_parallax="up" enable_mobile="no" parallax_speed="0.4" background_repeat="no-repeat" background_position="center center" video_url="" video_aspect_ratio="16:9" video_webm="" video_mp4="" video_ogv="" video_preview_image="" overlay_color="" video_mute="yes" video_loop="yes" fade="no" border_size="0px" border_color="" border_style="solid" padding_top="14%" padding_bottom="14%" padding_left="5%" padding_right="5%" hundred_percent="no" equal_height_columns="no" hide_on_mobile="no" menu_anchor="" class="" id=""][fusion_builder_row][fusion_builder_column type="2_3" layout="2_3" last="no" spacing="yes" center_content="no" hide_on_mobile="no" background_color="" background_image="" background_repeat="no-repeat" background_position="left top" hover_type="none" link="" border_position="all" border_size="0px" border_color="" border_style="" padding="" margin_top="" margin_bottom="" animation_type="" animation_direction="" animation_speed="0.1" animation_offset="" class="" id="" min_height=""][fusion_text]
 <h1><span style="color: #ffffff;">Caring</span> <span style="color: #3bafbf;">For Life</span></h1>
@@ -143,6 +144,7 @@
      
     array (
       'name' => 'About',
+      'link' => 'https://avada.theme-fusion.com/health/about/',
       'page_template' => '100-width.php',
       'content' => '[fusion_builder_container background_color="" background_image="https://placehold.it/2000x769" background_parallax="down" enable_mobile="no" parallax_speed="0.4" background_repeat="no-repeat" background_position="center top" video_url="" video_aspect_ratio="16:9" video_webm="" video_mp4="" video_ogv="" video_preview_image="" overlay_color="" video_mute="yes" video_loop="yes" fade="no" border_size="0px" border_color="" border_style="solid" padding_top="10%" padding_bottom="10%" padding_left="5%" padding_right="5%" hundred_percent="no" equal_height_columns="no" hide_on_mobile="no" menu_anchor="" class="" id=""][fusion_builder_row][fusion_builder_column type="1_1" layout="1_1" last="yes" spacing="yes" center_content="no" hide_on_mobile="no" background_color="" background_image="" background_repeat="no-repeat" background_position="left top" hover_type="none" link="" border_position="all" border_size="0px" border_color="" border_style="" padding_top="" padding_right="" padding_bottom="" padding_left="" margin_top="" margin_bottom="" animation_type="" animation_direction="" animation_speed="0.1" animation_offset="" class="" id="" min_height=""][fusion_text]
 <h1 style="text-align: center;"><span style="color: #ffffff;">Avada</span> <span style="color: #3bafbf;">Health</span></h1>
@@ -233,6 +235,7 @@
      
     array (
       'name' => 'Departments',
+      'link' => 'https://avada.theme-fusion.com/health/departments/',
       'page_template' => '100-width.php',
       'content' => '[fusion_builder_container background_color="rgba(255,255,255,0.5)" background_image="https://placehold.it/2000x769" background_parallax="left" enable_mobile="no" parallax_speed="0.4" background_repeat="no-repeat" background_position="left center" video_url="" video_aspect_ratio="16:9" video_webm="" video_mp4="" video_ogv="" video_preview_image="" video_mute="yes" video_loop="yes" fade="no" border_size="0px" border_color="" border_style="solid" padding_top="10%" padding_bottom="10%" padding_left="5%" padding_right="5%" hundred_percent="no" equal_height_columns="no" hide_on_mobile="no" menu_anchor="" class="" id=""][fusion_builder_row][fusion_builder_column type="1_1" layout="1_1" last="yes" spacing="yes" center_content="no" hide_on_mobile="no" background_color="" background_image="" background_repeat="no-repeat" background_position="left top" hover_type="none" link="" border_position="all" border_size="0px" border_color="" border_style="" padding="" margin_top="" margin_bottom="" animation_type="" animation_direction="" animation_speed="0.1" animation_offset="" class="" id="" min_height=""][fusion_text]
 <h1 style="text-align: center;"><span style="color: #ffffff;">Medical</span> <span style="color: #3bafbf;">Departments</span></h1>
@@ -315,6 +318,7 @@
      
     array (
       'name' => 'Articles',
+      'link' => 'https://avada.theme-fusion.com/health/articles/',
       'page_template' => '100-width.php',
       'content' => '[fusion_builder_container background_color="" background_image="https://placehold.it/2000x769" background_parallax="right" enable_mobile="no" parallax_speed="0.4" background_repeat="no-repeat" background_position="left top" video_url="" video_aspect_ratio="16:9" video_webm="" video_mp4="" video_ogv="" video_preview_image="" overlay_color="" video_mute="yes" video_loop="yes" fade="no" border_size="0px" border_color="" border_style="solid" padding_top="10%" padding_bottom="10%" padding_left="5%" padding_right="5%" hundred_percent="no" equal_height_columns="no" hide_on_mobile="no" menu_anchor="" class="" id=""][fusion_builder_row][fusion_builder_column type="1_1" layout="1_1" last="yes" spacing="yes" center_content="no" hide_on_mobile="no" background_color="" background_image="" background_repeat="no-repeat" background_position="left top" hover_type="none" link="" border_position="all" border_size="0px" border_color="" border_style="" padding="" margin_top="" margin_bottom="" animation_type="" animation_direction="" animation_speed="0.1" animation_offset="" class="" id="" min_height=""][fusion_text]
 <h1 style="text-align: center;"><span style="color: #ffffff;">Health</span> <span style="color: #3bafbf;">Articles</span></h1>
@@ -393,6 +397,7 @@
      
     array (
       'name' => 'Make Appointment',
+      'link' => 'https://avada.theme-fusion.com/health/make-appointment/',
       'page_template' => '100-width.php',
       'content' => '[fusion_builder_container background_color="" background_image="https://placehold.it/2000x769" background_parallax="up" enable_mobile="no" parallax_speed="0.4" background_repeat="no-repeat" background_position="center center" video_url="" video_aspect_ratio="16:9" video_webm="" video_mp4="" video_ogv="" video_preview_image="" overlay_color="" video_mute="yes" video_loop="yes" fade="no" border_size="0px" border_color="" border_style="solid" padding_top="10%" padding_bottom="10%" padding_left="5%" padding_right="5%" hundred_percent="no" equal_height_columns="no" hide_on_mobile="no" menu_anchor="" class="" id=""][fusion_builder_row][fusion_builder_column type="1_1" layout="1_1" last="yes" spacing="yes" center_content="no" hide_on_mobile="no" background_color="" background_image="" background_repeat="no-repeat" background_position="left top" hover_type="none" link="" border_position="all" border_size="0px" border_color="" border_style="" padding_top="" padding_right="" padding_bottom="" padding_left="" margin_top="" margin_bottom="" animation_type="" animation_direction="" animation_speed="0.1" animation_offset="" class="" id="" min_height=""][fusion_text]
 <h1 style="text-align: center;"><span style="color: #ffffff;">Make An</span> <span style="color: #3bafbf;">Appointment</span></h1>

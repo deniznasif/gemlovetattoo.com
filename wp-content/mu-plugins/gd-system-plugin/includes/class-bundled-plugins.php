@@ -16,8 +16,9 @@ final class Bundled_Plugins {
 	public function __construct() {
 
 		$bundled_plugins = [
-			'limit-login-attempts/limit-login-attempts.php' => ( false !== Plugin::first_login_date() ),
+			'limit-login-attempts-reloaded/limit-login-attempts-reloaded.php' => ! $this->is_plugin_active( 'sucuri-scanner/sucuri.php' ),
 			'stock-photos/stock-photos.php' => true,
+			'worker/init.php' => true,
 			'wp-easy-mode/wp-easy-mode.php' => Plugin::is_wpem_enabled(),
 		];
 
@@ -82,7 +83,7 @@ final class Bundled_Plugins {
 	 */
 	private function is_plugin_active( $basename ) {
 
-		if ( ! function_exists( '\is_plugin_active' ) ) {
+		if ( ! function_exists( 'is_plugin_active' ) ) {
 
 			require_once ABSPATH . 'wp-admin/includes/plugin.php';
 

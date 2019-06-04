@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: System Plugin 3.6.0\n"
-"POT-Creation-Date: 2017-03-30 17:38:19+00:00\n"
+"POT-Creation-Date: 2019-02-19 17:11:49+00:00\n"
 "PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,26 +16,85 @@ msgstr ""
 "X-Generator: grunt-wp-i18n1.0.0\n"
 
 #: gd-system-plugin/includes/admin/class-bar.php:105
-#: gd-system-plugin/includes/admin/class-pages.php:242
-#: gd-system-plugin/includes/admin/class-pages.php:243
-msgid "GoDaddy"
-msgstr "GoDaddy"
-
-#: gd-system-plugin/includes/admin/class-bar.php:139
-msgid "Media Temple"
-msgstr "Media Temple"
-
-#: gd-system-plugin/includes/admin/class-bar.php:150
+#: gd-system-plugin/includes/admin/class-bar.php:140
+#: gd-system-plugin/includes/admin/class-bar.php:151
+#: gd-system-plugin/includes/class-hotfixes.php:222
 msgid "Managed WordPress"
 msgstr "WordPress Terurus"
 
-#: gd-system-plugin/includes/admin/class-bar.php:192
+#: gd-system-plugin/includes/admin/class-bar.php:193
 msgid "Flush Cache"
 msgstr "Buang Cache"
 
-#: gd-system-plugin/includes/admin/class-bar.php:219
+#: gd-system-plugin/includes/admin/class-bar.php:220
 msgid "Account Settings"
 msgstr "Tetapan Akaun"
+
+#: gd-system-plugin/includes/admin/class-bar.php:248
+msgid "Connection Management"
+msgstr ""
+
+#: gd-system-plugin/includes/admin/class-dashboard-wp5-panel.php:100
+msgid "Install the Classic Editor"
+msgstr ""
+
+#: gd-system-plugin/includes/admin/class-dashboard-wp5-panel.php:106
+#, fuzzy
+msgid "Activate Plugin"
+msgstr "System Plugin"
+
+#: gd-system-plugin/includes/admin/class-dashboard-wp5-panel.php:173
+msgid "Dismiss"
+msgstr ""
+
+#: gd-system-plugin/includes/admin/class-dashboard-wp5-panel.php:175
+msgid "Welcome to WordPress&nbsp;%s"
+msgstr ""
+
+#: gd-system-plugin/includes/admin/class-dashboard-wp5-panel.php:176
+msgid ""
+"Thank you for updating to the latest version! WordPress %s introduces a "
+"robust new content creation experience."
+msgstr ""
+
+#: gd-system-plugin/includes/admin/class-dashboard-wp5-panel.php:187
+msgid "Say Hello to the New Editor"
+msgstr ""
+
+#: gd-system-plugin/includes/admin/class-dashboard-wp5-panel.php:188
+msgid ""
+"You&#8217;ve successfully upgraded to WordPress 5.0! We’ve made some big "
+"changes to the editor. Our new block-based editor is the first step toward "
+"an exciting new future with a streamlined editing experience across your "
+"site. You’ll have more flexibility with how content is displayed, whether "
+"you are building your first site, revamping your blog, or write code for a "
+"living."
+msgstr ""
+
+#: gd-system-plugin/includes/admin/class-dashboard-wp5-panel.php:191
+msgid "Build your first post"
+msgstr ""
+
+#: gd-system-plugin/includes/admin/class-dashboard-wp5-panel.php:196
+msgid "Keep it Classic"
+msgstr ""
+
+#: gd-system-plugin/includes/admin/class-dashboard-wp5-panel.php:197
+msgid ""
+"Prefer to stick with the familiar Classic Editor? No problem! Support for "
+"the Classic Editor plugin will remain in WordPress through 2021."
+msgstr ""
+
+#: gd-system-plugin/includes/admin/class-dashboard-wp5-panel.php:198
+msgid ""
+"Note to users of assistive technology: if you experience usability issues "
+"with the block editor, we recommend you continue to use the Classic Editor."
+msgstr ""
+
+#: gd-system-plugin/includes/admin/class-dashboard-wp5-panel.php:201
+#, fuzzy
+msgid "Classic Editor"
+msgstr "Editor Fail"
 
 #: gd-system-plugin/includes/admin/class-file-editor.php:78
 msgid "File editing enabled"
@@ -55,8 +114,6 @@ msgstr ""
 "Untuk keselamatan anda, editor fail WordPress dilumpuhkan secara lalai."
 
 #: gd-system-plugin/includes/admin/class-file-editor.php:171
-#: gd-system-plugin/includes/admin/class-pages.php:528
-#: gd-system-plugin/includes/admin/class-pages.php:666
 msgid "Learn More"
 msgstr "Ketahui Lebih Lanjut"
 
@@ -84,74 +141,15 @@ msgstr "Berjaya"
 msgid "FAQ &amp; Support"
 msgstr "Sokongan &amp; FAQ"
 
-#: gd-system-plugin/includes/admin/class-pages.php:95
-msgid "Hire a Pro"
-msgstr "Upah Pro"
+#: gd-system-plugin/includes/admin/class-pages.php:214
+#: gd-system-plugin/includes/admin/class-pages.php:215
+#: gd-system-plugin/includes/class-hotfixes.php:218
+msgid "GoDaddy"
+msgstr "GoDaddy"
 
-#: gd-system-plugin/includes/admin/class-pages.php:96
-msgid "Plugin Partners"
-msgstr "Rakan Plag Masuk"
-
-#: gd-system-plugin/includes/admin/class-pages.php:352
+#: gd-system-plugin/includes/admin/class-pages.php:319
 msgid "Are you sure? This cannot be undone."
 msgstr "Adakah anda pasti? Ini tidak boleh dibuat asal."
-
-#: gd-system-plugin/includes/admin/class-pages.php:512
-msgid "Stuck in a rut? We can help."
-msgstr "Jemu dengan yang sama? Kami boleh membantu."
-
-#: gd-system-plugin/includes/admin/class-pages.php:522
-msgid ""
-"Having a pro build your business' website is the fast, cost-effective way to "
-"a great-looking, branded web presence."
-msgstr ""
-"Membina laman web perniagaan anda dengan bantuan pro adalah cara yang pantas "
-"dan menjimatkan kos untuk mendapat kehadiran web berjenama yang hebat."
-
-#: gd-system-plugin/includes/admin/class-pages.php:546
-msgid "Hide this tab"
-msgstr "Sembunyikan tab ini."
-
-#: gd-system-plugin/includes/admin/class-pages.php:566
-msgid "Meet the plugins that meet our high standards."
-msgstr "Temui plag masuk yang memenuhi standard kami yang tinggi."
-
-#: gd-system-plugin/includes/admin/class-pages.php:568
-msgid ""
-"We've partnered with the world's top WordPress plugin authors to provide a "
-"list of plugins that work well with GoDaddy WordPress hosting."
-msgstr ""
-"Kami bekerja sama dengan penulis pasang masuk WordPress paling hebat di "
-"dunia untuk menyediakan senarai pasang masuk yang berfungsi dengan elok "
-"dengan pengehosan GoDaddy WordPress."
-
-#: gd-system-plugin/includes/admin/class-pages.php:578
-msgid "Plugins list"
-msgstr "Senarai plag masuk"
-
-#: gd-system-plugin/includes/admin/class-pages.php:586
-msgid ""
-"Whoops! There was a problem fetching the list of plugins, please try "
-"reloading this page."
-msgstr ""
-"Whoops! Terdapat masalah mencari senarai plag masuk, sila cuba memuat semula "
-"laman ini."
-
-#: gd-system-plugin/includes/admin/class-pages.php:652
-msgid "Install Now"
-msgstr "Pasang Sekarang"
-
-#: gd-system-plugin/includes/admin/class-pages.php:656
-msgid "Update Now"
-msgstr "Kemas Kini Sekarang"
-
-#: gd-system-plugin/includes/admin/class-pages.php:660
-msgid "This plugin is already installed and is up to date"
-msgstr "Plag masuk ini sudah dipasang dan kini telah dikemaskini"
-
-#: gd-system-plugin/includes/admin/class-pages.php:680
-msgid "By %s"
-msgstr "Oleh %s"
 
 #: gd-system-plugin/includes/admin/class-pointers.php:49
 msgid "Good news!"
@@ -165,48 +163,55 @@ msgstr ""
 "Anda kini boleh mengakses <strong>Flush Cache</strong> dan pautan lain "
 "secara terus daripada bar tadbir menggunakan desktop atau peranti mobile."
 
-#: gd-system-plugin/includes/admin/class-themes-tab.php:88
+#: gd-system-plugin/includes/admin/class-themes-tab.php:96
 msgid "GoDaddy Themes"
-msgstr ""
+msgstr "GoDaddy Themes"
 
-#: gd-system-plugin/includes/admin/class-themes-tab.php:89
-#: gd-system-plugin/includes/admin/class-themes-tab.php:186
+#: gd-system-plugin/includes/admin/class-themes-tab.php:97
+#: gd-system-plugin/includes/admin/class-themes-tab.php:197
 msgid "Installed"
-msgstr ""
+msgstr "Dipasang"
 
-#: gd-system-plugin/includes/admin/class-themes-tab.php:90
+#: gd-system-plugin/includes/admin/class-themes-tab.php:98
 msgid "Error Installing Theme"
-msgstr ""
+msgstr "Error Installing Theme"
 
-#: gd-system-plugin/includes/admin/class-themes-tab.php:91
-#: gd-system-plugin/includes/admin/class-themes-tab.php:190
+#: gd-system-plugin/includes/admin/class-themes-tab.php:99
+#: gd-system-plugin/includes/admin/class-themes-tab.php:201
 msgid "Activate"
-msgstr ""
+msgstr "Activate"
 
-#: gd-system-plugin/includes/admin/class-themes-tab.php:92
-#: gd-system-plugin/includes/admin/class-themes-tab.php:192
+#: gd-system-plugin/includes/admin/class-themes-tab.php:100
+#: gd-system-plugin/includes/admin/class-themes-tab.php:203
 msgid "Live Preview"
-msgstr ""
+msgstr "Live Preview"
 
-#: gd-system-plugin/includes/admin/class-themes-tab.php:93
+#: gd-system-plugin/includes/admin/class-themes-tab.php:101
 msgid "Theme Install"
-msgstr ""
+msgstr "Theme Install"
 
-#: gd-system-plugin/includes/admin/class-themes-tab.php:170
+#: gd-system-plugin/includes/admin/class-themes-tab.php:181
 msgid "Install %s"
-msgstr ""
+msgstr "Install %s"
 
-#: gd-system-plugin/includes/admin/class-themes-tab.php:173
+#: gd-system-plugin/includes/admin/class-themes-tab.php:184
 msgid "Install"
-msgstr ""
+msgstr "Install"
 
-#: gd-system-plugin/includes/admin/class-themes-tab.php:214
+#: gd-system-plugin/includes/admin/class-themes-tab.php:227
 msgid "View Demo"
-msgstr ""
+msgstr "View Demo"
 
-#: gd-system-plugin/includes/admin/class-themes-tab.php:215
+#: gd-system-plugin/includes/admin/class-themes-tab.php:228
 msgid "By GoDaddy"
+msgstr "By GoDaddy"
+
+#. translators: Name of the disallowed plugin
+#: gd-system-plugin/includes/class-blacklist.php:94
+#, fuzzy
+msgid "%s is not allowed on our system. It has been automatically deactivated."
 msgstr ""
+"%s tidak dibenarkan pada sistem kami. Ia telah dilumpuhkan secara automatik."
 
 #: gd-system-plugin/includes/class-blacklist.php:222
 msgid "Not Available"
@@ -225,26 +230,39 @@ msgstr ""
 msgid "Cache cleared"
 msgstr "Cache dibersihkan"
 
-#: gd-system-plugin/includes/class-change-domain.php:59
-#: gd-system-plugin/includes/class-change-domain.php:78
-#: gd-system-plugin/includes/class-change-domain.php:141
-#: gd-system-plugin/includes/class-change-domain.php:152
-#: gd-system-plugin/includes/class-temp-domain.php:113
-#: gd-system-plugin/includes/class-temp-domain.php:120
+#. translators: Title of alert in bold
+#: gd-system-plugin/includes/class-change-domain.php:61
+#: gd-system-plugin/includes/class-change-domain.php:161
+#, fuzzy
+msgid "%s Your domain cannot be changed here."
+msgstr "%s Domain anda tidak boleh ditukar di sini."
+
+#: gd-system-plugin/includes/class-change-domain.php:62
+#: gd-system-plugin/includes/class-change-domain.php:84
+#: gd-system-plugin/includes/class-change-domain.php:150
+#: gd-system-plugin/includes/class-change-domain.php:162
+#: gd-system-plugin/includes/class-temp-domain.php:117
+#: gd-system-plugin/includes/class-temp-domain.php:125
 msgid "Note:"
 msgstr "Perhatian:"
 
-#: gd-system-plugin/includes/class-change-domain.php:68
-#: gd-system-plugin/includes/class-temp-domain.php:129
+#: gd-system-plugin/includes/class-change-domain.php:73
+#: gd-system-plugin/includes/class-temp-domain.php:136
 msgid "Change domain"
 msgstr "Tukar domain"
 
-#: gd-system-plugin/includes/class-change-domain.php:140
+#. translators: Title of alert in bold
+#: gd-system-plugin/includes/class-change-domain.php:83
+#: gd-system-plugin/includes/class-change-domain.php:149
 msgid "%s This is your staging site and the domain cannot be changed."
 msgstr ""
 "%s Ini merupakan laman persinggahan anda dan domain tidak boleh ditukar."
 
-#: gd-system-plugin/includes/class-sso.php:128
+#: gd-system-plugin/includes/class-hotfixes.php:219
+msgid "Media Temple"
+msgstr "Media Temple"
+
+#: gd-system-plugin/includes/class-sso.php:130
 msgid ""
 "We were unable to log you in automatically. Please enter your WordPress "
 "username and password."
@@ -252,22 +270,26 @@ msgstr ""
 "Kami tidak dapat log masuk anda secara automatik. Sila masukkan nama "
 "pengguna dan kata laluan WordPress anda."
 
-#: gd-system-plugin/includes/class-temp-domain.php:44
+#. translators: 1: Current domain. 2: Domain name change URL.
+#: gd-system-plugin/includes/class-temp-domain.php:45
+#, fuzzy
 msgid ""
-"<strong>Note:</strong> You're using the temporary domain <strong>%s</"
-"strong>. <a href=\"%s\" target=\"_blank\">Change domain</a>"
+"<strong>Note:</strong> You're using the temporary domain <strong>%1$s</"
+"strong>. <a href=\"%2$s\" target=\"_blank\">Change domain</a>"
 msgstr ""
 "<strong>Nota:</strong> Anda menggunakan domain sementara <strong>%s</"
 "strong>. <a href=\"%s\" target=\"_blank\">Tukar domain</a>"
 
-#: gd-system-plugin/includes/class-temp-domain.php:112
+#. translators: 1: "Note:" wrapped in strong tags
+#: gd-system-plugin/includes/class-temp-domain.php:116
 msgid ""
 "%s This is your staging site and it cannot be indexed by search engines."
 msgstr ""
 "%s Ini adalah laman percubaan anda dan tidak boleh diindekskan oleh enjin "
 "carian."
 
-#: gd-system-plugin/includes/class-temp-domain.php:119
+#. translators: 1: "Note:" wrapped in strong tags
+#: gd-system-plugin/includes/class-temp-domain.php:124
 msgid ""
 "%s Your site is using a temporary domain that cannot be indexed by search "
 "engines."
@@ -275,69 +297,87 @@ msgstr ""
 "%s Laman anda menggunakan domain sementara yang tidak boleh diindekskan pleh "
 "enjin carian."
 
-#: gd-system-plugin/includes/log/components/class-customizer.php:24
+#. translators: 2. singular post type name (e.g. page), 1. post title
+#: gd-system-plugin/includes/log/components/class-beaverbuilder.php:75
+#, fuzzy
+msgid "Beaver Builder %2$s \"%1$s\" drafted"
+msgstr "Beaver Builder %2$s \"%1$s\" drafted"
+
+#. translators: 2. singular post type name (e.g. page), 1. post title
+#: gd-system-plugin/includes/log/components/class-beaverbuilder.php:99
+#, fuzzy
+msgid "Beaver Builder %2$s \"%1$s\" discarded"
+msgstr "Beaver Builder %2$s \"%1$s\" discarded"
+
+#: gd-system-plugin/includes/log/components/class-customizer.php:25
 msgid "Background Attachment"
 msgstr "Lampiran Latar Belakang"
 
-#: gd-system-plugin/includes/log/components/class-customizer.php:25
+#: gd-system-plugin/includes/log/components/class-customizer.php:26
 msgid "Background Color"
 msgstr "Warna Latar Belakang"
 
-#: gd-system-plugin/includes/log/components/class-customizer.php:26
+#: gd-system-plugin/includes/log/components/class-customizer.php:27
 msgid "Background Image"
 msgstr "Imej latar belakang"
 
-#: gd-system-plugin/includes/log/components/class-customizer.php:27
+#: gd-system-plugin/includes/log/components/class-customizer.php:28
 msgid "Background Position"
 msgstr "Kedudukan Latar Belakang"
 
-#: gd-system-plugin/includes/log/components/class-customizer.php:28
+#: gd-system-plugin/includes/log/components/class-customizer.php:29
 msgid "Background Repeat"
 msgstr "Perulangan Latar Belakang"
 
-#: gd-system-plugin/includes/log/components/class-customizer.php:29
+#: gd-system-plugin/includes/log/components/class-customizer.php:30
 msgid "Base Color Scheme"
 msgstr "Skema Warna Asas"
 
-#: gd-system-plugin/includes/log/components/class-customizer.php:30
+#: gd-system-plugin/includes/log/components/class-customizer.php:31
 msgid "Logo"
 msgstr "Logo"
 
-#: gd-system-plugin/includes/log/components/class-customizer.php:31
+#: gd-system-plugin/includes/log/components/class-customizer.php:32
 msgid "Header and Sidebar Background Color"
 msgstr "Warna Latar Belakang Pengepala dan Bar Sisi"
 
-#: gd-system-plugin/includes/log/components/class-customizer.php:32
+#: gd-system-plugin/includes/log/components/class-customizer.php:33
 msgid "Header Image"
 msgstr "Imej Pengepala"
 
-#: gd-system-plugin/includes/log/components/class-customizer.php:33
+#: gd-system-plugin/includes/log/components/class-customizer.php:34
 msgid "Display Site Title and Tagline"
 msgstr "Paparkan Tajuk Laman dan Slogan"
 
-#: gd-system-plugin/includes/log/components/class-customizer.php:34
+#: gd-system-plugin/includes/log/components/class-customizer.php:35
 msgid "Header Text Color"
 msgstr "Warna Teks Pengepala"
 
-#: gd-system-plugin/includes/log/components/class-customizer.php:35
+#: gd-system-plugin/includes/log/components/class-customizer.php:36
 msgid "Link Color"
 msgstr "Warna Pautan"
 
-#: gd-system-plugin/includes/log/components/class-customizer.php:36
+#: gd-system-plugin/includes/log/components/class-customizer.php:37
 msgid "Main Text Color"
 msgstr "Warna Teks Utama"
 
-#: gd-system-plugin/includes/log/components/class-customizer.php:37
+#: gd-system-plugin/includes/log/components/class-customizer.php:38
 msgid "Page Background Color"
 msgstr "Warna Latar Belakang Halaman"
 
-#: gd-system-plugin/includes/log/components/class-customizer.php:38
+#: gd-system-plugin/includes/log/components/class-customizer.php:39
 msgid "Secondary Text Color"
 msgstr "Warna Teks Sekunder"
 
-#: gd-system-plugin/includes/log/components/class-customizer.php:39
+#: gd-system-plugin/includes/log/components/class-customizer.php:40
 msgid "Header and Sidebar Text Color"
 msgstr "Warna Teks Pengepala dan Bar Sisi"
+
+#. translators: 1. Option name, 2. Theme name
+#: gd-system-plugin/includes/log/components/class-customizer.php:93
+#, fuzzy
+msgid "\"%1$s\" updated for the %2$s theme"
+msgstr "\"%1$s\" dikemas kini bagi tema %2$s "
 
 #: gd-system-plugin/includes/log/components/class-option.php:28
 msgid "Site Title"
@@ -367,6 +407,194 @@ msgstr "Ikon Laman"
 msgid "Site Language"
 msgstr "Bahasa Laman"
 
+#. translators: Option name
+#: gd-system-plugin/includes/log/components/class-option.php:79
+#, fuzzy
+msgid "\"%s\" option updated"
+msgstr "Pilihan \"%s\" dikemas kini"
+
+#. translators: Plugin name
+#: gd-system-plugin/includes/log/components/class-plugin.php:29
+#, fuzzy
+msgid "\"%s\" plugin activated"
+msgstr "Pemalam \"%s\" diaktifkan"
+
+#. translators: Plugin name
+#: gd-system-plugin/includes/log/components/class-plugin.php:36
+#, fuzzy
+msgid "\"%s\" plugin activated network wide"
+msgstr "Pemalam \"%s\" diaktifkan di seluruh rangkaian"
+
+#. translators: Plugin name
+#: gd-system-plugin/includes/log/components/class-plugin.php:61
+#, fuzzy
+msgid "\"%s\" plugin deactivated"
+msgstr "Pemalam \"%s\" dilumpuhkan"
+
+#. translators: Plugin name
+#: gd-system-plugin/includes/log/components/class-plugin.php:68
+#, fuzzy
+msgid "\"%s\" plugin deactivated network wide"
+msgstr "Pemalam \"%s\" dilumpuhkan di seluruh rangkaian"
+
+#. translators: Plugin name
+#: gd-system-plugin/includes/log/components/class-plugin.php:95
+#, fuzzy
+msgid "\"%s\" plugin deleted"
+msgstr "Pemalam \"%s\" dipadam"
+
+#. translators: Plugin name
+#: gd-system-plugin/includes/log/components/class-plugin.php:191
+#, fuzzy
+msgid "\"%s\" plugin installed"
+msgstr "Pemalam \"%s\" dipasang"
+
+#. translators: 1: Plugin name, 2: New plugin version
+#: gd-system-plugin/includes/log/components/class-plugin.php:226
+#, fuzzy
+msgid "\"%1$s\" plugin updated to %2$s"
+msgstr "Pemalam \"%1$s\" dikemas kini ke %2$s"
+
+#. translators: 1: Plugin name, 2: Old plugin version, 3: New plugin version
+#: gd-system-plugin/includes/log/components/class-plugin.php:233
+#, fuzzy
+msgid "\"%1$s\" plugin updated from %2$s to %3$s"
+msgstr "Pemalam \"%1$s\" dikemas kini daripada %2$s ke %3$s"
+
+#. translators: 1: Post title, 2: Post type singular name
+#: gd-system-plugin/includes/log/components/class-post.php:49
+#: gd-system-plugin/includes/log/components/class-post.php:57
+#, fuzzy
+msgid "\"%1$s\" %2$s updated"
+msgstr "\"%1$s\" %2$s dikemas kini"
+
+#. translators: 1: Post title, 2: Post type singular name
+#: gd-system-plugin/includes/log/components/class-post.php:66
+#, fuzzy
+msgid "\"%1$s\" %2$s created"
+msgstr "\"%1$s\" %2$s dicipta"
+
+#. translators: 1: Post title, 2: Post type singular name
+#: gd-system-plugin/includes/log/components/class-post.php:75
+#, fuzzy
+msgid "\"%1$s\" %2$s restored from trash"
+msgstr "\"%1$s\" %2$s dipulih semula daripada tong sampah"
+
+#. translators: 1: Post title, 2: Post type singular name
+#: gd-system-plugin/includes/log/components/class-post.php:83
+#, fuzzy
+msgid "\"%1$s\" %2$s unpublished"
+msgstr "\"%1$s\" %2$s tidak disiarkan"
+
+#. translators: 1: Post title, 2: Post type singular name
+#: gd-system-plugin/includes/log/components/class-post.php:91
+#, fuzzy
+msgid "\"%1$s\" %2$s drafted"
+msgstr "\"%1$s\" %2$s ditulis draf"
+
+#. translators: 1: Post title, 2: Post type singular name
+#: gd-system-plugin/includes/log/components/class-post.php:99
+#, fuzzy
+msgid "\"%1$s\" %2$s pending review"
+msgstr "\"%1$s\" %2$s semakan tertangguh"
+
+#. translators: 1: Post title, 2: Post type singular name, 3: Scheduled post
+#. date
+#: gd-system-plugin/includes/log/components/class-post.php:107
+#, fuzzy
+msgid "\"%1$s\" %2$s scheduled for %3$s"
+msgstr "\"%1$s\" %2$s dijadualkan untuk %3$s"
+
+#. translators: 1: Post title, 2: Post type singular name
+#: gd-system-plugin/includes/log/components/class-post.php:115
+#, fuzzy
+msgid "\"%1$s\" scheduled %2$s published"
+msgstr "\"%1$s\" dijadualkan %2$s disiarkan"
+
+#. translators: 1: Post title, 2: Post type singular name
+#: gd-system-plugin/includes/log/components/class-post.php:123
+#, fuzzy
+msgid "\"%1$s\" %2$s published"
+msgstr "\"%1$s\" %2$s diterbitkan"
+
+#. translators: 1: Post title, 2: Post type singular name
+#: gd-system-plugin/includes/log/components/class-post.php:131
+#, fuzzy
+msgid "\"%1$s\" %2$s privately published"
+msgstr "\"%1$s\" %2$s diterbitkan secara peribadi"
+
+#. translators: 1: Post title, 2: Post type singular name
+#: gd-system-plugin/includes/log/components/class-post.php:140
+#, fuzzy
+msgid "\"%1$s\" %2$s trashed"
+msgstr "\"%1$s\" %2$s dibuang"
+
+#. translators: Theme name.
+#: gd-system-plugin/includes/log/components/class-theme.php:49
+#, fuzzy
+msgid "\"%s\" theme activated"
+msgstr "Tema \"%s\" diaktifkan"
+
+#. translators: Theme name.
+#: gd-system-plugin/includes/log/components/class-theme.php:118
+#, fuzzy
+msgid "\"%s\" theme installed"
+msgstr "\"%s\" tema dipasang"
+
+#. translators: 1: Theme name, 2: New theme version
+#: gd-system-plugin/includes/log/components/class-theme.php:154
+#, fuzzy
+msgid "\"%1$s\" theme updated to %2$s"
+msgstr "\"%1$s\" tema dikemaskinikan kepada %2$s"
+
+#. translators: 1: Theme name, 2: Old theme version, 3: New theme version
+#: gd-system-plugin/includes/log/components/class-theme.php:161
+#, fuzzy
+msgid "\"%1$s\" theme updated from %2$s to %3$s"
+msgstr "\"%1$s\" tema dikemaskinikan daripada %2$s kepada %3$s"
+
+#. translators: 1. User display name, 2. User role
+#: gd-system-plugin/includes/log/components/class-user.php:102
+#, fuzzy
+msgid "%1$s's user account deleted (%2$s)"
+msgstr "Akaun pengguna%1$sdipadam (%2$s)"
+
+#. translators: User display name
+#: gd-system-plugin/includes/log/components/class-user.php:141
+#, fuzzy
+msgid "%s's user profile updated"
+msgstr "Profil pengguna%sdikemas kini"
+
+#. translators: 1: User display name, 2: Old role, 3: New role
+#: gd-system-plugin/includes/log/components/class-user.php:183
+#, fuzzy
+msgid "%1$s's role changed from %2$s to %3$s"
+msgstr "Peranan%1$sberubah daripada %2$s menjadi %3$s"
+
+#. translators: User display name
+#: gd-system-plugin/includes/log/components/class-user.php:228
+#, fuzzy
+msgid "%s logged in"
+msgstr "%s dilog masuk"
+
+#. translators: User display name
+#: gd-system-plugin/includes/log/components/class-user.php:261
+#, fuzzy
+msgid "%s logged out"
+msgstr "%s dilog keluar"
+
+#. translators: User display name
+#: gd-system-plugin/includes/log/components/class-user.php:295
+#, fuzzy
+msgid "%s requested a password reset"
+msgstr "%s meminta set semula kata laluan"
+
+#. translators: User display name
+#: gd-system-plugin/includes/log/components/class-user.php:327
+#, fuzzy
+msgid "%s's password reset"
+msgstr "set semula kata laluan%s"
+
 #: gd-system-plugin/includes/log/components/trait-post-helpers.php:85
 msgid "Post"
 msgstr "Siar"
@@ -375,7 +603,7 @@ msgstr "Siar"
 msgid "M j, Y @ H:i"
 msgstr "M j, Y @ H:i"
 
-#: gd-system-plugin.php:129
+#: gd-system-plugin.php:131
 msgid "Note: This is a staging site."
 msgstr "Note: This is a staging site."
 
@@ -388,196 +616,64 @@ msgctxt "The name of our company blog found at https://www.godaddy.com/garage"
 msgid "GoDaddy Garage"
 msgstr "Garaj GoDaddy"
 
-#: gd-system-plugin/includes/admin/class-pages.php:660
-msgctxt "plugin"
-msgid "Installed"
-msgstr "Dipasang"
+#~ msgid "Hire a Pro"
+#~ msgstr "Upah Pro"
 
-#: gd-system-plugin/includes/class-blacklist.php:94
-msgctxt "Name of the disallowed plugin"
-msgid "%s is not allowed on our system. It has been automatically deactivated."
-msgstr ""
-"%s tidak dibenarkan pada sistem kami. Ia telah dilumpuhkan secara automatik."
+#~ msgid "Plugin Partners"
+#~ msgstr "Rakan Plag Masuk"
 
-#: gd-system-plugin/includes/class-change-domain.php:58
-#: gd-system-plugin/includes/class-change-domain.php:151
-msgctxt "Title of alert in bold"
-msgid "%s Your domain cannot be changed here."
-msgstr "%s Domain anda tidak boleh ditukar di sini."
+#~ msgid "Stuck in a rut? We can help."
+#~ msgstr "Jemu dengan yang sama? Kami boleh membantu."
 
-#: gd-system-plugin/includes/class-change-domain.php:77
-msgctxt "Title of alert in bold"
-msgid "%s This is your staging site and the domain cannot be changed."
-msgstr ""
-"%s Ini merupakan laman persinggahan anda dan domain tidak boleh ditukar."
+#~ msgid ""
+#~ "Having a pro build your business' website is the fast, cost-effective way "
+#~ "to a great-looking, branded web presence."
+#~ msgstr ""
+#~ "Membina laman web perniagaan anda dengan bantuan pro adalah cara yang "
+#~ "pantas dan menjimatkan kos untuk mendapat kehadiran web berjenama yang "
+#~ "hebat."
 
-#: gd-system-plugin/includes/log/components/class-beaverbuilder.php:71
-msgctxt "2. singular post type name (e.g. page), 1. post title"
-msgid "Beaver Builder %2$s \"%1$s\" drafted"
-msgstr "Beaver Builder %2$s \"%1$s\" drafted"
+#~ msgid "Hide this tab"
+#~ msgstr "Sembunyikan tab ini."
 
-#: gd-system-plugin/includes/log/components/class-beaverbuilder.php:94
-msgctxt "2. singular post type name (e.g. page), 1. post title"
-msgid "Beaver Builder %2$s \"%1$s\" discarded"
-msgstr "Beaver Builder %2$s \"%1$s\" discarded"
+#~ msgid "Meet the plugins that meet our high standards."
+#~ msgstr "Temui plag masuk yang memenuhi standard kami yang tinggi."
 
-#: gd-system-plugin/includes/log/components/class-customizer.php:90
-msgctxt "1. Option name, 2. Theme name"
-msgid "\"%1$s\" updated for the %2$s theme"
-msgstr "\"%1$s\" dikemas kini bagi tema %2$s "
+#~ msgid ""
+#~ "We've partnered with the world's top WordPress plugin authors to provide "
+#~ "a list of plugins that work well with GoDaddy WordPress hosting."
+#~ msgstr ""
+#~ "Kami bekerja sama dengan penulis pasang masuk WordPress paling hebat di "
+#~ "dunia untuk menyediakan senarai pasang masuk yang berfungsi dengan elok "
+#~ "dengan pengehosan GoDaddy WordPress."
 
-#: gd-system-plugin/includes/log/components/class-option.php:78
-msgctxt "Option name"
-msgid "\"%s\" option updated"
-msgstr "Pilihan \"%s\" dikemas kini"
+#~ msgid "Plugins list"
+#~ msgstr "Senarai plag masuk"
 
-#: gd-system-plugin/includes/log/components/class-plugin.php:29
-msgctxt "Plugin name"
-msgid "\"%s\" plugin activated"
-msgstr "Pemalam \"%s\" diaktifkan"
+#~ msgid ""
+#~ "Whoops! There was a problem fetching the list of plugins, please try "
+#~ "reloading this page."
+#~ msgstr ""
+#~ "Whoops! Terdapat masalah mencari senarai plag masuk, sila cuba memuat "
+#~ "semula laman ini."
 
-#: gd-system-plugin/includes/log/components/class-plugin.php:37
-msgctxt "Plugin name"
-msgid "\"%s\" plugin activated network wide"
-msgstr "Pemalam \"%s\" diaktifkan di seluruh rangkaian"
+#~ msgid "Install Now"
+#~ msgstr "Pasang Sekarang"
 
-#: gd-system-plugin/includes/log/components/class-plugin.php:63
-msgctxt "Plugin name"
-msgid "\"%s\" plugin deactivated"
-msgstr "Pemalam \"%s\" dilumpuhkan"
+#~ msgid "Update Now"
+#~ msgstr "Kemas Kini Sekarang"
 
-#: gd-system-plugin/includes/log/components/class-plugin.php:71
-msgctxt "Plugin name"
-msgid "\"%s\" plugin deactivated network wide"
-msgstr "Pemalam \"%s\" dilumpuhkan di seluruh rangkaian"
+#~ msgid "This plugin is already installed and is up to date"
+#~ msgstr "Plag masuk ini sudah dipasang dan kini telah dikemaskini"
 
-#: gd-system-plugin/includes/log/components/class-plugin.php:98
-msgctxt "Plugin name"
-msgid "\"%s\" plugin deleted"
-msgstr "Pemalam \"%s\" dipadam"
+#~ msgid "By %s"
+#~ msgstr "Oleh %s"
 
-#: gd-system-plugin/includes/log/components/class-plugin.php:194
-msgctxt "Plugin name"
-msgid "\"%s\" plugin installed"
-msgstr "Pemalam \"%s\" dipasang"
+#~ msgctxt "plugin"
+#~ msgid "Installed"
+#~ msgstr "Dipasang"
 
-#: gd-system-plugin/includes/log/components/class-plugin.php:230
-msgctxt "1: Plugin name, 2: New plugin version"
-msgid "\"%1$s\" plugin updated to %2$s"
-msgstr "Pemalam \"%1$s\" dikemas kini ke %2$s"
-
-#: gd-system-plugin/includes/log/components/class-plugin.php:238
-msgctxt "1: Plugin name, 2: Old plugin version, 3: New plugin version"
-msgid "\"%1$s\" plugin updated from %2$s to %3$s"
-msgstr "Pemalam \"%1$s\" dikemas kini daripada %2$s ke %3$s"
-
-#: gd-system-plugin/includes/log/components/class-post.php:49
-#: gd-system-plugin/includes/log/components/class-post.php:59
-msgctxt "1: Post title, 2: Post type singular name"
-msgid "\"%1$s\" %2$s updated"
-msgstr "\"%1$s\" %2$s dikemas kini"
-
-#: gd-system-plugin/includes/log/components/class-post.php:70
-msgctxt "1: Post title, 2: Post type singular name"
-msgid "\"%1$s\" %2$s created"
-msgstr "\"%1$s\" %2$s dicipta"
-
-#: gd-system-plugin/includes/log/components/class-post.php:81
-msgctxt "1: Post title, 2: Post type singular name"
-msgid "\"%1$s\" %2$s restored from trash"
-msgstr "\"%1$s\" %2$s dipulih semula daripada tong sampah"
-
-#: gd-system-plugin/includes/log/components/class-post.php:91
-msgctxt "1: Post title, 2: Post type singular name"
-msgid "\"%1$s\" %2$s unpublished"
-msgstr "\"%1$s\" %2$s tidak disiarkan"
-
-#: gd-system-plugin/includes/log/components/class-post.php:101
-msgctxt "1: Post title, 2: Post type singular name"
-msgid "\"%1$s\" %2$s drafted"
-msgstr "\"%1$s\" %2$s ditulis draf"
-
-#: gd-system-plugin/includes/log/components/class-post.php:111
-msgctxt "1: Post title, 2: Post type singular name"
-msgid "\"%1$s\" %2$s pending review"
-msgstr "\"%1$s\" %2$s semakan tertangguh"
-
-#: gd-system-plugin/includes/log/components/class-post.php:131
-msgctxt "1: Post title, 2: Post type singular name"
-msgid "\"%1$s\" scheduled %2$s published"
-msgstr "\"%1$s\" dijadualkan %2$s disiarkan"
-
-#: gd-system-plugin/includes/log/components/class-post.php:141
-msgctxt "1: Post title, 2: Post type singular name"
-msgid "\"%1$s\" %2$s published"
-msgstr "\"%1$s\" %2$s diterbitkan"
-
-#: gd-system-plugin/includes/log/components/class-post.php:151
-msgctxt "1: Post title, 2: Post type singular name"
-msgid "\"%1$s\" %2$s privately published"
-msgstr "\"%1$s\" %2$s diterbitkan secara peribadi"
-
-#: gd-system-plugin/includes/log/components/class-post.php:162
-msgctxt "1: Post title, 2: Post type singular name"
-msgid "\"%1$s\" %2$s trashed"
-msgstr "\"%1$s\" %2$s dibuang"
-
-#: gd-system-plugin/includes/log/components/class-post.php:121
-msgctxt "1: Post title, 2: Post type singular name, 3: Scheduled post date"
-msgid "\"%1$s\" %2$s scheduled for %3$s"
-msgstr "\"%1$s\" %2$s dijadualkan untuk %3$s"
-
-#: gd-system-plugin/includes/log/components/class-theme.php:48
-msgctxt "Theme name"
-msgid "\"%s\" theme activated"
-msgstr "Tema \"%s\" diaktifkan"
-
-#: gd-system-plugin/includes/log/components/class-theme.php:117
-msgctxt "Theme name"
-msgid "\"%s\" theme installed"
-msgstr "\"%s\" tema dipasang"
-
-#: gd-system-plugin/includes/log/components/class-theme.php:154
-msgctxt "1: theme name, 2: New theme version"
-msgid "\"%1$s\" theme updated to %2$s"
-msgstr "\"%1$s\" tema dikemaskinikan kepada %2$s"
-
-#: gd-system-plugin/includes/log/components/class-theme.php:162
-msgctxt "1: Theme name, 2: Old theme version, 3: New theme version"
-msgid "\"%1$s\" theme updated from %2$s to %3$s"
-msgstr "\"%1$s\" tema dikemaskinikan daripada %2$s kepada %3$s"
-
-#: gd-system-plugin/includes/log/components/class-user.php:99
-msgctxt "1. User display name, 2. User role"
-msgid "%1$s's user account deleted (%2$s)"
-msgstr "Akaun pengguna%1$sdipadam (%2$s)"
-
-#: gd-system-plugin/includes/log/components/class-user.php:138
-msgctxt "User display name"
-msgid "%s's user profile updated"
-msgstr "Profil pengguna%sdikemas kini"
-
-#: gd-system-plugin/includes/log/components/class-user.php:225
-msgctxt "User display name"
-msgid "%s logged in"
-msgstr "%s dilog masuk"
-
-#: gd-system-plugin/includes/log/components/class-user.php:258
-msgctxt "User display name"
-msgid "%s logged out"
-msgstr "%s dilog keluar"
-
-#: gd-system-plugin/includes/log/components/class-user.php:292
-msgctxt "User display name"
-msgid "%s requested a password reset"
-msgstr "%s meminta set semula kata laluan"
-
-#: gd-system-plugin/includes/log/components/class-user.php:324
-msgctxt "User display name"
-msgid "%s's password reset"
-msgstr "set semula kata laluan%s"
-
-#: gd-system-plugin/includes/log/components/class-user.php:180
-msgctxt "1: User display name, 2: Old role, 3: New role"
-msgid "%1$s's role changed from %2$s to %3$s"
-msgstr "Peranan%1$sberubah daripada %2$s menjadi %3$s"
+#~ msgctxt "Title of alert in bold"
+#~ msgid "%s This is your staging site and the domain cannot be changed."
+#~ msgstr ""
+#~ "%s Ini merupakan laman persinggahan anda dan domain tidak boleh ditukar."

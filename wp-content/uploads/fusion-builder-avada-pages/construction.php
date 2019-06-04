@@ -14,6 +14,7 @@
      
     array (
       'name' => 'Home',
+      'link' => 'https://avada.theme-fusion.com/construction/',
       'page_template' => '100-width.php',
       'content' => '[fusion_builder_container background_color="#fed03d" background_parallax="none" enable_mobile="no" parallax_speed="0.3" background_repeat="no-repeat" background_position="left top" video_aspect_ratio="16:9" video_mute="yes" video_loop="yes" fade="no" border_size="0px" border_style="solid" padding_top="50" padding_bottom="50" hundred_percent="no" equal_height_columns="no" hide_on_mobile="no"][fusion_builder_row][fusion_builder_column type="1_1" layout="1_1" last="yes" spacing="yes" center_content="no" hide_on_mobile="no" background_color="" background_image="" background_repeat="no-repeat" background_position="left top" hover_type="none" link="" border_position="all" border_size="0px" border_color="" border_style="" padding="" margin_top="" margin_bottom="" animation_type="" animation_direction="" animation_speed="0.1" animation_offset="" class="" id="" min_height=""][fusion_text]
 <h2 style="font-weight: 300; text-align: center;">Do You Have A Construction Project We Can Help With?</h2>
@@ -149,6 +150,7 @@ Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, ad
      
     array (
       'name' => 'About',
+      'link' => 'https://avada.theme-fusion.com/construction/about/',
       'page_template' => '100-width.php',
       'content' => '[fusion_builder_container background_color="#fed03d" background_parallax="none" enable_mobile="no" parallax_speed="0.3" background_repeat="no-repeat" background_position="left top" video_aspect_ratio="16:9" video_mute="yes" video_loop="yes" fade="no" border_size="0px" border_style="solid" padding_top="50" padding_bottom="50" hundred_percent="no" equal_height_columns="no" hide_on_mobile="no"][fusion_builder_row][fusion_builder_column type="1_1" layout="1_1" last="yes" spacing="yes" center_content="no" hide_on_mobile="no" background_color="" background_image="" background_repeat="no-repeat" background_position="left top" hover_type="none" link="" border_position="all" border_size="0px" border_color="" border_style="" padding="" margin_top="" margin_bottom="" animation_type="" animation_direction="" animation_speed="0.1" animation_offset="" class="" id="" min_height=""][fusion_text]
 <h2 style="font-weight: 300; text-align: center;">Do You Have A Construction Project We Can Help With?</h2>
@@ -242,6 +244,7 @@ Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, ad
      
     array (
       'name' => 'Services',
+      'link' => 'https://avada.theme-fusion.com/construction/services/',
       'page_template' => '100-width.php',
       'content' => '[fusion_builder_container background_color="#fed03d" background_parallax="none" enable_mobile="no" parallax_speed="0.3" background_repeat="no-repeat" background_position="left top" video_aspect_ratio="16:9" video_mute="yes" video_loop="yes" fade="no" border_size="0px" border_style="solid" padding_top="50" padding_bottom="50" hundred_percent="no" equal_height_columns="no" hide_on_mobile="no"][fusion_builder_row][fusion_builder_column type="1_1" layout="1_1" last="yes" spacing="yes" center_content="no" hide_on_mobile="no" background_color="" background_image="" background_repeat="no-repeat" background_position="left top" hover_type="none" link="" border_position="all" border_size="0px" border_color="" border_style="" padding="" margin_top="" margin_bottom="" animation_type="" animation_direction="" animation_speed="0.1" animation_offset="" class="" id="" min_height=""][fusion_text]
 <h2 style="font-weight: 300; text-align: center;">Do You Have A Construction Project We Can Help With?</h2>
@@ -435,6 +438,7 @@ Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo
      
     array (
       'name' => 'Work',
+      'link' => 'https://avada.theme-fusion.com/construction/work/',
       'page_template' => '100-width.php',
       'content' => '[fusion_builder_container background_color="#fed03d" background_parallax="none" enable_mobile="no" parallax_speed="0.3" background_repeat="no-repeat" background_position="left top" video_aspect_ratio="16:9" video_mute="yes" video_loop="yes" fade="no" border_size="0px" border_style="solid" padding_top="50" padding_bottom="50" hundred_percent="no" equal_height_columns="no" hide_on_mobile="no"][fusion_builder_row][fusion_builder_column type="1_1" layout="1_1" last="yes" spacing="yes" center_content="no" hide_on_mobile="no" background_color="" background_image="" background_repeat="no-repeat" background_position="left top" hover_type="none" link="" border_position="all" border_size="0px" border_color="" border_style="" padding="" margin_top="" margin_bottom="" animation_type="" animation_direction="" animation_speed="0.1" animation_offset="" class="" id="" min_height=""][fusion_text]
 <h2 style="font-weight: 300; text-align: center;">Do You Have A Construction Project We Can Help With?</h2>
@@ -510,6 +514,7 @@ Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo
      
     array (
       'name' => 'Construction Articles',
+      'link' => 'https://avada.theme-fusion.com/construction/construction-articles/',
       'page_template' => '100-width.php',
       'content' => '[fusion_builder_container background_color="#fed03d" background_parallax="none" enable_mobile="no" parallax_speed="0.3" background_repeat="no-repeat" background_position="left top" video_aspect_ratio="16:9" video_mute="yes" video_loop="yes" fade="no" border_size="0px" border_style="solid" padding_top="50" padding_bottom="50" hundred_percent="no" equal_height_columns="no" hide_on_mobile="no"][fusion_builder_row][fusion_builder_column type="1_1" layout="1_1" last="yes" spacing="yes" center_content="no" hide_on_mobile="no" background_color="" background_image="" background_repeat="no-repeat" background_position="left top" hover_type="none" link="" border_position="all" border_size="0px" border_color="" border_style="" padding="" margin_top="" margin_bottom="" animation_type="" animation_direction="" animation_speed="0.1" animation_offset="" class="" id="" min_height=""][fusion_text]
 <h2 style="font-weight: 300; text-align: center;">Do You Have A Construction Project We Can Help With?</h2>
@@ -587,6 +592,7 @@ Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo
      
     array (
       'name' => 'Get Quote',
+      'link' => 'https://avada.theme-fusion.com/construction/get-quote/',
       'page_template' => '100-width.php',
       'content' => '[fusion_builder_container hundred_percent="yes" equal_height_columns="yes" hide_on_mobile="no" background_color="#ffffff" background_position="left top" background_repeat="no-repeat" fade="no" background_parallax="none" enable_mobile="no" parallax_speed="0.3" video_aspect_ratio="16:9" video_loop="yes" video_mute="yes" border_size="0px" border_style="solid" padding_right="0px" padding_left="0px"][fusion_builder_row][fusion_builder_column type="1_3" layout="1_3" spacing="" center_content="yes" hover_type="none" link="" min_height="none" hide_on_mobile="small-visibility,medium-visibility,large-visibility" class="" id="" background_color="#f5f5f5" background_image="" background_position="left top" undefined="" background_repeat="no-repeat" border_size="0" border_color="" border_style="solid" border_position="all" padding="85px 20% 85px 20%" margin_top="" margin_bottom="" animation_type="" animation_direction="down" animation_speed="0.1" animation_offset="" last="no"][fusion_text]
 <h5 style="font-size: 15px; letter-spacing: 1px;"><strong>LONDON OFFICE</strong></h5>

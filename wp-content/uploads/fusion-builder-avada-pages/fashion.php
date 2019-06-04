@@ -14,6 +14,7 @@
      
     array (
       'name' => 'HOME',
+      'link' => 'https://avada.theme-fusion.com/fashion/',
       'page_template' => '100-width.php',
       'content' => '[fusion_builder_container background_color="" background_image="" background_parallax="none" enable_mobile="no" parallax_speed="0.3" background_repeat="no-repeat" background_position="left top" video_url="" video_aspect_ratio="16:9" video_webm="" video_mp4="" video_ogv="" video_preview_image="" overlay_color="" video_mute="yes" video_loop="yes" fade="no" border_size="0px" border_color="" border_style="solid" padding_top="90px" padding_bottom="90px" padding_left="" padding_right="" hundred_percent="no" equal_height_columns="no" hide_on_mobile="no" menu_anchor="" class="" id=""][fusion_builder_row][fusion_builder_column type="1_1" layout="1_1" background_position="left top" background_color="" border_size="" border_color="" border_style="solid" spacing="yes" background_image="" background_repeat="no-repeat" padding="" margin_top="0px" margin_bottom="0px" class="" id="" animation_type="" animation_speed="0.3" animation_direction="left" hide_on_mobile="no" center_content="no" min_height="none" last="no" hover_type="none" link="" border_position="all"][fusion_text]
 <h2 style="text-align: center;">Welcome to Avada Fashion</h2>
@@ -132,6 +133,7 @@
      
     array (
       'name' => 'STUDIO',
+      'link' => 'https://avada.theme-fusion.com/fashion/studio/',
       'page_template' => '100-width.php',
       'content' => '[fusion_builder_container background_color="" background_image="" background_parallax="none" enable_mobile="no" parallax_speed="0.3" background_repeat="no-repeat" background_position="left top" video_url="" video_aspect_ratio="16:9" video_webm="" video_mp4="" video_ogv="" video_preview_image="" overlay_color="" overlay_opacity="0.5" video_mute="yes" video_loop="yes" fade="no" border_size="0px" border_color="" border_style="solid" padding_top="90px" padding_bottom="90px" padding_left="" padding_right="" hundred_percent="no" equal_height_columns="no" hide_on_mobile="no" menu_anchor="" class="" id=""][fusion_builder_row][fusion_builder_column type="1_1" background_position="left top" background_color="" border_size="" border_color="" border_style="solid" spacing="yes" background_image="" background_repeat="no-repeat" padding="" margin_top="0px" margin_bottom="0px" class="" id="" animation_type="" animation_speed="0.3" animation_direction="left" hide_on_mobile="no" center_content="no" min_height="none"][fusion_text]
 <h2 style="text-align: center;">Our Approach</h2>
@@ -239,6 +241,7 @@ Ut at sapien vel sem commodo faucibus. Morbi ut lorem ligula. Vivamus sodales nu
      
     array (
       'name' => 'TALENT',
+      'link' => 'https://avada.theme-fusion.com/fashion/talent/',
       'page_template' => '100-width.php',
       'content' => '[fusion_builder_container background_color="" background_image="" background_parallax="none" enable_mobile="no" parallax_speed="0.3" background_repeat="no-repeat" background_position="left top" video_url="" video_aspect_ratio="16:9" video_webm="" video_mp4="" video_ogv="" video_preview_image="" overlay_color="" overlay_opacity="0.5" video_mute="yes" video_loop="yes" fade="no" border_size="0px" border_color="" border_style="solid" padding_top="60px" padding_bottom="40px" padding_left="" padding_right="" hundred_percent="no" equal_height_columns="no" hide_on_mobile="no" menu_anchor="" class="" id=""][fusion_builder_row][fusion_builder_column type="1_2" last="no" spacing="yes" center_content="no" hide_on_mobile="no" background_color="" background_image="" background_repeat="no-repeat" background_position="left top" hover_type="none" link="" border_position="all" border_size="0px" border_color="" border_style="solid" padding="" margin_top="" margin_bottom="0px" animation_type="0" animation_direction="down" animation_speed="0.1" animation_offset="" class="" id=""][fusion_imageframe lightbox="no" lightbox_image="" style_type="none" hover_type="none" bordercolor="" bordersize="0px" borderradius="0" stylecolor="" align="center" link="" linktarget="_self" animation_type="0" animation_direction="down" animation_speed="0.1" animation_offset="" hide_on_mobile="no" class="" id=""] <img alt="" src="https://placehold.it/457x478" />[/fusion_imageframe][/fusion_builder_column][fusion_builder_column type="1_2" last="yes" spacing="yes" center_content="no" hide_on_mobile="no" background_color="" background_image="" background_repeat="no-repeat" background_position="left top" hover_type="none" link="" border_position="all" border_size="0px" border_color="" border_style="solid" padding="13%" margin_top="" margin_bottom="" animation_type="0" animation_direction="down" animation_speed="0.1" animation_offset="" class="" id=""][fusion_text]
 <h2 style="text-align: center; margin-bottom: 10px;">Sandra Anderson</h2>
@@ -336,6 +339,7 @@ Ut at sapien vel sem commodo faucibus. Morbi ut lorem ligula. Vivamus sodales nu
      
     array (
       'name' => 'COLLECTIONS',
+      'link' => 'https://avada.theme-fusion.com/fashion/collection/',
       'page_template' => '100-width.php',
       'content' => '[fusion_builder_container background_color="" background_image="" background_parallax="none" enable_mobile="no" parallax_speed="0.3" background_repeat="no-repeat" background_position="left top" video_url="" video_aspect_ratio="16:9" video_webm="" video_mp4="" video_ogv="" video_preview_image="" overlay_color="" overlay_opacity="0.5" video_mute="yes" video_loop="yes" fade="no" border_size="0px" border_color="" border_style="solid" padding_top="110px" padding_bottom="90px" padding_left="" padding_right="" hundred_percent="no" equal_height_columns="no" hide_on_mobile="no" menu_anchor="" class="" id=""][fusion_builder_row][fusion_builder_column type="1_1" background_position="left top" background_color="" border_size="" border_color="" border_style="solid" spacing="yes" background_image="" background_repeat="no-repeat" padding="" margin_top="0px" margin_bottom="0px" class="" id="" animation_type="" animation_speed="0.3" animation_direction="left" hide_on_mobile="no" center_content="no" min_height="none"][fusion_text]
 <h2 style="text-align: center;">Our Unique Style</h2>
@@ -413,6 +417,7 @@ Ut at sapien vel sem commodo faucibus. Morbi ut lorem ligula. Vivamus sodales nu
      
     array (
       'name' => 'SERVICES',
+      'link' => 'https://avada.theme-fusion.com/fashion/services/',
       'page_template' => '100-width.php',
       'content' => '[fusion_builder_container background_color="" background_image="" background_parallax="none" enable_mobile="no" parallax_speed="0.3" background_repeat="no-repeat" background_position="left top" video_url="" video_aspect_ratio="16:9" video_webm="" video_mp4="" video_ogv="" video_preview_image="" overlay_color="" overlay_opacity="0.5" video_mute="yes" video_loop="yes" fade="no" border_size="0px" border_color="" border_style="solid" padding_top="0px" padding_bottom="0px" padding_left="0px" padding_right="0px" hundred_percent="yes" equal_height_columns="no" hide_on_mobile="no" menu_anchor="" class="" id=""][fusion_builder_row][fusion_builder_column type="1_3" last="no" spacing="no" center_content="no" hide_on_mobile="no" background_color="" background_image="" background_repeat="no-repeat" background_position="left top" hover_type="none" link="" border_position="all" border_size="" border_color="" border_style="solid" padding="10%" margin_top="" margin_bottom="0px" animation_type="0" animation_direction="down" animation_speed="0.1" animation_offset="" class="" id=""][fusion_imageframe lightbox="no" lightbox_image="" style_type="none" hover_type="none" bordercolor="" bordersize="0px" borderradius="0" stylecolor="" align="center" link="" linktarget="_self" animation_type="0" animation_direction="down" animation_speed="0.1" animation_offset="" hide_on_mobile="no" class="" id=""] <img alt="" src="https://placehold.it/175x177" />[/fusion_imageframe][fusion_text]
 <h3 style="text-align: center;">Personal Shopping</h3>
@@ -526,6 +531,7 @@ Ut at sapien vel sem commodo faucibus. Morbi ut lorem ligula. Vivamus sodales nu
      
     array (
       'name' => 'NEWS',
+      'link' => 'https://avada.theme-fusion.com/fashion/blog/',
       'page_template' => 'default',
       'content' => '[fusion_builder_container hundred_percent="yes" overflow="visible"][fusion_builder_row][fusion_builder_column type="1_1" background_position="left top" background_color="" border_size="" border_color="" border_style="solid" spacing="yes" background_image="" background_repeat="no-repeat" padding="" margin_top="0px" margin_bottom="0px" class="" id="" animation_type="" animation_speed="0.3" animation_direction="left" hide_on_mobile="no" center_content="no" min_height="none"][fusion_blog number_posts="" offset="" cat_slug="" exclude_cats="" show_title="yes" title_link="yes" thumbnail="yes" excerpt="yes" excerpt_length="9" meta_all="yes" meta_author="no" meta_categories="no" meta_comments="yes" meta_date="no" meta_link="yes" meta_tags="yes" paging="yes" scrolling="load_more_button" strip_html="yes" blog_grid_columns="3" blog_grid_column_spacing="40" layout="grid" class="" id=""][/fusion_blog][/fusion_builder_column][/fusion_builder_row][/fusion_builder_container]',
       'meta' => 
@@ -595,6 +601,7 @@ Ut at sapien vel sem commodo faucibus. Morbi ut lorem ligula. Vivamus sodales nu
      
     array (
       'name' => 'CONTACT',
+      'link' => 'https://avada.theme-fusion.com/fashion/contact/',
       'page_template' => '100-width.php',
       'content' => '[fusion_builder_container background_color="" background_image="" background_parallax="none" enable_mobile="no" parallax_speed="0.3" background_repeat="no-repeat" background_position="left top" video_url="" video_aspect_ratio="16:9" video_webm="" video_mp4="" video_ogv="" video_preview_image="" overlay_color="" overlay_opacity="0.5" video_mute="yes" video_loop="yes" fade="no" border_size="0px" border_color="" border_style="solid" padding_top="0px" padding_bottom="0px" padding_left="0px" padding_right="0px" hundred_percent="yes" equal_height_columns="yes" hide_on_mobile="no" menu_anchor="" class="" id=""][fusion_builder_row][fusion_builder_column type="1_2" last="no" spacing="no" center_content="yes" hide_on_mobile="no" background_color="#0c0c0d" background_image="" background_repeat="no-repeat" background_position="left top" hover_type="none" link="" border_position="all" border_size="0px" border_color="" border_style="solid" padding="9%" margin_top="" margin_bottom="0px" animation_type="0" animation_direction="down" animation_speed="0.1" animation_offset="" class="" id=""][fusion_text]
 <h2 style="text-align: center;">Let\'s Start Now!</h2>

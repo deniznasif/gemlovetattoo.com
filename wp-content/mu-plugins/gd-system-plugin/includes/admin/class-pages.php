@@ -78,7 +78,7 @@ final class Pages {
 		$this->position = (string) apply_filters( 'wpaas_admin_page_menu_position', $this->position );
 
 		add_action( 'init', [ $this, 'init' ] );
-		add_action( 'admin_menu', [ $this, 'register_menu_page' ] );
+		add_action( 'init', [ $this, 'register_submenu_page' ] );
 		add_filter( 'admin_body_class', [ $this, 'admin_body_class' ] );
 
 	}
@@ -92,7 +92,6 @@ final class Pages {
 
 		$this->tabs = [
 			'help' => __( 'FAQ &amp; Support', 'gd-system-plugin' ),
-			'hire' => __( 'Hire a Pro', 'gd-system-plugin' ),
 		];
 
 		/**
@@ -104,18 +103,6 @@ final class Pages {
 		 */
 		$this->tabs = (array) apply_filters( 'wpaas_admin_page_tabs', $this->tabs );
 
-		/**
-		 * Only display the `Hire A Pro` tab to customers that:
-		 *
-		 * 1. Have completed WPEM
-		 * 2. Speak English
-		 * 3. Are located in the United States
-		 */
-		if ( ! Plugin::has_used_wpem() || ! Plugin::is_english() || 'US' !== Plugin::wpem_country_code() ) {
-
-			unset( $this->tabs['hire'] );
-
-		}
 
 		// Hide tabs specified by the user
 		foreach ( get_option( self::HIDE_OPTION_KEY, [] ) as $key ) {
@@ -169,7 +156,7 @@ final class Pages {
 
 		wp_enqueue_style( 'wpaas-admin', Plugin::assets_url( "css/admin{$suffix}.css" ), [], Plugin::version() );
 
-		if ( sprintf( 'toplevel_page_%s', $this->slug ) !== $hook ) {
+		if ( sprintf( 'admin_page_%s', $this->slug ) !== $hook ) {
 
 			return;
 
@@ -197,23 +184,20 @@ final class Pages {
 
 		}
 
-		switch ( $this->tab ) {
-
-			case 'hire':
-				add_thickbox();
-
-				break;
-
-		}
-
 	}
 
 	/**
-	 * Register menu page
+	 * Register submenu page
 	 *
-	 * @action admin_menu
+	 * @action init
 	 */
-	public function register_menu_page() {
+	public function register_submenu_page() {
+
+		if ( ! is_user_logged_in() ) {
+
+			return;
+
+		}
 
 		/**
 		 * Filter the user cap required to access the admin page.
@@ -226,14 +210,12 @@ final class Pages {
 
 		global $submenu;
 
-		$page_hook = add_menu_page(
+		$page_hook = add_submenu_page( 'admin.php',
 			__( 'GoDaddy', 'gd-system-plugin' ),
 			__( 'GoDaddy', 'gd-system-plugin' ),
 			$cap,
 			$this->slug,
-			[ $this, 'render_menu_page' ],
-			'div',
-			$this->position
+			[ $this, 'render_menu_page' ]
 		);
 
 		// Bail early if we need to hide a page in an option
@@ -257,7 +239,7 @@ final class Pages {
 
 				update_option( self::HIDE_OPTION_KEY, $option );
 
-			wp_redirect( add_query_arg( 'tab', 'help', remove_query_arg( [ 'hide' ] ) ) ); // @codingStandardsIgnoreLine
+				wp_redirect( add_query_arg( 'tab', 'help', remove_query_arg( [ 'hide' ] ) ) ); // @codingStandardsIgnoreLine
 
 				exit;
 
@@ -273,7 +255,7 @@ final class Pages {
 					'page' => $this->slug,
 					'tab'  => $slug,
 				],
-				'admin.php'
+				self_admin_url( 'admin.php' )
 			);
 
 			$submenu[ $this->slug ][] = [ $label, $cap, $permalink ]; // @codingStandardsIgnoreLine
@@ -341,7 +323,12 @@ final class Pages {
 		?>
 		<div class="wrap">
 
-			<h1><?php echo esc_html( get_admin_page_title() ); ?></h1>
+			<?php
+			$tab   = filter_input( INPUT_GET, 'tab', FILTER_SANITIZE_STRING );
+			$title = ! $tab ? get_admin_page_title() : $this->tabs[ $tab ];
+			?>
+
+			<h1><?php echo esc_html( $title ); ?></h1>
 
 			<?php
 
@@ -349,7 +336,7 @@ final class Pages {
 
 				?>
 
-				<h2 class="nav-tab-wrapper">
+				<h2 class="nav-tab-wrapper" style="display:none;">
 
 					<?php foreach ( $this->tabs as $name => $label ) : ?>
 
@@ -406,6 +393,11 @@ final class Pages {
 				$subdomain = 'gr'; // Greek (Ελληνικά)
 
 				break;
+				
+			case 'gb':
+				$subdomain = 'uk'; // United Kingdom
+
+				break;
 
 		}
 
@@ -423,124 +415,4 @@ final class Pages {
 
 	}
 
-	/**
-	 * Hire tab content
-	 *
-	 * Note: The $version var value should be incremented
-	 * each time new changes are introduced to this page
-	 * for tracking purposes.
-	 */
-	public function render_menu_page_hire() {
-
-		$user = wp_get_current_user();
-
-		/**
-		 * We need the string reprensation of boolean
-		 * Do not change to boolean/int value
-		 */
-		$query_args = [
-			'utm_source'    => 'mwp',
-			'framed'        => 'true',
-			'is_new'        => 'false',
-			'website_url'   => home_url(),
-			'has_domain'    => Plugin::is_temp_domain() ? 'false' : 'true',
-			'has_hosting'   => 'true',
-			'email'         => (string) $user->user_email,
-			'business_name' => get_bloginfo( 'blogname' ),
-			'first_name'    => (string) $user->user_firstname,
-			'last_name'     => (string) $user->user_lastname,
-			'TB_iframe'     => 'true', // The following 3 args must be last in array
-			'width'         => '600',
-			'height'        => '400',
-		];
-
-		/**
-		 * Add site type from wpem
-		 */
-		$site_type = (string) get_option( 'wpem_site_type' );
-
-		$site_type_mapping = [
-			'standard' => 'basic',
-			'blog'     => 'blog',
-			'store'    => 'store',
-		];
-
-		if ( ! empty( $site_type ) ) {
-
-			$query_args['website_description'] = $site_type_mapping[ $site_type ];
-
-		}
-
-		/**
-		 * Add contact info we have
-		 */
-		$contact = (array) get_option( 'wpem_contact_info', [] );
-
-		if ( isset( $contact['phone'] ) ) {
-
-			$query_args['phone_number'] = $contact['phone'];
-
-		}
-
-		/**
-		 * Build the final url
-		 */
-		$pro_connect_url = add_query_arg(
-			$query_args,
-			'https://pro-connect.godaddy.com/pws'
-		);
-
-		?>
-		<div class="dashboard-widgets-wrap">
-
-			<div id="dashboard-widgets" class="metabox-holder">
-
-				<div id="normal-sortables" class="meta-box-sortables ui-sortable">
-
-					<div id="dashboard_pro_connect" class="postbox">
-
-						<h2 class="hndle ui-sortable-handle"><span><?php esc_html_e( 'Stuck in a rut? We can help.', 'gd-system-plugin' ); ?></span></h2>
-
-						<div class="inside">
-
-							<div class="featured-image">
-
-								<img src="<?php echo esc_url( Plugin::assets_url( 'images/godaddy-tab-hire.png' ) ); ?>">
-
-							</div>
-
-							<p><?php esc_html_e( "Having a pro build your business' website is the fast, cost-effective way to a great-looking, branded web presence.", 'gd-system-plugin' ); ?></p>
-
-							<div class="clear"></div>
-
-							<p class="submit">
-
-								<a href="<?php echo esc_url( $pro_connect_url ); ?>" class="thickbox button button-primary"><?php esc_html_e( 'Learn More', 'gd-system-plugin' ); ?></a>
-
-							</p>
-
-						</div>
-
-					</div>
-
-				</div>
-
-			</div>
-
-			<div class="clear option-hide">
-
-				<label>
-
-					<input type="checkbox" class="wpaas_hidden_tabs" data-url="<?php echo esc_url( add_query_arg( 'hide', true ) ); ?>" autocomplete="off">
-
-					<?php esc_html_e( 'Hide this tab', 'gd-system-plugin' ); ?>
-
-				</label>
-
-			</div>
-
-		</div>
-		<?php
-
-	}
 }

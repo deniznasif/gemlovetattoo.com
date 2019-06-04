@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: System Plugin
- * Version: 3.7.16
+ * Version: 3.9.5
  * License: GPL-2.0
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain: gd-system-plugin
@@ -10,13 +10,20 @@
  * This plugin, like WordPress, is licensed under the GPL.
  * Use it to make something cool, have fun, and share what you've learned with others.
  *
- * Copyright © 2017 GoDaddy Operating Company, LLC. All Rights Reserved.
+ * Copyright © 2019 GoDaddy Operating Company, LLC. All Rights Reserved.
  */
 
 namespace WPaaS;
 
 if ( ! defined( 'ABSPATH' ) ) {
+
 	exit;
+
+}
+
+if ( class_exists( '\WPaaS\Plugin' ) ) {
+
+	return;
 
 }
 
@@ -52,7 +59,7 @@ final class Plugin {
 
 		}
 
-		self::$data['version']    = '3.7.16';
+		self::$data['version']    = '3.9.5';
 		self::$data['basename']   = plugin_basename( __FILE__ );
 		self::$data['base_dir']   = __DIR__ . '/gd-system-plugin/';
 		self::$data['assets_url'] = WPMU_PLUGIN_URL . '/gd-system-plugin/assets/';
@@ -94,6 +101,7 @@ final class Plugin {
 		new Hotfixes();
 		new Sucuri_Scanner();
 		new Theme_Updates();
+		new WooCommerce();
 		new Worker();
 		new \WPaaS_Deprecated();
 
@@ -109,6 +117,7 @@ final class Plugin {
 		}
 
 		new Change_Domain();
+		new Debug_Mode();
 		new SSO( $api );
 		new Temp_Domain( $api );
 		new Admin\Bar();

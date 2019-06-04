@@ -70,7 +70,7 @@ final class Done {
 
 		foreach ( $this->log->steps['settings']['fields'] as $option => $value ) {
 
-			if ( 0 === strpos( $option, 'wpem_' ) ) {
+			if ( 0 === strpos( $option, 'wpem_' ) && 'wpem_woocommerce' !== $option ) {
 
 				continue;
 
@@ -101,7 +101,7 @@ final class Done {
 
 		$contact_info = array_filter( (array) get_option( 'wpem_contact_info', [] ) );
 
-		if ( ! $contact_info ) {
+		if ( ! $contact_info || empty( $contact_info['enabled'] ) ) {
 
 			delete_option( 'widget_wpcw_contact' );
 
@@ -328,11 +328,17 @@ final class Done {
 		update_option( 'woocommerce_email_from_address', $email );
 		update_option( 'woocommerce_stock_email_recipient', $email );
 
-		$calc_taxes = $woocommerce_options['calc_taxes'] ? 'yes' : null;
+		$calc_taxes = isset( $woocommerce_options['calc_taxes'] ) ? 'yes' : 'no';
 
 		update_option( 'woocommerce_calc_taxes', $calc_taxes );
 
-		update_option( 'woocommerce_prices_include_tax', $woocommerce_options['prices_include_tax'] );
+		if ( 'yes' === $calc_taxes ) {
+
+			$this->woocommerce_import_tax_rates( $woocommerce_options['store_location'] );
+
+		}
+
+		update_option( 'woocommerce_prices_include_tax', $woocommerce_options['tax_type'] );
 
 		update_option( 'spp_activation_notice', [] );
 
@@ -345,6 +351,10 @@ final class Done {
 			$this->woocommerce_locale_settings( $country[0], $woocommerce_options );
 
 		}
+
+		$this->install_woocommerce_payment_gateways( $woocommerce_options['payment_methods'] );
+
+		delete_option( 'wpem_woocommerce' );
 
 	}
 
@@ -360,8 +370,6 @@ final class Done {
 		update_option( 'woocommerce_dimension_unit',     $woocommerce_options['dimension_unit'] );
 		update_option( 'woocommerce_weight_unit',        $woocommerce_options['weight_unit'] );
 
-		$this->install_woocommerce_payment_gateways( $woocommerce_options['payment_methods'] );
-
 		$locale_info = include( WP_PLUGIN_DIR . '/woocommerce/i18n/locale-info.php' );
 
 		if ( ! isset( $locale_info[ $country ] ) ) {
@@ -373,6 +381,51 @@ final class Done {
 		update_option( 'woocommerce_currency_pos',       $locale_info[ $country ]['currency_pos'] );
 		update_option( 'woocommerce_price_decimal_sep',  $locale_info[ $country ]['decimal_sep'] );
 		update_option( 'woocommerce_price_thousand_sep', $locale_info[ $country ]['thousand_sep'] );
+
+	}
+
+	/**
+	 * Import the WooCommerce tax rates based on the customers store location
+	 *
+	 * @since 2.4.0
+	 *
+	 * @param  string $store_location The store location
+	 *
+	 * @return null
+	 */
+	private function woocommerce_import_tax_rates( $store_location ) {
+
+		global $wpdb;
+
+		$log = new Log;
+
+		$store_locale = new Store_Settings( $log->geodata );
+		$tax_rates    = $store_locale::get_woocommerce_tax_rates( $store_locale::$store_data, $store_location );
+
+		if ( empty( $tax_rates ) ) {
+
+			return;
+
+		}
+
+		foreach ( $tax_rates as $key => $location ) {
+
+			$wpdb->insert(
+				$wpdb->prefix . 'woocommerce_tax_rates',
+				array(
+					'tax_rate_country'  => $location['country'],
+					'tax_rate_state'    => $location['state'],
+					'tax_rate'          => $location['rate'],
+					'tax_rate_name'     => $location['country'] . '-' . $location['state'],
+					'tax_rate_priority' => 1,
+					'tax_rate_compound' => 0,
+					'tax_rate_shipping' => 0,
+					'tax_rate_order'    => $key,
+					'tax_rate_class'    => '',
+				)
+			);
+
+		}
 
 	}
 
@@ -437,12 +490,14 @@ final class Done {
 	 */
 	private function redirect() {
 
+		$redirect_path = ( 'store' === get_option( 'wpem_site_type' ) ) ? 'edit.php?post_type=product' : '';
+
 		wpem_mark_as_done();
 
 		wp_safe_redirect(
 			wpem_get_customizer_url(
 				[
-					'return' => admin_url(),
+					'return' => admin_url( $redirect_path ),
 					'wpem'   => 1,
 				]
 			)
@@ -465,42 +520,68 @@ final class Done {
 
 		}
 
-		foreach ( $payment_gateways as $payment_setting => $value ) {
+		include 'woo-conditionals.php';
 
-			update_option( $payment_setting, [ 'enabled' => 'yes' ] );
+		foreach ( $payment_gateways as $payment_setting ) {
 
-			if ( ! in_array( $payment_setting, [ 'woocommerce_paypal-braintree_settings', 'woocommerce_stripe_settings' ] ) ) {
+			switch ( $payment_setting ) {
+
+				case 'offline':
+					$offline_payment_methods = [
+						'woocommerce_cheque_settings',
+						'woocommerce_bacs_settings',
+						'woocommerce_cod_settings',
+					];
+
+					foreach ( $offline_payment_methods as $offline_payment_method ) {
+
+						update_option( $offline_payment_method, [ 'enabled' => 'yes' ] );
+
+					}
+
+					break;
+
+				default:
+					$plugin_data = $bundled_plugins[ $payment_setting ];
+
+					update_option( $bundled_plugins[ $payment_setting ]['setting'], [ 'enabled' => 'yes' ] );
+
+					break;
+
+			}
+
+			if ( ! isset( $plugin_data ) ) {
 
 				continue;
 
 			}
 
-			switch ( $payment_setting ) {
+			wpem_install_plugin( $plugin_data['plugin-base'] );
 
-				case 'woocommerce_paypal-braintree_settings':
-
-					$plugin_data = [
-						'name'      => __( 'Woocommerce Paypal Gateway powered by Braintree', 'wp-easy-mode' ),
-						'repo-slug' => 'woocommerce-gateway-paypal-powered-by-braintree',
-					];
-
-					break;
-
-				case 'woocommerce_stripe_settings':
-
-					$plugin_data = [
-						'name'      => __( 'Woocommerce Stripe', 'wp-easy-mode' ),
-						'repo-slug' => 'woocommerce-gateway-stripe',
-					];
-
-					break;
-
-			}
-
-			\WC_Install::background_installer( sanitize_title( $plugin_data['name'] ), $plugin_data );
+			$this->update_wpem_plugins( $plugin_data['plugin-base'] );
 
 		}
 
 	}
 
+	/**
+	 * Update the list of WPEM installed plugins
+	 *
+	 * @param string $plugin_base The plugin base file
+	 */
+	private function update_wpem_plugins( $plugin_base ) {
+
+		if ( empty( $plugin_base ) ) {
+
+			return false;
+
+		}
+
+		$wpem_plugins = (array) get_option( 'wpem_plugins', [] );
+
+		array_push( $wpem_plugins, $plugin_base );
+
+		return update_option( 'wpem_plugins', array_unique( $wpem_plugins ) );
+
+	}
 }

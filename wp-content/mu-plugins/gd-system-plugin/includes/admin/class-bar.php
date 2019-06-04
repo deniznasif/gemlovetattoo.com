@@ -102,9 +102,10 @@ final class Bar {
 	 */
 	private function gd_menu() {
 
-		$this->top_level_menu_item( __( 'GoDaddy', 'gd-system-plugin' ), 'godaddy-alt' );
+		$this->top_level_menu_item( __( 'Managed WordPress', 'gd-system-plugin' ), 'admin-generic' );
 		$this->account_settings_menu_item();
 		$this->flush_cache_menu_item();
+		$this->pro_connection_key_menu_item();
 
 		global $submenu;
 
@@ -136,7 +137,7 @@ final class Bar {
 	 */
 	private function mt_menu() {
 
-		$this->top_level_menu_item( __( 'Media Temple', 'gd-system-plugin' ), 'media-temple' );
+		$this->top_level_menu_item( __( 'Managed WordPress', 'gd-system-plugin' ), 'media-temple' );
 		$this->account_settings_menu_item();
 		$this->flush_cache_menu_item();
 
@@ -221,6 +222,31 @@ final class Bar {
 				'meta'   => [
 					'target' => '_blank',
 				],
+			]
+		);
+
+	}
+
+	/**
+	 * Connection Management API key modal menu item.
+	 */
+	private function pro_connection_key_menu_item() {
+
+		if ( ! is_admin() || filter_input( INPUT_GET, 'showWorker' ) || ! function_exists( 'mwp_get_potential_key' ) ) {
+
+			return;
+
+		}
+
+		$this->admin_bar->add_menu(
+			[
+				'parent' => 'wpaas',
+				'id'     => 'wpaas-pro-connection-key',
+				'href'   => '#',
+				'title'  => sprintf(
+					'<span id="mwp-view-connection-key" class="wp-admin-bar-wpaas-pro-connection-key">%s</span>',
+					__( 'Connection Management', 'gd-system-plugin' )
+				)
 			]
 		);
 

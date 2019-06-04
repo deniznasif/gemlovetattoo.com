@@ -29,6 +29,7 @@ final class Log {
 		'user'          => '\WPaaS\Log\Components\User',
 		// Extra
 		'beaverbuilder' => '\WPaaS\Log\Components\BeaverBuilder',
+		'debugmode'     => '\WPaaS\Log\Components\DebugMode',
 		'easymode'      => '\WPaaS\Log\Components\EasyMode',
 	];
 

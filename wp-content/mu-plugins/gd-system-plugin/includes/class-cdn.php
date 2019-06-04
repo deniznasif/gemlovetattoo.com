@@ -24,29 +24,45 @@ final class CDN {
 
 		}
 
-		$this->base_url = sprintf( 'https://secureservercdn.net/%s/%s', GD_VIP, GD_TEMP_DOMAIN );
+		$protocol = is_ssl() ? 'https' : 'http';
 
-		$hosts = [
-			filter_input( INPUT_SERVER, 'HTTP_HOST' ),
-			wp_parse_url( home_url(), PHP_URL_HOST ),
-			wp_parse_url( site_url(), PHP_URL_HOST ),
-			GD_TEMP_DOMAIN,
-		];
+		$this->base_url = sprintf( '%s://secureservercdn.net/%s/%s', $protocol, GD_VIP, GD_TEMP_DOMAIN );
 
-		$this->pattern = sprintf(
-			'~(?:(?<=\'|")|(?:(?:https?:)?//(?:%s)))/(.+?\.(?:%s))~i',
-			implode( '|', array_map( 'preg_quote', array_unique( array_filter( $hosts ) ) ) ),
-			implode( '|', self::get_file_ext() )
-		);
+		add_action( 'init', function () {
+
+			$hosts = [
+				filter_input( INPUT_SERVER, 'HTTP_HOST' ),
+				wp_parse_url( home_url(), PHP_URL_HOST ),
+				wp_parse_url( site_url(), PHP_URL_HOST ),
+				GD_TEMP_DOMAIN,
+			];
+
+			$preg_quote_callback = function ( $string ) {
+
+				return preg_quote( $string, '~' );
+
+			};
+
+			$this->pattern = sprintf(
+				'~(?:(?:https?:)?//(?:%s))/(\S+?\.(?:%s))~i',
+				implode( '|', array_map( $preg_quote_callback, array_unique( array_filter( $hosts ) ) ) ),
+				implode( '|', array_map( $preg_quote_callback, self::get_file_ext() ) )
+			);
+
+		}, 0 );
 
 		add_action( 'template_redirect', [ $this, 'template_redirect' ] );
 		add_action( 'wp_head',           [ $this, 'wp_head' ], 2 );
 
-		add_filter( 'wp_get_attachment_url', [ $this, 'wp_get_attachment_url' ] );
+		add_filter( 'script_loader_src',     [ $this, 'replace_base_url' ] );
+		add_filter( 'style_loader_src',      [ $this, 'replace_base_url' ] );
+		add_filter( 'wp_get_attachment_url', [ $this, 'replace_base_url' ] );
+		add_filter( 'theme_file_uri',        [ $this, 'replace_base_url' ] );
+		add_filter( 'includes_url',          [ $this, 'replace_base_url' ] );
 
 	}
 
-	private static function get_file_ext() {
+	public static function get_file_ext() {
 
 		return (array) apply_filters( 'wpaas_cdn_file_ext', self::$file_ext );
 
@@ -56,14 +72,23 @@ final class CDN {
 
 		$vip         = defined( 'GD_VIP' )         ? GD_VIP         : null;
 		$temp_domain = defined( 'GD_TEMP_DOMAIN' ) ? GD_TEMP_DOMAIN : null;
-		$enabled     = defined( 'GD_CDN_ENABLED' ) ? GD_CDN_ENABLED : false;
-		$enabled     = (bool) apply_filters( 'wpaas_cdn_enabled', $enabled );
+		$is_rest     = defined( 'REST_REQUEST' )   ? REST_REQUEST   : false;
+		$is_nocache  = (bool) filter_input( INPUT_GET, 'nocache' );
+		$is_gddebug  = (bool) filter_input( INPUT_GET, 'gddebug' );
+		$is_bb       = ! is_null( filter_input( INPUT_GET, 'fl_builder' ) ); // Beaver Builder.
+		$cdn_enabled = (bool) apply_filters( 'wpaas_cdn_enabled', defined( 'GD_CDN_ENABLED' ) ? GD_CDN_ENABLED : false );
 
-		return ( $vip && $temp_domain &&  $enabled && self::get_file_ext() && ! WP_DEBUG && ! is_admin() );
+		return ( $vip && $temp_domain && $cdn_enabled && self::get_file_ext() && ! WP_DEBUG && ! is_admin() && ! $is_rest && ! $is_nocache && ! $is_gddebug && ! $is_bb );
 
 	}
 
 	public function template_redirect() {
+
+		if ( ! self::is_enabled() ) {
+
+			return;
+
+		}
 
 		ob_start( function ( $content ) {
 
@@ -75,12 +100,18 @@ final class CDN {
 
 	public function wp_head() {
 
+		if ( ! self::is_enabled() ) {
+
+			return;
+
+		}
+
 		$url = wp_parse_url( $this->base_url );
 
 		if ( ! empty( $url['scheme'] ) && ! empty( $url['host'] ) ) {
 
 			printf( // xss ok.
-				"<link rel='preconnect' href='%s://%s' />\n",
+				"<link rel='preconnect' href='%s://%s' crossorigin />\n",
 				$url['scheme'],
 				$url['host']
 			);
@@ -89,9 +120,18 @@ final class CDN {
 
 	}
 
-	public function wp_get_attachment_url( $url ) {
+	public function replace_base_url( $url ) {
 
-		return ( defined( 'REST_REQUEST' ) && REST_REQUEST ) ? $url : preg_replace( $this->pattern, "{$this->base_url}/$1", $url );
+		if ( ! self::is_enabled() ) {
+
+			return $url;
+
+		}
+
+		$url  = preg_replace( $this->pattern, "{$this->base_url}/$1", $url, -1, $count );
+		$time = Plugin::last_cache_flush_date();
+
+		return ( $count && $time ) ? add_query_arg( 'time', $time, $url ) : $url;
 
 	}
 

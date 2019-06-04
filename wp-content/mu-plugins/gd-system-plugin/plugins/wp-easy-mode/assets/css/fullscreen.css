@@ -99,6 +99,7 @@ body.wpem-screen.wpem-theme-preview {
 .wpem-screen #wpbody-content label.checkbox,
 .wpem-screen #wpbody-content label.radio {
 	font-weight: normal;
+	margin-right: 10px;
 }
 
 .wpem-screen #wpbody-content .hidden {
@@ -110,24 +111,58 @@ body.wpem-screen.wpem-theme-preview {
 	margin-top: 50px;
 }
 
+.wpem-step-settings .wpem-tooltip {
+	position: relative;
+	display: inline-block;
+	margin-top: 5px;
+}
+
+.wpem-step-settings .wpem-tooltip .tooltiptext {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+	font-size :16px;
+	visibility: hidden;
+	width: 300px;
+	background-color: #272727e0;
+	color: #fff;
+	text-align: center;
+	border-radius: 6px;
+	padding: 10px;
+	position: absolute;
+	z-index: 1;
+	bottom: 150%;
+	left: 50%;
+	margin-left: -160px;
+}
+
+.wpem-step-settings .wpem-tooltip .tooltiptext::after {
+	content: "";
+	position: absolute;
+	top: 100%;
+	left: 50%;
+	margin-left: -5px;
+	border-width: 5px;
+	border-style: solid;
+	border-color: #272727e0 transparent transparent transparent;
+}
+
 /** Tax Rate Table **/
 .wpem-step-settings table.tax-rates {
 	width: 100%;
-	font-size: 0.92em
+	font-size: 0.92em;
 }
 
 .wpem-step-settings table.tax-rates th {
 	padding: 0;
 	text-align: center;
 	width: auto;
-	vertical-align: middle
+	vertical-align: middle;
 }
 
 .wpem-step-settings table.tax-rates td {
 	border: 1px solid #f5f5f5;
 	padding: 12px 6px;
 	text-align: center;
-	vertical-align: middle
+	vertical-align: middle;
 }
 
 .wpem-step-settings table.tax-rates td.readonly {
@@ -142,11 +177,13 @@ body.wpem-screen.wpem-theme-preview {
 .wpem-step-settings .wpem-woocommerce-tax-details {
 	margin-bottom: 16px;
 }
-
 /* End tax rate table */
 
+.wpem-step-settings .wpem-tooltip:hover .tooltiptext {
+	visibility: visible;
+}
+
 .wpem-screen #wpbody-content .wpem-woocommerce-payment-methods {
-	display: inline-block;
 	margin-top: 0;
 }
 
@@ -161,12 +198,21 @@ body.wpem-screen.wpem-theme-preview {
 .wpem-screen #wpbody-content .wpem-woocommerce-payment-methods label.checkbox {
 	float: left;
 	margin-left: 0;
-	margin-right: 2em;
+	margin-right: 1em;
 }
 
 	.wpem-screen #wpbody-content .wpem-woocommerce-payment-methods label.checkbox:last-child {
 		margin-right: 0;
-		margin-bottom: .5em;
+		margin-bottom: 0.5em;
+	}
+
+.wpem-screen #wpbody-content .wpem-woocommerce-tax-type {
+	margin-left: 2em;
+	margin-top: -10px;
+}
+
+	.wpem-screen #wpbody-content .wpem-woocommerce-tax-type .radio {
+		display: block;
 	}
 
 .wpem-screen #wpbody-content input[type="text"],
@@ -268,8 +314,7 @@ body.wpem-screen.wpem-theme-preview {
 }
 
 .wpem-screen #wpbody-content .wpem-actions {
-	float: left;
-	margin: 5px 0 20px;
+	margin-top: 20px;
 }
 
 .wpem-screen #wpbody-content .wpem-actions .button {
@@ -376,14 +421,17 @@ body.wpem-screen.wpem-theme-preview {
 }
 
 .wpem-screen #wpbody-content {
-	padding: 24px 24px 0;
+	padding: 24px;
 	background: #fff;
-	overflow: hidden;
 	zoom: 1;
 
 	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.13);
 	   -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.13);
 	        box-shadow: 0 1px 3px rgba(0,0,0,0.13);
+}
+
+.wpem-screen.wpem-step-theme #wpbody-content {
+	padding: 24px 24px 0;
 }
 
 .wpem-screen #wpbody-content hr {
@@ -547,7 +595,7 @@ body.wpem-screen.wpem-theme-preview {
 .wpem-screen.wpem-step-theme #wpem-template-customizations-wrapper #sections ul.section-titles {
 	padding: 0;
 	margin-left: -20px;
-	width: 117%;
+	width: 115%;
 }
 
 .wpem-screen.wpem-step-theme #wpem-template-customizations-wrapper #sections .section-title {
@@ -677,6 +725,18 @@ body.wpem-screen.wpem-theme-preview {
 	content: '\f147';
 	margin: -3px 0 0 -4px;
 	color: #1e8cbe;
+}
+
+	.wpem-screen input:disabled {
+		opacity: 0.25;
+	}
+
+.wpem-screen #wpbody-content section.wpem-woocommerce-calc-shipping {
+	margin-bottom: 0;
+}
+
+.wpem-screen #wpbody-content section.wpem-woocommerce-calc-taxes {
+	margin-top: 0;
 }
 
 .wpem-screen input[type=checkbox],
@@ -821,6 +881,7 @@ body.wpem-step-theme .wpem-header-images-list .load-more.spinner {
 
 	.wpem-screen #wpbody-content {
 		padding-bottom: 10px;
+		overflow: hidden;
 
 		-webkit-box-shadow: none;
 		   -moz-box-shadow: none;

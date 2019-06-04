@@ -65,7 +65,23 @@ final class Step_Contact extends Step {
 	 */
 	protected function init() {
 
+		$show_contact_fields = 'true' === wpem_get_contact_info( 'enabled' );
+
 		$fields = [
+			[
+				'name'    => 'wpem_contact_info[enabled]',
+				'type'    => 'checkbox',
+				'choices' => [
+					'true' => __( 'I want to add my contact and/or social media profiles to my website.', 'wp-easy-mode' ),
+				],
+				'value'   => wpem_get_contact_info( 'enabled', 'true' ),
+			],
+			[
+				'name'        => 'wpem_contact_info[enabled_notice]',
+				'type'        => 'html',
+				'content'     => wp_kses_post( '<p>' . sprintf( '<strong>%s</strong> %s', __( 'Note:', 'wp-easy-mode' ), __( 'This will be publicly visible to your website visitors.', 'wp-easy-mode' ) ) . '</p>' ),
+				'skip_option' => true,
+			],
 			[
 				'name'        => 'wpem_contact_info[email]',
 				'id'          => 'wpem_contact_email',
@@ -75,6 +91,7 @@ final class Step_Contact extends Step {
 				'description' => __( 'An email address where website vistors can contact you.', 'wp-easy-mode' ),
 				'value'       => wpem_get_contact_info( 'email', wp_get_current_user()->user_email ),
 				'default'     => '',
+				'visible'     => $show_contact_fields,
 				'atts'        => [
 					'placeholder' => __( 'Enter your email address here', 'wp-easy-mode' ),
 				],
@@ -88,6 +105,7 @@ final class Step_Contact extends Step {
 				'description' => __( 'A phone number that website vistors can call if they have questions.', 'wp-easy-mode' ),
 				'value'       => wpem_get_contact_info( 'phone' ),
 				'default'     => '',
+				'visible'     => $show_contact_fields,
 				'atts'        => [
 					'placeholder' => __( 'Enter your phone number here', 'wp-easy-mode' ),
 				],
@@ -101,6 +119,7 @@ final class Step_Contact extends Step {
 				'description' => __( 'A fax number that website vistors can use to send important documents.', 'wp-easy-mode' ),
 				'value'       => wpem_get_contact_info( 'fax' ),
 				'default'     => '',
+				'visible'     => $show_contact_fields,
 				'atts'        => [
 					'placeholder' => __( 'Enter your fax number here', 'wp-easy-mode' ),
 				],
@@ -116,6 +135,7 @@ final class Step_Contact extends Step {
 				'description' => __( 'A physical address where website vistors can go to visit you in person.', 'wp-easy-mode' ),
 				'value'       => strip_tags( wpem_get_contact_info( 'address' ) ), // Hide <br /> tags
 				'default'     => '',
+				'visible'     => $show_contact_fields,
 				'atts'        => [
 					'placeholder' => __( 'Enter your street address here', 'wp-easy-mode' ),
 				],
@@ -137,11 +157,6 @@ final class Step_Contact extends Step {
 	 */
 	public function content() {
 
-		printf(
-			'<p class="lead-text align-center">%s</p>',
-			__( 'Please provide the contact details for your website', 'wp-easy-mode' )
-		);
-
 		$this->fields->display();
 
 		// Save fields now on first load in case this step is skipped
@@ -151,6 +166,8 @@ final class Step_Contact extends Step {
 
 		}
 
+		$hidden_class = ( 'true' === wpem_get_contact_info( 'enabled', 'true' ) ) ? '' : ' hidden';
+
 		include_once wpem()->base_dir . 'includes/social-networks.php';
 
 		if ( ! empty( $social_networks ) ) :
@@ -158,7 +175,7 @@ final class Step_Contact extends Step {
 			ksort( $social_networks );
 
 			?>
-			<section>
+			<section class="wpem-step-field<?php echo esc_attr( $hidden_class ); ?>">
 				<label><?php esc_html_e( 'Add Your Social Media Profiles', 'wp-easy-mode' ) ?></label>
 				<br>
 				<span class="description"><?php esc_html_e( 'If you have existing social media profiles, select them below. Otherwise, skip this section.', 'wp-easy-mode' ) ?></span>
@@ -206,7 +223,6 @@ final class Step_Contact extends Step {
 	public function actions() {
 
 		?>
-		<a href="<?php echo esc_url( wpem_get_next_step()->url ) ?>" type="submit" class="button button-secondary"><?php _e( 'Skip', 'wp-easy-mode' ) ?></a>
 		<input type="submit" class="button button-primary" value="<?php esc_attr_e( 'Continue', 'wp-easy-mode' ) ?>">
 		<?php
 

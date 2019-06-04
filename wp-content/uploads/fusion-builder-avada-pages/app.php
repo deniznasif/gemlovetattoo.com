@@ -14,6 +14,7 @@
      
     array (
       'name' => 'Home',
+      'link' => 'https://avada.theme-fusion.com/app/',
       'page_template' => '100-width.php',
       'content' => '[fusion_builder_container background_color="#1f2326" background_parallax="none" enable_mobile="no" parallax_speed="0.3" background_repeat="repeat" background_position="left top" video_aspect_ratio="16:9" video_mute="yes" video_loop="yes" fade="no" border_size="0px" border_style="solid" padding_top="75px" padding_bottom="0px" hundred_percent="no" equal_height_columns="no" hide_on_mobile="no" menu_anchor="intro"][fusion_builder_row][fusion_builder_column type="1_1" layout="1_1" background_position="left top" background_color="" border_size="" border_color="" border_style="solid" spacing="yes" background_image="" background_repeat="no-repeat" padding="" margin_top="0px" margin_bottom="0px" class="" id="" animation_type="" animation_speed="0.3" animation_direction="left" hide_on_mobile="no" center_content="no" min_height="none" last="no" hover_type="none" link="" border_position="all"][fusion_text]
 <h1 style="text-align: center;"><span style="color: #ffffff;">All About Avada App</span></h1>

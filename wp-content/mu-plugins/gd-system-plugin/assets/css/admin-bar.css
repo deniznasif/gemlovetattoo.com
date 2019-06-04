@@ -23,6 +23,13 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 
+.wp-admin-bar-wpaas-pro-connection-key {
+	line-height: inherit !important;
+	display: block;
+	font-size: inherit !important;
+}
+
+
 @media screen and ( max-width: 782px ) {
 
 	#wpadminbar li#wp-admin-bar-wpaas {

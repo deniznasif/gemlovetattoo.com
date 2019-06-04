@@ -14,6 +14,7 @@
      
     array (
       'name' => 'Home',
+      'link' => 'https://avada.theme-fusion.com/science/',
       'page_template' => '100-width.php',
       'content' => '[fusion_builder_container hundred_percent="yes" equal_height_columns="yes" hide_on_mobile="small-visibility,medium-visibility,large-visibility" background_position="center center" background_repeat="no-repeat" fade="no" background_parallax="none" enable_mobile="no" parallax_speed="0.3" video_aspect_ratio="16:9" video_loop="yes" video_mute="yes" border_style="solid" padding_top="0px" padding_right="0px" padding_bottom="0px" padding_left="0px"][fusion_builder_row][fusion_builder_column type="1_2" layout="1_2" spacing="0" center_content="no" hover_type="none" link="" min_height="" hide_on_mobile="small-visibility,medium-visibility,large-visibility" class="" id="" background_color="" background_image="" background_position="left top" undefined="" background_repeat="no-repeat" border_size="0" border_color="" border_style="solid" border_position="all" padding="100px 6% 100px 6%" margin_top="" margin_bottom="" animation_type="" animation_direction="left" animation_speed="0.3" animation_offset="" last="no"][fusion_text]
 <h2>A Targeted Approach</h2>
@@ -146,6 +147,7 @@ Suspendisse sed lorem nec dolor consequat aliquam. Morbi tempus est eu quam port
      
     array (
       'name' => 'About',
+      'link' => 'https://avada.theme-fusion.com/science/about/',
       'page_template' => '100-width.php',
       'content' => '[fusion_builder_container admin_label="" hundred_percent="yes" equal_height_columns="yes" menu_anchor="" hide_on_mobile="small-visibility,medium-visibility,large-visibility" class="" id="" background_color="" background_image="" background_position="center center" background_repeat="no-repeat" fade="no" background_parallax="none" enable_mobile="no" parallax_speed="0.3" video_mp4="" video_webm="" video_ogv="" video_url="" video_aspect_ratio="16:9" video_loop="yes" video_mute="yes" video_preview_image="" border_size="" border_color="" border_style="solid" margin_top="" margin_bottom="" padding_top="0px" padding_right="0px" padding_bottom="0px" padding_left="0px"][fusion_builder_row][fusion_builder_column type="1_2" layout="1_2" spacing="0" center_content="no" hover_type="none" link="" min_height="" hide_on_mobile="small-visibility,medium-visibility,large-visibility" class="" id="" background_color="" background_image="" background_position="left top" undefined="" background_repeat="no-repeat" border_size="0" border_color="" border_style="solid" border_position="all" padding="100px 6% 100px 6%" margin_top="" margin_bottom="" animation_type="" animation_direction="left" animation_speed="0.3" animation_offset="" last="no"][fusion_text]
 <h2>Diving Into The Deep</h2>
@@ -282,6 +284,7 @@ Ut convallis, magna sed dapibus tincidunt, nulla lacus sollicitudin nisi, id com
      
     array (
       'name' => 'Contact',
+      'link' => 'https://avada.theme-fusion.com/science/contact/',
       'page_template' => '100-width.php',
       'content' => '[fusion_builder_container admin_label="" hundred_percent="yes" equal_height_columns="no" menu_anchor="" hide_on_mobile="small-visibility,medium-visibility,large-visibility" class="" id="" background_color="#f8f8f8" background_image="" background_position="center center" background_repeat="no-repeat" fade="no" background_parallax="none" enable_mobile="no" parallax_speed="0.3" video_mp4="" video_webm="" video_ogv="" video_url="" video_aspect_ratio="16:9" video_loop="yes" video_mute="yes" video_preview_image="" border_size="" border_color="" border_style="solid" margin_top="" margin_bottom="" padding_top="100px" padding_right="0px" padding_bottom="100px" padding_left="0px"][fusion_builder_row][fusion_builder_column type="1_2" layout="1_2" spacing="" center_content="no" hover_type="none" link="" min_height="" hide_on_mobile="small-visibility,medium-visibility,large-visibility" class="" id="" background_color="" background_image="" background_position="left top" undefined="" background_repeat="no-repeat" border_size="0" border_color="" border_style="solid" border_position="all" padding="0 6% 0 6%" margin_top="" margin_bottom="" animation_type="" animation_direction="left" animation_speed="0.3" animation_offset="" last="no"][fusion_text]
 <h2>Get in touch</h2>
@@ -375,6 +378,7 @@ Victoria 3000 Australia" type="terrain" width="100%" height="500px" zoom="14" sc
      
     array (
       'name' => 'Publications',
+      'link' => 'https://avada.theme-fusion.com/science/publications/',
       'page_template' => '100-width.php',
       'content' => '[fusion_builder_container hundred_percent="no" equal_height_columns="no" hide_on_mobile="small-visibility,medium-visibility,large-visibility" background_color="#f8f8f8" background_position="center center" background_repeat="no-repeat" fade="no" background_parallax="none" enable_mobile="no" parallax_speed="0.3" video_aspect_ratio="16:9" video_loop="yes" video_mute="yes" border_style="solid" padding_top="100px" padding_bottom="100px"][fusion_builder_row][fusion_builder_column type="1_6" layout="1_6" spacing="" center_content="no" hover_type="none" link="" min_height="" hide_on_mobile="small-visibility,medium-visibility,large-visibility" class="" id="" background_color="" background_image="" background_position="left top" background_repeat="no-repeat" border_size="0" border_color="" border_style="solid" border_position="all" padding="" dimension_margin="" animation_type="" animation_direction="left" animation_speed="0.3" animation_offset="" last="no"][/fusion_builder_column][fusion_builder_column type="2_3" layout="2_3" spacing="" center_content="no" hover_type="none" link="" min_height="" hide_on_mobile="small-visibility,medium-visibility,large-visibility" class="" id="" background_color="" background_image="" background_position="left top" background_repeat="no-repeat" border_size="0" border_color="" border_style="solid" border_position="all" padding="" dimension_margin="" animation_type="" animation_direction="left" animation_speed="0.3" animation_offset="" last="no"][fusion_text]
 <h2 style="text-align: center;">Latest Publications</h2>
@@ -455,6 +459,7 @@ Victoria 3000 Australia" type="terrain" width="100%" height="500px" zoom="14" sc
      
     array (
       'name' => 'Services',
+      'link' => 'https://avada.theme-fusion.com/science/services/',
       'page_template' => '100-width.php',
       'content' => '[fusion_builder_container admin_label="" hundred_percent="no" equal_height_columns="yes" menu_anchor="" hide_on_mobile="small-visibility,medium-visibility,large-visibility" class="" id="" background_color="#f8f8f8" background_image="" background_position="center center" background_repeat="no-repeat" fade="no" background_parallax="none" enable_mobile="no" parallax_speed="0.3" video_mp4="" video_webm="" video_ogv="" video_url="" video_aspect_ratio="16:9" video_loop="yes" video_mute="yes" video_preview_image="" border_size="" border_color="" border_style="solid" margin_top="" margin_bottom="" padding_top="120px" padding_right="" padding_bottom="120px" padding_left=""][fusion_builder_row][fusion_builder_column type="1_2" layout="1_2" spacing="" center_content="yes" hover_type="none" link="" min_height="" hide_on_mobile="small-visibility,medium-visibility,large-visibility" class="" id="" background_color="" background_image="" background_position="left top" undefined="" background_repeat="no-repeat" border_size="0" border_color="" border_style="solid" border_position="all" padding="" margin_top="" margin_bottom="60px" animation_type="" animation_direction="left" animation_speed="0.3" animation_offset="" last="no"][fusion_text]
 <h2>Research</h2>

@@ -65,13 +65,28 @@ final class Demo_Importer {
 	 */
 	private function package( $stylesheet ) {
 
-		$url = Admin::demo_site_url(
-			[
-				'theme'  => urlencode( $stylesheet ),
-				'action' => 'export',
-			]
-		);
+		$log = new Log;
 
+		$args = [
+			'action'  => 'export',
+			'theme'   => urlencode( $stylesheet ),
+			'country' => ! empty( $log->geodata['country_code'] ) ? $log->geodata['country_code'] : null,
+			'product' => class_exists( '\WPaaS\Plugin' ) ? 'wpaas' : 'cpanel',
+			'domain'  => wp_parse_url( home_url(), PHP_URL_HOST ),
+		];
+
+		if ( 'store' === wpem_get_site_type() ) {
+
+			$args['store_location']       = wpem_get_woocommerce_options( 'store_location' );
+			$args['store_currency']       = wpem_get_woocommerce_options( 'currency_code' );
+			$args['store_shipping']       = (int) ( 'true' === wpem_get_woocommerce_options( 'calc_shipping' ) ); // 0 or 1
+			$args['store_taxes']          = (int) ( 'true' === wpem_get_woocommerce_options( 'calc_taxes' ) ); // 0 or 1
+			$args['store_taxes_included'] = (int) ( 'yes' === wpem_get_woocommerce_options( 'tax_type' ) ); // 0 or 1
+			$args['store_gateways']       = implode( ',', wpem_get_woocommerce_options( 'payment_methods' ) );
+
+		}
+
+		$url      = Admin::demo_site_url( $args );
 		$archive  = $this->download_url( $url );
 		$unzipped = $this->unzip_file( $archive, WP_CONTENT_DIR );
 
@@ -512,9 +527,9 @@ final class Demo_Importer {
 	 */
 	private function regenerate_thumbnails() {
 
-		if ( exec( '/usr/local/bin/wp --info' ) ) {
+		if ( exec( '$(which wp) --info' ) ) {
 
-			exec( 'php -d memory_limit=1G /usr/local/bin/wp media regenerate --yes > /dev/null 2>/dev/null &' ); // Non-blocking
+			exec( 'php -d memory_limit=1G $(which wp) media regenerate --yes > /dev/null 2>/dev/null &' ); // Non-blocking
 
 		}
 

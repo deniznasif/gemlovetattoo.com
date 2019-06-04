@@ -71,7 +71,7 @@ final class Cache {
 
 		wp_cache_flush();
 
-		// This forces the APC cache to flush across the server
+		// This will force persistent APCu cache to flush across servers.
 		update_option( 'gd_system_last_cache_flush', time() );
 
 		wp_remote_request(
@@ -348,7 +348,7 @@ final class Cache {
 
 		$env      = Plugin::get_env();
 		$prefix   = ( 'prod' === $env ) ? '' : "{$env}-";
-		$api_url  = "https://mwp.api.phx3.{$prefix}secureserver.net/api/v1/mwp/sites/{$account_uid}/cache";
+		$api_url  = "https://mwp.api.phx3.{$prefix}secureserver.net/api/v1/mwp/sites/{$account_uid}/cdn";
 
 		wp_remote_request(
 			esc_url_raw(  $api_url ),
@@ -463,8 +463,7 @@ final class Cache {
 	 * Propogate nocache call to scripts and styles.
 	 *
 	 * When the `nocache` query arg is being used in the page
-	 * request, or if the page is being viewed by a logged in
-	 * user, we need to ensure that any scripts and styles
+	 * request we need to ensure that any scripts and styles
 	 * from this domain being called also use it.
 	 *
 	 * @filter script_loader_src
@@ -479,9 +478,9 @@ final class Cache {
 		$is_external = ( false === stripos( $src, Plugin::domain() ) );
 		$is_nocache  = ( false !== stripos( filter_input( INPUT_SERVER, 'QUERY_STRING' ), 'nocache' ) );
 
-		if ( ! $is_external && ( is_user_logged_in() || $is_nocache ) ) {
+		if ( ! $is_external && $is_nocache ) {
 
-			return add_query_arg( 'nocache', 1, $src );
+			$src = add_query_arg( 'nocache', 1, $src );
 
 		}
 

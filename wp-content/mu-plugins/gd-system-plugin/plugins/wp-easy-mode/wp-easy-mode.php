@@ -2,7 +2,7 @@
 /**
  * Plugin Name: WP Easy Mode
  * Description: Helping users launch their new WordPress site in just a few clicks.
- * Version: 2.3.7
+ * Version: 2.4.7
  * Author: GoDaddy
  * Author URI: https://www.godaddy.com/
  * License: GPL-2.0
@@ -54,7 +54,7 @@ if ( is_readable( $autoload ) ) {
 		 */
 		private function __construct() {
 
-			$this->version    = '2.3.7';
+			$this->version    = '2.4.7';
 			$this->basename   = plugin_basename( __FILE__ );
 			$this->base_dir   = plugin_dir_path( __FILE__ );
 			$this->assets_url = plugin_dir_url( __FILE__ ) . 'assets/';
@@ -78,7 +78,7 @@ if ( is_readable( $autoload ) ) {
 
 			}
 
-			if ( ! is_admin() ) {
+			if ( ! is_admin() || filter_input( INPUT_GET, 'bypass_wpem' ) ) {
 
 				return;
 
@@ -115,7 +115,7 @@ if ( is_readable( $autoload ) ) {
 
 					add_filter( 'wpem_deactivate_plugins_on_quit', '__return_false' );
 
-					wpem_quit();
+					wpem_quit( 'not_fresh' );
 
 				}
 

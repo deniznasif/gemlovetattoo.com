@@ -14,6 +14,7 @@
      
     array (
       'name' => 'Home',
+      'link' => 'https://avada.theme-fusion.com/architecture/',
       'page_template' => '100-width.php',
       'content' => '[fusion_builder_container background_color="" background_image="" background_parallax="none" enable_mobile="no" parallax_speed="0.3" background_repeat="no-repeat" background_position="left top" video_url="" video_aspect_ratio="16:9" video_webm="" video_mp4="" video_ogv="" video_preview_image="" overlay_color="" video_mute="yes" video_loop="yes" fade="no" border_size="0px" border_color="" border_style="solid" padding_top="150px" padding_bottom="105px" padding_left="" padding_right="" hundred_percent="no" equal_height_columns="no" hide_on_mobile="no" menu_anchor="" class="" id=""][fusion_builder_row][fusion_builder_column type="1_3" layout="1_3" last="no" spacing="yes" center_content="no" hide_on_mobile="no" background_color="" background_image="" background_repeat="no-repeat" background_position="left top" hover_type="none" link="" border_position="all" border_size="0px" border_color="" border_style="solid" padding="" margin_top="" margin_bottom="40px" animation_type="0" animation_direction="down" animation_speed="0.1" animation_offset="" class="" id="" min_height=""][fusion_text]
 <h2>BUILD YOUR AVADA</h2>
@@ -106,6 +107,7 @@ PROJECTS</h2>
      
     array (
       'name' => 'About',
+      'link' => 'https://avada.theme-fusion.com/architecture/about/',
       'page_template' => '100-width.php',
       'content' => '[fusion_builder_container background_parallax="none" enable_mobile="no" parallax_speed="0.3" background_repeat="no-repeat" background_position="left top" video_aspect_ratio="16:9" video_mute="yes" video_loop="yes" fade="no" border_size="0px" border_style="solid" padding_top="150px" padding_bottom="150px" hundred_percent="no" equal_height_columns="no" hide_on_mobile="no"][fusion_builder_row][fusion_builder_column type="1_2" layout="1_2" last="no" spacing="yes" center_content="no" hide_on_mobile="no" background_color="" background_image="" background_repeat="no-repeat" background_position="left top" hover_type="none" link="" border_position="all" border_size="0px" border_color="" border_style="" padding="" margin_top="" margin_bottom="" animation_type="" animation_direction="" animation_speed="0.1" animation_offset="" class="" id="" min_height=""][fusion_text]
 <h2>WHAT WE DO</h2>
@@ -225,6 +227,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
      
     array (
       'name' => 'Services',
+      'link' => 'https://avada.theme-fusion.com/architecture/services/',
       'page_template' => '100-width.php',
       'content' => '[fusion_builder_container background_color="" background_image="" background_parallax="none" enable_mobile="no" parallax_speed="0.3" background_repeat="no-repeat" background_position="left top" video_url="" video_aspect_ratio="16:9" video_webm="" video_mp4="" video_ogv="" video_preview_image="" overlay_color="" video_mute="yes" video_loop="yes" fade="no" border_size="0px" border_color="" border_style="solid" padding_top="150px" padding_bottom="150px" padding_left="" padding_right="" hundred_percent="no" equal_height_columns="no" hide_on_mobile="no" menu_anchor="" class="" id=""][fusion_builder_row][fusion_builder_column type="1_2" layout="1_2" last="no" spacing="yes" center_content="no" hide_on_mobile="no" background_color="" background_image="" background_repeat="no-repeat" background_position="left top" hover_type="none" link="" border_position="all" border_size="0px" border_color="" border_style="" padding="" margin_top="" margin_bottom="" animation_type="" animation_direction="" animation_speed="0.1" animation_offset="" class="" id="" min_height=""][fusion_text]<h2>WHAT WE OFFER</h2>[/fusion_text][fusion_separator style_type="single solid" top_margin="0" bottom_margin="35" sep_color="#e2e3e8" border_size="3px" icon="" icon_circle="" icon_circle_color="" width="170px" alignment="left" class="" id="" /][fusion_text]
 <h3><em>An international firm of architects, planners and interior designers specialising in a wide range of commercial, residential and public sector projects.</em></h3>
@@ -305,6 +308,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
      
     array (
       'name' => 'Our Work',
+      'link' => 'https://avada.theme-fusion.com/architecture/our-work/',
       'page_template' => 'default',
       'content' => '[fusion_builder_container background_color="" background_image="" background_parallax="none" enable_mobile="no" parallax_speed="0.3" background_repeat="no-repeat" background_position="left top" video_url="" video_aspect_ratio="16:9" video_webm="" video_mp4="" video_ogv="" video_preview_image="" overlay_color="" video_mute="yes" video_loop="yes" fade="no" border_size="0px" border_color="" border_style="solid" padding_top="150px" padding_bottom="150px" padding_left="" padding_right="" hundred_percent="no" equal_height_columns="no" hide_on_mobile="no" menu_anchor="" class="" id=""][fusion_builder_row][fusion_builder_column type="1_1" layout="1_1" background_position="left top" background_color="" border_size="" border_color="" border_style="solid" spacing="yes" background_image="" background_repeat="no-repeat" padding="" margin_top="0px" margin_bottom="0px" class="" id="" animation_type="" animation_speed="0.3" animation_direction="left" hide_on_mobile="no" center_content="no" min_height="none" last="no" hover_type="none" link="" border_position="all"][fusion_portfolio layout="grid" picture_size="auto" boxed_text="unboxed" filters="no" columns="3" column_spacing="30" cat_slug="" exclude_cats="" number_posts="12" offset="" excerpt_length="35" strip_html="yes" carousel_layout="title_on_rollover" scroll_items="" autoplay="no" show_nav="yes" mouse_scroll="no" animation_type="0" animation_direction="down" animation_speed="0.1" animation_offset="" class="" id="" /][/fusion_builder_column][/fusion_builder_row][/fusion_builder_container]',
       'meta' => 
@@ -374,6 +378,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
      
     array (
       'name' => 'Contact',
+      'link' => 'https://avada.theme-fusion.com/architecture/contact/',
       'page_template' => '100-width.php',
       'content' => '[fusion_builder_container background_color="" background_image="https://placehold.it/1950x1200" background_parallax="none" enable_mobile="no" parallax_speed="0.3" background_repeat="no-repeat" background_position="center bottom" video_url="" video_aspect_ratio="16:9" video_webm="" video_mp4="" video_ogv="" video_preview_image="" overlay_color="" overlay_opacity="0.5" video_mute="yes" video_loop="yes" fade="no" border_size="0px" border_color="" border_style="solid" padding_top="130px" padding_bottom="110px" padding_left="" padding_right="" hundred_percent="no" equal_height_columns="no" hide_on_mobile="no" menu_anchor="" class="" id=""][fusion_builder_row][fusion_builder_column type="1_1" background_position="left top" background_color="" border_size="" border_color="" border_style="solid" spacing="yes" background_image="" background_repeat="no-repeat" padding="" margin_top="0px" margin_bottom="0px" class="" id="" animation_type="" animation_speed="0.3" animation_direction="left" hide_on_mobile="no" center_content="no" min_height="none"][fusion_text]
 <h2><span style="color: #ffffff;">CONTACT US</span></h2>
@@ -451,6 +456,7 @@ New York, NY 555555" type="terrain" map_style="custom" overlay_color="" infobox=
      
     array (
       'name' => 'News',
+      'link' => 'https://avada.theme-fusion.com/architecture/news/',
       'page_template' => 'default',
       'content' => '[fusion_builder_container hundred_percent="yes" overflow="visible"][fusion_builder_row][fusion_builder_column type="1_1" layout="1_1" background_position="left top" background_color="" border_size="" border_color="" border_style="solid" spacing="yes" background_image="" background_repeat="no-repeat" padding="" margin_top="0px" margin_bottom="0px" class="" id="" animation_type="" animation_speed="0.3" animation_direction="left" hide_on_mobile="no" center_content="no" min_height="none" last="no" hover_type="none" link="" border_position="all"][fusion_blog number_posts="" offset="" cat_slug="" exclude_cats="" show_title="yes" title_link="yes" thumbnail="yes" excerpt="yes" excerpt_length="35" meta_all="yes" meta_author="yes" meta_categories="yes" meta_comments="no" meta_date="yes" meta_link="yes" meta_tags="yes" scrolling="pagination" strip_html="yes" blog_grid_columns="3" blog_grid_column_spacing="40" layout="medium" class="" id="" /][fusion_separator style_type="none" top_margin="20px" bottom_margin="20px" sep_color="" border_size="" icon="" icon_circle="" icon_circle_color="" width="" alignment="center" class="" id="" /][/fusion_builder_column][/fusion_builder_row][/fusion_builder_container]',
       'meta' => 
@@ -520,6 +526,7 @@ New York, NY 555555" type="terrain" map_style="custom" overlay_color="" infobox=
      
     array (
       'name' => 'Architecture',
+      'link' => 'https://avada.theme-fusion.com/architecture/architecture/',
       'page_template' => '100-width.php',
       'content' => '[fusion_builder_container background_color="" background_image="https://placehold.it/1950x1200" background_parallax="up" enable_mobile="no" parallax_speed="0.3" background_repeat="no-repeat" background_position="left top" video_url="" video_aspect_ratio="16:9" video_webm="" video_mp4="" video_ogv="" video_preview_image="" overlay_color="" overlay_opacity="0.5" video_mute="yes" video_loop="yes" fade="no" border_size="0px" border_color="" border_style="solid" padding_top="130px" padding_bottom="120px" padding_left="" padding_right="" hundred_percent="no" equal_height_columns="no" hide_on_mobile="no" menu_anchor="" class="" id=""][fusion_builder_row][fusion_builder_column type="1_2" layout="1_2" last="no" spacing="yes" center_content="no" hide_on_mobile="no" background_color="" background_image="" background_repeat="no-repeat" background_position="left top" hover_type="none" link="" border_position="all" border_size="0px" border_color="" border_style="" padding="" margin_top="" margin_bottom="" animation_type="" animation_direction="" animation_speed="0.1" animation_offset="" class="" id="" min_height=""][fusion_text]
 <h2><span style="color: #ffffff;">ARCHITECTURE</span></h2>
@@ -611,6 +618,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
      
     array (
       'name' => 'Interior Design',
+      'link' => 'https://avada.theme-fusion.com/architecture/interior-design/',
       'page_template' => '100-width.php',
       'content' => '[fusion_builder_container background_color="" background_image="https://placehold.it/1950x1200" background_parallax="up" enable_mobile="no" parallax_speed="0.3" background_repeat="no-repeat" background_position="right center" video_url="" video_aspect_ratio="16:9" video_webm="" video_mp4="" video_ogv="" video_preview_image="" overlay_color="" overlay_opacity="0.5" video_mute="yes" video_loop="yes" fade="no" border_size="0px" border_color="" border_style="solid" padding_top="130px" padding_bottom="120px" padding_left="" padding_right="" hundred_percent="no" equal_height_columns="no" hide_on_mobile="no" menu_anchor="" class="" id=""][fusion_builder_row][fusion_builder_column type="1_2" layout="1_2" last="no" spacing="yes" center_content="no" hide_on_mobile="no" background_color="" background_image="" background_repeat="no-repeat" background_position="left top" hover_type="none" link="" border_position="all" border_size="0px" border_color="" border_style="" padding="" margin_top="" margin_bottom="" animation_type="" animation_direction="" animation_speed="0.1" animation_offset="" class="" id="" min_height=""][fusion_text]
 <h2><span style="color: #ffffff;">INTERIOR DESIGN</span></h2>
@@ -702,6 +710,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
      
     array (
       'name' => 'Landscape',
+      'link' => 'https://avada.theme-fusion.com/architecture/landscape/',
       'page_template' => '100-width.php',
       'content' => '[fusion_builder_container background_color="" background_image="https://placehold.it/1950x1200" background_parallax="up" enable_mobile="no" parallax_speed="0.3" background_repeat="no-repeat" background_position="left center" video_url="" video_aspect_ratio="16:9" video_webm="" video_mp4="" video_ogv="" video_preview_image="" overlay_color="" overlay_opacity="0.5" video_mute="yes" video_loop="yes" fade="no" border_size="0px" border_color="" border_style="solid" padding_top="130px" padding_bottom="120px" padding_left="" padding_right="" hundred_percent="no" equal_height_columns="no" hide_on_mobile="no" menu_anchor="" class="" id=""][fusion_builder_row][fusion_builder_column type="1_2" layout="1_2" last="no" spacing="yes" center_content="no" hide_on_mobile="no" background_color="" background_image="" background_repeat="no-repeat" background_position="left top" hover_type="none" link="" border_position="all" border_size="0px" border_color="" border_style="" padding="" margin_top="" margin_bottom="" animation_type="" animation_direction="" animation_speed="0.1" animation_offset="" class="" id="" min_height=""][fusion_text]
 <h2><span style="color: #ffffff;">LANDSCAPE</span></h2>
@@ -793,6 +802,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
      
     array (
       'name' => 'Engineering',
+      'link' => 'https://avada.theme-fusion.com/architecture/engineering/',
       'page_template' => '100-width.php',
       'content' => '[fusion_builder_container background_color="" background_image="https://placehold.it/1950x1200" background_parallax="up" enable_mobile="no" parallax_speed="0.3" background_repeat="no-repeat" background_position="left bottom" video_url="" video_aspect_ratio="16:9" video_webm="" video_mp4="" video_ogv="" video_preview_image="" overlay_color="" overlay_opacity="0.5" video_mute="yes" video_loop="yes" fade="no" border_size="0px" border_color="" border_style="solid" padding_top="130px" padding_bottom="120px" padding_left="" padding_right="" hundred_percent="no" equal_height_columns="no" hide_on_mobile="no" menu_anchor="" class="" id=""][fusion_builder_row][fusion_builder_column type="1_2" layout="1_2" last="no" spacing="yes" center_content="no" hide_on_mobile="no" background_color="" background_image="" background_repeat="no-repeat" background_position="left top" hover_type="none" link="" border_position="all" border_size="0px" border_color="" border_style="" padding="" margin_top="" margin_bottom="" animation_type="" animation_direction="" animation_speed="0.1" animation_offset="" class="" id="" min_height=""][fusion_text]
 <h2><span style="color: #ffffff;">ENGINEERING</span></h2>
@@ -884,6 +894,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
      
     array (
       'name' => 'Project Management',
+      'link' => 'https://avada.theme-fusion.com/architecture/project-management/',
       'page_template' => '100-width.php',
       'content' => '[fusion_builder_container background_color="" background_image="https://placehold.it/1950x1200" background_parallax="up" enable_mobile="no" parallax_speed="0.3" background_repeat="no-repeat" background_position="left center" video_url="" video_aspect_ratio="16:9" video_webm="" video_mp4="" video_ogv="" video_preview_image="" overlay_color="" overlay_opacity="0.5" video_mute="yes" video_loop="yes" fade="no" border_size="0px" border_color="" border_style="solid" padding_top="130px" padding_bottom="120px" padding_left="" padding_right="" hundred_percent="no" equal_height_columns="no" hide_on_mobile="no" menu_anchor="" class="" id=""][fusion_builder_row][fusion_builder_column type="1_2" layout="1_2" last="no" spacing="yes" center_content="no" hide_on_mobile="no" background_color="" background_image="" background_repeat="no-repeat" background_position="left top" hover_type="none" link="" border_position="all" border_size="0px" border_color="" border_style="" padding="" margin_top="" margin_bottom="" animation_type="" animation_direction="" animation_speed="0.1" animation_offset="" class="" id="" min_height=""][fusion_text]
 <h2><span style="color: #ffffff;">PROJECT MANAGEMENT</span></h2>

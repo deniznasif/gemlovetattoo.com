@@ -129,8 +129,24 @@ final class Image_API {
 
 		natcasesort( $others );
 
+		$choices = array_diff_key(
+			$popular + $others,
+			array_flip(
+				[
+					'ayesha_curry_food',
+					'conference_attendee',
+					'dan_nonprofit',
+					'diyfood',
+					'elohim_music',
+					'pedro',
+					'personal_fooddrink',
+					'tyson_manufacturing',
+				]
+			)
+		);
+
 		// Prepend an empty choice for Select2
-		return [ '' => '' ] + $popular + $others;
+		return [ '' => '' ] + $choices;
 
 	}
 

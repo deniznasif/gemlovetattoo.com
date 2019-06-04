@@ -1,40 +1,109 @@
-# Copyright (c) 2017 GoDaddy Operating Company, LLC. All Rights Reserved.
+# Copyright (c) 2019 GoDaddy Operating Company, LLC. All Rights Reserved.
 msgid ""
 msgstr ""
-"Project-Id-Version: System Plugin 3.5.0\n"
-"POT-Creation-Date: 2017-03-30 17:39:12+00:00\n"
+"Project-Id-Version: System Plugin 3.8.5\n"
+"POT-Creation-Date: 2019-02-19 17:11:49+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2019-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "X-Poedit-KeywordsList: "
 "__;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;_nx_noop:1,2,3c;esc_"
 "attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;esc_html_x:1,2c;\n"
-"X-Generator: grunt-wp-i18n1.0.0\n"
+"X-Generator: grunt-wp-i18n 1.0.3\n"
 
 #: gd-system-plugin/includes/admin/class-bar.php:105
-#: gd-system-plugin/includes/admin/class-pages.php:242
-#: gd-system-plugin/includes/admin/class-pages.php:243
-msgid "GoDaddy"
-msgstr "GoDaddy"
-
-#: gd-system-plugin/includes/admin/class-bar.php:139
-msgid "Media Temple"
-msgstr "मिडीया टेम्पल"
-
-#: gd-system-plugin/includes/admin/class-bar.php:150
+#: gd-system-plugin/includes/admin/class-bar.php:140
+#: gd-system-plugin/includes/admin/class-bar.php:151
+#: gd-system-plugin/includes/class-hotfixes.php:222
 msgid "Managed WordPress"
 msgstr "व्यवस्थापित WordPress"
 
-#: gd-system-plugin/includes/admin/class-bar.php:192
+#: gd-system-plugin/includes/admin/class-bar.php:193
 msgid "Flush Cache"
 msgstr "कॅशे फ्लश करा"
 
-#: gd-system-plugin/includes/admin/class-bar.php:219
+#: gd-system-plugin/includes/admin/class-bar.php:220
 msgid "Account Settings"
 msgstr "खाते सेटिंग्ज"
+
+#: gd-system-plugin/includes/admin/class-bar.php:248
+msgid "Connection Management"
+msgstr "जोडणी व्यवस्थापन"
+
+#: gd-system-plugin/includes/admin/class-dashboard-wp5-panel.php:100
+msgid "Install the Classic Editor"
+msgstr "Classic Editor स्थापित करा"
+
+#: gd-system-plugin/includes/admin/class-dashboard-wp5-panel.php:106
+msgid "Activate Plugin"
+msgstr "प्लगइन सक्रिय करा"
+
+#: gd-system-plugin/includes/admin/class-dashboard-wp5-panel.php:173
+msgid "Dismiss"
+msgstr "नकार द्या"
+
+#: gd-system-plugin/includes/admin/class-dashboard-wp5-panel.php:175
+msgid "Welcome to WordPress&nbsp;%s"
+msgstr "WordPress&nbsp मध्ये स्वागत आहे;%s"
+
+#: gd-system-plugin/includes/admin/class-dashboard-wp5-panel.php:176
+msgid ""
+"Thank you for updating to the latest version! WordPress %s introduces a "
+"robust new content creation experience."
+msgstr ""
+"नवीनतम आवृत्तीवर अद्यतनित केल्याबद्दल धन्यवाद! WordPress %s नवीन मजबू‍त "
+"सामग्री निर्माण करण्याच्या अनुभवाची ओळख करून देेते."
+
+#: gd-system-plugin/includes/admin/class-dashboard-wp5-panel.php:187
+msgid "Say Hello to the New Editor"
+msgstr "नवीन संपादकाला नमस्कार सांगा"
+
+#: gd-system-plugin/includes/admin/class-dashboard-wp5-panel.php:188
+msgid ""
+"You&#8217;ve successfully upgraded to WordPress 5.0! We’ve made some big "
+"changes to the editor. Our new block-based editor is the first step toward "
+"an exciting new future with a streamlined editing experience across your "
+"site. You’ll have more flexibility with how content is displayed, whether "
+"you are building your first site, revamping your blog, or write code for a "
+"living."
+msgstr ""
+"आपण WordPress 5.0 वर यशस्वीपणे श्रेणीसुधारित केले आहे! आम्ही संपादकामध्ये "
+"काही मोठे बदल केले आहेत. आपल्या साइट वरील सुव्यवस्थित संपादन अनुभवासह "
+"उत्कंठापूर्ण भविष्याकडे वाटचाल करण्‍याच्या दृष्‍टीने आमची नवीन ब्लॉक-आधारित "
+"संपादक ही पहिली पायरी आहे. आपण आपली पहिली साइट तयार करत असाल आपल्या "
+"ब्लॉगमध्ये सुधारणा करत असाल किंवा आपल्या जीवनाविषयी काही लि‍हीत असाल तर, "
+"सामग्री कशी प्रदर्शित होते याची आपल्याला मुभा असेल."
+
+#: gd-system-plugin/includes/admin/class-dashboard-wp5-panel.php:191
+msgid "Build your first post"
+msgstr "आपली पहिली पोस्ट तयार करा"
+
+#: gd-system-plugin/includes/admin/class-dashboard-wp5-panel.php:196
+msgid "Keep it Classic"
+msgstr "ते क्लासिक ठेवा"
+
+#: gd-system-plugin/includes/admin/class-dashboard-wp5-panel.php:197
+msgid ""
+"Prefer to stick with the familiar Classic Editor? No problem! Support for "
+"the Classic Editor plugin will remain in WordPress through 2021."
+msgstr ""
+"परिचित Classic Editor सह सुरूू ठेवण्यास प्राधान्य द्यायचे का? हरकत नाही! "
+"Classic Editor प्लगइनसाठी हे समर्थन WordPress मध्‍ये 2021 मध्ये तसेच असेल."
+
+#: gd-system-plugin/includes/admin/class-dashboard-wp5-panel.php:198
+msgid ""
+"Note to users of assistive technology: if you experience usability issues "
+"with the block editor, we recommend you continue to use the Classic Editor."
+msgstr ""
+"सहाय्यक तंत्रज्ञान वापरकर्त्यांसाठी टीप: जर आपल्याला Block Editor  वापरण्‍यात "
+"समस्या येत असतील तर, आपण Classic Editor  वापरणे सुरू ठवावे अशी आम्ही शिफारस करतो."
+
+#: gd-system-plugin/includes/admin/class-dashboard-wp5-panel.php:201
+msgid "Classic Editor"
+msgstr "Classic Editor"
 
 #: gd-system-plugin/includes/admin/class-file-editor.php:78
 msgid "File editing enabled"
@@ -53,8 +122,6 @@ msgid "For your security, the WordPress file editor is disabled by default."
 msgstr "आपल्या सुरक्षिततेसाठी, WordPress फाइल संपादक डिफॉल्टपणे अक्षम केले आहे."
 
 #: gd-system-plugin/includes/admin/class-file-editor.php:171
-#: gd-system-plugin/includes/admin/class-pages.php:528
-#: gd-system-plugin/includes/admin/class-pages.php:666
 msgid "Learn More"
 msgstr "अधिक जाणून घ्या"
 
@@ -82,74 +149,15 @@ msgstr "यशस्वी"
 msgid "FAQ &amp; Support"
 msgstr "वारंवार विचारले जाणारे प्रश्न आणि समर्थन"
 
-#: gd-system-plugin/includes/admin/class-pages.php:95
-msgid "Hire a Pro"
-msgstr "Pro भाड्याने घ्या"
+#: gd-system-plugin/includes/admin/class-pages.php:214
+#: gd-system-plugin/includes/admin/class-pages.php:215
+#: gd-system-plugin/includes/class-hotfixes.php:218
+msgid "GoDaddy"
+msgstr "GoDaddy"
 
-#: gd-system-plugin/includes/admin/class-pages.php:96
-msgid "Plugin Partners"
-msgstr "प्लगिन भागीदार"
-
-#: gd-system-plugin/includes/admin/class-pages.php:352
+#: gd-system-plugin/includes/admin/class-pages.php:319
 msgid "Are you sure? This cannot be undone."
 msgstr "आपल्याला खात्री आहे? हे पूर्ववत करता येणार नाही."
-
-#: gd-system-plugin/includes/admin/class-pages.php:512
-msgid "Stuck in a rut? We can help."
-msgstr "चाकोरीत अडकले आहात? आम्ही मदत करू शकतो."
-
-#: gd-system-plugin/includes/admin/class-pages.php:522
-msgid ""
-"Having a pro build your business' website is the fast, cost-effective way "
-"to a great-looking, branded web presence."
-msgstr ""
-"तुमची व्यवसायाची वेबसाईट pro बिल्ड करणे हा उत्तम दिसणाऱ्या, ब्रँडेड वेब "
-"उपस्थितीचा वेगवान, स्वस्त मार्ग आहे."
-
-#: gd-system-plugin/includes/admin/class-pages.php:546
-msgid "Hide this tab"
-msgstr "हे टॅब लपवा"
-
-#: gd-system-plugin/includes/admin/class-pages.php:566
-msgid "Meet the plugins that meet our high standards."
-msgstr "आमच्या उच्च मानकांची पूर्तता करणाऱ्या प्लगिनला भेटा."
-
-#: gd-system-plugin/includes/admin/class-pages.php:568
-msgid ""
-"We've partnered with the world's top WordPress plugin authors to provide a "
-"list of plugins that work well with GoDaddy WordPress hosting."
-msgstr ""
-"GoDaddy WordPress होस्टिंगसह उत्तमरित्या कार्य करणाऱ्या प्लगइन्सची सूची "
-"प्रदान करण्यासाठी आम्ही जगातील शीर्ष WordPress प्लगइन निर्मात्यांसह भागीदारी "
-"केली आहे."
-
-#: gd-system-plugin/includes/admin/class-pages.php:578
-msgid "Plugins list"
-msgstr "प्लगिनची सूची"
-
-#: gd-system-plugin/includes/admin/class-pages.php:586
-msgid ""
-"Whoops! There was a problem fetching the list of plugins, please try "
-"reloading this page."
-msgstr ""
-"अरेरे! प्लगिनची सूची आणताना समस्या आली, कृपया हे पृष्ठ पुन्हा लोड करण्याचा "
-"प्रयत्न करा."
-
-#: gd-system-plugin/includes/admin/class-pages.php:652
-msgid "Install Now"
-msgstr "आता स्थापित करा"
-
-#: gd-system-plugin/includes/admin/class-pages.php:656
-msgid "Update Now"
-msgstr "आता अद्यतनित करा"
-
-#: gd-system-plugin/includes/admin/class-pages.php:660
-msgid "This plugin is already installed and is up to date"
-msgstr "हे प्लगिन आधीच स्थापित केलेले आहे आणि ते अद्ययावत आहे"
-
-#: gd-system-plugin/includes/admin/class-pages.php:680
-msgid "By %s"
-msgstr "%s द्वारे"
 
 #: gd-system-plugin/includes/admin/class-pointers.php:49
 msgid "Good news!"
@@ -163,48 +171,53 @@ msgstr ""
 "आपण आपल्या डेस्कटॉप आणि मोबाइल डिव्हाइस वापरून थेट प्रशासक बारमधून आता "
 "<strong>फ्लश कॅशे</strong> आणि अन्य लिंक्समधून ऍक्सेस करू शकता."
 
-#: gd-system-plugin/includes/admin/class-themes-tab.php:88
+#: gd-system-plugin/includes/admin/class-themes-tab.php:96
 msgid "GoDaddy Themes"
 msgstr "GoDaddy थीम्स"
 
-#: gd-system-plugin/includes/admin/class-themes-tab.php:89
-#: gd-system-plugin/includes/admin/class-themes-tab.php:186
+#: gd-system-plugin/includes/admin/class-themes-tab.php:97
+#: gd-system-plugin/includes/admin/class-themes-tab.php:197
 msgid "Installed"
 msgstr "स्थापित केले"
 
-#: gd-system-plugin/includes/admin/class-themes-tab.php:90
+#: gd-system-plugin/includes/admin/class-themes-tab.php:98
 msgid "Error Installing Theme"
 msgstr "थीम स्थापित करण्यात समस्या"
 
-#: gd-system-plugin/includes/admin/class-themes-tab.php:91
-#: gd-system-plugin/includes/admin/class-themes-tab.php:190
+#: gd-system-plugin/includes/admin/class-themes-tab.php:99
+#: gd-system-plugin/includes/admin/class-themes-tab.php:201
 msgid "Activate"
 msgstr "सक्रिय करा"
 
-#: gd-system-plugin/includes/admin/class-themes-tab.php:92
-#: gd-system-plugin/includes/admin/class-themes-tab.php:192
+#: gd-system-plugin/includes/admin/class-themes-tab.php:100
+#: gd-system-plugin/includes/admin/class-themes-tab.php:203
 msgid "Live Preview"
 msgstr "लाईव्ह पूर्वावलोकन"
 
-#: gd-system-plugin/includes/admin/class-themes-tab.php:93
+#: gd-system-plugin/includes/admin/class-themes-tab.php:101
 msgid "Theme Install"
 msgstr "थीम स्थापन करा"
 
-#: gd-system-plugin/includes/admin/class-themes-tab.php:170
+#: gd-system-plugin/includes/admin/class-themes-tab.php:181
 msgid "Install %s"
 msgstr "%s स्थापन करा"
 
-#: gd-system-plugin/includes/admin/class-themes-tab.php:173
+#: gd-system-plugin/includes/admin/class-themes-tab.php:184
 msgid "Install"
 msgstr "स्थापन करा"
 
-#: gd-system-plugin/includes/admin/class-themes-tab.php:214
+#: gd-system-plugin/includes/admin/class-themes-tab.php:227
 msgid "View Demo"
 msgstr "डेमो पहा"
 
-#: gd-system-plugin/includes/admin/class-themes-tab.php:215
+#: gd-system-plugin/includes/admin/class-themes-tab.php:228
 msgid "By GoDaddy"
 msgstr "GoDaddy द्वारे"
+
+#: gd-system-plugin/includes/class-blacklist.php:94
+#. translators: Name of the disallowed plugin
+msgid "%s is not allowed on our system. It has been automatically deactivated."
+msgstr "%s ला आमच्या सिस्टमवर अनुमती नाही. तो आपोआप अक्रिय केला जाईल."
 
 #: gd-system-plugin/includes/class-blacklist.php:222
 msgid "Not Available"
@@ -223,25 +236,37 @@ msgstr ""
 msgid "Cache cleared"
 msgstr "कॅशे साफ झाला"
 
-#: gd-system-plugin/includes/class-change-domain.php:59
-#: gd-system-plugin/includes/class-change-domain.php:78
-#: gd-system-plugin/includes/class-change-domain.php:141
-#: gd-system-plugin/includes/class-change-domain.php:152
-#: gd-system-plugin/includes/class-temp-domain.php:113
-#: gd-system-plugin/includes/class-temp-domain.php:120
+#: gd-system-plugin/includes/class-change-domain.php:61
+#: gd-system-plugin/includes/class-change-domain.php:161
+#. translators: Title of alert in bold
+msgid "%s Your domain cannot be changed here."
+msgstr "%s आपले डोमेन येथे बदलणे शक्य नाही."
+
+#: gd-system-plugin/includes/class-change-domain.php:62
+#: gd-system-plugin/includes/class-change-domain.php:84
+#: gd-system-plugin/includes/class-change-domain.php:150
+#: gd-system-plugin/includes/class-change-domain.php:162
+#: gd-system-plugin/includes/class-temp-domain.php:117
+#: gd-system-plugin/includes/class-temp-domain.php:125
 msgid "Note:"
 msgstr "टीप:"
 
-#: gd-system-plugin/includes/class-change-domain.php:68
-#: gd-system-plugin/includes/class-temp-domain.php:129
+#: gd-system-plugin/includes/class-change-domain.php:73
+#: gd-system-plugin/includes/class-temp-domain.php:136
 msgid "Change domain"
 msgstr "डोमेन बदला"
 
-#: gd-system-plugin/includes/class-change-domain.php:140
+#: gd-system-plugin/includes/class-change-domain.php:83
+#: gd-system-plugin/includes/class-change-domain.php:149
+#. translators: Title of alert in bold
 msgid "%s This is your staging site and the domain cannot be changed."
 msgstr "%s ही आपली सादर करण्याची साइट आहे आणि डोमेन बदलणे शक्य नाही."
 
-#: gd-system-plugin/includes/class-sso.php:128
+#: gd-system-plugin/includes/class-hotfixes.php:219
+msgid "Media Temple"
+msgstr "मिडीया टेम्पल"
+
+#: gd-system-plugin/includes/class-sso.php:130
 msgid ""
 "We were unable to log you in automatically. Please enter your WordPress "
 "username and password."
@@ -249,19 +274,22 @@ msgstr ""
 "तुम्हाला स्वयंचलितपणे लॉगिन करण्यात आम्ही अक्षम आहोत. कृपया तुमचे WordPress "
 "वापरकर्तानाव आणि संकेतशब्द."
 
-#: gd-system-plugin/includes/class-temp-domain.php:44
+#: gd-system-plugin/includes/class-temp-domain.php:45
+#. translators: 1: Current domain. 2: Domain name change URL.
 msgid ""
 "<strong>Note:</strong> You're using the temporary domain "
-"<strong>%s</strong>. <a href=\"%s\" target=\"_blank\">Change domain</a>"
+"<strong>%1$s</strong>. <a href=\"%2$s\" target=\"_blank\">Change domain</a>"
 msgstr ""
-"<strong>टिप:</strong> आपण तात्पुरते डोमेन वापरत आहात <strong>%s</strong>. <a "
-"href=\"%s\" target=\"_blank\">डोमेन बदला</a>"
+"<strong>टिप:</strong> आपण तात्पुरते डोमेन वापरत आहात <strong>%1$s</strong>. "
+"<a href=\"%2$s\" target=\"_blank\">डोमेन बदला</a>"
 
-#: gd-system-plugin/includes/class-temp-domain.php:112
+#: gd-system-plugin/includes/class-temp-domain.php:116
+#. translators: 1: "Note:" wrapped in strong tags
 msgid "%s This is your staging site and it cannot be indexed by search engines."
 msgstr "%s ही आपली प्रदर्शनाची साइट आहे आणि ती शोध इंजिन्सद्वारे अनुक्रमित केले जाऊ शकत नाही."
 
-#: gd-system-plugin/includes/class-temp-domain.php:119
+#: gd-system-plugin/includes/class-temp-domain.php:124
+#. translators: 1: "Note:" wrapped in strong tags
 msgid ""
 "%s Your site is using a temporary domain that cannot be indexed by search "
 "engines."
@@ -269,69 +297,84 @@ msgstr ""
 "%s आपली साइट तात्पुरते डोमेन वापरत आहे जे शोध इंजिन्सद्वारे अनुक्रमित केले "
 "जाऊ शकत नाही."
 
-#: gd-system-plugin/includes/log/components/class-customizer.php:24
+#: gd-system-plugin/includes/log/components/class-beaverbuilder.php:75
+#. translators: 2. singular post type name (e.g. page), 1. post title
+msgid "Beaver Builder %2$s \"%1$s\" drafted"
+msgstr "Beaver Builder%2$s \"%1$s\" ड्राफ्टेड"
+
+#: gd-system-plugin/includes/log/components/class-beaverbuilder.php:99
+#. translators: 2. singular post type name (e.g. page), 1. post title
+msgid "Beaver Builder %2$s \"%1$s\" discarded"
+msgstr "Beaver Builder %2$s \"%1$s\" नाकारले"
+
+#: gd-system-plugin/includes/log/components/class-customizer.php:25
 msgid "Background Attachment"
 msgstr "पार्श्वभूमी संलग्नक"
 
-#: gd-system-plugin/includes/log/components/class-customizer.php:25
+#: gd-system-plugin/includes/log/components/class-customizer.php:26
 msgid "Background Color"
 msgstr "पार्श्वभूमी रंग"
 
-#: gd-system-plugin/includes/log/components/class-customizer.php:26
+#: gd-system-plugin/includes/log/components/class-customizer.php:27
 msgid "Background Image"
 msgstr "पार्श्वभूमी प्रतिमा"
 
-#: gd-system-plugin/includes/log/components/class-customizer.php:27
+#: gd-system-plugin/includes/log/components/class-customizer.php:28
 msgid "Background Position"
 msgstr "पार्श्वभूमी स्थिती"
 
-#: gd-system-plugin/includes/log/components/class-customizer.php:28
+#: gd-system-plugin/includes/log/components/class-customizer.php:29
 msgid "Background Repeat"
 msgstr "पार्श्वभूमी पुनरावृत्ती"
 
-#: gd-system-plugin/includes/log/components/class-customizer.php:29
+#: gd-system-plugin/includes/log/components/class-customizer.php:30
 msgid "Base Color Scheme"
 msgstr "पार्श्वभूमी रंग थीम"
 
-#: gd-system-plugin/includes/log/components/class-customizer.php:30
+#: gd-system-plugin/includes/log/components/class-customizer.php:31
 msgid "Logo"
 msgstr "लोगो"
 
-#: gd-system-plugin/includes/log/components/class-customizer.php:31
+#: gd-system-plugin/includes/log/components/class-customizer.php:32
 msgid "Header and Sidebar Background Color"
 msgstr "शीर्षलेख आणि साइडबार पार्श्वभूमी रंग"
 
-#: gd-system-plugin/includes/log/components/class-customizer.php:32
+#: gd-system-plugin/includes/log/components/class-customizer.php:33
 msgid "Header Image"
 msgstr "शीर्षलेख प्रतिमा"
 
-#: gd-system-plugin/includes/log/components/class-customizer.php:33
+#: gd-system-plugin/includes/log/components/class-customizer.php:34
 msgid "Display Site Title and Tagline"
 msgstr "साइट शीर्षक आणि टॅगलाइन प्रदर्शित करा"
 
-#: gd-system-plugin/includes/log/components/class-customizer.php:34
+#: gd-system-plugin/includes/log/components/class-customizer.php:35
 msgid "Header Text Color"
 msgstr "शीर्षलेख मजकूर रंग"
 
-#: gd-system-plugin/includes/log/components/class-customizer.php:35
+#: gd-system-plugin/includes/log/components/class-customizer.php:36
 msgid "Link Color"
 msgstr "लिंक रंग"
 
-#: gd-system-plugin/includes/log/components/class-customizer.php:36
+#: gd-system-plugin/includes/log/components/class-customizer.php:37
 msgid "Main Text Color"
 msgstr "मुख्य मजकूर रंग"
 
-#: gd-system-plugin/includes/log/components/class-customizer.php:37
+#: gd-system-plugin/includes/log/components/class-customizer.php:38
 msgid "Page Background Color"
 msgstr "पृष्ठ पार्श्वभूमी रंग"
 
-#: gd-system-plugin/includes/log/components/class-customizer.php:38
+#: gd-system-plugin/includes/log/components/class-customizer.php:39
 msgid "Secondary Text Color"
 msgstr "दुय्यम मजकूर रंग"
 
-#: gd-system-plugin/includes/log/components/class-customizer.php:39
+#: gd-system-plugin/includes/log/components/class-customizer.php:40
 msgid "Header and Sidebar Text Color"
 msgstr "शीर्षलेख आणि साइडबार मजकूर रंग"
+
+#: gd-system-plugin/includes/log/components/class-customizer.php:93
+#. translators: 1. Option name, 2. Theme name
+msgid "\"%1$s\" updated for the %2$s theme"
+msgstr "%2$s थीमसाठी \"%1$s\" अद्यतनित केले"
 
 #: gd-system-plugin/includes/log/components/class-option.php:28
 msgid "Site Title"
@@ -361,6 +404,163 @@ msgstr "साइट आयकॉन"
 msgid "Site Language"
 msgstr "साइट भाषा"
 
+#: gd-system-plugin/includes/log/components/class-option.php:79
+#. translators: Option name
+msgid "\"%s\" option updated"
+msgstr "\"%s\" पर्याय अद्यतनित केला"
+
+#: gd-system-plugin/includes/log/components/class-plugin.php:29
+#. translators: Plugin name
+msgid "\"%s\" plugin activated"
+msgstr "\"%s\" प्लगइन सक्रिय केला"
+
+#: gd-system-plugin/includes/log/components/class-plugin.php:36
+#. translators: Plugin name
+msgid "\"%s\" plugin activated network wide"
+msgstr "सर्वत्र \"%s\" प्लगइन सक्रिय केलेला नेटवर्क "
+
+#: gd-system-plugin/includes/log/components/class-plugin.php:61
+#. translators: Plugin name
+msgid "\"%s\" plugin deactivated"
+msgstr "\"%s\" प्लगइन निष्क्रिय केला"
+
+#: gd-system-plugin/includes/log/components/class-plugin.php:68
+#. translators: Plugin name
+msgid "\"%s\" plugin deactivated network wide"
+msgstr "सर्वत्र \"%s\" प्लगइन निष्क्रिय केलेला नेटवर्क"
+
+#: gd-system-plugin/includes/log/components/class-plugin.php:95
+#. translators: Plugin name
+msgid "\"%s\" plugin deleted"
+msgstr "\"%s\" प्लगइन हटविला"
+
+#: gd-system-plugin/includes/log/components/class-plugin.php:191
+#. translators: Plugin name
+msgid "\"%s\" plugin installed"
+msgstr "\"%s\" प्लगइन स्थापित केला"
+
+#: gd-system-plugin/includes/log/components/class-plugin.php:226
+#. translators: 1: Plugin name, 2: New plugin version
+msgid "\"%1$s\" plugin updated to %2$s"
+msgstr "\"%1$s\" प्लगइन %2$s वर अद्यतनित केला"
+
+#: gd-system-plugin/includes/log/components/class-plugin.php:233
+#. translators: 1: Plugin name, 2: Old plugin version, 3: New plugin version
+msgid "\"%1$s\" plugin updated from %2$s to %3$s"
+msgstr "\"%1$s\" प्लगइन %2$s वरून %3$s वर अद्यतनित केला"
+
+#: gd-system-plugin/includes/log/components/class-post.php:49
+#: gd-system-plugin/includes/log/components/class-post.php:57
+#. translators: 1: Post title, 2: Post type singular name
+msgid "\"%1$s\" %2$s updated"
+msgstr "\"%1$s\" %2$s अद्यतनित केला"
+
+#: gd-system-plugin/includes/log/components/class-post.php:66
+#. translators: 1: Post title, 2: Post type singular name
+msgid "\"%1$s\" %2$s created"
+msgstr "\"%1$s\" %2$s तयार केला"
+
+#: gd-system-plugin/includes/log/components/class-post.php:75
+#. translators: 1: Post title, 2: Post type singular name
+msgid "\"%1$s\" %2$s restored from trash"
+msgstr "\"%1$s\" %2$s ट्रॅशमधून पूनर्स्थित केला"
+
+#: gd-system-plugin/includes/log/components/class-post.php:83
+#. translators: 1: Post title, 2: Post type singular name
+msgid "\"%1$s\" %2$s unpublished"
+msgstr "\"%1$s\" %2$s अप्रकाशित"
+
+#: gd-system-plugin/includes/log/components/class-post.php:91
+#. translators: 1: Post title, 2: Post type singular name
+msgid "\"%1$s\" %2$s drafted"
+msgstr "\"%1$s\" %2$s मसुदा तयार केला"
+
+#: gd-system-plugin/includes/log/components/class-post.php:99
+#. translators: 1: Post title, 2: Post type singular name
+msgid "\"%1$s\" %2$s pending review"
+msgstr "\"%1$s\" %2$s प्रलंबित पुनरावलोकन"
+
+#: gd-system-plugin/includes/log/components/class-post.php:107
+#. translators: 1: Post title, 2: Post type singular name, 3: Scheduled post
+#. date
+msgid "\"%1$s\" %2$s scheduled for %3$s"
+msgstr "\"%1$s\" %3$s साठी %2$s नियोजित केले"
+
+#: gd-system-plugin/includes/log/components/class-post.php:115
+#. translators: 1: Post title, 2: Post type singular name
+msgid "\"%1$s\" scheduled %2$s published"
+msgstr "\"%1$s\" नियोजित केले %2$s प्रकाशित"
+
+#: gd-system-plugin/includes/log/components/class-post.php:123
+#. translators: 1: Post title, 2: Post type singular name
+msgid "\"%1$s\" %2$s published"
+msgstr "\"%1$s\" %2$s प्रकाशित"
+
+#: gd-system-plugin/includes/log/components/class-post.php:131
+#. translators: 1: Post title, 2: Post type singular name
+msgid "\"%1$s\" %2$s privately published"
+msgstr "\"%1$s\" %2$s खाजगीरित्या प्रकाशित"
+
+#: gd-system-plugin/includes/log/components/class-post.php:140
+#. translators: 1: Post title, 2: Post type singular name
+msgid "\"%1$s\" %2$s trashed"
+msgstr "\"%1$s\" %2$s ट्रॅश"
+
+#: gd-system-plugin/includes/log/components/class-theme.php:49
+#. translators: Theme name.
+msgid "\"%s\" theme activated"
+msgstr "\"%s\" थीम सक्रिय केली"
+
+#: gd-system-plugin/includes/log/components/class-theme.php:118
+#. translators: Theme name.
+msgid "\"%s\" theme installed"
+msgstr "\"%s\" थीम स्थापित केली"
+
+#: gd-system-plugin/includes/log/components/class-theme.php:154
+#. translators: 1: Theme name, 2: New theme version
+msgid "\"%1$s\" theme updated to %2$s"
+msgstr "\"%1$s\" थीम %2$s वर अद्यतनित केली"
+
+#: gd-system-plugin/includes/log/components/class-theme.php:161
+#. translators: 1: Theme name, 2: Old theme version, 3: New theme version
+msgid "\"%1$s\" theme updated from %2$s to %3$s"
+msgstr "\"%1$s\" थीम %2$s वरून %3$s वर अद्यतनित केली"
+
+#: gd-system-plugin/includes/log/components/class-user.php:102
+#. translators: 1. User display name, 2. User role
+msgid "%1$s's user account deleted (%2$s)"
+msgstr "%1$s चे वापरकर्ता खाते हटविले (%2$s)"
+
+#: gd-system-plugin/includes/log/components/class-user.php:141
+#. translators: User display name
+msgid "%s's user profile updated"
+msgstr "%s ची वापरकर्ता प्रोफाइल अद्यतनित केली"
+
+#: gd-system-plugin/includes/log/components/class-user.php:183
+#. translators: 1: User display name, 2: Old role, 3: New role
+msgid "%1$s's role changed from %2$s to %3$s"
+msgstr "%1$s ची भूमिका %2$s वरून %3$s झाली"
+
+#: gd-system-plugin/includes/log/components/class-user.php:228
+#. translators: User display name
+msgid "%s logged in"
+msgstr "%s लॉग इन केले"
+
+#: gd-system-plugin/includes/log/components/class-user.php:261
+#. translators: User display name
+msgid "%s logged out"
+msgstr "%s लॉग आउट केले"
+
+#: gd-system-plugin/includes/log/components/class-user.php:295
+#. translators: User display name
+msgid "%s requested a password reset"
+msgstr "%s ने पासवर्ड रीसेटची विनंती केली"
+
+#: gd-system-plugin/includes/log/components/class-user.php:327
+#. translators: User display name
+msgid "%s's password reset"
+msgstr "%s चा पासवर्ड रीसेट केला"
+
 #: gd-system-plugin/includes/log/components/trait-post-helpers.php:85
 msgid "Post"
 msgstr "पोस्ट"
@@ -369,7 +569,7 @@ msgstr "पोस्ट"
 msgid "M j, Y @ H:i"
 msgstr "M j, Y @ H:i"
 
-#: gd-system-plugin.php:129
+#: gd-system-plugin.php:131
 msgid "Note: This is a staging site."
 msgstr "नोट: ही एक स्टेजिंग साइट आहे."
 
@@ -381,195 +581,3 @@ msgstr "सिस्टम प्लगइन"
 msgctxt "The name of our company blog found at https://www.godaddy.com/garage"
 msgid "GoDaddy Garage"
 msgstr "GoDaddy गॅरेज"
-
-#: gd-system-plugin/includes/admin/class-pages.php:660
-msgctxt "plugin"
-msgid "Installed"
-msgstr "स्थापित केले"
-
-#: gd-system-plugin/includes/class-blacklist.php:94
-msgctxt "Name of the disallowed plugin"
-msgid "%s is not allowed on our system. It has been automatically deactivated."
-msgstr "%s ला आमच्या सिस्टमवर अनुमती नाही. तो आपोआप अक्रिय केला जाईल."
-
-#: gd-system-plugin/includes/class-change-domain.php:58
-#: gd-system-plugin/includes/class-change-domain.php:151
-msgctxt "Title of alert in bold"
-msgid "%s Your domain cannot be changed here."
-msgstr "%s आपले डोमेन येथे बदलणे शक्य नाही."
-
-#: gd-system-plugin/includes/class-change-domain.php:77
-msgctxt "Title of alert in bold"
-msgid "%s This is your staging site and the domain cannot be changed."
-msgstr "%s ही आपली सादर करण्याची साइट आहे आणि डोमेन बदलणे शक्य नाही."
-
-#: gd-system-plugin/includes/log/components/class-beaverbuilder.php:71
-msgctxt "2. singular post type name (e.g. page), 1. post title"
-msgid "Beaver Builder %2$s \"%1$s\" drafted"
-msgstr "Beaver Builder%2$s \"%1$s\" ड्राफ्टेड"
-
-#: gd-system-plugin/includes/log/components/class-beaverbuilder.php:94
-msgctxt "2. singular post type name (e.g. page), 1. post title"
-msgid "Beaver Builder %2$s \"%1$s\" discarded"
-msgstr "Beaver Builder %2$s \"%1$s\" नाकारले"
-
-#: gd-system-plugin/includes/log/components/class-customizer.php:90
-msgctxt "1. Option name, 2. Theme name"
-msgid "\"%1$s\" updated for the %2$s theme"
-msgstr "%2$s थीमसाठी \"%1$s\" अद्यतनित केले"
-
-#: gd-system-plugin/includes/log/components/class-option.php:78
-msgctxt "Option name"
-msgid "\"%s\" option updated"
-msgstr "\"%s\" पर्याय अद्यतनित केला"
-
-#: gd-system-plugin/includes/log/components/class-plugin.php:29
-msgctxt "Plugin name"
-msgid "\"%s\" plugin activated"
-msgstr "\"%s\" प्लगइन सक्रिय केला"
-
-#: gd-system-plugin/includes/log/components/class-plugin.php:37
-msgctxt "Plugin name"
-msgid "\"%s\" plugin activated network wide"
-msgstr "सर्वत्र \"%s\" प्लगइन सक्रिय केलेला नेटवर्क "
-
-#: gd-system-plugin/includes/log/components/class-plugin.php:63
-msgctxt "Plugin name"
-msgid "\"%s\" plugin deactivated"
-msgstr "\"%s\" प्लगइन निष्क्रिय केला"
-
-#: gd-system-plugin/includes/log/components/class-plugin.php:71
-msgctxt "Plugin name"
-msgid "\"%s\" plugin deactivated network wide"
-msgstr "सर्वत्र \"%s\" प्लगइन निष्क्रिय केलेला नेटवर्क"
-
-#: gd-system-plugin/includes/log/components/class-plugin.php:98
-msgctxt "Plugin name"
-msgid "\"%s\" plugin deleted"
-msgstr "\"%s\" प्लगइन हटविला"
-
-#: gd-system-plugin/includes/log/components/class-plugin.php:194
-msgctxt "Plugin name"
-msgid "\"%s\" plugin installed"
-msgstr "\"%s\" प्लगइन स्थापित केला"
-
-#: gd-system-plugin/includes/log/components/class-plugin.php:230
-msgctxt "1: Plugin name, 2: New plugin version"
-msgid "\"%1$s\" plugin updated to %2$s"
-msgstr "\"%1$s\" प्लगइन %2$s वर अद्यतनित केला"
-
-#: gd-system-plugin/includes/log/components/class-plugin.php:238
-msgctxt "1: Plugin name, 2: Old plugin version, 3: New plugin version"
-msgid "\"%1$s\" plugin updated from %2$s to %3$s"
-msgstr "\"%1$s\" प्लगइन %2$s वरून %3$s वर अद्यतनित केला"
-
-#: gd-system-plugin/includes/log/components/class-post.php:49
-#: gd-system-plugin/includes/log/components/class-post.php:59
-msgctxt "1: Post title, 2: Post type singular name"
-msgid "\"%1$s\" %2$s updated"
-msgstr "\"%1$s\" %2$s अद्यतनित केला"
-
-#: gd-system-plugin/includes/log/components/class-post.php:70
-msgctxt "1: Post title, 2: Post type singular name"
-msgid "\"%1$s\" %2$s created"
-msgstr "\"%1$s\" %2$s तयार केला"
-
-#: gd-system-plugin/includes/log/components/class-post.php:81
-msgctxt "1: Post title, 2: Post type singular name"
-msgid "\"%1$s\" %2$s restored from trash"
-msgstr "\"%1$s\" %2$s ट्रॅशमधून पूनर्स्थित केला"
-
-#: gd-system-plugin/includes/log/components/class-post.php:91
-msgctxt "1: Post title, 2: Post type singular name"
-msgid "\"%1$s\" %2$s unpublished"
-msgstr "\"%1$s\" %2$s अप्रकाशित"
-
-#: gd-system-plugin/includes/log/components/class-post.php:101
-msgctxt "1: Post title, 2: Post type singular name"
-msgid "\"%1$s\" %2$s drafted"
-msgstr "\"%1$s\" %2$s मसुदा तयार केला"
-
-#: gd-system-plugin/includes/log/components/class-post.php:111
-msgctxt "1: Post title, 2: Post type singular name"
-msgid "\"%1$s\" %2$s pending review"
-msgstr "\"%1$s\" %2$s प्रलंबित पुनरावलोकन"
-
-#: gd-system-plugin/includes/log/components/class-post.php:131
-msgctxt "1: Post title, 2: Post type singular name"
-msgid "\"%1$s\" scheduled %2$s published"
-msgstr "\"%1$s\" नियोजित केले %2$s प्रकाशित"
-
-#: gd-system-plugin/includes/log/components/class-post.php:141
-msgctxt "1: Post title, 2: Post type singular name"
-msgid "\"%1$s\" %2$s published"
-msgstr "\"%1$s\" %2$s प्रकाशित"
-
-#: gd-system-plugin/includes/log/components/class-post.php:151
-msgctxt "1: Post title, 2: Post type singular name"
-msgid "\"%1$s\" %2$s privately published"
-msgstr "\"%1$s\" %2$s खाजगीरित्या प्रकाशित"
-
-#: gd-system-plugin/includes/log/components/class-post.php:162
-msgctxt "1: Post title, 2: Post type singular name"
-msgid "\"%1$s\" %2$s trashed"
-msgstr "\"%1$s\" %2$s ट्रॅश"
-
-#: gd-system-plugin/includes/log/components/class-post.php:121
-msgctxt "1: Post title, 2: Post type singular name, 3: Scheduled post date"
-msgid "\"%1$s\" %2$s scheduled for %3$s"
-msgstr "\"%1$s\" %3$s साठी %2$s नियोजित केले"
-
-#: gd-system-plugin/includes/log/components/class-theme.php:48
-msgctxt "Theme name"
-msgid "\"%s\" theme activated"
-msgstr "\"%s\" थीम सक्रिय केली"
-
-#: gd-system-plugin/includes/log/components/class-theme.php:117
-msgctxt "Theme name"
-msgid "\"%s\" theme installed"
-msgstr "\"%s\" थीम स्थापित केली"
-
-#: gd-system-plugin/includes/log/components/class-theme.php:154
-msgctxt "1: theme name, 2: New theme version"
-msgid "\"%1$s\" theme updated to %2$s"
-msgstr "\"%1$s\" थीम %2$s वर अद्यतनित केली"
-
-#: gd-system-plugin/includes/log/components/class-theme.php:162
-msgctxt "1: Theme name, 2: Old theme version, 3: New theme version"
-msgid "\"%1$s\" theme updated from %2$s to %3$s"
-msgstr "\"%1$s\" थीम %2$s वरून %3$s वर अद्यतनित केली"
-
-#: gd-system-plugin/includes/log/components/class-user.php:99
-msgctxt "1. User display name, 2. User role"
-msgid "%1$s's user account deleted (%2$s)"
-msgstr "%1$s चे वापरकर्ता खाते हटविले (%2$s)"
-
-#: gd-system-plugin/includes/log/components/class-user.php:138
-msgctxt "User display name"
-msgid "%s's user profile updated"
-msgstr "%s ची वापरकर्ता प्रोफाइल अद्यतनित केली"
-
-#: gd-system-plugin/includes/log/components/class-user.php:225
-msgctxt "User display name"
-msgid "%s logged in"
-msgstr "%s लॉग इन केले"
-
-#: gd-system-plugin/includes/log/components/class-user.php:258
-msgctxt "User display name"
-msgid "%s logged out"
-msgstr "%s लॉग आउट केले"
-
-#: gd-system-plugin/includes/log/components/class-user.php:292
-msgctxt "User display name"
-msgid "%s requested a password reset"
-msgstr "%s ने पासवर्ड रीसेटची विनंती केली"
-
-#: gd-system-plugin/includes/log/components/class-user.php:324
-msgctxt "User display name"
-msgid "%s's password reset"
-msgstr "%s चा पासवर्ड रीसेट केला"
-
-#: gd-system-plugin/includes/log/components/class-user.php:180
-msgctxt "1: User display name, 2: Old role, 3: New role"
-msgid "%1$s's role changed from %2$s to %3$s"
-msgstr "%1$s ची भूमिका %2$s वरून %3$s झाली"

@@ -15,7 +15,7 @@ final class Customizer {
 	 */
 	public function __construct() {
 
-		if ( ! filter_input( INPUT_GET, wpem()->page_slug ) ) {
+		if ( ! filter_input( INPUT_GET, wpem()->page_slug ) || 'storefront' === get_template() ) {
 
 			return;
 
@@ -181,7 +181,7 @@ final class Customizer {
 
 			?>
 			<div class="video-wrapper">
-				<iframe src="//player.vimeo.com/video/146040077"
+				<iframe src="//players.brightcove.net/5522450877001/S1l5uuC6Z_default/index.html?videoId=5838192214001"
 				        webkitallowfullscreen=""
 				        mozallowfullscreen=""
 				        allowfullscreen=""

@@ -36,7 +36,7 @@ final class Admin {
 
 		add_action( 'init', [ $this, 'load' ] );
 
-		add_action( 'wp_ajax_store_location_change', [ $this, 'wpem_store_location_change' ] );
+		add_action( 'wp_ajax_tax_table_update', [ $this, 'wpem_store_tax_table_update' ] );
 
 	}
 
@@ -290,6 +290,9 @@ final class Admin {
 				],
 				'ajax_url'       => admin_url( 'admin-ajax.php' ),
 				'ajax_nonce'     => wp_create_nonce( 'wpem_ajax_nonce' ),
+				'woocommerce'    => [
+					'geo_payment_methods' => wpem_get_woo_geo_data( 'payment_methods' ),
+				],
 			]
 		);
 
@@ -585,7 +588,7 @@ final class Admin {
 	 *
 	 * @return mixed
 	 */
-	public function wpem_store_location_change() {
+	public function wpem_store_tax_table_update() {
 
 		check_ajax_referer( 'wpem_ajax_nonce', 'location_nonce' );
 
@@ -593,15 +596,16 @@ final class Admin {
 
 		if ( ! $location ) {
 
-			return;
+			wp_send_json_error();
 
 		}
 
-		$store_locale = new Store_Settings();
+		$log            = new Log();
+		$store_settings = new Store_Settings( $log->geodata );
 
 		wp_send_json_success(
 			[
-				'tax_table' => $store_locale->woocommerce_tax_table( $location ),
+				'tax_table' => $store_settings->woocommerce_tax_table( $location ),
 			]
 		);
 

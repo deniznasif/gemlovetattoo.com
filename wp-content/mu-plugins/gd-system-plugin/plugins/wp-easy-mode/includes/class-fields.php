@@ -278,24 +278,58 @@ final class Fields {
 
 		}
 
+		$name = ( count( $choices ) > 1 ) ? $name . '[]' : $name;
+
+		preg_match( '/\[(.*?)\]/', $name, $matches );
+
 		foreach ( (array) $choices as $key => $label ) {
 
-			$name = ( count( $choices ) > 1 ) ? sprintf( '%s[%s]', $field['name'], sanitize_key( $key ) ) : $name;
+			/**
+			 * Filter the checkbox label field attributes
+			 *
+			 * @var array
+			 */
+			$label_class = apply_filters( 'wpem_checkbox_label_class', $field['type'], $field['name'], $key );
 
-			preg_match_all( "/\[([^\]]*)\]/", $name, $matches );
+			$option_key = isset( $matches[1] ) ? $matches[1] : $key;
 
-			$option_key = ( isset( $matches[1][0] ) ) ? $matches[1][0] : $key;
+			$option_value = get_option( "wpem_{$key}" );
 
-			$checked = ( count( $choices ) > 1 ) ? ( array_key_exists( $key, (array) wpem_get_woocommerce_options( $option_key ) ) ? 'checked="checked"' : '' ) : checked( in_array( wpem_get_woocommerce_options( $option_key ), (array) $value ), true, false );
+			if ( strpos( $name, 'wpem_woocommerce' ) !== false ) {
+
+				$option_value = wpem_get_woocommerce_options( $option_key );
+
+			}
+
+			if ( strpos( $name, 'wpem_contact_info' ) !== false ) {
+
+				$option_value = wpem_get_contact_info( $option_key );
+
+			}
+
+			$checked = is_array( $option_value ) ? ( in_array( $key, $option_value, true ) ? 'checked="checked"' : '' ) : checked( $key, $option_value, false );
+
+			if ( 'wpem_woocommerce[payment_methods]' === $field['name'] && ! get_option( 'wpem_woocommerce', false ) ) {
+
+				$checked = '';
+
+			}
 
 			printf(
 				'<label class="%s"><input type="checkbox" name="%s" value="%s" %s %s> %s</label>',
-				esc_attr( $field['type'] ),
+				esc_attr( $label_class ),
 				esc_attr( $name ),
-				esc_attr( $value ),
+				esc_attr( $key ),
 				$this->parse_atts( $atts ),
 				$checked,
-				esc_html( $label )
+				wp_kses(
+					$label,
+					[
+						'span' => [
+							'class' => [],
+						],
+					]
+				)
 			);
 
 			if ( false !== next( $choices ) ) {
@@ -321,6 +355,7 @@ final class Fields {
 			'label'    => null,
 			'value'    => null,
 			'required' => false,
+			'visible'  => true,
 			'atts'     => [],
 			'choices'  => [],
 		];
@@ -628,7 +663,7 @@ final class Fields {
 
 			}
 
-			if ( ! empty( $section_field['description'] ) ) {
+			if ( ! empty( $section_field['description'] ) || ( 'wpem_woocommerce[payment_methods]' === $section_field['name'] && empty( $section_field['description'] ) ) ) {
 
 				echo '<br>';
 
@@ -756,8 +791,23 @@ final class Fields {
 
 			$key       = isset( $key[1] ) ? $key[1] : null;
 			$name      = preg_replace( '/[\[].*[\]]/', '', $field['name'] ); // Strip brackets
-			$value     = ( $key && isset( $_POST[ $name ][ $key ] ) ) ? $_POST[ $name ][ $key ] : ( isset( $_POST[ $name ] ) ? $_POST[ $name ] : null ); // Support arrays
+			$value     = ( $key && isset( $_POST[ $name ][ $key ] ) ) ? $_POST[ $name ][ $key ] : ( isset( $_POST[ $name ] ) && ! is_array( $_POST[ $name ] ) ? $_POST[ $name ] : false ); // Support arrays
 			$sanitizer = empty( $field['sanitizer'] ) ? null : $field['sanitizer'];
+
+			if ( 'wpem_woocommerce' === $name ) {
+
+				$value = wp_parse_args(
+					$_POST[ $name ],
+					Store_Settings::$defaults
+				);
+
+			}
+
+			if ( 'wpem_social_profiles' === $name ) {
+
+				$value = isset( $_POST[ $name ] ) ? $_POST[ $name ] : [];
+
+			}
 
 			// Maybe sanitize
 			if ( $value && $sanitizer && is_callable( $sanitizer ) ) {
@@ -776,7 +826,7 @@ final class Fields {
 			}
 
 			// Maybe use default
-			if ( ! $value && isset( $field['default'] ) ) {
+			if ( ! $value && false !== $value && isset( $field['default'] ) ) {
 
 				$value = $field['default'];
 
@@ -787,7 +837,8 @@ final class Fields {
 			// Only save WPEM options directly to the database
 			if ( 0 === strpos( $name, 'wpem_' ) && empty( $field['skip_option'] ) ) {
 
-				if ( $key ) {
+				// Note: skip wpem_woocommerce, causes invalid nested values
+				if ( $key && 'wpem_woocommerce' !== $name ) {
 
 					$option         = (array) get_option( $name, [] );
 					$option[ $key ] = $value;

@@ -23,10 +23,13 @@ final class Worker {
 	public function __construct() {
 
 		add_action( 'muplugins_loaded', [ $this, 'muplugins_loaded' ], -PHP_INT_MAX );
+		add_action( 'init',             [ $this, 'init' ], PHP_INT_MAX );
 
-		add_action( 'init', [ $this, 'init' ], PHP_INT_MAX );
+		if ( filter_input( INPUT_GET, 'showWorker' ) ) {
 
-		add_filter( 'auto_update_plugin', [ $this, 'auto_update_plugin' ], PHP_INT_MAX, 2 );
+			add_filter( 'all_plugins', [ $this, 'show_in_plugins_list' ], PHP_INT_MAX );
+
+		}
 
 	}
 
@@ -37,21 +40,19 @@ final class Worker {
 	 */
 	public function muplugins_loaded() {
 
-		$plugin_file    = trailingslashit( WP_PLUGIN_DIR ) . self::BASENAME;
 		$mu_plugin_file = trailingslashit( WPMU_PLUGIN_DIR ) . '0-worker.php';
 
-		// Reinstall if there is a must-use loader but the plugin is missing.
-		if ( is_readable( $mu_plugin_file ) && ! is_readable( $plugin_file ) ) {
+		if ( is_readable( $mu_plugin_file ) ) {
 
-			self::install( self::BASENAME );
-
-			return;
+			@unlink( $mu_plugin_file );
 
 		}
 
-		if ( ! is_readable( $mu_plugin_file ) && is_readable( $plugin_file ) && ! is_plugin_active( self::BASENAME ) ) {
+		$plugin_file = trailingslashit( WP_PLUGIN_DIR ) . self::BASENAME;
 
-			activate_plugin( $plugin_file );
+		if ( is_readable( $plugin_file ) ) {
+
+			$this->uninstall( $plugin_file );
 
 		}
 
@@ -78,16 +79,19 @@ final class Worker {
 	}
 
 	/**
-	 * Keep the plugin up-to-date.
+	 * Show plugin in the admin list view.
 	 *
-	 * @action auto_update_plugin - PHP_INT_MAX
+	 * @filter all_plugins - PHP_INT_MAX
 	 *
-	 * @param boolean $update Whether to update.
-	 * @param object  $item   The plugin info.
+	 * @param  array $plugins
+	 *
+	 * @return array
 	 */
-	public function auto_update_plugin( $update, $item ) {
+	public function show_in_plugins_list( $plugins ) {
 
-		return ( self::BASENAME === $item->plugin ) ? true : $update;
+		$plugins[ self::BASENAME ] = get_plugin_data( Plugin::base_dir() . 'plugins/' . self::BASENAME );
+
+		return $plugins;
 
 	}
 
@@ -105,82 +109,40 @@ final class Worker {
 				remove_filter( ...$params );
 
 			}
+
 		}
 
 	}
 
 	/**
-	 * Install the plugin (overwrites existing).
+	 * Ensure the plugin is deactivated and deleted.
 	 *
-	 * This is an atomic operation with install failures limited
-	 * to one retry per hour.
-	 *
-	 * @param string $plugin_base Plugin base file (eg: woocommerce/woocommerce.php)
-	 * @param bool   $activate    Activate the plugin (defaults to true).
-	 * @param string $archive_url The plugin archive URL (defaults to wp.org using slug)
+	 * @param string $plugin_file
 	 */
-	public static function install( $plugin_base, $activate = true, $archive_url = '' ) {
+	private function uninstall( $plugin_file ) {
 
-		$transient = 'wpaas_system_plugin_install-' . md5( $plugin_base );
+		if ( ! function_exists( 'is_plugin_active' ) ) {
 
-		delete_site_transient( $transient );
-
-		if ( ( defined( 'WP_CLI' ) && WP_CLI ) || $plugin_base === get_site_transient( $transient ) ) {
-
-			return;
+			require_once ABSPATH . 'wp-admin/includes/plugin.php';
 
 		}
 
-		set_site_transient( $transient, $plugin_base, HOUR_IN_SECONDS ); // Limit failures to one retry per hour.
+		if ( is_plugin_active( plugin_basename( $plugin_file ) ) ) {
 
-		if ( ! function_exists( 'download_url' ) ) {
-
-			require_once ABSPATH . 'wp-includes/pluggable.php'; // download_url() > wp_tempnam() > wp_generate_password()
-			require_once ABSPATH . 'wp-admin/includes/file.php'; // download_url()
+			deactivate_plugins( $plugin_file, true ); // Skip deactivation hooks.
 
 		}
 
-		$slug        = basename( dirname( $plugin_base ) );
-		$archive_url = ( $archive_url ) ? $archive_url : "https://downloads.wordpress.org/plugin/{$slug}.zip";
-		$archive     = download_url( $archive_url );
+		if ( ! class_exists( 'WP_Filesystem' ) ) {
 
-		if ( is_wp_error( $archive ) ) {
-
-			error_log( sprintf( '%s %s', $archive->get_error_code(), $archive->get_error_message() ) );
-
-			@unlink( $archive ); // @codingStandardsIgnoreLine
-
-			return; // Allow retry once the transient expires.
+			require_once ABSPATH . 'wp-admin/includes/file.php';
 
 		}
 
-		WP_Filesystem();
+		$plugin_dir = escapeshellarg( dirname( $plugin_file ) );
 
-		$result = unzip_file( $archive, WP_PLUGIN_DIR );
-
-		@unlink( $archive ); // @codingStandardsIgnoreLine
-
-		if ( is_wp_error( $result ) ) {
-
-			error_log( sprintf( '%s %s', $result->get_error_code(), $result->get_error_message() ) );
-
-			return; // Allow retry once the transient expires.
-
-		}
-
-		if ( $activate ) {
-
-			if ( ! function_exists( 'activate_plugin' ) ) {
-
-				require_once ABSPATH . 'wp-admin/includes/plugin.php';
-
-			}
-
-			activate_plugin( $plugin_base );
-
-		}
-
-		delete_site_transient( $transient );
+		exec( "rm -rf {$plugin_dir} > /dev/null 2>/dev/null &" ); // Non-blocking.
 
 	}
+
 }

@@ -183,28 +183,78 @@ function wpem_get_social_profiles() {
  *
  * @return string
  */
-function wpem_get_woocommerce_options( $name = false ) {
+function wpem_get_woocommerce_options( $name = '' ) {
 
-	$defaults = [
-		'store_location'     => 'US:AL',
-		'currency_code'      => 'USD',
-		'weight_unit'        => 'lbs',
-		'dimension_unit'     => 'in',
-		'payment_methods'    => [],
-		'calc_shipping'      => true,
-		'calc_taxes'         => false,
-		'prices_include_tax' => 'no',
-	];
-
-	if ( ! $name ) {
-
-		return (array) get_option( 'wpem_woocommerce', $defaults );
-
-	}
+	$defaults = \WPEM\Store_Settings::$defaults;
 
 	$options = get_option( 'wpem_woocommerce', $defaults );
 
-	return isset( $options[ $name ] ) ? $options[ $name ] : null;
+	if ( empty( $name ) ) {
+
+		return $options;
+
+	}
+
+	return isset( $options[ $name ] ) ? $options[ $name ] : ( isset( $defaults[ $name ] ) ? $defaults[ $name ] : '' );
+
+}
+
+/**
+ * Get the payment method description based on geo location/paypal support
+ *
+ * @return string The payment method description
+ */
+function wpem_woo_payment_methods_description( $location ) {
+
+	$payment_methods = wpem_get_woo_geo_data( 'payment_methods', $location );
+
+	switch ( $payment_methods ) {
+
+		case empty( array_diff( [ 'paypal', 'stripe' ], $payment_methods ) ):
+			$description = __( 'PayPal and Stripe', 'wp-easy-mode' );
+			break;
+
+		case empty( array_diff( [ 'paypal', 'klarna-checkout' ], $payment_methods ) ):
+			$description = __( 'PayPal and Klarna Checkout', 'wp-easy-mode' );
+			break;
+
+		case empty( array_diff( [ 'stripe', 'klarna-checkout' ], $payment_methods ) ):
+			$description = __( 'Stripe and Klarna Checkout', 'wp-easy-mode' );
+			break;
+
+		case ( in_array( 'paypal', $payment_methods, true ) ):
+			$description = __( 'PayPal', 'wp-easy-mode' );
+			break;
+
+		case ( in_array( 'stripe', $payment_methods, true ) ):
+			$description = __( 'Stripe', 'wp-easy-mode' );
+			break;
+
+	}
+
+	return sprintf(
+		/* translators: Supported payment gateways. eg: Paypal and Stripe */
+		__( 'Selecting %s will install the functionality to your website. You will still need to setup and connect your payment accounts from the WooCommerce dashboard in WordPress. If you don’t want us to install these plugins to your website, you can select "other payment" options.', 'wp-easy-mode' ),
+		esc_html( $description )
+	);
+
+}
+
+/**
+ * Retreive the payment methods for the customer geolocation
+ *
+ * @param  string $key      The key to retreive
+ * @param  string $location The location to retreive payment methods for
+ *
+ * @return array Payment methods for geolocation
+ */
+function wpem_get_woo_geo_data( $key, $location = '' ) {
+
+	$location = ! empty( $location ) ? $location : current( explode( ':', wpem_get_woocommerce_options( 'store_location' ) ) );
+
+	include 'woo-conditionals.php';
+
+	return isset( $country_data[ $location ][ $key ] ) ? $country_data[ $location ][ $key ] : [];
 
 }
 
@@ -325,8 +375,10 @@ function wpem_mark_as_done() {
 
 /**
  * Quit the wizard
+ *
+ * @param string $reason (optional)
  */
-function wpem_quit() {
+function wpem_quit( $reason = null ) {
 
 	update_option( 'wpem_opt_out', 1 );
 
@@ -352,6 +404,23 @@ function wpem_quit() {
 		deactivate_plugins( $plugins );
 
 	}
+
+	$log  = new \WPEM\Log;
+	$args = [
+		'action'      => 'quit',
+		'country'     => ! empty( $log->geodata['country_code'] ) ? $log->geodata['country_code'] : null,
+		'product'     => class_exists( '\WPaaS\Plugin' ) ? 'wpaas' : 'cpanel',
+		'quit_reason' => $reason,
+		'domain'      => wp_parse_url( home_url(), PHP_URL_HOST ),
+	];
+
+	// Let the server know we quit (fire and forget).
+	wp_remote_get(
+		\WPEM\Admin::demo_site_url( $args ),
+		[
+			'blocking' => false,
+		]
+	);
 
 	/**
 	 * Fires when the wizard quits (user opt-out)
@@ -563,5 +632,79 @@ function wpem_self_destruct() {
 	$wp_filesystem->rmdir( \WPEM\wpem()->base_dir, true );
 
 	wpem_deactivate();
+
+}
+
+/**
+ * Install a plugin (overwrites existing).
+ *
+ * This is an atomic operation with install failures limited to one retry per hour.
+ *
+ * @param string $plugin_base Plugin base file (eg: woocommerce/woocommerce.php)
+ * @param bool   $activate    Activate the plugin (defaults to true).
+ * @param string $archive_url The plugin archive URL (defaults to wp.org using slug)
+ */
+function wpem_install_plugin( $plugin_base, $activate = true, $archive_url = '' ) {
+
+	$transient = 'wpaas_system_plugin_install-' . md5( $plugin_base );
+
+	delete_site_transient( $transient );
+
+	if ( ( defined( 'WP_CLI' ) && WP_CLI ) || get_site_transient( $transient ) === $plugin_base ) {
+
+		return;
+
+	}
+
+	set_site_transient( $transient, $plugin_base, HOUR_IN_SECONDS ); // Limit failures to one retry per hour.
+
+	if ( ! function_exists( 'download_url' ) ) {
+
+		require_once ABSPATH . 'wp-includes/pluggable.php'; // download_url() > wp_tempnam() > wp_generate_password()
+		require_once ABSPATH . 'wp-admin/includes/file.php'; // download_url()
+
+	}
+
+	$slug        = basename( dirname( $plugin_base ) );
+	$archive_url = ( $archive_url ) ? $archive_url : "https://downloads.wordpress.org/plugin/{$slug}.zip";
+	$archive     = download_url( $archive_url );
+
+	if ( is_wp_error( $archive ) ) {
+
+		error_log( sprintf( '%s %s', $archive->get_error_code(), $archive->get_error_message() ) );
+
+		@unlink( $archive ); // @codingStandardsIgnoreLine
+
+		return; // Allow retry once the transient expires.
+
+	}
+
+	WP_Filesystem();
+
+	$result = unzip_file( $archive, WP_PLUGIN_DIR );
+
+	@unlink( $archive ); // @codingStandardsIgnoreLine
+
+	if ( is_wp_error( $result ) ) {
+
+		error_log( sprintf( '%s %s', $result->get_error_code(), $result->get_error_message() ) );
+
+		return; // Allow retry once the transient expires.
+
+	}
+
+	if ( $activate ) {
+
+		if ( ! function_exists( 'activate_plugin' ) ) {
+
+			require_once ABSPATH . 'wp-admin/includes/plugin.php';
+
+		}
+
+		activate_plugin( $plugin_base );
+
+	}
+
+	delete_site_transient( $transient );
 
 }

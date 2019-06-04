@@ -71,14 +71,13 @@ final class Step_Start extends Step {
 	public function callback() {
 
 		$continue = filter_input( INPUT_POST, 'wpem_continue' );
-
 		$continue = in_array( $continue, [ 'yes', 'no' ] ) ? $continue : 'no';
 
 		$this->log->add_step_field( 'wpem_continue', $continue );
 
 		if ( 'no' === $continue ) {
 
-			wpem_quit();
+			wpem_quit( 'opt_out' );
 
 			return;
 

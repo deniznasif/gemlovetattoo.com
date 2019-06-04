@@ -25,6 +25,13 @@ final class Step_Settings extends Step {
 	private $image_api;
 
 	/**
+	 * Hold the image api we got by dependency injection
+	 *
+	 * @var object
+	 */
+	private $store_settings;
+
+	/**
 	 * Class constructor
 	 *
 	 * @param Log       $log
@@ -36,6 +43,8 @@ final class Step_Settings extends Step {
 
 		parent::__construct( $log );
 
+		$this->store_settings = new Store_Settings( $log->geodata );
+
 		$this->args = [
 			'name'       => 'settings',
 			'title'      => __( 'Settings', 'wp-easy-mode' ),
@@ -43,12 +52,8 @@ final class Step_Settings extends Step {
 			'can_skip'   => false,
 		];
 
-		if ( $this->image_api->is_d3_locale() ) {
-
-			add_action( 'wpem_print_header_scripts_' . $this->args['name'], [ $this, 'print_header_scripts' ] );
-			add_action( 'wpem_print_footer_scripts_' . $this->args['name'], [ $this, 'print_footer_scripts' ] );
-
-		}
+		add_action( 'wpem_print_header_scripts_' . $this->args['name'], [ $this, 'print_header_scripts' ] );
+		add_action( 'wpem_print_footer_scripts_' . $this->args['name'], [ $this, 'print_footer_scripts' ] );
 
 	}
 
@@ -79,8 +84,6 @@ final class Step_Settings extends Step {
 	 * Step init
 	 */
 	protected function init() {
-
-		$store_locale = new Store_Settings();
 
 		$fields = [
 			[
@@ -126,7 +129,7 @@ final class Step_Settings extends Step {
 					'placeholder' => __( 'Enter your website tagline here', 'wp-easy-mode' ),
 				],
 			],
-			$store_locale->wpem_ecommerce_fields(),
+			$this->store_settings->wpem_ecommerce_fields(),
 		];
 
 		$this->fields = new Fields( $fields );

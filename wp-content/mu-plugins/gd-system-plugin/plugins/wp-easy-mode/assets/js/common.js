@@ -112,7 +112,7 @@ jQuery( document ).ready( function( $ ) {
 
 	$( 'input[name="wpem_site_type"]' ).on( 'click', function() {
 
-		var excluded_fields = $( 'input[name="wpem_woocommerce[calc_shipping]"], input[name="wpem_woocommerce[calc_taxes]"], *[name^="wpem_woocommerce[payment_methods]"], input[name="wpem_woocommerce[prices_include_tax]"]' );
+		var excluded_fields = $( 'input[name="wpem_woocommerce[calc_shipping]"], input[name="wpem_woocommerce[calc_taxes]"], *[name^="wpem_woocommerce[payment_methods]"], input[name="wpem_woocommerce[tax_type]"]' );
 
 		if ( 'store' !== $( this ).val() ) {
 
@@ -130,28 +130,32 @@ jQuery( document ).ready( function( $ ) {
 
 	} );
 
-	$( 'input[name="wpem_woocommerce[calc_taxes]"]' ).on( 'click', function() {
-
-		var targets = '.wpem-woocommerce-prices-include-tax';
+	$( 'input[name="wpem_woocommerce[calc_taxes]"]' ).on( 'change', function() {
 
 		if ( $( this ).is( ':checked' ) ) {
 
-			$( targets ).slideDown();
+			$( '.wpem-woocommerce-tax-type' ).slideDown();
 
 			return;
 
 		}
 
-		$( targets ).slideUp();
+		$( '.wpem-woocommerce-tax-type' ).slideUp();
 
 	} );
 
-	$( '#wpem_woocommerce\\[store_location\\]' ).on( 'change', function( e ) {
+	$( 'input[name="wpem_woocommerce[calc_shipping]"]' ).on( 'change', function() {
+
+		$( '.wpem-woocommerce-weight-unit, .wpem-woocommerce-dimension-unit' ).slideToggle();
+
+	} );
+
+	$( 'select[name="wpem_woocommerce[store_location]"]' ).on( 'change', function( e ) {
 
 		$.post(
 			wpem_vars.ajax_url,
 			{
-				'action'         : 'store_location_change',
+				'action'         : 'tax_table_update',
 				'location_nonce' : wpem_vars.ajax_nonce,
 				'location'       : $( e.currentTarget ).val()
 			},
@@ -172,11 +176,86 @@ jQuery( document ).ready( function( $ ) {
 
 				}
 
+				$( '.wpem-woocommerce-tax-details' ).replaceWith( response.data.tax_table );
+
+			}
+		);
+
+		$.post(
+			wpem_vars.ajax_url,
+			{
+				'action'         : 'update_payment_methods',
+				'location_nonce' : wpem_vars.ajax_nonce,
+				'location'       : $( e.currentTarget ).val()
+			},
+			function( response ) {
+
+				if ( ! response.success ) {
+
+					return;
+
+				}
+
+				var methods = response.data.payment_methods;
+
+				if ( ! methods.length ) {
+
+					$( '.wpem-woocommerce-payment-methods' ).hide();
+					$( 'input.wpem_store_payment_methods' ).prop( 'checked', false );
+
+					return;
+
+				}
+
+				wpem_toggle_available_payment_methods( methods );
+
+				$( '.wpem-woocommerce-payment-methods .description' ).text( response.data.payment_description );
+
+				// Update tax table
+				if ( $.isEmptyObject( response.data.tax_table ) ) {
+
+					$( '.wpem-woocommerce-tax-details' ).html( '' );
+
+					return;
+
+				}
+
 				$( '.wpem-woocommerce-tax-details' ).html( response.data.tax_table );
 
 			}
 		);
 
-	});
+	} );
+
+	$( 'input[name="wpem_contact_info[enabled]"]' ).on( 'change', function() {
+
+		$( '.wpem-step-field' )
+			.not( $( this ).closest( '.wpem-step-field' ) )
+			.not( $( '.wpem-contact-info-enabled-notice' ).closest( '.wpem-step-field' ) )
+			.slideToggle();
+
+	} );
+
+	/**
+	 * Hide the payment methods by geolocation
+	 *
+	 * @param  {array} payment_methods Available payment methods array
+	 */
+	function wpem_toggle_available_payment_methods( payment_methods ) {
+
+		var selected_payments = wpem_vars.woocommerce.selected_payments;
+
+		$( '.wpem-woocommerce-payment-methods' ).show();
+		$( 'input.wpem_store_payment_methods' ).closest( 'label' ).show();
+
+		for ( var i = 0; i < payment_methods.length; i++ ) {
+
+			payment_methods[i] = '[value="' + payment_methods[i] + '"]';
+
+		}
+
+		$( 'input.wpem_store_payment_methods' ).not( payment_methods.join( ', ' ) ).prop( 'checked', false ).closest( 'label' ).hide();
+
+	}
 
 } );

@@ -14,6 +14,7 @@
      
     array (
       'name' => 'Home',
+      'link' => 'https://avada.theme-fusion.com/resume/',
       'page_template' => '100-width.php',
       'content' => '[fusion_builder_container background_color="" background_image="" background_parallax="none" enable_mobile="no" parallax_speed="0.3" background_repeat="no-repeat" background_position="left top" video_url="" video_aspect_ratio="16:9" video_webm="" video_mp4="" video_ogv="" video_preview_image="" overlay_color="" video_mute="yes" video_loop="yes" fade="no" border_size="0px" border_color="" border_style="solid" padding_top="0" padding_bottom="0" padding_left="0" padding_right="0" hundred_percent="yes" equal_height_columns="yes" hide_on_mobile="no" menu_anchor="about" class="" id=""][fusion_builder_row][fusion_builder_column type="3_5" layout="3_5" last="no" spacing="no" center_content="no" hide_on_mobile="no" background_color="" background_image="" background_repeat="no-repeat" background_position="left top" hover_type="none" link="" border_position="all" border_size="0px" border_color="" border_style="solid" padding="115px 10%" margin_top="" margin_bottom="0" animation_type="0" animation_direction="down" animation_speed="0.1" animation_offset="" class="" id="" min_height=""][fusion_text]
 <h2>About.</h2>

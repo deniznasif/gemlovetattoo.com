@@ -77,6 +77,21 @@ final class Hotfixes {
 
 		}
 
+		// Use Photon CDN for images when module is active.
+		add_action( 'plugins_loaded', function () {
+
+			if ( class_exists( 'Jetpack' ) && \Jetpack::is_module_active( 'photon' ) ) {
+
+				add_filter( 'wpaas_cdn_file_ext', function ( $file_ext ) {
+
+					return array_diff( $file_ext, [ 'gif', 'jpeg', 'jpg', 'png' ] );
+
+				} );
+
+			}
+
+		} );
+
 		// Hide the Jetpack updates screen nag.
 		add_filter( 'option_jetpack_options', [ $this, 'remove_jetpack_nag' ], PHP_INT_MAX );
 
@@ -160,6 +175,53 @@ final class Hotfixes {
 			add_filter( 'stock_photos_tos_url', $return_tos_url );
 
 		}
+
+
+		/**
+		 * Set default options for LLAR.
+		 */
+		add_action( 'plugins_loaded', function () {
+
+			if ( ! defined( 'LLA_PLUGIN_DIR' ) ) {
+
+				return;
+
+			}
+
+			if ( null === get_option( 'limit_login_gdpr', null ) ) {
+
+				update_option( 'limit_login_gdpr', 1 );
+
+			}
+
+			if ( null === get_option( 'limit_login_whitelist_usernames', null ) ) {
+
+				$user = get_users(
+					[
+						'role'   => 'administrator',
+						'number' => 1,
+					]
+				);
+
+				update_option( 'limit_login_whitelist_usernames', [ $user[0]->data->user_login ] );
+
+			}
+
+		} );
+
+		/**
+		 * Sucuri Scanner plugin.
+		 */
+		add_filter( 'sucuriscan_sitecheck_details_hosting', function () {
+
+			$labels = [
+				'gd' => __( 'GoDaddy', 'gd-system-plugin' ),
+				'mt' => __( 'Media Temple', 'gd-system-plugin' ),
+			];
+
+			return Plugin::use_brand_value( $labels, __( 'Managed WordPress', 'gd-system-plugin' ) );
+
+		} );
 
 	}
 

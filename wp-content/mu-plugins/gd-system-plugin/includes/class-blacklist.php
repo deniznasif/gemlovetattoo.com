@@ -155,6 +155,13 @@ final class Blacklist {
 	 */
 	private function is_blacklisted( $plugin ) {
 
+		// Ignore a special case where we are spoofing the Worker in the list view.
+		if ( Worker::BASENAME === $plugin && filter_input( INPUT_GET, 'showWorker' ) ) {
+
+			return false;
+
+		}
+
 		if ( is_array( $plugin ) && ( empty( $plugin['slug'] ) || empty( $plugin['version'] ) ) ) {
 
 			return false;
